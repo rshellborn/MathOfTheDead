@@ -12,6 +12,9 @@
 			var zombie = document.getElementById('zombie');
 			zombie.style.display = "inline";
 			zombie.style.top = parseInt(zombie.style.top) + 1 + "px";
+			
+			var x = zombie.style.top;
+			alert(x);
 		}
 		
 		function animate() {
@@ -100,11 +103,9 @@ body {
     padding: 0;
 }
 
-ul {
+#top {
     padding: 0;
-    /*overflow: hidden;*/
     background-color: #333;
-	/*margin:0 auto;*/
 	list-style:none;
 	
 	text-align: center;
@@ -113,9 +114,17 @@ ul {
 }
 
 #bottom {
-	position: fixed;
- 	bottom: 0;
- 	width:auto;
+	position:fixed;
+	bottom: 0px;
+	text-align: center;
+	padding: 0;
+	list-style:none;
+	width: 100%;
+  	margin: 0 auto;
+}
+
+#centre {
+	padding: 0 20% 0;
 }
 
 li {
@@ -155,30 +164,37 @@ a:active {
     background-color: #CCC;
 }
 
-
+#dottedLine {
+	border: 3px dashed white;
+	position: relative;
+	width: 100%;
+}
 
 
 </style>
 </head>
 
 <body>
-		<img src="zombie0.png" id="zombie" style="top:-140px; position:absolute"/> 
-       <!-- <img src="zombie0.png" id="zombie" style="top:-140px; right:50px; position:absolute"/> 
+	<img src="zombie0.png" id="zombie" style="top:-140px; position:absolute"/> 
+      <!--	<img src="zombie0.png" id="zombie" style="top:-140px; right:50px; position:absolute"/> 
         <img src="zombie0.png" id="zombie" style="top:-140px; left:310px; position:absolute"/> -->
 	
     
-  	<ul>
+  	<ul id="top">
   		<li><a class="clickable" href="#pause">PAUSE</a></li>
   		<li class="unclickable">Wave 1</li>
   		<li class="unclickable">Score: 10</li>
 	</ul>
-
- <ul>
-  <li><a id="plusGun" class="clicked" href="#plus">Plus</a></li>
-  <li><a id="minusGun" class="clickable" href="#minus">Minus</a></li>
-  <li><a id="multiGun" class="clickable" href="#multiplication">Multi</a></li>
-  <li><a id="diviGun" class="clickable" href="#division">Divis</a></li>
-</ul>
+	
+	<div id="bottom">
+    	<hr id="dottedLine">
+        <ul id="centre">
+ 	 		<li><a id="plusGun" class="clicked" href="#plus">Plus</a></li>
+ 			<li><a id="minusGun" class="clickable" href="#minus">Minus</a></li>
+  			<li><a id="multiGun" class="clickable" href="#multiplication">Multi</a></li>
+  			<li><a id="diviGun" class="clickable" href="#division">Divis</a></li>
+		</ul>
+    </div>
 
 </body>
 </html>
