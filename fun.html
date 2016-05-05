@@ -1,0 +1,184 @@
+
+<html>
+<head>
+<title>Math of the Dead</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script>
+		var myTimer = null;
+		var myTimer2 = null;
+		var imageNumber = 0;
+
+		function move(){
+			var zombie = document.getElementById('zombie');
+			zombie.style.display = "inline";
+			zombie.style.top = parseInt(zombie.style.top) + 1 + "px";
+		}
+		
+		function animate() {
+			imageNumber = (imageNumber + 1) % 2;
+			zombie.src = "zombie" + imageNumber + ".png";
+		}
+		
+		function changeGun(gunType) {
+			var plusGun = document.getElementById('plusGun');
+			var minusGun = document.getElementById('minusGun');
+			var multiGun = document.getElementById('multiGun');
+			var diviGun = document.getElementById('diviGun');
+			
+			if(gunType == 1) {
+			  plusGun.setAttribute("class", "clicked");
+			  minusGun.setAttribute("class", "clickable");
+			  multiGun.setAttribute("class", "clickable");
+			  diviGun.setAttribute("class", "clickable");
+			} else if (gunType == 2) {
+			  plusGun.setAttribute("class", "clickable");
+			  minusGun.setAttribute("class", "clicked");
+			  multiGun.setAttribute("class", "clickable");
+			  diviGun.setAttribute("class", "clickable");
+			}else if (gunType == 3) {
+			  plusGun.setAttribute("class", "clickable");
+			  minusGun.setAttribute("class", "clickable");
+			  multiGun.setAttribute("class", "clicked");
+			  diviGun.setAttribute("class", "clickable");
+			}else if (gunType == 4) {
+			  plusGun.setAttribute("class", "clickable");
+			  minusGun.setAttribute("class", "clickable");
+			  multiGun.setAttribute("class", "clickable");
+			  diviGun.setAttribute("class", "clicked");
+			}
+		}
+		
+		function testClick() {
+			alert('clicked');	
+		}
+		
+		$(document).ready(function(){
+			var plusGun = document.getElementById('plusGun');
+			var minusGun = document.getElementById('minusGun');
+			var multiGun = document.getElementById('multiGun');
+			var diviGun = document.getElementById('diviGun');
+			
+			plusGun.onclick = function(){
+				changeGun(1);
+			}
+			minusGun.onclick = function(){
+				changeGun(2);
+			}
+			multiGun.onclick = function(){
+				changeGun(3);
+			}
+			diviGun.onclick = function(){
+				changeGun(4);
+			}
+			
+			//minusGun.onclick = changeGun(2);
+			//multiGun.onclick = changeGun(3);
+			//diviGun.onclick = changeGun(4);
+			
+			var zombie = document.getElementById('zombie');
+			zombie.onclick = function(){
+    			clearInterval(myTimer);
+				clearInterval(myTimer2);
+				myTimer = null;
+				myTimer2 = null;
+				zombie.style.display = "none";
+				zombie.style.top = "-140px";
+				myTimer = setInterval('move();', 20);
+				myTimer2 = setInterval('animate();', 600);
+    		};
+		});
+	</script>
+<style> 
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("dark-grass.png"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("dark-grass.png"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("dark-grass.png"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	
+	margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    /*overflow: hidden;*/
+    background-color: #333;
+	/*margin:0 auto;*/
+	list-style:none;
+	
+	text-align: center;
+	width: 600px;
+    margin: 0 auto;
+}
+
+#bottom {
+	position: fixed;
+ 	bottom: 0;
+ 	width:auto;
+}
+
+li {
+	float: left;
+	border: 1px solid #000;
+	display: inline-block;
+}
+
+li a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	width:150px; /* fixed width */
+	 display: inline-block;
+}
+
+.clickable {
+    background-color: #f20000;
+}
+
+.unclickable {
+    background-color: #333;
+	display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	width:150px; /* fixed width */
+}
+
+.clicked {
+    background-color: #CCC;
+}
+
+a:active {
+    background-color: #CCC;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+		<img src="zombie0.png" id="zombie" style="top:-140px; position:absolute"/> 
+       <!-- <img src="zombie0.png" id="zombie" style="top:-140px; right:50px; position:absolute"/> 
+        <img src="zombie0.png" id="zombie" style="top:-140px; left:310px; position:absolute"/> -->
+	
+    
+  	<ul>
+  		<li><a class="clickable" href="#pause">PAUSE</a></li>
+  		<li class="unclickable">Wave 1</li>
+  		<li class="unclickable">Score: 10</li>
+	</ul>
+
+ <ul>
+  <li><a id="plusGun" class="clicked" href="#plus">Plus</a></li>
+  <li><a id="minusGun" class="clickable" href="#minus">Minus</a></li>
+  <li><a id="multiGun" class="clickable" href="#multiplication">Multi</a></li>
+  <li><a id="diviGun" class="clickable" href="#division">Divis</a></li>
+</ul>
+
+</body>
+</html>
