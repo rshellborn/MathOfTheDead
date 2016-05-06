@@ -1,5 +1,5 @@
 div.container{
-	max-width: 50%;
+	max-width: 35%;
 }
 div.lawns{
 	
@@ -31,4 +31,14 @@ div.currentQueue{
 }
 div.guns{
 	border: 1px solid;
+}
+@media only screen and (max-width : 992px) {
+	div.container{
+		max-width: 50%;
+	}
+}
+@media only screen and (max-width: 768px) {
+	div.container{
+		max-width: 100%;
+	}
 }
