@@ -29,10 +29,16 @@ $(document).ready(function(){
 	}; 
 	
 	// spawn three zombies
+<<<<<<< HEAD
 	var zs = new Array();
 	
 	for (i = 0; i < 4; i++) {
 		zs[i] = new Zombie(5, i * 200, i);
 		document.getElementById(i).onclick = zs[i].ouch;
 	}
+=======
+	//var z2 = new Zombie(5,0);
+	//var z1 = new Zombie(10,150);
+	//var z3 = new Zombie(15,300);
+>>>>>>> cbc586effc10db28215e43efee5df11670be8a91
 });
