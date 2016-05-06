@@ -24,7 +24,7 @@ $(document).ready(function(){
 		zombieImage.style.position = "absolute" 	    // need this or no movement
 		zombieImage.style.top = yPos + "px";            // img off screen to start
 		zombieImage.style.left = xPos + "px";           // xPos from param   
-		var zombieImageHeight = "240"; // should be function call to bootstrap
+		var zombieImageHeight = "300"; // should be function call to bootstrap
 
 		// taken from the net 
 		function getPosition(el) {
@@ -54,16 +54,12 @@ $(document).ready(function(){
 		}
 		// check for zombie at dotted line
 		function atDotted() {
-			/*console.log("In dotted");
-			var result = true;
-			console.log(result);
-			return result;*/
 			var dottedLine = document.getElementById('dottedLine');
-			var dotPosition = getPosition(dottedLine);
-			var zombiePos = getPosition(zombieImage);
+			var dotPos = getPosition(dottedLine);
+			var zomPos = getPosition(zombieImage);
 			//console.log("dotted y: " + typeof(dotPosition.y)); 
 			//console.log("zombie foot: " + typeof(zombiePos.y));
-			if (dotPosition.y == zombiePos.y){
+			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
@@ -75,7 +71,7 @@ $(document).ready(function(){
 		this.move = function() {
 			//zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
 			
-
+			// checks if zombie has touched dotted line 
 			if (atDotted()){
 				clearInterval(moveTimer);
 				moveTimer = null;
