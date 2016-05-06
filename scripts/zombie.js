@@ -22,15 +22,73 @@ $(document).ready(function(){
 
 		zombieImage.id = zomNum;						// symbolically connects the image to the object
 		zombieImage.style.position = "absolute" 	    // need this or no movement
-		zombieImage.style.top = yPos + "px";               // img off screen to start
+		zombieImage.style.top = yPos + "px";            // img off screen to start
 		zombieImage.style.left = xPos + "px";           // xPos from param   
+		var zombieImageHeight = "240"; // should be function call to bootstrap
 
+		// taken from the net 
+		function getPosition(el) {
+		  var xPos = 0;
+		  var yPos = 0;
+		 
+		  while (el) {
+			    if (el.tagName == "BODY") {
+			      // deal with browser quirks with body/window/document and page scroll
+			      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+			      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+			 
+			      xPos += (el.offsetLeft - xScroll + el.clientLeft);
+			      yPos += (el.offsetTop - yScroll + el.clientTop);
+			    } else {
+			      // for all other non-BODY elements
+			      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+			      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+			    }
+			 
+			    el = el.offsetParent;
+			  }
+			  return {
+			    x: xPos,
+			    y: yPos
+		  };
+		}
+		// check for zombie at dotted line
+		function atDotted() {
+			/*console.log("In dotted");
+			var result = true;
+			console.log(result);
+			return result;*/
+			var dottedLine = document.getElementById('dottedLine');
+			var dotPosition = getPosition(dottedLine);
+			var zombiePos = getPosition(zombieImage);
+			//console.log("dotted y: " + typeof(dotPosition.y)); 
+			//console.log("zombie foot: " + typeof(zombiePos.y));
+			if (dotPosition.y == zombiePos.y){
+				return true;
+			} else {
+				return false; 
+			} 
+		}
 		/*
 		Causes the zombie to move down the screen towards the player
 		 */
 		this.move = function() {
-			zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-			this.animate;
+			//zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
+			
+
+			if (atDotted()){
+				clearInterval(moveTimer);
+				moveTimer = null;
+				clearInterval(animateTimer);
+				animateTimer = null;
+				alert("Game over, chicada. " + health);
+
+			} else {
+				//console.log("In else");
+				this.animate;
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
+				
+			}
 			//console.log("In move");
 		} /*
 		Simulates the zombie movement
@@ -52,8 +110,8 @@ $(document).ready(function(){
 				this.health = Math.floor((Math.random() * 10) + 1);
 			}
 		}
-		this.moveTimer = setInterval(this.move, 20);    //starts moving
-		this.animateTimer = setInterval(this.animate, 800);
+		moveTimer = setInterval(this.move, 20);    //starts moving
+		animateTimer = setInterval(this.animate, 800);
 	};
 
 	function yRandom() {
@@ -76,7 +134,4 @@ $(document).ready(function(){
 		genTimer = setInterval(generate(i++), 200);
 		genTimer = setInterval(generate(i++), 300);
 		genTimer = setInterval(generate(i++), 200);
-		
-	
-
 });
