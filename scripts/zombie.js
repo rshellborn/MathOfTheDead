@@ -1,17 +1,20 @@
 
 $(document).ready(function(){
+	var genTimer = null;
 	/*
 	 a zombie represented with health and a img on screen
 	 starts "walking" upon instantiation
 	 */
-	var Zombie = function(health, xPos, zomNum) {  // this whole thing is a constr. (no class needed b/c that's how js rolls)
+	var Zombie = function(health, xPos, zomNum, yPos) {  // this whole thing is a constr. (no class needed b/c that's how js rolls)
 		var moveTimer = null;
 		var animateTimer = null;
 		var imageNumber = 0;
 		var zombieImage = document.createElement("img");
 
+
 		this.xPos = xPos;
 		this.health = health;
+		this.yPos = yPos;
 
 		console.log("New zombie with health " + this.health + " in xPos " + xPos);
 		zombieImage.setAttribute('src','images/zombies/zombie0.png');  // establish path for image
@@ -19,7 +22,7 @@ $(document).ready(function(){
 
 		zombieImage.id = zomNum;						// symbolically connects the image to the object
 		zombieImage.style.position = "absolute" 	    // need this or no movement
-		zombieImage.style.top = "-250px";               // img off screen to start
+		zombieImage.style.top = yPos + "px";               // img off screen to start
 		zombieImage.style.left = xPos + "px";           // xPos from param   
 
 		/*
@@ -46,22 +49,34 @@ $(document).ready(function(){
 			alert(this.health);
 			if(this.health == 0) {
 				zombieImage.style.top = "-350px";
-				this.health = Math.floor((Math.random() * 10) + 1);;
+				this.health = Math.floor((Math.random() * 10) + 1);
 			}
 		}
 		this.moveTimer = setInterval(this.move, 20);    //starts moving
 		this.animateTimer = setInterval(this.animate, 800);
-	}; 
+	};
+
+	function yRandom() {
+		return Math.floor((Math.random() * -250) -350);
+	}
+
+	function generate(i) {
+		var zs = new Array();
+		console.log("i = " + i);
+		zs[i] = new Zombie(5, i * 200, i, yRandom());
+		document.getElementById(i).onclick = zs[i].kill;
+	}
 
 	/*
 	Spawns 4 new zombies into game screen.
 	 */
-	var zs = new Array();
 
-	for (i = 0; i < 4; i++) {
-		zs[i] = new Zombie(5, i * 200, i);
-		document.getElementById(i).onclick = zs[i].kill;
-
-	}
+	 var i = 0;
+		genTimer = setInterval(generate(i++), 100);
+		genTimer = setInterval(generate(i++), 200);
+		genTimer = setInterval(generate(i++), 300);
+		genTimer = setInterval(generate(i++), 200);
+		
+	
 
 });
