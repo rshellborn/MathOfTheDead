@@ -7,7 +7,7 @@ $(document).ready(function(){
 		this.health = health; 
 		console.log("New zombie with health " + this.health + " in xPos " + xPos);
 		var zombieImage = document.createElement("img");
-		zombieImage.setAttribute('src','zombie0.png');  // establish path for image
+		zombieImage.setAttribute('src','images/zombies/zombie0.png');  // establish path for image
 		document.body.appendChild(zombieImage);  		// attach image to body
 		zombieImage.style.position = "absolute" 	    // need this or no movement
 		zombieImage.style.top = "-250px";               // img off screen to start
