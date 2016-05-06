@@ -7,31 +7,31 @@ function changeGun(gunType) {
 	var diviGun = document.getElementById('diviGun');
 	
 	if(gunType == 1) {
-	  plusGun.setAttribute("class", "clicked");
-	  minusGun.setAttribute("class", "clickable");
-	  multiGun.setAttribute("class", "clickable");
-	  diviGun.setAttribute("class", "clickable");
+	  plusGun.setAttribute("class", "col-xs-3 guns clicked");
+	  minusGun.setAttribute("class", "col-xs-3 guns");
+	  multiGun.setAttribute("class", "col-xs-3 guns");
+	  diviGun.setAttribute("class", "col-xs-3 guns");
 	  selectedGun = 1;
 	} else if (gunType == 2) {
-	  plusGun.setAttribute("class", "clickable");
-	  minusGun.setAttribute("class", "clicked");
-	  multiGun.setAttribute("class", "clickable");
-	  diviGun.setAttribute("class", "clickable");
+	  plusGun.setAttribute("class", "col-xs-3 guns");
+	  minusGun.setAttribute("class", "col-xs-3 guns clicked");
+	  multiGun.setAttribute("class", "col-xs-3 guns");
+	  diviGun.setAttribute("class", "col-xs-3 guns");
 	  selectedGun = 2;
 	}else if (gunType == 3) {
-	  plusGun.setAttribute("class", "clickable");
-	  minusGun.setAttribute("class", "clickable");
-	  multiGun.setAttribute("class", "clicked");
-	  diviGun.setAttribute("class", "clickable");
+	  plusGun.setAttribute("class", "col-xs-3 guns");
+	  minusGun.setAttribute("class", "col-xs-3 guns");
+	  multiGun.setAttribute("class", "col-xs-3 guns clicked");
+	  diviGun.setAttribute("class", "col-xs-3 guns");
 	  selectedGun = 3;
 	}else if (gunType == 4) {
-	  plusGun.setAttribute("class", "clickable");
-	  minusGun.setAttribute("class", "clickable");
-	  multiGun.setAttribute("class", "clickable");
-	  diviGun.setAttribute("class", "clicked");
+	  plusGun.setAttribute("class", "col-xs-3 guns");
+	  minusGun.setAttribute("class", "col-xs-3 guns");
+	  multiGun.setAttribute("class", "col-xs-3 guns");
+	  diviGun.setAttribute("class", "col-xs-3 guns clicked");
 	  selectedGun = 4;
 	}
-	alert(selectedGun);
+	//alert(selectedGun);
 }
 
 function showBoundary() {
