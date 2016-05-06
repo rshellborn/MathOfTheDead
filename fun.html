@@ -4,6 +4,7 @@
 <title>Math of the Dead</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script>
+		var selectedGun = 1;
 		var myTimer = null;
 		var myTimer2 = null;
 		var imageNumber = 0;
@@ -33,29 +34,37 @@
 			  minusGun.setAttribute("class", "clickable");
 			  multiGun.setAttribute("class", "clickable");
 			  diviGun.setAttribute("class", "clickable");
+			  alert("hi");
+			  selectedGun = 1;
 			} else if (gunType == 2) {
 			  plusGun.setAttribute("class", "clickable");
 			  minusGun.setAttribute("class", "clicked");
 			  multiGun.setAttribute("class", "clickable");
 			  diviGun.setAttribute("class", "clickable");
+			  selectedGun = 2;
 			}else if (gunType == 3) {
 			  plusGun.setAttribute("class", "clickable");
 			  minusGun.setAttribute("class", "clickable");
 			  multiGun.setAttribute("class", "clicked");
 			  diviGun.setAttribute("class", "clickable");
+			  selectedGun = 3;
 			}else if (gunType == 4) {
 			  plusGun.setAttribute("class", "clickable");
 			  minusGun.setAttribute("class", "clickable");
 			  multiGun.setAttribute("class", "clickable");
 			  diviGun.setAttribute("class", "clicked");
+			  selectedGun = 4;
 			}
+			alert(selectedGun);
 		}
 		
-		function testClick() {
+		function showBoundary() {
 			alert('clicked');	
 		}
 		
-		$(document).ready(function(){
+		$(document).ready(function() {
+			showBoundary();
+			
 			var plusGun = document.getElementById('plusGun');
 			var minusGun = document.getElementById('minusGun');
 			var multiGun = document.getElementById('multiGun');
