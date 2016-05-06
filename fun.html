@@ -3,6 +3,7 @@
 <head>
 <title>Math of the Dead</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="zombie.js"></script> 
 	<script>
 		var selectedGun = 1;
 		var myTimer = null;
@@ -87,16 +88,6 @@
 			//multiGun.onclick = changeGun(3);
 			//diviGun.onclick = changeGun(4);
 			
-			var zombie = document.getElementById('zombie');
-			zombie.onclick = function(){
-    			clearInterval(myTimer);
-				clearInterval(myTimer2);
-				myTimer = null;
-				myTimer2 = null;
-				zombie.style.display = "none";
-				zombie.style.top = "-140px";
-				myTimer = setInterval('move();', 20);
-				myTimer2 = setInterval('animate();', 600);
     		};
 		});
 	</script>
@@ -184,9 +175,8 @@ a:active {
 </head>
 
 <body>
-	<img src="zombie0.png" id="zombie" style="top:-140px; position:absolute"/> 
-      <!--	<img src="zombie0.png" id="zombie" style="top:-140px; right:50px; position:absolute"/> 
-        <img src="zombie0.png" id="zombie" style="top:-140px; left:310px; position:absolute"/> -->
+	
+      <!--	zombies will appear via zombie.js -->
 	
     
   	<ul id="top">
