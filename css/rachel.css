@@ -1,0 +1,76 @@
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	
+	margin: 0;
+    padding: 0;
+}
+
+#top {
+    padding: 0;
+    background-color: #333;
+	list-style:none;
+	text-align: center;
+	width: 600px;
+    margin: 0 auto;
+}
+
+#bottom {
+	position:fixed;
+	bottom: 0px;
+	text-align: center;
+	padding: 0;
+	list-style:none;
+	width: 100%;
+  	margin: 0 auto;
+}
+
+#centre {
+	padding: 0 20% 0;
+}
+
+li {
+	float: left;
+	border: 1px solid #000;
+	display: inline-block;
+}
+
+li a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	width:150px; /* fixed width */
+	 display: inline-block;
+}
+
+.clickable {
+    background-color: #f20000;
+}
+
+.unclickable {
+    background-color: #333;
+	display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	width:150px; /* fixed width */
+}
+
+.clicked {
+    background-color: #CCC;
+}
+
+a:active {
+    background-color: #CCC;
+}
+
+#dottedLine {
+	border: 3px dashed white;
+	position: relative;
+	width: 100%;
+}

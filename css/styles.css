@@ -1,0 +1,34 @@
+div.container{
+	max-width: 50%;
+}
+div.lawns{
+	
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	
+	margin: 0;
+    padding: 0;
+}
+div.topBar{
+ 	background-color:grey;
+	border: 1px solid;
+}
+div.pauseButton{
+	background-color:red;
+}
+div.queue{
+	background-color:grey; 
+	border: 1px solid; 
+	min-height:50px;
+}
+div.currentQueue{
+	background-color:red; 
+	border: 1px solid; 
+	min-height:50px;
+}
+div.guns{
+	border: 1px solid;
+}
