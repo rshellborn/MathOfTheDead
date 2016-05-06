@@ -1,3 +1,10 @@
+<html>
+<body>
+<p id = "output"></p>
+<button type="button" onclick="populateQueue()">Generate Queue</button>
+<button type="button" onclick="addRandomBullet()">Generate Bullet</button>
+<button type="button" onclick="printQueue()">Print Queue</button>
+<script>
 var bulletQueueValues = new Array(10);
 
 	function populateQueue(){
@@ -19,3 +26,8 @@ var bulletQueueValues = new Array(10);
 		}
 			document.getElementById("output").innerHTML += "<br/>"; 
 	}
+
+</script>
+
+</body>
+</html>
