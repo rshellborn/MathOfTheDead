@@ -1,0 +1,18 @@
+	var selectedGun = 1;
+	var myTimer = null;
+	var myTimer2 = null;
+	var imageNumber = 0;
+
+	function move() {
+		var zombie = document.getElementById('zombie');
+		zombie.style.display = "inline";
+		zombie.style.top = parseInt(zombie.style.top) + 1 + "px";
+		
+		var x = zombie.style.top;
+		alert(x);
+	}
+	
+	function animate() {
+		imageNumber = (imageNumber + 1) % 2;
+		zombie.src = "zombie" + imageNumber + ".png";
+	}
