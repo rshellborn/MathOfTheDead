@@ -5,34 +5,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel = "stylesheet" type = "text/css"  href = "styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="row">
-		<div class ="row" id = "topBar">
-			  <div class="col-sm-4"></div>
-			  <div class="col-sm-4"></div>
-			  <div class="col-sm-4"></div>
-		</div>
-		<div class = "row" id = "bulletQueue">
-			  <div class="col-sm-4"></div>
-			  <div class="col-sm-4"></div>
-			  <div class="col-sm-4"></div>
-		</div>
-		<div class = "row" id = "filler">
-			  <div class="col-sm-4"></div>
-			  <div class="col-sm-4"></div>
-			  <div class="col-sm-4"></div>
-		</div>
-		<div class = "row" id = "lawn">
-			 <div class = "col-sm-12"></div>
-		</div>
-		<div class = "row" id = "guns">
-			  <div class="col-sm-3"></div>
-			  <div class="col-sm-3"></div>
-			  <div class="col-sm-3"></div>
-			  <div class="col-sm-3"></div>
+	<div class="container" style="border: 1px solid">
+		<div class ="row">
+			  <div class="col-xs-4 topBar pauseButton" >Pause</div>
+			  <div class="col-xs-4 topBar" >Wave 1</div>
+			  <div class="col-xs-4 topBar" >Score: 500</div>
+
+			  
+			  <div class="col-xs-2 queue">7</div>
+			  <div class="col-xs-2 queue">0</div>
+			  <div class="col-xs-2 queue">5</div>
+			  <div class="col-xs-2 queue">-2</div>
+			  <div class="col-xs-4 currentQueue">9</div>
+
+			  
+			 <div class = "col-xs-12 lawns" style="min-height: 400px;">
+				
+			 </div>
+			  <div class="col-xs-3 guns">				 
+				<img src="images/PlusGun.png" class="img-responsive" alt="Plus Gun"> 
+			  </div>
+			  <div class="col-xs-3 guns">
+				<img src="images/MinusGun.png" class="img-responsive" alt="Minus Gun"> 
+			  </div>
+			  <div class="col-xs-3 guns">
+				 <img src="images/MultiGun.png" class="img-responsive" alt="Multi Gun"> 
+			  </div>
+			  <div class="col-xs-3 guns">
+			  	<img src="images/DivisionGun.png" class="img-responsive" alt="Division Gun"> 
+			  </div>
 		</div>
 	
 	</div>
