@@ -22,7 +22,7 @@ $(document).ready(function(){
 	}; 
 	
 	// spawn three zombies
-	var z2 = new Zombie(5,0);
-	var z1 = new Zombie(10,150);
-	var z3 = new Zombie(15,300);
+	//var z2 = new Zombie(5,0);
+	//var z1 = new Zombie(10,150);
+	//var z3 = new Zombie(15,300);
 });
