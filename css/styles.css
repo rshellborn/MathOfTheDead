@@ -24,7 +24,7 @@ div.lawns{
 	
 	margin: 0;
     padding: 0;
-	min-height: 75%;
+	min-height: 65%;
 }
 div.topBar{
  	background-color:grey;
@@ -46,9 +46,12 @@ div.currentQueue{
 	min-height:50px;
 	min-height: 10%;
 }
+div.gunsBar{
+	min-height: 10%;
+	padding:0;
+}
 div.guns{
 	border: 1px solid;
-	min-height: 10%;
 }
 @media only screen and (min-width : 1200px){
 	div.container{
@@ -56,16 +59,41 @@ div.guns{
 		border: none;
 	}
 	.img-responsive{
-		max-height: 125px;
+		max-height: 10%;
 	}
 }
 @media only screen and (max-width : 992px) {
 	div.container{
 		max-width: 50%;
 	}
+	.img-responsive{
+		max-height: 10%;
+	}
+	div.lawns{
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	
+	margin: 0;
+    padding: 0;
+	min-height: 75%;
+	}
 }
 @media only screen and (max-width: 768px) {
 	div.container{
 		max-width: 100%;
+	}
+	div.lawns{
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	
+	margin: 0;
+    padding: 0;
+	min-height: 75%;
 	}
 }
