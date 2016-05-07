@@ -1,15 +1,12 @@
-<html>
-<body>
-<p id = "output"></p>
-<button type="button" onclick="populateQueue()">Generate Queue</button>
-<button type="button" onclick="addRandomBullet()">Generate Bullet</button>
-<button type="button" onclick="printQueue()">Print Queue</button>
 <script>
 var bulletQueueValues = new Array(10);
+var queue0 = document.getElementById
 
-	function populateQueue(){
+	function generateQueue(){
+		var queue = document.getElementById(queue);
 		for(i = 0; i < 10; i++){
 			bulletQueueValues[i] = Math.floor((Math.random() *21) - 10);  
+			document.getElementsById("queue" + i).innerHTML = bulletQueueValues[i]
 		}
 	}
 	
@@ -28,6 +25,3 @@ var bulletQueueValues = new Array(10);
 	}
 
 </script>
-
-</body>
-</html>
