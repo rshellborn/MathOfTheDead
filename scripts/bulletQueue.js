@@ -1,4 +1,5 @@
 <script>
+
 var bulletQueueValues = new Array(10);
 var queue0 = document.getElementById
 

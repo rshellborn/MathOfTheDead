@@ -12,13 +12,19 @@ $(document).ready(function(){
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
 		
+		this.zomNum = zomNum;
 		this.xPos = xPos;
 		this.yPos = yPos;
-		this.health = health;
+		var health = health;
 
-		console.log("New zombie with health " + this.health + " in xPos " + xPos);
-		zombieImage.setAttribute('src','images/zombies/zombie0.png');  // establish path for image
-		document.body.appendChild(zombieImage);  		// attach image to body
+		//console.log("New zombie with health " + this.health + " in xPos " + xPos);
+		zombieImage.setAttribute('src','images/zombies/zombie0.png'); // establish path for image
+		document.body.appendChild(zombieImage);  		             // attach image to doc body
+		zombieImage.id = zomNum;						            // symbolically connects the image to the object ???
+		zombieImage.style.position = "absolute" 	               // need this or no movement
+		zombieImage.style.top = yPos + "px";                      // img off screen to start
+		zombieImage.style.left = xPos + "px";                    // sets the xPos for the image
+		var zombieImageHeight = "300";                          // TODO: responsive zombie size image 
 
 		zombieImage.id = zomNum;						// symbolically connects the image to the object
 		zombieImage.style.position = "absolute" 	    // need this or no movement
@@ -26,14 +32,14 @@ $(document).ready(function(){
 		zombieImage.style.left = xPos + "px";           // xPos from param   
 		var zombieImageHeight = "300"; // should be function call to bootstrap
 		
-		document.body.appendChild(zomHealthHolder);
-		zomHealthHolder.style.position = "absolute";
-		zomHealthHolder.style.top = yPos + "px"; 
-		zomHealthHolder.style.left = xPos + "px";
-		zomHealthHolder.style.color = "red";
-		zomHealthHolder.innerHTML = this.health;
-		
-		// taken from the net 
+		document.body.appendChild(zomHealthHolder);		// attaches div to body
+		zomHealthHolder.style.position = "absolute";		// need this for movement
+		zomHealthHolder.style.top = yPos + "px"; 			// text off screen to start
+		zomHealthHolder.style.left = xPos + (zombieImageHeight / 2) + "px";	// sets text over zombie
+		zomHealthHolder.style.color = "red";					// sets font color
+		zomHealthHolder.innerHTML = health;					// sets number to health
+
+		// taken from the net STARTS  
 		function getPosition(el) {
 		  var xPos = 0;
 		  var yPos = 0;
@@ -58,38 +64,30 @@ $(document).ready(function(){
 			    x: xPos,
 			    y: yPos
 		  };
-		}
-		
-		// check for zombie at dotted line
+		} // taken from the net ENDS 
+		// returns true if image has caused game over 
+
 		function atDotted() {
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
 			var zomPos = getPosition(zombieImage);
-			//console.log("dotted y: " + typeof(dotPosition.y)); 
-			//console.log("zombie foot: " + typeof(zombiePos.y));
-			if (dotPos.y <= zomPos.y + parseInt(zombieImageHeight) ){
+			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
 			} 
 		}
-		
-		/*
-		Causes the zombie to move down the screen towards the player
-		 */
+
+		// Causes the image to move down the screen until it hits the dotted line 
 		this.move = function() {
-			//zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-			
-			// checks if zombie has touched dotted line 
 			if (atDotted()){
+				// clears the animation and movement 
 				clearInterval(moveTimer);
 				moveTimer = null;
 				clearInterval(animateTimer);
 				animateTimer = null;
-				alert("Game over, chicada. " + health);
-
+				console.log("--++== Game over, chicada. ==++--");
 			} else {
-				//console.log("In else");
 				this.animate;
 				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
 				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "px";
@@ -97,49 +95,70 @@ $(document).ready(function(){
 			//console.log("In move");
 		} 
 		
-		/*
-		Simulates the zombie movement
-		*/
+		// animates the image ie. makes it "walk"
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
-		
-		/*
-		sets a zombies health to zero, pushes zombie above screen an assisgns
-		a random new health value.
-		 */
-		this.kill = function () {
-			this.health = 0;
-			alert(this.health);
-			if(this.health == 0) {
-				zombieImage.style.top = "-350px";
-				this.health = Math.floor((Math.random() * 10) + 1);
-			}
+
+		this.ouch = function(){
+			zombieImage.style.color = "red";
 		}
-		moveTimer = setInterval(this.move, 20);    //starts moving
+		
+		// handler for onclick havoir 
+		// if zombie's health is 0, it dies
+		// else, health is changed
+		this.hit = function(){
+			health -= 1;          // TODO: get health + b-que to talk 
+			zomHealthHolder.innerHTML = health;
+			this.ouch;
+			console.log("#"+ this.zomnum + " hit w/ gun"+ selectedGun 
+					+ " health: " + health);
+			if (health == 0){
+				kill();				
+			}
+			
+	}	
+		
+		// sets a zombies health to zero when clicked
+		// pushes zombie above screen 
+		// a random new health value
+		function kill() {
+			health = 0;
+			if(health == 0) {
+				zombieImage.style.top = "-350px";
+				health = Math.floor((Math.random() * 10) + 1);
+				zomHealthHolder.style.top = "-350px";
+				zomHealthHolder.innerHTML = health;
+			}
+			console.log("Zombie #"+ i + " is (re)dead.");
+		}
+
+		//auto callers for moving and animating 
+		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
 	};
-
+	// random num helper for generate 
 	function yRandom() {
 		return Math.floor((Math.random() * -250) -350);
 	}
+	
+	// generates zombies 
+	var zs = new Array();
 
 	function generate(i) {
-		var zs = new Array();
-		console.log("i = " + i);
-		zs[i] = new Zombie(5, i * 200, i, yRandom());
-		document.getElementById(i).onclick = zs[i].kill;
+		
+		//console.log("i = " + i);
+		zs[i] = new Zombie(5, i * 200, i, yRandom());    // call to constr 
+		document.getElementById(i).onclick = zs[i].hit; // onclick handel 
+		
 	}
 
-	/*
-	Spawns 4 new zombies into game screen.
-	 */
-
+	// spawns 4 new zombies into game screen.
 	 var i = 0;
 		genTimer = setInterval(generate(i++), 100);
-		genTimer = setInterval(generate(i++), 200);
-		genTimer = setInterval(generate(i++), 300);
-		genTimer = setInterval(generate(i++), 200);
+		//genTimer = setInterval(generate(i++), 200);
+		//genTimer = setInterval(generate(i++), 300);
+		//genTimer = setInterval(generate(i++), 200);
 });

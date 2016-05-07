@@ -1,3 +1,5 @@
+
+// global flag for current gun mode 
 var selectedGun = 1;
 		
 function changeGun(gunType) {
