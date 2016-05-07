@@ -27,7 +27,7 @@ $(document).ready(function(){
 		var zombieImageHeight = "300"; // should be function call to bootstrap
 
 		// taken from the net 
-		function getPosition(el) {
+		function getPosition(el) { //pc in shanes butt
 		  var xPos = 0;
 		  var yPos = 0;
 		 
@@ -100,7 +100,8 @@ $(document).ready(function(){
 		 */
 		this.kill = function () {
 			this.health = 0;
-			alert(this.health);
+			//alert(this.health);
+			//alert(selectedGun);
 			if(this.health == 0) {
 				zombieImage.style.top = "-350px";
 				this.health = Math.floor((Math.random() * 10) + 1);
