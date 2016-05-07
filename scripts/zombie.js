@@ -10,11 +10,11 @@ $(document).ready(function(){
 		var animateTimer = null;
 		var imageNumber = 0;
 		var zombieImage = document.createElement("img");
-
-
+		var zomHealthHolder = document.createElement("div");
+		
 		this.xPos = xPos;
-		this.health = health;
 		this.yPos = yPos;
+		this.health = health;
 
 		console.log("New zombie with health " + this.health + " in xPos " + xPos);
 		zombieImage.setAttribute('src','images/zombies/zombie0.png');  // establish path for image
@@ -25,7 +25,14 @@ $(document).ready(function(){
 		zombieImage.style.top = yPos + "px";            // img off screen to start
 		zombieImage.style.left = xPos + "px";           // xPos from param   
 		var zombieImageHeight = "300"; // should be function call to bootstrap
-
+		
+		document.body.appendChild(zomHealthHolder);
+		zomHealthHolder.style.position = "absolute";
+		zomHealthHolder.style.top = yPos + "px"; 
+		zomHealthHolder.style.left = xPos + "px";
+		zomHealthHolder.style.color = "red";
+		zomHealthHolder.innerHTML = this.health;
+		
 		// taken from the net 
 		function getPosition(el) {
 		  var xPos = 0;
@@ -52,6 +59,7 @@ $(document).ready(function(){
 			    y: yPos
 		  };
 		}
+		
 		// check for zombie at dotted line
 		function atDotted() {
 			var dottedLine = document.getElementById('dottedLine');
@@ -59,12 +67,13 @@ $(document).ready(function(){
 			var zomPos = getPosition(zombieImage);
 			//console.log("dotted y: " + typeof(dotPosition.y)); 
 			//console.log("zombie foot: " + typeof(zombiePos.y));
-			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
+			if (dotPos.y <= zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
 			} 
 		}
+		
 		/*
 		Causes the zombie to move down the screen towards the player
 		 */
@@ -83,17 +92,20 @@ $(document).ready(function(){
 				//console.log("In else");
 				this.animate;
 				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-				
+				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "px";
 			}
 			//console.log("In move");
-		} /*
+		} 
+		
+		/*
 		Simulates the zombie movement
-		 */
+		*/
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
+		
 		/*
 		sets a zombies health to zero, pushes zombie above screen an assisgns
 		a random new health value.
