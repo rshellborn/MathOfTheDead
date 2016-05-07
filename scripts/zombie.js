@@ -17,16 +17,15 @@ $(document).ready(function(){
 		this.yPos = yPos;
 
 		console.log("New zombie with health " + this.health + " in xPos " + xPos);
-		zombieImage.setAttribute('src','images/zombies/zombie0.png');  // establish path for image
-		document.body.appendChild(zombieImage);  		// attach image to body
+		zombieImage.setAttribute('src','images/zombies/zombie0.png'); // establish path for image
+		document.body.appendChild(zombieImage);  		             // attach image to doc body
+		zombieImage.id = zomNum;						            // symbolically connects the image to the object ???
+		zombieImage.style.position = "absolute" 	               // need this or no movement
+		zombieImage.style.top = yPos + "px";                      // img off screen to start
+		zombieImage.style.left = xPos + "px";                    // sets the xPos for the image
+		var zombieImageHeight = "300";                          // TODO: responsive zombie size image 
 
-		zombieImage.id = zomNum;						// symbolically connects the image to the object
-		zombieImage.style.position = "absolute" 	    // need this or no movement
-		zombieImage.style.top = yPos + "px";            // img off screen to start
-		zombieImage.style.left = xPos + "px";           // xPos from param   
-		var zombieImageHeight = "300"; // should be function call to bootstrap
-
-		// taken from the net 
+		// taken from the net STARTS  
 		function getPosition(el) {
 		  var xPos = 0;
 		  var yPos = 0;
@@ -51,53 +50,41 @@ $(document).ready(function(){
 			    x: xPos,
 			    y: yPos
 		  };
-		}
-		// check for zombie at dotted line
+		} // taken from the net ENDS 
+		// returns true if image has caused game over 
 		function atDotted() {
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
 			var zomPos = getPosition(zombieImage);
-			//console.log("dotted y: " + typeof(dotPosition.y)); 
-			//console.log("zombie foot: " + typeof(zombiePos.y));
 			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
 			} 
 		}
-		/*
-		Causes the zombie to move down the screen towards the player
-		 */
+		// Causes the image to move down the screen until it hits the dotted line 
 		this.move = function() {
-			//zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-			
-			// checks if zombie has touched dotted line 
 			if (atDotted()){
+				// clears the animation and movement 
 				clearInterval(moveTimer);
 				moveTimer = null;
 				clearInterval(animateTimer);
 				animateTimer = null;
-				alert("Game over, chicada. " + health);
-
+				alert("Game over, chicada.");
 			} else {
-				//console.log("In else");
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-				
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";				
 			}
-			//console.log("In move");
-		} /*
-		Simulates the zombie movement
-		 */
+		} 
+		// animates the image ie. makes it "walk"
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
-		/*
-		sets a zombies health to zero, pushes zombie above screen an assisgns
-		a random new health value.
-		 */
+		// sets a zombies health to zero when clicked
+		// pushes zombie above screen 
+		// a random new health value
 		this.kill = function () {
 			this.health = 0;
 			alert(this.health);
@@ -106,25 +93,22 @@ $(document).ready(function(){
 				this.health = Math.floor((Math.random() * 10) + 1);
 			}
 		}
-		moveTimer = setInterval(this.move, 20);    //starts moving
-		animateTimer = setInterval(this.animate, 800);
+		moveTimer = setInterval(this.move, 20);         // moving
+		animateTimer = setInterval(this.animate, 800);  // animating 
 	};
-
+	// random num helper for generate 
 	function yRandom() {
 		return Math.floor((Math.random() * -250) -350);
 	}
-
+	// generates zombies 
 	function generate(i) {
 		var zs = new Array();
 		console.log("i = " + i);
-		zs[i] = new Zombie(5, i * 200, i, yRandom());
+		zs[i] = new Zombie(5, i * 200, i, yRandom());    // call to constr 
 		document.getElementById(i).onclick = zs[i].kill;
 	}
 
-	/*
-	Spawns 4 new zombies into game screen.
-	 */
-
+	// spawns 4 new zombies into game screen.
 	 var i = 0;
 		genTimer = setInterval(generate(i++), 100);
 		genTimer = setInterval(generate(i++), 200);
