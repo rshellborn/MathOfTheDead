@@ -10,11 +10,12 @@ $(document).ready(function(){
 		var animateTimer = null;
 		var imageNumber = 0;
 		var zombieImage = document.createElement("img");
-
-
+		var zomHealthHolder = document.createElement("div");
+		
+		this.zomNum = zomNum;
 		this.xPos = xPos;
-		this.health = health;
 		this.yPos = yPos;
+		var health = health;
 
 		//console.log("New zombie with health " + this.health + " in xPos " + xPos);
 		zombieImage.setAttribute('src','images/zombies/zombie0.png'); // establish path for image
@@ -25,8 +26,21 @@ $(document).ready(function(){
 		zombieImage.style.left = xPos + "px";           // xPos from param   
 		var zombieImageHeight = "300"; // should be function call to bootstrap
 
-		// taken from the net 
-		function getPosition(el) { //pc in shanes butt
+		zombieImage.id = zomNum;						// symbolically connects the image to the object
+		zombieImage.style.position = "absolute" 	    // need this or no movement
+		zombieImage.style.top = yPos + "px";            // img off screen to start
+		zombieImage.style.left = xPos + "px";           // xPos from param   
+		var zombieImageHeight = "300"; // should be function call to bootstrap
+		
+		document.body.appendChild(zomHealthHolder);		// attaches div to body
+		zomHealthHolder.style.position = "absolute";		// need this for movement
+		zomHealthHolder.style.top = yPos + "px"; 			// text off screen to start
+		zomHealthHolder.style.left = xPos + (zombieImageHeight / 2) + "px";	// sets text over zombie
+		zomHealthHolder.style.color = "red";					// sets font color
+		zomHealthHolder.innerHTML = health;					// sets number to health
+
+		// taken from the ne  
+		function getPosition(el) {
 		  var xPos = 0;
 		  var yPos = 0;
 		 
@@ -52,6 +66,7 @@ $(document).ready(function(){
 		  };
 		} // taken from the net ENDS 
 		// returns true if image has caused game over 
+
 		function atDotted() {
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
@@ -62,6 +77,7 @@ $(document).ready(function(){
 				return false; 
 			} 
 		}
+
 		// Causes the image to move down the screen until it hits the dotted line 
 		this.move = function() {
 			if (atDotted()){
@@ -73,9 +89,12 @@ $(document).ready(function(){
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";				
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
+				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "px";
 			}
+			//console.log("In move");
 		} 
+		
 		// animates the image ie. makes it "walk"
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
@@ -86,14 +105,32 @@ $(document).ready(function(){
 		this.ouch = function(){
 			zombieImage.style.color = "red";
 		}
+		
+		// handler for onclick havoir 
+		// if zombie's health is 0, it dies
+		// else, health is changed
+		this.hit = function(){
+			health -= 1;          // TODO: get health + b-que to talk 
+			zomHealthHolder.innerHTML = health;
+			this.ouch;
+			console.log("#"+ this.zomnum + " hit w/ gun"+ selectedGun 
+					+ " health: " + health);
+			if (health == 0){
+				kill();				
+			}
+			
+	}	
+		
 		// sets a zombies health to zero when clicked
 		// pushes zombie above screen 
 		// a random new health value
-		this.kill = function () {
-			this.health = 0;
-			if(this.health == 0) {
+		function kill() {
+			health = 0;
+			if(health == 0) {
 				zombieImage.style.top = "-350px";
-				this.health = Math.floor((Math.random() * 10) + 1);
+				health = Math.floor((Math.random() * 10) + 1);
+				zomHealthHolder.style.top = "-350px";
+				zomHealthHolder.innerHTML = health;
 			}
 			console.log("Zombie #"+ i + " is (re)dead.");
 		}
@@ -114,22 +151,9 @@ $(document).ready(function(){
 		
 		//console.log("i = " + i);
 		zs[i] = new Zombie(5, i * 200, i, yRandom());    // call to constr 
-		document.getElementById(i).onclick = function() {hit(i)}; // onclick handel 
+		document.getElementById(i).onclick = zs[i].hit; // onclick handel 
 		
 	}
-	// handler for onclick havoir 
-	// if zombie's health is 0, it dies
-	// else, health is changed
-	function hit(i){
-			zs[i].health -= 1;          // TODO: get health + b-que to talk 
-			zs[i].ouch();
-			console.log("#"+ i + " hit w/ gun"+ selectedGun 
-					+ " health: " + zs[i].health);
-			if (zs[i].health == 0){
-				zs[i].kill();				
-			}
-			
-	}	
 
 	// spawns 4 new zombies into game screen.
 	 var i = 0;
