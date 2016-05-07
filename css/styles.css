@@ -16,6 +16,7 @@ html,body {
 	border: 3px dashed white;
 	position: relative;
 	width: 100%;
+	margin-top: 0;
 }
 
 /* BOOTSTRAP MADNESS */
@@ -33,7 +34,7 @@ div.specialrow {
 div.lawns{
 	margin: 0;
     padding: 0;
-	min-height: 60%;
+	min-height: 63%;
 }
 div.topBar{
 	border: 1px solid;
@@ -44,21 +45,17 @@ div.topBar{
 	font: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	text-align: center;
+	padding: 0;
 }
 div.pauseButton{
 	background-color:#f20000;
 }
-div.pauseButton a {
-	color: white;
-	font: Arial, Helvetica, sans-serif;
-	text-decoration: none;
-}
-
 div.queue{
 	background-color:#333; 
 	border: 1px solid #FFF; 
 	min-height:50px;
 	min-height: 10%;
+	padding: 0;
 	
 	color: white;
 	font: Arial, Helvetica, sans-serif;
@@ -70,6 +67,7 @@ div.currentQueue{
 	border: 1px solid #FFF; 
 	min-height:50px;
 	min-height: 10%;
+	padding: 0; 
 	
 	color: white;
 	font: Arial, Helvetica, sans-serif;
@@ -77,8 +75,7 @@ div.currentQueue{
 	text-align: center;
 }
 div.gunsBar{
-	border: 1px solid #FFF;
-	min-height: 10%;
+	min-height: 3%;
 	padding:0;
 }
 div.guns{
@@ -95,7 +92,7 @@ div.guns.clicked{
 		border: none;
 	}
 	.img-responsive{
-		max-height: 10%;
+		max-height: 1%;
 	}
 }
 @media only screen and (max-width : 992px) {
@@ -103,7 +100,7 @@ div.guns.clicked{
 		max-width: 50%;
 	}
 	.img-responsive{
-		max-height: 10%;
+		max-height: 1%;
 	}
 	div.lawns{
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
@@ -115,6 +112,10 @@ div.guns.clicked{
 	margin: 0;
     padding: 0;
 	min-height: 75%;
+	height:75%;
+	}
+	div.topBar{
+		font-size: 1.8em;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -130,6 +131,10 @@ div.guns.clicked{
 	
 	margin: 0;
     padding: 0;
+	height: 65%;
 	min-height: 65%;
+	}
+	div.topBar{
+		font-size: 1.4em;
 	}
 }

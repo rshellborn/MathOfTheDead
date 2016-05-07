@@ -16,10 +16,9 @@ $(document).ready(function(){
 		this.health = health;
 		this.yPos = yPos;
 
-		console.log("New zombie with health " + this.health + " in xPos " + xPos);
-		zombieImage.setAttribute('src','images/zombies/zombie0.png');  // establish path for image
-		document.body.appendChild(zombieImage);  		// attach image to body
-
+		//console.log("New zombie with health " + this.health + " in xPos " + xPos);
+		zombieImage.setAttribute('src','images/zombies/zombie0.png'); // establish path for image
+		document.body.appendChild(zombieImage);  		             // attach image to doc body
 		zombieImage.id = zomNum;						// symbolically connects the image to the object
 		zombieImage.style.position = "absolute" 	    // need this or no movement
 		zombieImage.style.top = yPos + "px";            // img off screen to start
@@ -51,84 +50,91 @@ $(document).ready(function(){
 			    x: xPos,
 			    y: yPos
 		  };
-		}
-		// check for zombie at dotted line
+		} // taken from the net ENDS 
+		// returns true if image has caused game over 
 		function atDotted() {
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
 			var zomPos = getPosition(zombieImage);
-			//console.log("dotted y: " + typeof(dotPosition.y)); 
-			//console.log("zombie foot: " + typeof(zombiePos.y));
 			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
 			} 
 		}
-		/*
-		Causes the zombie to move down the screen towards the player
-		 */
+		// Causes the image to move down the screen until it hits the dotted line 
 		this.move = function() {
-			//zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-			
-			// checks if zombie has touched dotted line 
 			if (atDotted()){
+				// clears the animation and movement 
 				clearInterval(moveTimer);
 				moveTimer = null;
 				clearInterval(animateTimer);
 				animateTimer = null;
-				alert("Game over, chicada. " + health);
-
+				console.log("--++== Game over, chicada. ==++--");
 			} else {
-				//console.log("In else");
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-				
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";				
 			}
-			//console.log("In move");
-		} /*
-		Simulates the zombie movement
-		 */
+		} 
+		// animates the image ie. makes it "walk"
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
-		/*
-		sets a zombies health to zero, pushes zombie above screen an assisgns
-		a random new health value.
-		 */
+
+		this.ouch = function(){
+			zombieImage.style.color = "red";
+		}
+		// sets a zombies health to zero when clicked
+		// pushes zombie above screen 
+		// a random new health value
 		this.kill = function () {
 			this.health = 0;
-			//alert(this.health);
-			//alert(selectedGun);
 			if(this.health == 0) {
 				zombieImage.style.top = "-350px";
 				this.health = Math.floor((Math.random() * 10) + 1);
 			}
+			console.log("Zombie #"+ i + " is (re)dead.");
 		}
-		moveTimer = setInterval(this.move, 20);    //starts moving
+
+		//auto callers for moving and animating 
+		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
 	};
-
+	// random num helper for generate 
 	function yRandom() {
 		return Math.floor((Math.random() * -250) -350);
 	}
+	
+	// generates zombies 
+	var zs = new Array();
 
 	function generate(i) {
-		var zs = new Array();
-		console.log("i = " + i);
-		zs[i] = new Zombie(5, i * 200, i, yRandom());
-		document.getElementById(i).onclick = zs[i].kill;
+		
+		//console.log("i = " + i);
+		zs[i] = new Zombie(5, i * 200, i, yRandom());    // call to constr 
+		document.getElementById(i).onclick = function() {hit(i)}; // onclick handel 
+		
 	}
+	// handler for onclick havoir 
+	// if zombie's health is 0, it dies
+	// else, health is changed
+	function hit(i){
+			zs[i].health -= 1;          // TODO: get health + b-que to talk 
+			zs[i].ouch();
+			console.log("#"+ i + " hit w/ gun"+ selectedGun 
+					+ " health: " + zs[i].health);
+			if (zs[i].health == 0){
+				zs[i].kill();				
+			}
+			
+	}	
 
-	/*
-	Spawns 4 new zombies into game screen.
-	 */
-
+	// spawns 4 new zombies into game screen.
 	 var i = 0;
 		genTimer = setInterval(generate(i++), 100);
-		genTimer = setInterval(generate(i++), 200);
-		genTimer = setInterval(generate(i++), 300);
-		genTimer = setInterval(generate(i++), 200);
+		//genTimer = setInterval(generate(i++), 200);
+		//genTimer = setInterval(generate(i++), 300);
+		//genTimer = setInterval(generate(i++), 200);
 });
