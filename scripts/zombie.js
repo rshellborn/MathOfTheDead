@@ -20,11 +20,11 @@ $(document).ready(function(){
 		//console.log("New zombie with health " + this.health + " in xPos " + xPos);
 		zombieImage.setAttribute('src','images/zombies/zombie0.png'); // establish path for image
 		document.body.appendChild(zombieImage);  		             // attach image to doc body
-		zombieImage.id = zomNum;						            // symbolically connects the image to the object ???
-		zombieImage.style.position = "absolute" 	               // need this or no movement
-		zombieImage.style.top = yPos + "px";                      // img off screen to start
-		zombieImage.style.left = xPos + "px";                    // sets the xPos for the image
-		var zombieImageHeight = "300";                          // TODO: responsive zombie size image 
+		zombieImage.id = zomNum;						// symbolically connects the image to the object
+		zombieImage.style.position = "absolute" 	    // need this or no movement
+		zombieImage.style.top = yPos + "px";            // img off screen to start
+		zombieImage.style.left = xPos + "px";           // xPos from param   
+		var zombieImageHeight = "300"; // should be function call to bootstrap
 
 		zombieImage.id = zomNum;						// symbolically connects the image to the object
 		zombieImage.style.position = "absolute" 	    // need this or no movement
@@ -39,7 +39,7 @@ $(document).ready(function(){
 		zomHealthHolder.style.color = "red";					// sets font color
 		zomHealthHolder.innerHTML = health;					// sets number to health
 
-		// taken from the net STARTS  
+		// taken from the ne  
 		function getPosition(el) {
 		  var xPos = 0;
 		  var yPos = 0;
