@@ -33,7 +33,7 @@ div.specialrow {
 div.lawns{
 	margin: 0;
     padding: 0;
-	min-height: 65%;
+	min-height: 60%;
 }
 div.topBar{
 	border: 1px solid;
@@ -48,6 +48,12 @@ div.topBar{
 div.pauseButton{
 	background-color:#f20000;
 }
+div.pauseButton a {
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
 div.queue{
 	background-color:#333; 
 	border: 1px solid #FFF; 
@@ -124,6 +130,6 @@ div.guns.clicked{
 	
 	margin: 0;
     padding: 0;
-	min-height: 75%;
+	min-height: 65%;
 	}
 }
