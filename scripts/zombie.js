@@ -82,6 +82,10 @@ $(document).ready(function(){
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
+
+		this.ouch = function(){
+			zombieImage.style.color = "red";
+		}
 		// sets a zombies health to zero when clicked
 		// pushes zombie above screen 
 		// a random new health value
@@ -117,14 +121,15 @@ $(document).ready(function(){
 	// if zombie's health is 0, it dies
 	// else, health is changed
 	function hit(i){
-			zs[i].health -= 1; 
+			zs[i].health -= 1;          // TODO: get health + b-que to talk 
+			zs[i].ouch();
+			console.log("#"+ i + " hit w/ gun"+ selectedGun 
+					+ " health: " + zs[i].health);
 			if (zs[i].health == 0){
 				zs[i].kill();				
 			}
-			console.log("#"+ i + " hit w/ gun"+ selectedGun 
-					+ " health: " + zs[i].health);
-		}
-	
+			
+	}	
 
 	// spawns 4 new zombies into game screen.
 	 var i = 0;
