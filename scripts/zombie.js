@@ -37,6 +37,7 @@ $(document).ready(function(){
 		zomHealthHolder.style.top = yPos + "px"; 			// text off screen to start
 		zomHealthHolder.style.left = xPos + (zombieImageHeight / 2) + "px";	// sets text over zombie
 		zomHealthHolder.style.color = "red";					// sets font color
+		zomHealthHolder.style.fontSize = "200%";
 		zomHealthHolder.innerHTML = health;					// sets number to health
 
 		// taken from the ne  
@@ -66,7 +67,6 @@ $(document).ready(function(){
 		  };
 		} // taken from the net ENDS 
 		// returns true if image has caused game over 
-
 		function atDotted() {
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
@@ -86,6 +86,8 @@ $(document).ready(function(){
 				moveTimer = null;
 				clearInterval(animateTimer);
 				animateTimer = null;
+				// causes screen to shake 
+  				$( "div" ).effect( "bounce", "slow" );
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
@@ -112,14 +114,17 @@ $(document).ready(function(){
 		this.hit = function(){
 			health -= 1;          // TODO: get health + b-que to talk 
 			zomHealthHolder.innerHTML = health;
-			this.ouch;
-			console.log("#"+ this.zomnum + " hit w/ gun"+ selectedGun 
-					+ " health: " + health);
 			if (health == 0){
-				kill();				
-			}
-			
-	}	
+				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
+				$( "#" + zomNum ).toggle( "explode", "slow");
+				kill();	
+			} else {
+				// $( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
+				console.log("#"+ i + " hit w/ gun"+ selectedGun 
+						+ " health: " + health);
+			}			
+		}	
+		
 		
 		// sets a zombies health to zero when clicked
 		// pushes zombie above screen 
@@ -158,7 +163,7 @@ $(document).ready(function(){
 	// spawns 4 new zombies into game screen.
 	 var i = 0;
 		genTimer = setInterval(generate(i++), 100);
-		//genTimer = setInterval(generate(i++), 200);
-		//genTimer = setInterval(generate(i++), 300);
-		//genTimer = setInterval(generate(i++), 200);
+		genTimer = setInterval(generate(i++), 200);
+		genTimer = setInterval(generate(i++), 300);
+		genTimer = setInterval(generate(i++), 200);
 });
