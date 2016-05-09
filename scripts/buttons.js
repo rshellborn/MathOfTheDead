@@ -48,10 +48,6 @@ $(document).ready(function() {
 	pause.onclick = function() {
 		alert('Game Paused! Press Ok to continue slaying some zombies.');
 	}
-	curQueue.onclick = function() {
-		alert('Current Bullet');
-	}
-	
 	plusGun.onclick = function(){
 		changeGun(1);
 	}
