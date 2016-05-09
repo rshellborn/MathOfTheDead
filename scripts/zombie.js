@@ -10,6 +10,7 @@ $(document).ready(function(){
 		var moveTimer = null;
 		var animateTimer = null;
 		var imageNumber = 0;
+		//var lawn = document.getElementById("lawn");
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
 
@@ -25,7 +26,7 @@ $(document).ready(function(){
 		/*
 		attach image to doc body
 		*/
-		document.body.appendChild(zombieImage);  	
+		document.getElementById("lawn").appendChild(zombieImage);  	
 		/*
 		symbolically connects the image to the object
 		*/	           
@@ -37,11 +38,11 @@ $(document).ready(function(){
 		/*
 		img off screen to start
 		*/  
-		zombieImage.style.top = yPos + "px";           
+		zombieImage.style.top = yPos + "%";           
 		/*
 		xPos from param   
 		*/
-		zombieImage.style.left = xPos + "px";          
+		zombieImage.style.left = xPos + "%";          
 		/*
 		should be function call to bootstrap
 		*/
@@ -57,7 +58,7 @@ $(document).ready(function(){
 		/*
 		img off screen to start
 		*/	    
-		zombieImage.style.top = yPos + "px";  
+		zombieImage.style.top = yPos + "%";  
 		/*
 		xPos from param   
 		*/          
@@ -69,7 +70,7 @@ $(document).ready(function(){
 		/*
 		attaches div to body
 		*/
-		document.body.appendChild(zomHealthHolder);		
+		document.getElementById("lawn").appendChild(zomHealthHolder);		
 		/*
 		need this for movement
 		*/
@@ -77,7 +78,7 @@ $(document).ready(function(){
 		/*
 		text off screen to start
 		*/
-		zomHealthHolder.style.top = yPos + "px"; 			
+		zomHealthHolder.style.top = yPos + "%"; 			
 		/*
 		sets text over zombie
 		*/
@@ -130,7 +131,7 @@ $(document).ready(function(){
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
 			var zomPos = getPosition(zombieImage);
-			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
+			if (dotPos.y <= zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
@@ -151,8 +152,8 @@ $(document).ready(function(){
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "px";
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "%";
+				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "%";
 			}
 		} 
 		/*
@@ -231,9 +232,9 @@ $(document).ready(function(){
 		function kill() {
 			health = 0;
 			if(health == 0) {
-				zombieImage.style.top = "-350px";
+				zombieImage.style.top = "-350%";
 				health = Math.floor((Math.random() * 10) + 1);
-				zomHealthHolder.style.top = "-350px";
+				zomHealthHolder.style.top = "-350%";
 				zomHealthHolder.innerHTML = health;
 			}
 			console.log("Zombie #"+ i + " is (re)dead.");
@@ -249,7 +250,7 @@ $(document).ready(function(){
 	random num helper for generate 
 	*/ 
 	function yRandom() {
-		return Math.floor((Math.random() * -250) -350);
+		return Math.floor((Math.random() * -50) -150);
 	}
 
 	/*
