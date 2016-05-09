@@ -4,15 +4,15 @@ html,body {
 	/* 
 	Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	FF3.6-15 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	Chrome10-25,Safari5.1-6 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat;
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat;
 	/* 
 	W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
 	 */
@@ -63,7 +63,7 @@ div.topBar{
 	padding: 0;
 }
 div.pauseButton{
-	background-color:#f20000;
+	background-color:#ffe605;
 }
 div.queue{
 	background-color:#333; 
@@ -78,7 +78,7 @@ div.queue{
 	text-align: center;
 }
 div.currentQueue{
-	background-color:#f20000; 
+	background-color:#ffe605; 
 	border: 1px solid #FFF; 
 	min-height:50px;
 	min-height: 10%;
@@ -95,7 +95,7 @@ div.gunsBar{
 }
 div.guns{
 	border: 1px solid #FFF;
-	background-color: #f20000;
+	background-color: #ffe605;
 }
 div.guns.clicked{
 	border: 1px solid #FFF;
@@ -121,15 +121,15 @@ div.guns.clicked{
 	/* 
 	Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	FF3.6-15 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	Chrome10-25,Safari5.1-6 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ 
 	*/
@@ -154,15 +154,15 @@ div.guns.clicked{
 	/* 
 	Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	FF3.6-15 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	Chrome10-25,Safari5.1-6 
 	*/
-	background: url("../images/ponyBG.png"), no-repeat; 
+	background: url("../images/easterEgg/ponyBG.png"), no-repeat; 
 	/* 
 	W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ 
 	*/
