@@ -172,7 +172,8 @@ $(document).ready(function(){
 		 else, health is changed
 		*/
 		this.hit = function(){
-			checkGun(this);
+			checkGun();
+			updateRandomBullet();
 			//health -= 1;          // TODO: get health + b-que to talk 
 			zomHealthHolder.innerHTML = health;
 			if (health == 0){
@@ -186,13 +187,42 @@ $(document).ready(function(){
 			}			
 		}
 
-		function getHealth() {
-			return health;	
+	  function checkGun() {
+	  //checks gun selected
+		if(selectedGun == 1) {
+			//plus gun
+			plusOperation();
+		} else if (selectedGun == 2) {
+			//minus gun
+			minusOperation();
+		} else if (selectedGun == 3) {
+			//multiplication gun
+			multiOperation();
+		} else if (selectedGun == 4) {
+			//division gun
+			diviOperation();
 		}
-		
-		function setHealth(newHealth) {
-			health = newHealth;	
-		}
+	  }
+  
+	function plusOperation() {
+		health = health + currentBullet;
+		console.log("new health: " + health);
+	}
+	
+	function minusOperation() {
+		health = health - currentBullet;
+		console.log("new health: " + health);
+	}
+	
+	function multiOperation() {
+		health = health * currentBullet;
+		console.log("new health: " + health);
+	}
+	
+	function diviOperation() {
+		health = health / currentBullet;
+		console.log("new health: " + health);
+	}
 		
 		/*
 		 sets a zombies health to zero when clicked, pushes zombie above screen 
@@ -210,18 +240,9 @@ $(document).ready(function(){
 		}
 
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 20);         
+		moveTimer = setInterval(this.move, 80);         
 		animateTimer = setInterval(this.animate, 800);
 	};
-	
-	
-	  function getZombieHealth() {
-		  return getHealth();	
-	  }
-	  
-	  function setZombieHealth(newHealth) {
-		  setHealth(newHealth);
-	  }
 	
 	
 	/*
