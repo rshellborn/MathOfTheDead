@@ -46,7 +46,10 @@ $(document).ready(function() {
 	var curQueue = document.getElementById("curQueue");
 	
 	pause.onclick = function() {
-		alert('Game Paused! Press Ok to continue slaying some zombies.');
+		var egg = document.getElementById("css");
+		egg.setAttribute('href', "css/easterEgg.css");
+		
+		//alert('Game Paused! Press Ok to continue slaying some zombies.');
 	}
 	plusGun.onclick = function(){
 		changeGun(1);
