@@ -163,10 +163,6 @@ $(document).ready(function(){
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
-
-		this.ouch = function(){
-			zombieImage.style.color = "red";
-		}
 		/*
 		handler for onclick havoir, if zombie's health is 0, it dies
 		 else, health is changed
