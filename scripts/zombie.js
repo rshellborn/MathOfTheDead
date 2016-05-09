@@ -172,7 +172,8 @@ $(document).ready(function(){
 		 else, health is changed
 		*/
 		this.hit = function(){
-			health -= 1;          // TODO: get health + b-que to talk 
+			checkGun(this);
+			//health -= 1;          // TODO: get health + b-que to talk 
 			zomHealthHolder.innerHTML = health;
 			if (health == 0){
 				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
@@ -183,9 +184,15 @@ $(document).ready(function(){
 				console.log("#"+ i + " hit w/ gun"+ selectedGun 
 						+ " health: " + health);
 			}			
-		}	
+		}
 
-
+		function getHealth() {
+			return health;	
+		}
+		
+		function setHealth(newHealth) {
+			health = newHealth;	
+		}
 		
 		/*
 		 sets a zombies health to zero when clicked, pushes zombie above screen 
@@ -206,6 +213,17 @@ $(document).ready(function(){
 		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
 	};
+	
+	
+	  function getZombieHealth() {
+		  return getHealth();	
+	  }
+	  
+	  function setZombieHealth(newHealth) {
+		  setHealth(newHealth);
+	  }
+	
+	
 	/*
 	random num helper for generate 
 	*/ 

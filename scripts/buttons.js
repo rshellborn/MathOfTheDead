@@ -32,6 +32,7 @@ function changeGun(gunType) {
 	  selectedGun = 4;
 	}
 	//alert(selectedGun);
+	//checkGun();
 }
 		
 $(document).ready(function() {

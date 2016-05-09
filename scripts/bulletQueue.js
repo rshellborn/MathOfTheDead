@@ -1,10 +1,13 @@
 	var bulletQueueValues = new Array(5);
+	var currentBullet = 1;
 
 	function generateQueue(){
 		for(i = 0; i < 5; i++){
 			bulletQueueValues[i] = Math.floor((Math.random() *21) - 10);  
 			document.getElementById("queue" + i).innerHTML = bulletQueueValues[i];
 		}
+		currentBullet = bulletQueueValues[0];
+		//alert(currentBullet);
 	}
 	
 	function addRandomBullet(){
@@ -14,7 +17,9 @@
 		bulletQueueValues.push(x);
 		for(i = 0; i < length; i++){
 			document.getElementById("queue" + i).innerHTML = bulletQueueValues[i];
-		}		
+		}
+		currentBullet = bulletQueueValues[0];
+		//alert(currentBullet);	
 	}
 	
 	function updateRandomBullet() {
