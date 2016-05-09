@@ -96,7 +96,7 @@ $(document).ready(function(){
 		zomHealthHolder.innerHTML = health;					
 
 		/*
-		taken from the ne  
+		taken from the net  
 		*/ 
 		function getPosition(el) {
 			var xPos = 0;
@@ -220,7 +220,7 @@ $(document).ready(function(){
 	}
 	
 	function diviOperation() {
-		health = health / currentBullet;
+		health = Math.ceil(health / currentBullet);
 		console.log("new health: " + health);
 	}
 		
