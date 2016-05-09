@@ -96,7 +96,7 @@ $(document).ready(function(){
 		zomHealthHolder.innerHTML = health;					
 
 		/*
-		taken from the ne  
+		taken from the net  
 		*/ 
 		function getPosition(el) {
 			var xPos = 0;
@@ -163,10 +163,6 @@ $(document).ready(function(){
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
-
-		this.ouch = function(){
-			zombieImage.style.color = "red";
-		}
 		/*
 		handler for onclick havoir, if zombie's health is 0, it dies
 		 else, health is changed
@@ -220,7 +216,7 @@ $(document).ready(function(){
 	}
 	
 	function diviOperation() {
-		health = health / currentBullet;
+		health = Math.ceil(health / currentBullet);
 		console.log("new health: " + health);
 	}
 		
