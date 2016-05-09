@@ -21,7 +21,7 @@ $(document).ready(function(){
 		/*
 		establish path for image
 		*/
-		zombieImage.setAttribute('src','images/zombies/zombie0.png'); 
+		zombieImage.setAttribute('src','images/easterEgg/purple0.png'); 
 		/*
 		attach image to doc body
 		*/
@@ -160,7 +160,7 @@ $(document).ready(function(){
 		*/
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
-			var imageName = "images/zombies/zombie" + imageNumber + ".png";
+			var imageName = "images/easterEgg/purple" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
 		/*
