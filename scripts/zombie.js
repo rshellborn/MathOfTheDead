@@ -27,7 +27,7 @@ $(document).ready(function(){
 		/*
 		attach image to doc body
 		*/
-		document.body.appendChild(zombieImage);  	
+		document.getElementById("lawn").appendChild(zombieImage);  	
 		/*
 		symbolically connects the image to the object
 		*/	           
@@ -39,11 +39,11 @@ $(document).ready(function(){
 		/*
 		img off screen to start
 		*/  
-		zombieImage.style.top = yPos + "px";           
+		zombieImage.style.top = yPos + "%";           
 		/*
 		xPos from param   
 		*/
-		zombieImage.style.left = xPos + "px";          
+		zombieImage.style.left = xPos + "%";          
 		/*
 		symbolically connects the image to the object
 		*/
@@ -55,19 +55,23 @@ $(document).ready(function(){
 		/*
 		img off screen to start
 		*/	    
-		zombieImage.style.top = yPos + "px";  
+		zombieImage.style.top = yPos + "%";  
 		/*
 		xPos from param   
 		*/          
-		zombieImage.style.left = xPos + "px";          
+		zombieImage.style.left = xPos + "%";
+		
+		//sets zombie size
+		zombieImage.style.height = "40%";
+		zombieImage.style.maxHeight = "150px";
 		/*
 		should be function call to bootstrap
 		*/ 
-		var zombieImageHeight = "300"; 
+		//var zombieImageHeight = "300"; 
 		/*
 		attaches div to body
 		*/
-		document.body.appendChild(zomHealthHolder);		
+		document.getElementById("lawn").appendChild(zomHealthHolder);		
 		/*
 		need this for movement
 		*/
@@ -75,11 +79,11 @@ $(document).ready(function(){
 		/*
 		text off screen to start
 		*/
-		zomHealthHolder.style.top = yPos + "px"; 			
+		zomHealthHolder.style.top = yPos + "%"; 			
 		/*
 		sets text over zombie
 		*/
-		zomHealthHolder.style.left = xPos + (zombieImageHeight / 2) + "px";	
+		zomHealthHolder.style.left = xPos + "%";	
 		/*
 		sets font color
 		*/
@@ -132,7 +136,7 @@ $(document).ready(function(){
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
 			var zomPos = getPosition(zombieImage);
-			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
+			if (dotPos.y <= zomPos.y){
 				return true;
 			} else {
 				return false; 
@@ -153,8 +157,8 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||");
 			} else {
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 2 + "px";
-				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 2 + "px";
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "%";
+				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "%";
 			}
 		} 
 		/*
@@ -259,13 +263,13 @@ $(document).ready(function(){
 	random num helper for yPos 
 	*/ 
 	function yRandom() {
-		return Math.floor((Math.random() * -250) -350);
+		return Math.floor((Math.random() * -50) -150);
 	}
 	/*
 	random num helper for xPos 
 	*/ 
 	function xRandom() {
-		return Math.floor((Math.random() * 700));
+		return Math.floor((Math.random() * 100));
 	}
 
 	/*
@@ -298,13 +302,12 @@ $(document).ready(function(){
 
 
 	/*
-	spawns 4 new zombies into game screen.
+	spawns 4 new zombies into game screen with a delay.
 	*/ 
 	// params health, xPos, zomNum, yPos
 	var i = 0;
 	var spawnNum = 3; 
 	for ( i = 0; i < spawnNum; i ++){
-		//setTimeout(generate(i),200000);
 		setTimeout(function() { generate(i) }, i * 10000); 
 	}
 });
