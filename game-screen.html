@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+  <link rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/zombie.js"></script>
   <script src="scripts/buttons.js"></script>
+  <script src="scripts/zombie.js"></script>
   <script src="scripts/bulletQueue.js"></script>
 </head>
 <body>
@@ -20,31 +20,36 @@
 			<div class="col-lg-2 col-xs-4 topBar" >Score: 500</div>
 
 				  
-			<div class="col-lg-1 col-lg-offset-3 col-xs-2 queue">
-            	<img src="images/Bullet.png" class="img-responsive" alt="Bullet">
+			<div class="col-lg-1 col-lg-offset-3 col-xs-2 queue" id="queue4">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue4">
+				</div>
             </div>
-			<div class="col-lg-1 col-xs-2 queue">
-            	<img src="images/Bullet.png" class="img-responsive" alt="Bullet">
+			<div class="col-lg-1 col-xs-2 queue" id="queue3">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue3">
+				</div>
             </div>
-			<div class="col-lg-1 col-xs-2 queue">
-            	<img src="images/Bullet.png" class="img-responsive" alt="Bullet">
+			<div class="col-lg-1 col-xs-2 queue" id="queue2">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue2">
+				</div>
             </div>
-			<div class="col-lg-1 col-xs-2 queue">
-            	<img src="images/Bullet.png" class="img-responsive" alt="Bullet">
+			<div class="col-lg-1 col-xs-2 queue" id="queue1">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue1">
+				</div>
             </div>
 			<a href="#curQueue">
-            	<div id="curQueue" class="col-lg-2 col-xs-4 currentQueue">
-                	<img src="images/Bullet.png" class="img-responsive" alt="Bullet">
+            	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
+                	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+					<div class="insideQueue" id="insideQueue0">
+					</div>
                 </div>
             </a>
             
-            <div class="col-lg-1 col-lg-offset-3 col-xs-2 queue" id="queue4"></div>
-			<div class="col-lg-1 col-xs-2 queue" id="queue3"></div>
-			<div class="col-lg-1 col-xs-2 queue" id="queue2"></div>
-			<div class="col-lg-1 col-xs-2 queue" id="queue1"></div>
-			<div class="col-lg-2 col-xs-4 currentQueue" id="queue0"></div>
 
-			<div class = "col-xs-12 lawns" id="lawn"></div>
+			<div class = "col-xs-12 lawns"></div>
 
     			<hr id="dottedLine">
 
