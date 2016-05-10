@@ -21,7 +21,7 @@ $(document).ready(function(){
 			
 		switch(chosen) {
 			  case 0: ponyImage = "purple";
-			  break;
+			  break;	
 			  case 1: ponyImage = "pink";
 			  break;	
 			  case 2: ponyImage = "orange";
@@ -164,7 +164,7 @@ $(document).ready(function(){
 				clearInterval(animateTimer);
 				animateTimer = null;
 				// causes screen to shake 
-				//$( "div" ).effect( "bounce", "slow" );
+				$( "div" ).effect( "bounce", "slow" );
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
