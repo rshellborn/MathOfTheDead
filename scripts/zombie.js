@@ -258,7 +258,8 @@ $(document).ready(function(){
 	random num helper for xPos 
 	*/ 
 	function xRandom() {
-		return Math.floor((Math.random() * 100));
+		//return Math.floor((Math.random() * 100));
+		return 25; 
 	}
 
 	/*
@@ -269,7 +270,7 @@ $(document).ready(function(){
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -200 );    
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );    
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
@@ -301,7 +302,7 @@ $(document).ready(function(){
 			if (i < spawnNum) {    
 				genLoop();        
 			}                     
-		}, 100)
+		}, 2000)
 	}
 	genLoop();                   
 });
