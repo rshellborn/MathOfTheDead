@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 	var genTimer = null;
+	var score = 0;
 	/*
 	 a zombie represented with health and a img on screen
 	 starts "walking" upon instantiation.
