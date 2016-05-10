@@ -228,7 +228,7 @@ $(document).ready(function(){
 		var fileref=document.createElement('script')
 		fileref.setAttribute("src", "scripts/pony.js");
 		document.getElementsByTagName("head")[0].appendChild(fileref);
-	}
+		}
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 50);  
 		animateTimer = setInterval(this.animate, 800);
@@ -245,13 +245,6 @@ $(document).ready(function(){
 		} else {
 			return out;
 		}
-	}
-	
-	/*
-	random num helper for yPos 
-	*/ 
-	function yRandom() {
-		return Math.floor((Math.random() * -10) -20);
 	}
 	
 	/*
@@ -297,7 +290,7 @@ $(document).ready(function(){
 	var spawnNum = 5; 
 	function genLoop() {           
 		setTimeout(function () {   
-			generate(i)		       
+			generate(i)  // generate with zombie id as param 		       
 			i++;                  
 			if (i < spawnNum) {    
 				genLoop();        
