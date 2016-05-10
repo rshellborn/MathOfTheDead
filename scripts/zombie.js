@@ -18,8 +18,9 @@ $(document).ready(function(){
 		this.zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
+		var speed = 1;
 		var health = health;
-		console.log("I'm zombie #" + zomNum + "current health: " + health)
+		console.log("I'm zombie #" + zomNum + " current health: " + health)
 
 		/*
 		establish path for image
@@ -105,7 +106,7 @@ $(document).ready(function(){
 		/*
 		taken from the net  
 		*/ 
-		function getPosition(el) {
+		/*function getPosition(el) {
 			var xPos = 0;
 			var yPos = 0;
 
@@ -129,16 +130,16 @@ $(document).ready(function(){
 				x: xPos,
 				y: yPos
 			};
-		} 
+		} */
 		
 		/*
 		taken from the net ENDS, returns true if image has caused game over 
 		*/
 		function atDotted() {
-			var dottedLine = document.getElementById('dottedLine');
+			/*var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
-			var zomPos = getPosition(zombieImage);
-			if (dotPos.y <= zomPos.y){
+			var zomPos = getPosition(zombieImage);*/
+			if (100 <= yPos){
 				return true;
 			} else {
 				return false; 
@@ -159,8 +160,8 @@ $(document).ready(function(){
 				//$( "div" ).effect( "bounce", "slow" );
 				console.log("||| G A M E O V E R |||");
 			} else {
-				this.animate;
-				yPos += 1;
+				//this.animate;
+				yPos += speed;
 				zombieImage.style.top = yPos + "%";
 				zomHealthHolder.style.top = yPos + "%";
 			}
@@ -250,11 +251,8 @@ $(document).ready(function(){
 		fileref.setAttribute("src", "scripts/pony.js");
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
-		
-		
-
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 120);  
+		moveTimer = setInterval(this.move, 80);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -303,22 +301,24 @@ $(document).ready(function(){
 	*/
 	function kill(zomNum) {
 		score += 5;
-		document.getElementById("score").textContent=("Score: " +score);
+		document.getElementById("score").textContent=("Score: " + score);
 		document.getElementById(zomNum).remove(); // one call to "zombie"
 		document.getElementById(zomNum).remove(); // another call to number container
 		zs[zomNum] = null; 						  // remove ref for garbage collection 
 	}
-
-
 	/*
-	spawns 4 new zombies into game screen with a delay.
+	Zombie gen loop
 	*/ 
-	// params health, xPos, zomNum, yPos
-	var i = 0;
-	var spawnNum = 3; 
-	for ( i = 0; i < spawnNum; i ++){
-		//setTimeout(generate(i),200000);
-		//setTimeout(function() { generate(i) }, i * 10000);
-		generate(i)		
+	var i = 1;                     
+	var spawnNum = 5; 
+	function genLoop() {           
+		setTimeout(function () {   
+			generate(i)		       
+			i++;                  
+			if (i < spawnNum) {    
+				genLoop();        
+			}                     
+		}, 3000)
 	}
+	genLoop();                   
 });
