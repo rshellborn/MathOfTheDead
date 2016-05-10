@@ -10,7 +10,6 @@ $(document).ready(function(){
 		var moveTimer = null;
 		var animateTimer = null;
 		var imageNumber = 0;
-		//var lawn = document.getElementById("lawn");
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
 
@@ -26,7 +25,7 @@ $(document).ready(function(){
 		/*
 		attach image to doc body
 		*/
-		document.getElementById("lawn").appendChild(zombieImage);  	
+		document.body.appendChild(zombieImage);  	
 		/*
 		symbolically connects the image to the object
 		*/	           
@@ -38,11 +37,11 @@ $(document).ready(function(){
 		/*
 		img off screen to start
 		*/  
-		zombieImage.style.top = yPos + "%";           
+		zombieImage.style.top = yPos + "px";           
 		/*
 		xPos from param   
 		*/
-		zombieImage.style.left = xPos + "%";          
+		zombieImage.style.left = xPos + "px";          
 		/*
 		should be function call to bootstrap
 		*/
@@ -58,7 +57,7 @@ $(document).ready(function(){
 		/*
 		img off screen to start
 		*/	    
-		zombieImage.style.top = yPos + "%";  
+		zombieImage.style.top = yPos + "px";  
 		/*
 		xPos from param   
 		*/          
@@ -70,7 +69,7 @@ $(document).ready(function(){
 		/*
 		attaches div to body
 		*/
-		document.getElementById("lawn").appendChild(zomHealthHolder);		
+		document.body.appendChild(zomHealthHolder);		
 		/*
 		need this for movement
 		*/
@@ -78,7 +77,7 @@ $(document).ready(function(){
 		/*
 		text off screen to start
 		*/
-		zomHealthHolder.style.top = yPos + "%"; 			
+		zomHealthHolder.style.top = yPos + "px"; 			
 		/*
 		sets text over zombie
 		*/
@@ -97,7 +96,7 @@ $(document).ready(function(){
 		zomHealthHolder.innerHTML = health;					
 
 		/*
-		taken from the net  
+		taken from the ne  
 		*/ 
 		function getPosition(el) {
 			var xPos = 0;
@@ -131,7 +130,7 @@ $(document).ready(function(){
 			var dottedLine = document.getElementById('dottedLine');
 			var dotPos = getPosition(dottedLine);
 			var zomPos = getPosition(zombieImage);
-			if (dotPos.y <= zomPos.y + parseInt(zombieImageHeight) ){
+			if (dotPos.y == zomPos.y + parseInt(zombieImageHeight) ){
 				return true;
 			} else {
 				return false; 
@@ -152,8 +151,8 @@ $(document).ready(function(){
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "%";
-				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "%";
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
+				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "px";
 			}
 		} 
 		/*
@@ -163,6 +162,10 @@ $(document).ready(function(){
 			imageNumber = (imageNumber + 1) % 2;
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
+		}
+
+		this.ouch = function(){
+			zombieImage.style.color = "red";
 		}
 		/*
 		handler for onclick havoir, if zombie's health is 0, it dies
@@ -217,28 +220,8 @@ $(document).ready(function(){
 	}
 	
 	function diviOperation() {
-		//trigger easter egg
-		if(currentBullet == 0) {
-			triggerEasterEgg();	
-		}
-		
-		health = Math.ceil(health / currentBullet);
+		health = health / currentBullet;
 		console.log("new health: " + health);
-	}
-	
-	function triggerEasterEgg() {
-		//INITIALIZING EASTER EGG
-		//changing css
-		var egg = document.getElementById("css");
-		egg.setAttribute('href', "css/easterEgg.css");
-		//changing script
-		//gets rid of zombie script
-		var c = document.getElementsByTagName('script');
-		c[3].parentElement.removeChild(c[3]);
-		//adds pony script
-		var fileref=document.createElement('script')
-		fileref.setAttribute("src", "scripts/pony.js");
-		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
 		
 		/*
@@ -248,16 +231,16 @@ $(document).ready(function(){
 		function kill() {
 			health = 0;
 			if(health == 0) {
-				zombieImage.style.top = "-350%";
+				zombieImage.style.top = "-350px";
 				health = Math.floor((Math.random() * 10) + 1);
-				zomHealthHolder.style.top = "-350%";
+				zomHealthHolder.style.top = "-350px";
 				zomHealthHolder.innerHTML = health;
 			}
 			console.log("Zombie #"+ i + " is (re)dead.");
 		}
 
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 120);         
+		moveTimer = setInterval(this.move, 80);         
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -266,7 +249,7 @@ $(document).ready(function(){
 	random num helper for generate 
 	*/ 
 	function yRandom() {
-		return Math.floor((Math.random() * -50) -150);
+		return Math.floor((Math.random() * -250) -350);
 	}
 
 	/*
