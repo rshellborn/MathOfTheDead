@@ -122,6 +122,26 @@ div.buttonHolder{
 	font-size: 3.0em;
 
 }
+
+<!-- modal stuff -->
+#myModal{
+	background: black;
+	text-align: center;
+}
+.modal-content{
+	background: black;	
+}
+.modal-title {
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+}
+
 @media only screen and (min-width : 1200px){
 	div.container{
 		max-height: 100%;

@@ -13,6 +13,34 @@
   <script src="scripts/bulletQueue.js"></script>
 </head>
 <body>
+	<!-- PAUSE MODAL THAT POPS UP -->
+	 <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" align="center">GAME PAUSED</h4>
+      </div>
+      <div class="modal-body">
+        <div class"text-center">
+          <button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
+          <br /><br />
+          <button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'game-screen.html';" >Restart</button>
+          <br /><br />
+          <button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'main-menu.html';">Main Menu</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- footer stuff -->
+      </div>
+    </div>
+    
+    </div>
+  </div>
+
+
 	<div class="container special">
 		<div class ="row specialrow">
 			<a href="#pause"><div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div></a>

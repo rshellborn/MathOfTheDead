@@ -143,7 +143,7 @@ $(document).ready(function(){
 				zombieImage.style.top = yPos + "%";
 				zomHealthHolder.style.top = yPos + "%";
 			}
-		} 
+		}
 		
 		/*
 		animates the image ie. makes it "walk"
