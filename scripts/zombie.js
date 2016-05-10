@@ -220,8 +220,28 @@ $(document).ready(function(){
 	}
 	
 	function diviOperation() {
+		if(currentBullet == 0) {
+			triggerEasterEgg();	
+		}
+		
 		health = health / currentBullet;
 		console.log("new health: " + health);
+	}
+	
+	
+	function triggerEasterEgg() {
+		//INITIALIZING EASTER EGG
+		//changing css
+		var egg = document.getElementById("css");
+		egg.setAttribute('href', "css/easterEgg.css");
+		//changing script
+		//gets rid of zombie script
+		var c = document.getElementsByTagName('script');
+		c[3].parentElement.removeChild(c[3]);
+		//adds pony script
+		var fileref=document.createElement('script')
+		fileref.setAttribute("src", "scripts/pony.js");
+		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
 		
 		/*
