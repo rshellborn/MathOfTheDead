@@ -61,6 +61,7 @@ $(document).ready(function(){
 		
 		//sets zombie size
 		zombieImage.style.height = "40%";
+		zombieImage.style.maxHeight = "150px";
 		/*
 		should be function call to bootstrap
 		*/ 
