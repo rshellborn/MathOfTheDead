@@ -42,7 +42,7 @@ function changeGun(gunType) {
 			theKeyPressed = e.which;
 		}
 		if(theKeyPressed == 32){
-			alert('Game Paused! Press Ok to continue slaying some zombies.');
+			//alert('Game Paused! Press Ok to continue slaying some zombies.');
 		} else if (theKeyPressed == 65) {
 			changeGun(1);
 		} else if (theKeyPressed == 83) {
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	var curQueue = document.getElementById("curQueue");
 	
 	pause.onclick = function() {
-		alert('Game Paused! Press Ok to continue slaying some zombies.');
+		//alert('Game Paused! Press Ok to continue slaying some zombies.');
 	}
 	plusGun.onclick = function(){
 		changeGun(1);
