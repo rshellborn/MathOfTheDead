@@ -148,7 +148,7 @@ $(document).ready(function(){
 				animateTimer = null;
 				// causes screen to shake 
 				//$( "div" ).effect( "bounce", "slow" );
-				console.log("--++== Game over, chicada. ==++--");
+				console.log("||| G A M E O V E R |||");
 			} else {
 				this.animate;
 				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
@@ -163,10 +163,6 @@ $(document).ready(function(){
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
-
-		this.ouch = function(){
-			zombieImage.style.color = "red";
-		}
 		/*
 		handler for onclick havoir, if zombie's health is 0, it dies
 		 else, health is changed
@@ -174,7 +170,6 @@ $(document).ready(function(){
 		this.hit = function(){
 			checkGun();
 			updateRandomBullet();
-			//health -= 1;          // TODO: get health + b-que to talk 
 			zomHealthHolder.innerHTML = health;
 			if (health == 0){
 				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
@@ -253,10 +248,22 @@ $(document).ready(function(){
 	
 	
 	/*
-	random num helper for generate 
+	random num helper for health 
+	*/ 
+	function healthRandom() {
+		return Math.floor((Math.random() * 10) + 1);
+	}
+	/*
+	random num helper for yPos 
 	*/ 
 	function yRandom() {
 		return Math.floor((Math.random() * -250) -350);
+	}
+	/*
+	random num helper for xPos 
+	*/ 
+	function xRandom() {
+		return Math.floor((Math.random() * 700));
 	}
 
 	/*
@@ -266,9 +273,12 @@ $(document).ready(function(){
 
 	function generate(i) {
 		// call to constr 
-		zs[i] = new Zombie(5, i * 200, i, yRandom());    
+		// params health, xPos, zomNum, yPos
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, yRandom());    
 		// onclick handel 
-		document.getElementById(i).onclick = zs[i].hit; 
+		document.getElementById(i).onclick = zs[i].hit;
+		// god mode auto kill (for testing)
+		document.getElementById(i).ondblclick=function(){kill(i)};
 
 	}
 	/*
@@ -281,6 +291,7 @@ $(document).ready(function(){
 		document.getElementById(zomNum).remove(); // another call to number container
 		zs[zomNum] = null; 						  // remove ref for garbage collection 
 	}
+
 
 	/*
 	spawns 4 new zombies into game screen.

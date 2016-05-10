@@ -102,7 +102,7 @@ $(document).ready(function(){
 		/*
 		sets font color
 		*/
-		zomHealthHolder.style.color = "red";		
+		zomHealthHolder.style.color = "white";		
 		/*
 
 		*/			
@@ -110,7 +110,11 @@ $(document).ready(function(){
 		/*
 		sets number to health
 		*/
-		zomHealthHolder.innerHTML = health;					
+		zomHealthHolder.innerHTML = health;
+		/* 
+		sets the div id of the health holder
+		*/ 
+		zomHealthHolder.setAttribute("id",zomNum);						
 
 		/*
 		taken from the net  
@@ -192,7 +196,7 @@ $(document).ready(function(){
 			if (health == 0){
 				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
 				$( "#" + zomNum ).toggle( "explode", "slow");
-				kill();	
+				kill(zomNum);	
 			} else {
 				// $( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("#"+ i + " hit w/ gun"+ selectedGun 
@@ -241,7 +245,6 @@ $(document).ready(function(){
 		console.log("new health: " + health);
 	}
 	
-	
 	function backToMainGame() {
 		//INITIALIZING EASTER EGG
 		//changing css
@@ -271,7 +274,7 @@ $(document).ready(function(){
 			}
 			console.log("Zombie #"+ i + " is (re)dead.");
 		}
-
+		
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
