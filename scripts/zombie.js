@@ -43,10 +43,6 @@ $(document).ready(function(){
 		*/
 		zombieImage.style.left = xPos + "px";          
 		/*
-		should be function call to bootstrap
-		*/
-		var zombieImageHeight = "300"; 
-		/*
 		symbolically connects the image to the object
 		*/
 		zombieImage.id = zomNum;		
@@ -93,10 +89,14 @@ $(document).ready(function(){
 		/*
 		sets number to health
 		*/
-		zomHealthHolder.innerHTML = health;					
+		zomHealthHolder.innerHTML = health;	
+		/* 
+		sets the div id of the health holder
+		*/ 
+		zomHealthHolder.setAttribute("id",zomNum);				
 
 		/*
-		taken from the ne  
+		taken from the net  
 		*/ 
 		function getPosition(el) {
 			var xPos = 0;
@@ -147,7 +147,7 @@ $(document).ready(function(){
 				clearInterval(animateTimer);
 				animateTimer = null;
 				// causes screen to shake 
-				$( "div" ).effect( "bounce", "slow" );
+				//$( "div" ).effect( "bounce", "slow" );
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
@@ -179,7 +179,7 @@ $(document).ready(function(){
 			if (health == 0){
 				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
 				$( "#" + zomNum ).toggle( "explode", "slow");
-				kill();	
+				kill(zomNum);	
 			} else {
 				// $( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("#"+ i + " hit w/ gun"+ selectedGun 
@@ -244,20 +244,7 @@ $(document).ready(function(){
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
 		
-		/*
-		 sets a zombies health to zero when clicked, pushes zombie above screen 
-		 a random new health value
-		*/
-		function kill() {
-			health = 0;
-			if(health == 0) {
-				zombieImage.style.top = "-350px";
-				health = Math.floor((Math.random() * 10) + 1);
-				zomHealthHolder.style.top = "-350px";
-				zomHealthHolder.innerHTML = health;
-			}
-			console.log("Zombie #"+ i + " is (re)dead.");
-		}
+		
 
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 80);         
@@ -283,6 +270,17 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit; 
 
+	}
+	/*
+	"kills" a zombie by removing all elements by id
+	note: currently two calls are required to kill the zombie 
+	and the health number because they share the same id. 
+	*/
+	function kill(zomNum) {
+		document.getElementById(zomNum).remove(); // one call to "zombie"
+		document.getElementById(zomNum).remove(); // another call to number container
+		zs[zomNum] = null; 						  // remove ref for garbage collection 
+		
 	}
 
 	/*
