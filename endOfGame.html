@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Game Screen</title>
+<title>Game Over Screen</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -9,14 +9,24 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/endOfGame.js"></script>
+  
   </head>
   <body>
-
-<div> <img  id="playAgain" src = "images/buttons/playAgain.png" alt ="again"></div>
-
-<div> <img  id="playAgain" src = "images/buttons/leaderboard.png" alt ="leader"> </div>
-
-<div> <img  id="playAgain" src = "images/buttons/mainMenu.png" alt ="menu"> </div>
-
-  </body>
-  </html>
+	<div class="container">
+		<div class="row specialrow">
+			<div class="col-xs-12 youDiedTitle">YOU DIED</div>
+			<div class="col-xs-12 empty"></div>
+			<div class="col-xs-8 col-xs-offset-2 buttonHolder">
+				<button type="button" class="btn btn-primary btn-lg sharp">Restart</button>
+			</div>
+			<div class="col-xs-8 col-xs-offset-2 buttonHolder">
+				<button type="button" class="btn btn-primary btn-lg sharp">Leaderboard</button>
+			</div>
+			<div class="col-xs-8 col-xs-offset-2 buttonHolder">
+				<button type="button" class="btn btn-primary btn-lg sharp">Main Menu</button>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
