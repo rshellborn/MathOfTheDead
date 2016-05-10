@@ -233,8 +233,28 @@ $(document).ready(function(){
 	}
 	
 	function diviOperation() {
-		health = Math.ceil(health / currentBullet);
+		if(currentBullet == 0) {
+			backToMainGame();	
+		}
+		
+		health = health / currentBullet;
 		console.log("new health: " + health);
+	}
+	
+	
+	function backToMainGame() {
+		//INITIALIZING EASTER EGG
+		//changing css
+		var egg = document.getElementById("css");
+		egg.setAttribute('href', "css/styles.css");
+		//changing script
+		//gets rid of zombie script
+		var c = document.getElementsByTagName('script');
+		c[5].parentElement.removeChild(c[5]);
+		//adds pony script
+		var fileref=document.createElement('script')
+		fileref.setAttribute("src", "scripts/zombie.js");
+		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
 		
 		/*
