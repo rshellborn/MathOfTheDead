@@ -53,6 +53,8 @@ function changeGun(gunType) {
 			changeGun(4);
 		} else if (theKeyPressed == 69) {
 			updateRandomBullet();
+		} else if (theKeyPressed == 49) {
+			document.location.href = 'endOfGame.html';
 		}
 	}
 
