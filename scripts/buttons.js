@@ -34,8 +34,30 @@ function changeGun(gunType) {
 	//alert(selectedGun);
 	//checkGun();
 }
-		
+	
+	function hotKeys(e) {
+		if(e.event){
+			theKeyPressed = e.keyCode;
+		}else if(e.which){
+			theKeyPressed = e.which;
+		}
+		if(theKeyPressed == 32){
+			alert('Game Paused! Press Ok to continue slaying some zombies.');
+		} else if (theKeyPressed == 65) {
+			changeGun(1);
+		} else if (theKeyPressed == 83) {
+			changeGun(2);
+		} else if (theKeyPressed == 68) {
+			changeGun(3);
+		} else if (theKeyPressed == 70) {
+			changeGun(4);
+		} else if (theKeyPressed == 69) {
+			updateRandomBullet();
+		}
+	}
+
 $(document).ready(function() {
+	window.onkeydown=hotKeys;
 	var plusGun = document.getElementById('plusGun');
 	var minusGun = document.getElementById('minusGun');
 	var multiGun = document.getElementById('multiGun');
@@ -53,6 +75,7 @@ $(document).ready(function() {
 	}
 	minusGun.onclick = function(){
 		changeGun(2);
+
 	}
 	multiGun.onclick = function(){
 		changeGun(3);
