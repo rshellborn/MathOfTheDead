@@ -20,7 +20,7 @@ $(document).ready(function(){
 		var yPos = yPos;
 		var speed = 0.5;
 		var health = health;
-		console.log("I'm zombie #" + zomNum + "current health: " + health)
+		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 
 		/*
 		establish path for image
@@ -73,7 +73,7 @@ $(document).ready(function(){
 		/*
 		sets font color
 		*/
-		zomHealthHolder.style.color = "red";		
+		zomHealthHolder.style.color = "White";		
 		/*
 
 		*/			
@@ -252,7 +252,7 @@ $(document).ready(function(){
 	*/ 
 	function xRandom() {
 		//return Math.floor((Math.random() * 100));
-		return 25; 
+		return Math.floor(Math.random() * 4)* 25; 
 	}
 
 	/*
@@ -287,7 +287,7 @@ $(document).ready(function(){
 	Zombie gen loop
 	*/
 	var i = 1;                     
-	var spawnNum = 5; 
+	var spawnNum = 15; 
 	function genLoop() {           
 		setTimeout(function () {   
 			generate(i)  // generate with zombie id as param 		       
@@ -295,7 +295,7 @@ $(document).ready(function(){
 			if (i < spawnNum) {    
 				genLoop();        
 			}                     
-		}, 2000)
+		}, 4000)
 	}
 	genLoop();                   
 });
