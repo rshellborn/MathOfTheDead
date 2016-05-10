@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 	var genTimer = null;
+	var score = 0;
 	/*
 	 a zombie represented with health and a img on screen
 	 starts "walking" upon instantiation.
@@ -278,7 +279,7 @@ $(document).ready(function(){
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, yRandom());    
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -200 );    
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
@@ -300,9 +301,11 @@ $(document).ready(function(){
 	/*
 	spawns 4 new zombies into game screen.
 	*/ 
+	// params health, xPos, zomNum, yPos
 	var i = 0;
-	genTimer = setInterval(generate(i++), 100);
-	genTimer = setInterval(generate(i++), 200);
-	genTimer = setInterval(generate(i++), 300);
-	genTimer = setInterval(generate(i++), 200);
+	var spawnNum = 3; 
+	for ( i = 0; i < spawnNum; i ++){
+		//setTimeout(generate(i),200000);
+		setTimeout(function() { generate(i) }, i * 10000); 
+	}
 });
