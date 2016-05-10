@@ -2,6 +2,7 @@
 $(document).ready(function(){
 	var genTimer = null;
 	var score = 0;
+	document.getElementById("score").textContent=("Score: " +score);
 	/*
 	 a zombie represented with health and a img on screen
 	 starts "walking" upon instantiation.
@@ -13,7 +14,6 @@ $(document).ready(function(){
 		var imageNumber = 0;
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
-		var scoreHolder = document.getElementById('score');
 
 		this.zomNum = zomNum;
 		var xPos = xPos;
@@ -303,6 +303,7 @@ $(document).ready(function(){
 	*/
 	function kill(zomNum) {
 		score += 5;
+		document.getElementById("score").textContent=("Score: " +score);
 		document.getElementById(zomNum).remove(); // one call to "zombie"
 		document.getElementById(zomNum).remove(); // another call to number container
 		zs[zomNum] = null; 						  // remove ref for garbage collection 
@@ -310,7 +311,7 @@ $(document).ready(function(){
 
 
 	/*
-	spawns 4 new zombies into game screen.
+	spawns 4 new zombies into game screen with a delay.
 	*/ 
 	// params health, xPos, zomNum, yPos
 	var i = 0;
