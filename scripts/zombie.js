@@ -152,8 +152,8 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||");
 			} else {
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "px";
-				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "px";
+				zombieImage.style.top = parseInt(zombieImage.style.top) + 2 + "px";
+				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 2 + "px";
 			}
 		} 
 		/*
@@ -275,7 +275,7 @@ $(document).ready(function(){
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, yRandom());    
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -200 );    
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
@@ -297,9 +297,11 @@ $(document).ready(function(){
 	/*
 	spawns 4 new zombies into game screen.
 	*/ 
+	// params health, xPos, zomNum, yPos
 	var i = 0;
-	genTimer = setInterval(generate(i++), 100);
-	genTimer = setInterval(generate(i++), 200);
-	genTimer = setInterval(generate(i++), 300);
-	genTimer = setInterval(generate(i++), 200);
+	var spawnNum = 3; 
+	for ( i = 0; i < spawnNum; i ++){
+		//setTimeout(generate(i),200000);
+		setTimeout(function() { generate(i) }, i * 10000); 
+	}
 });
