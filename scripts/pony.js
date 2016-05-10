@@ -6,10 +6,11 @@ $(document).ready(function(){
 	 starts "walking" upon instantiation.
 	 this whole thing is a constr. (no class needed b/c that's how js rolls)
 	 */
-	var Zombie = function(health, xPos, zomNum, yPos) {  
+	var Zombie = function(health, xPos, zomNum, yPos, chosen) {  
 		var moveTimer = null;
 		var animateTimer = null;
 		var imageNumber = 0;
+		var ponyImage;
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
 
@@ -17,11 +18,27 @@ $(document).ready(function(){
 		this.xPos = xPos;
 		this.yPos = yPos;
 		var health = health;
-
+			
+		switch(chosen) {
+			  case 0: ponyImage = "purple";
+			  break;	
+			  case 1: ponyImage = "pink";
+			  break;	
+			  case 2: ponyImage = "orange";
+			  break;	
+			  case 3: ponyImage = "pale";
+			  break;	
+			  case 4: ponyImage = "white";
+			  break;
+			  case 5: ponyImage = "blue";
+			  break;	
+		}
+		
 		/*
 		establish path for image
 		*/
-		zombieImage.setAttribute('src','images/easterEgg/purple0.png'); 
+		var setImage = "images/easterEgg/" + ponyImage + "0.png";
+		zombieImage.setAttribute('src', setImage); 
 		/*
 		attach image to doc body
 		*/
@@ -160,7 +177,7 @@ $(document).ready(function(){
 		*/
 		this.animate = function() {
 			imageNumber = (imageNumber + 1) % 2;
-			var imageName = "images/easterEgg/purple" + imageNumber + ".png";
+			var imageName = "images/easterEgg/" + ponyImage + "" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
 		/*
@@ -236,7 +253,7 @@ $(document).ready(function(){
 		}
 
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 80);         
+		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -254,11 +271,12 @@ $(document).ready(function(){
 	var zs = new Array();
 
 	function generate(i) {
-		// call to constr 
-		zs[i] = new Zombie(5, i * 200, i, yRandom());    
+		//selects pony image number
+		var chosen =  Math.floor((Math.random() * 5) + 0);
+		// call to constr
+		zs[i] = new Zombie(5, i * 200, i, yRandom(), chosen);    
 		// onclick handel 
-		document.getElementById(i).onclick = zs[i].hit; 
-
+		document.getElementById(i).onclick = zs[i].hit;
 	}
 
 	/*
