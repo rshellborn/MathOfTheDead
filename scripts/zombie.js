@@ -159,6 +159,7 @@ $(document).ready(function(){
 				// causes screen to shake 
 				//$( "div" ).effect( "bounce", "slow" );
 				console.log("||| G A M E O V E R |||");
+				document.location.href = 'endOfGame.html';
 			} else {
 				//this.animate;
 				yPos += speed;
@@ -261,7 +262,12 @@ $(document).ready(function(){
 	random num helper for health 
 	*/ 
 	function healthRandom() {
-		return Math.floor((Math.random() * 10) + 1);
+		var out = Math.floor((Math.random() * 10) + 1);
+		if ((Math.random() * 2) > 1) {
+			return out;
+		} else {
+			return (out * -1);
+		}
 	}
 	
 	/*
