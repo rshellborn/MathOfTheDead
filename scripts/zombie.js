@@ -251,9 +251,6 @@ $(document).ready(function(){
 		fileref.setAttribute("src", "scripts/pony.js");
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
-		
-		
-
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 80);  
 		animateTimer = setInterval(this.animate, 800);
@@ -304,22 +301,24 @@ $(document).ready(function(){
 	*/
 	function kill(zomNum) {
 		score += 5;
-		document.getElementById("score").textContent=("Score: " +score);
+		document.getElementById("score").textContent=("Score: " + score);
 		document.getElementById(zomNum).remove(); // one call to "zombie"
 		document.getElementById(zomNum).remove(); // another call to number container
 		zs[zomNum] = null; 						  // remove ref for garbage collection 
 	}
-
-
 	/*
-	spawns 4 new zombies into game screen with a delay.
+	Zombie gen loop
 	*/ 
-	// params health, xPos, zomNum, yPos
-	var i = 0;
-	var spawnNum = 3; 
-	for ( i = 0; i < spawnNum; i ++){
-		//setTimeout(generate(i),200000);
-		//setTimeout(function() { generate(i) }, i * 10000);
-		generate(i);		
+	var i = 1;                     
+	var spawnNum = 5; 
+	function genLoop() {           
+		setTimeout(function () {   
+			generate(i)		       
+			i++;                  
+			if (i < spawnNum) {    
+				genLoop();        
+			}                     
+		}, 3000)
 	}
+	genLoop();                   
 });
