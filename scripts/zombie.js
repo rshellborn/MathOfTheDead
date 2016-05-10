@@ -13,6 +13,7 @@ $(document).ready(function(){
 		var imageNumber = 0;
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
+		var scoreHolder = document.getElementById('score');
 
 		this.zomNum = zomNum;
 		this.xPos = xPos;
@@ -247,7 +248,7 @@ $(document).ready(function(){
 		
 
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 80);         
+		moveTimer = setInterval(this.move, 80);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -292,6 +293,7 @@ $(document).ready(function(){
 	and the health number because they share the same id. 
 	*/
 	function kill(zomNum) {
+		score += 5;
 		document.getElementById(zomNum).remove(); // one call to "zombie"
 		document.getElementById(zomNum).remove(); // another call to number container
 		zs[zomNum] = null; 						  // remove ref for garbage collection 
