@@ -168,7 +168,7 @@ $(document).ready(function(){
 				clearInterval(animateTimer);
 				animateTimer = null;
 				// causes screen to shake 
-				$( "div" ).effect( "bounce", "slow" );
+				//$( "div" ).effect( "bounce", "slow" );
 				console.log("--++== Game over, chicada. ==++--");
 			} else {
 				this.animate;
@@ -237,9 +237,44 @@ $(document).ready(function(){
 	}
 	
 	function diviOperation() {
-		health = Math.ceil(health / currentBullet);
+		if(currentBullet == 0) {
+			backToMainGame();	
+		}
+		
+		health = health / currentBullet;
 		console.log("new health: " + health);
 	}
+	
+	function backToMainGame() {
+		//INITIALIZING EASTER EGG
+		//changing css
+		var egg = document.getElementById("css");
+		egg.setAttribute('href', "css/styles.css");
+		//changing script
+		//gets rid of zombie script
+		var c = document.getElementsByTagName('script');
+		c[5].parentElement.removeChild(c[5]);
+		//adds pony script
+		var fileref=document.createElement('script')
+		fileref.setAttribute("src", "scripts/zombie.js");
+		document.getElementsByTagName("head")[0].appendChild(fileref);
+	}
+		
+		/*
+		 sets a zombies health to zero when clicked, pushes zombie above screen 
+		 a random new health value
+		*/
+		function kill() {
+			health = 0;
+			if(health == 0) {
+				zombieImage.style.top = "-350px";
+				health = Math.floor((Math.random() * 10) + 1);
+				zomHealthHolder.style.top = "-350px";
+				zomHealthHolder.innerHTML = health;
+			}
+			console.log("Zombie #"+ i + " is (re)dead.");
+		}
+		
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
