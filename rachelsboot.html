@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+  <title>Game Screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+  <link rel = "stylesheet" type = "text/css"  href = "css/rachel.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container" style="border: 1px solid">
+		<div class ="row">
+			<div class ="row">
+				 <div class ="row">
+				  <div class="col-xs-2 col-xs-offset-3 topBar pauseButton" >Pause</div>
+				  <div class="col-xs-2 topBar" >Wave 1</div>
+				  <div class="col-xs-2 topBar" >Score: 500</div>
+				</div>
+			</div>
+			<div class = "row">  
+			  <div class="col-xs-1 col-xs-offset-3 queue">7</div>
+			  <div class="col-xs-1 queue">0</div>
+			  <div class="col-xs-1 queue">5</div>
+			  <div class="col-xs-1 queue">-2</div>
+			  <div class="col-xs-2 currentQueue">9</div>
+			</div>
+			<div class = "row">  
+				 <div class = "col-xs-12 lawns" style="min-height: 400px;">
+				 </div>
+			 </div>
+			 <div class = "row">
+				 <div class="col-xs-6 col-xs-offset-3 gunsBar">
+					<div class = "row">
+						<div class = "col-xs-3 guns">
+							<a id="plusGun" class="clicked" href="#plus"><img src="images/guns/PlusGun.png" class="img-responsive" alt="Plus Gun"></a>
+						</div>
+						<div class="col-xs-3 guns">
+							<a id="minusGun" class="clickable" href="#minus"><img src="images/guns/MinusGun.png" class="img-responsive" alt="Minus Gun"></a>
+						</div>
+						<div class="col-xs-3 guns">
+							<a id="multiGun" class="clickable" href="#multiplication"><img src="images/guns/MultiGun.png" class="img-responsive" alt="Multi Gun"></a>
+						</div>
+						<div class="col-xs-3 guns">
+							<a id="diviGun" class="clickable" href="#division"><img src="images/guns/DivisionGun.png" class="img-responsive" alt="Division Gun"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
