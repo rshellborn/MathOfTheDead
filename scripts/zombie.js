@@ -16,9 +16,10 @@ $(document).ready(function(){
 		var scoreHolder = document.getElementById('score');
 
 		this.zomNum = zomNum;
-		this.xPos = xPos;
-		this.yPos = yPos;
+		var xPos = xPos;
+		var yPos = yPos;
 		var health = health;
+		console.log("I'm zombie #" + zomNum + "current health: " + health)
 
 		/*
 		establish path for image
@@ -129,6 +130,7 @@ $(document).ready(function(){
 				y: yPos
 			};
 		} 
+		
 		/*
 		taken from the net ENDS, returns true if image has caused game over 
 		*/
@@ -142,6 +144,7 @@ $(document).ready(function(){
 				return false; 
 			} 
 		} 
+		
 		/*
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
@@ -157,10 +160,12 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||");
 			} else {
 				this.animate;
-				zombieImage.style.top = parseInt(zombieImage.style.top) + 1 + "%";
-				zomHealthHolder.style.top = parseInt(zombieImage.style.top) + 1 + "%";
+				yPos += 1;
+				zombieImage.style.top = yPos + "%";
+				zomHealthHolder.style.top = yPos + "%";
 			}
 		} 
+		
 		/*
 		animates the image ie. makes it "walk"
 		*/
@@ -169,6 +174,7 @@ $(document).ready(function(){
 			var imageName = "images/zombies/zombie" + imageNumber + ".png";
 			zombieImage.setAttribute('src', imageName);
 		}
+		
 		/*
 		handler for onclick havoir, if zombie's health is 0, it dies
 		 else, health is changed
@@ -248,7 +254,7 @@ $(document).ready(function(){
 		
 
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 80);  
+		moveTimer = setInterval(this.move, 120);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -259,12 +265,14 @@ $(document).ready(function(){
 	function healthRandom() {
 		return Math.floor((Math.random() * 10) + 1);
 	}
+	
 	/*
 	random num helper for yPos 
 	*/ 
 	function yRandom() {
-		return Math.floor((Math.random() * -50) -150);
+		return Math.floor((Math.random() * -10) -20);
 	}
+	
 	/*
 	random num helper for xPos 
 	*/ 
@@ -287,6 +295,7 @@ $(document).ready(function(){
 		document.getElementById(i).ondblclick=function(){kill(i)};
 
 	}
+	
 	/*
 	"kills" a zombie by removing all elements by id
 	note: currently two calls are required to kill the zombie 
@@ -308,6 +317,7 @@ $(document).ready(function(){
 	var spawnNum = 3; 
 	for ( i = 0; i < spawnNum; i ++){
 		//setTimeout(generate(i),200000);
-		setTimeout(function() { generate(i) }, i * 10000); 
+		//setTimeout(function() { generate(i) }, i * 10000);
+		generate(i)		
 	}
 });
