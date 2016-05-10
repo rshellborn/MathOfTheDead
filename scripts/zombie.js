@@ -18,6 +18,7 @@ $(document).ready(function(){
 		this.zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
+		var speed = 0.5;
 		var health = health;
 		console.log("I'm zombie #" + zomNum + "current health: " + health)
 
@@ -89,7 +90,7 @@ $(document).ready(function(){
 		/*
 		taken from the net  
 		*/ 
-		function getPosition(el) {
+		/*function getPosition(el) {
 			var xPos = 0;
 			var yPos = 0;
 
@@ -113,20 +114,13 @@ $(document).ready(function(){
 				x: xPos,
 				y: yPos
 			};
-		} 
+		}*/
 		
 		/*
 		taken from the net ENDS, returns true if image has caused game over 
 		*/
 		function atDotted() {
-			var dottedLine = document.getElementById('dottedLine');
-			var dotPos = getPosition(dottedLine);
-			var zomPos = getPosition(zombieImage);
-			if (dotPos.y <= zomPos.y){
-				return true;
-			} else {
-				return false; 
-			} 
+			return yPos >= 100;
 		} 
 		
 		/*
@@ -142,9 +136,10 @@ $(document).ready(function(){
 				// causes screen to shake 
 				//$( "div" ).effect( "bounce", "slow" );
 				console.log("||| G A M E O V E R |||");
+				document.location.href = 'endOfGame.html';
 			} else {
 				this.animate;
-				yPos += 1;
+				yPos += speed;
 				zombieImage.style.top = yPos + "%";
 				zomHealthHolder.style.top = yPos + "%";
 			}
@@ -235,7 +230,7 @@ $(document).ready(function(){
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 120);  
+		moveTimer = setInterval(this.move, 50);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -244,7 +239,12 @@ $(document).ready(function(){
 	random num helper for health 
 	*/ 
 	function healthRandom() {
-		return Math.floor((Math.random() * 10) + 1);
+		out = Math.floor((Math.random() * 10) + 1);
+		if ((Math.random() * 2) > 1) {
+			return out * -1;
+		} else {
+			return out;
+		}
 	}
 	
 	/*
@@ -301,7 +301,7 @@ $(document).ready(function(){
 			if (i < spawnNum) {    
 				genLoop();        
 			}                     
-		}, 3000)
+		}, 100)
 	}
 	genLoop();                   
 });
