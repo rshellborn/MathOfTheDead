@@ -280,7 +280,6 @@ $(document).ready(function(){
 		document.getElementById(zomNum).remove(); // one call to "zombie"
 		document.getElementById(zomNum).remove(); // another call to number container
 		zs[zomNum] = null; 						  // remove ref for garbage collection 
-		
 	}
 
 	/*

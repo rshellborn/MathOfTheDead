@@ -278,6 +278,17 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 	}
+	
+	/*
+	"kills" a zombie by removing all elements by id
+	note: currently two calls are required to kill the zombie 
+	and the health number because they share the same id. 
+	*/
+	function kill(zomNum) {
+		document.getElementById(zomNum).remove(); // one call to "zombie"
+		document.getElementById(zomNum).remove(); // another call to number container
+		zs[zomNum] = null; 						  // remove ref for garbage collection 
+	}
 
 	/*
 	spawns 4 new zombies into game screen.
