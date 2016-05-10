@@ -259,22 +259,6 @@ $(document).ready(function(){
 		fileref.setAttribute("src", "scripts/zombie.js");
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
-		
-		/*
-		 sets a zombies health to zero when clicked, pushes zombie above screen 
-		 a random new health value
-		*/
-		function kill() {
-			health = 0;
-			if(health == 0) {
-				zombieImage.style.top = "-350px";
-				health = Math.floor((Math.random() * 10) + 1);
-				zomHealthHolder.style.top = "-350px";
-				zomHealthHolder.innerHTML = health;
-			}
-			console.log("Zombie #"+ i + " is (re)dead.");
-		}
-		
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
@@ -300,6 +284,8 @@ $(document).ready(function(){
 		zs[i] = new Zombie(5, i * 200, i, yRandom(), chosen);    
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
+		// god mode auto kill (for testing)
+		document.getElementById(i).ondblclick=function(){kill(i)};
 	}
 	
 	/*
@@ -314,11 +300,12 @@ $(document).ready(function(){
 	}
 
 	/*
-	spawns 4 new zombies into game screen.
+	spawns 4 new zombies into game screen with a delay.
 	*/ 
+	// params health, xPos, zomNum, yPos
 	var i = 0;
-	genTimer = setInterval(generate(i++), 100);
-	genTimer = setInterval(generate(i++), 200);
-	genTimer = setInterval(generate(i++), 300);
-	genTimer = setInterval(generate(i++), 200);
+	var spawnNum = 3; 
+	for ( i = 0; i < spawnNum; i ++){
+		setTimeout(function() { generate(i) }, i * 10000); 
+	}
 });

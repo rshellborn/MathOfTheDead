@@ -294,13 +294,12 @@ $(document).ready(function(){
 
 
 	/*
-	spawns 4 new zombies into game screen.
+	spawns 4 new zombies into game screen with a delay.
 	*/ 
 	// params health, xPos, zomNum, yPos
 	var i = 0;
 	var spawnNum = 3; 
 	for ( i = 0; i < spawnNum; i ++){
-		//setTimeout(generate(i),200000);
 		setTimeout(function() { generate(i) }, i * 10000); 
 	}
 });
