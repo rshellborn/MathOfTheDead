@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+  <title>Game Screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="jquery.colorbox.js"></script>
+  <script type="text/javascript" src="jquery.uilock.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="scripts/zombie.js"></script>
+  <script src="scripts/buttons.js"></script>
+  <script src="scripts/bulletQueue.js"></script>
+  
+  <!-- testing color box -->
+	<!--<script>
+		$(document).ready(function(){
+			$(".inline").colorbox({inline:true, width:"50%"});
+  		});
+		
+		
+	</script>-->
+  
+	<Script>
+	//function to open url a new window/tab
+	function load_url(url) {
+	var load = window.open(url);
+	}
+	// -->
+	</Script>
+		
+	<script>
+	//function to show the countdown in seconds until the web page is unfrozen (active) again
+	 function do_countdown(duration) {
+	 //10 seconds fix
+	 start_num = duration;
+	 var countdown_output = document.getElementById('countdown_div');
+
+	 if (start_num > 0) {
+	 countdown_output.innerHTML = format_as_time(start_num);
+	 var t=setTimeout("update_clock(\"countdown_div\", "+start_num+")", 1000);
+	 }
+
+	 return false;
+	 }
+
+	//helper function to update the timer on the web page this is frozen
+	 function update_clock(countdown_div, new_value) {
+	 var countdown_output = document.getElementById(countdown_div);
+	 var new_value = new_value - 1;
+
+	 if (new_value > 0) {
+	 new_formatted_value = format_as_time(new_value);
+	 countdown_output.innerHTML = new_formatted_value;
+
+	 var t=setTimeout("update_clock(\"countdown_div\", "+new_value+")", 1000);
+	 } else {
+		//finish!
+		countdown_output.innerHTML = "";
+		$('#countdown_box').hide();
+		
+		//unlock UI
+		$.uiUnlock();
+		
+		//perform anything here after the web page is unfrozen
+	 }
+	 }
+
+	//helper function to calculate the time (seconds) remaining as minutes and seconds
+	 function format_as_time(seconds) {
+	 var minutes = parseInt(seconds/60);
+	 var seconds = seconds - (minutes*60);
+
+	 if (minutes < 10) {
+	 minutes = "0"+minutes;
+	 }
+
+	 if (seconds < 10) {
+	 seconds = "0"+seconds;
+	 }
+
+	 var return_var = minutes+':'+seconds;
+
+	 return return_var;
+	 }
+	 </script>
+	 
+	 <script>
+	//main function to load the new website and start the countdown
+	  function view_blog_countdown(blog_url, duration) {
+				load_url(blog_url);
+				$('#countdown_box').show(); //countdown
+				$('#countdown_title').html(blog_url);
+				$.uiLock('');
+				//alert(duration);
+				//performs countdown then unlocks
+				do_countdown(duration);
+	  }
+	 </script>
+		
+	<script>
+		//funciton to initialise a click event for the webpage buttons
+		$(document).ready(function() {
+			$('#lock').click(function(){
+				
+				//show content
+				$('#countdown_box').show(); //countdown
+				
+				//lock interface
+				$.uiLock('');
+				
+				//start the countdown (unlocks interface at end)
+				do_countdown();
+				
+			});
+			
+			//Initial settings
+			$('#countdown_box').hide();
+			
+		});
+	</script> 
+  
+  
+  
+</head>
+<body>
+<p><a class='inline' href="#inline_content">Inline HTML</a></p>
+  <input type="button" onclick="javascript:view_blog_countdown('','3')" value="View - http://jquery4u.com (3 sec timer)" /><br />
+ <input type="button" onclick="javascript:view_blog_countdown('','10')" value="View - http://blogoola.com (10 sec timer)" /><br />
+	<div class="container special">
+		<div class ="row specialrow">
+			<a href="#pause"><div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div></a>
+			<div class="col-lg-2 col-xs-4 topBar" >Wave 1</div>
+			<div id="score" class="col-lg-2 col-xs-4 topBar" ></div>
+
+				  
+			<div class="col-lg-1 col-lg-offset-3 col-xs-2 queue" id="queue4">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue4">
+				</div>
+            </div>
+			<div class="col-lg-1 col-xs-2 queue" id="queue3">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue3">
+				</div>
+            </div>
+			<div class="col-lg-1 col-xs-2 queue" id="queue2">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue2">
+				</div>
+            </div>
+			<div class="col-lg-1 col-xs-2 queue" id="queue1">
+            	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+				<div class="insideQueue" id="insideQueue1">
+				</div>
+            </div>
+			<a href="#curQueue">
+            	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
+                	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+					<div class="insideQueue" id="insideQueue0">
+					</div>
+                </div>
+            </a>
+            
+
+			<div class = "col-xs-12 lawns" id="lawn"></div>
+
+    			<hr id="dottedLine">
+
+			 	<div class="col-lg-6 col-lg-offset-3 col-xs-12 gunsBar">
+             
+				<div id="plusGun" class="col-xs-3 guns clicked">
+					<a href="#plus"><img src="images/guns/plusGun.png" class="img-responsive" alt="Plus Gun"></a>
+				</div>
+				<div id="minusGun" class="col-xs-3 guns">
+					<a href="#minus"><img src="images/guns/subGun.png" class="img-responsive" alt="Minus Gun"></a>
+				</div>
+				<div id="multiGun" class="col-xs-3 guns">
+					<a href="#multiplication"><img src="images/guns/multiGun.png" class="img-responsive" alt="Multi Gun"></a>
+				</div>
+				<div id="diviGun" class="col-xs-3 guns">
+					<a href="#division"><img src="images/guns/diviGun.png" class="img-responsive" alt="Division Gun"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- testing color box -->
+    <div style='display:none'>
+			<div id='inline_content' style='padding:10px; background:#fff;'>
+			<p><strong>This content comes from a hidden element on this page.</strong></p>
+			<p>The inline option preserves bound JavaScript events and changes, and it puts the content back where it came from when it is closed.</p>
+			<p><a id="click" href="#" style='padding:5px; background:#ccc;'>Click me, it will be preserved!</a></p>
+			
+			<p><strong>If you try to open a new Colorbox while it is already open, it will update itself with the new content.</strong></p>
+			<p>Updating Content Example:<br />
+			<a class="ajax" href="../content/ajax.html">Click here to load new content</a></p>
+			</div>
+		</div>
+        
+        
+</body>
+</html>

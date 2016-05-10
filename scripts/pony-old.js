@@ -10,6 +10,7 @@ $(document).ready(function(){
 		var moveTimer = null;
 		var animateTimer = null;
 		var imageNumber = 0;
+		var ponyImage;
 		var zombieImage = document.createElement("img");
 		var zomHealthHolder = document.createElement("div");
 
@@ -17,10 +18,7 @@ $(document).ready(function(){
 		this.xPos = xPos;
 		this.yPos = yPos;
 		var health = health;
-		
-		//PONY STUFF HERE 
-		
-		var ponyImage;
+			
 		switch(chosen) {
 			  case 0: ponyImage = "purple";
 			  break;	
@@ -36,39 +34,11 @@ $(document).ready(function(){
 			  break;	
 		}
 		
-		function diviOperation() {
-		if(currentBullet == 0) {
-			backToMainGame();	
-		}
-		
-		health = health / currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function backToMainGame() {
-		//INITIALIZING EASTER EGG
-		//changing css
-		var egg = document.getElementById("css");
-		egg.setAttribute('href', "css/styles.css");
-		//changing script
-		//gets rid of zombie script
-		var c = document.getElementsByTagName('script');
-		c[5].parentElement.removeChild(c[5]);
-		//adds pony script
-		var fileref=document.createElement('script')
-		fileref.setAttribute("src", "scripts/zombie.js");
-		document.getElementsByTagName("head")[0].appendChild(fileref);
-	}
-		
 		/*
 		establish path for image
 		*/
 		var setImage = "images/easterEgg/" + ponyImage + "0.png";
 		zombieImage.setAttribute('src', setImage); 
-		
-		//PONY STUFF ENDS HERE
-		
-		
 		/*
 		attach image to doc body
 		*/
@@ -266,7 +236,29 @@ $(document).ready(function(){
 		console.log("new health: " + health);
 	}
 	
+	function diviOperation() {
+		if(currentBullet == 0) {
+			backToMainGame();	
+		}
+		
+		health = health / currentBullet;
+		console.log("new health: " + health);
+	}
 	
+	function backToMainGame() {
+		//INITIALIZING EASTER EGG
+		//changing css
+		var egg = document.getElementById("css");
+		egg.setAttribute('href', "css/styles.css");
+		//changing script
+		//gets rid of zombie script
+		var c = document.getElementsByTagName('script');
+		c[5].parentElement.removeChild(c[5]);
+		//adds pony script
+		var fileref=document.createElement('script')
+		fileref.setAttribute("src", "scripts/zombie.js");
+		document.getElementsByTagName("head")[0].appendChild(fileref);
+	}
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 20);         
 		animateTimer = setInterval(this.animate, 800);
