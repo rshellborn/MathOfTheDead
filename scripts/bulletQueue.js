@@ -30,6 +30,7 @@
 	}
 	
 	$(document).ready(function() {
+	generateQueue();
 	var queue = document.getElementById('queue0');
 	
 	queue.onclick = function() {
