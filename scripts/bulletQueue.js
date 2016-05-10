@@ -4,7 +4,7 @@
 	function generateQueue(){
 		for(i = 0; i < 5; i++){
 			bulletQueueValues[i] = Math.floor((Math.random() *21) - 10);  
-			document.getElementById("queue" + i).innerHTML = bulletQueueValues[i];
+			document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 		}
 		currentBullet = bulletQueueValues[0];
 		//alert(currentBullet);
@@ -16,24 +16,33 @@
 		bulletQueueValues.shift();
 		bulletQueueValues.push(x);
 		for(i = 0; i < length; i++){
-			document.getElementById("queue" + i).innerHTML = bulletQueueValues[i];
+			document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 		}
 		currentBullet = bulletQueueValues[0];
 		//alert(currentBullet);	
 	}
 	
 	function updateRandomBullet() {
-		if(bulletQueueValues[0] == undefined){
-			generateQueue();
-		}
 		addRandomBullet();
 	}
 	
-	$(document).ready(function() {
-	generateQueue();
-	var queue = document.getElementById('queue0');
+	function formatPosition(){
+		var queue;
+		for(i = 0; i < length; i++){
+			queue = document.getElementById("insideQueue" + i);
+			queue.style.position = "absolute";
+			queue.style.top = "150px";
+			queue.style.left = "20px"; 
+			queue.style.width = "100%"; 
+		}
+	}
 	
+	$(document).ready(function() {
+	var queue = document.getElementById('queue0');
+	generateQueue();
+	currentBullet = bulletQueueValues[0];
 	queue.onclick = function() {
 		updateRandomBullet();
+		//formatPosition();
 	}
 });
