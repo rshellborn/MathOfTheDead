@@ -259,6 +259,12 @@ $(document).ready(function(){
 	function yRandom() {
 		return Math.floor((Math.random() * -250) -350);
 	}
+	/*
+	random num helper for xPos 
+	*/ 
+	function xRandom() {
+		return Math.floor((Math.random() * 700));
+	}
 
 	/*
 	generates zombies 
@@ -268,7 +274,7 @@ $(document).ready(function(){
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), i * 200, i, yRandom());    
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, yRandom());    
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
