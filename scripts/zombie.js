@@ -256,15 +256,10 @@ $(document).ready(function(){
 	var generator;
 	function genLoop() {
 		console.log('in gen');
+		//if not paused
 		if(paused == 0) {
-			console.log('starting');
-		  setTimeout(function () { 
-			generate(i)  // generate with zombie id as param   
-			i++;                  
-			if (i < spawnNum && paused == 0) {    
-					genLoop();       
-			}                     
-		  }, 4000)
+			console.log('starting generation');
+		  generator = setTimeout(spawn, 4000)
 		} else {
 			stopGen();
 		}
@@ -281,11 +276,17 @@ $(document).ready(function(){
 		  generate(i)  // generate with zombie id as param   
 		  i++;                  
 		  if (i < spawnNum) {    
-				  genLoop();        
+			genLoop();      
 		  }                     
 		}, 4000)
 	}
-	genLoop();  // auto call 
+	
+	function spawn() {
+		if (i < spawnNum) {  
+		  generate(i)  // generate with zombie id as param   
+		  i++; 
+		}
+	}
 
 	
 	function nextWave() {
