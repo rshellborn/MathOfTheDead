@@ -9,84 +9,52 @@ $(document).ready(function(){
 	 this whole thing is a constr. (no class needed b/c that's how js rolls)
 	 */
 	var Zombie = function(health, xPos, zomNum, yPos) {  
-		var moveTimer = null;
-		var animateTimer = null;
-		var imageNumber = 0;
-		var zombieImage = document.createElement("img");
-		var zomHealthHolder = document.createElement("div");
-
+		
+		//assigning arguments to variables
 		this.zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.04;
+		var speed = 0.4;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
-
-		/*
-		establish path for image
-		*/
-		zombieImage.setAttribute('src','images/zombies/zombie0.png'); 
-		/*
-		attach image to doc body
-		*/
-		document.getElementById("lawn").appendChild(zombieImage);  	
-		/*
-		symbolically connects the image to the object
-		*/	           
-		zombieImage.id = zomNum;	
-		/*
-		need this or no movement
-		*/			
-		zombieImage.style.position = "absolute" 	 
-		/*
-		img off screen to start
-		*/  
-		zombieImage.style.top = yPos + "%";           
-		/*
-		xPos from param   
-		*/
-		zombieImage.style.left = xPos + "%";          		  
 		
-		//sets zombie size
-		zombieImage.style.height = "40%";
-		zombieImage.style.maxHeight = "150px";
-		/*
-		should be function call to bootstrap
-		*/ 
-		//var zombieImageHeight = "300"; 
-		/*
-		attaches div to body
-		*/
-		document.getElementById("lawn").appendChild(zomHealthHolder);		
-		/*
-		need this for movement
-		*/
-		zomHealthHolder.style.position = "absolute";		
-		/*
-		text off screen to start
-		*/
-		zomHealthHolder.style.top = yPos + "%"; 			
-		/*
-		sets text over zombie
-		*/
-		zomHealthHolder.style.left = xPos + "%";	
-		/*
-		sets font color
-		*/
-		zomHealthHolder.style.color = "White";		
-		/*
-
-		*/			
-		zomHealthHolder.style.fontSize = "200%";
-		/*
-		sets number to health
-		*/
-		zomHealthHolder.innerHTML = health;	
-		/* 
-		sets the div id of the health holder
-		*/ 
-		zomHealthHolder.setAttribute("id",zomNum);				
-
+		//declaring variables for movement/animation
+		var moveTimer = null;
+		var animateTimer = null;
+		var imageNumber = 0;
+		
+		//initializing variables for zombie visuals
+		var zombieImage = document.createElement("img");
+		var zombieHolder = document.createElement("div");
+		var zombieHealthText = document.createElement("div");
+		
+		//creating health visualizer
+		zombieHealthText.innerHTML = health;
+		zombieHealthText.style.textAlign = "center";
+		zombieHealthText.style.color = "White";
+		zombieHealthText.style.fontSize = "200%";
+		
+		//zombie image data
+		zombieImage.src = "images/zombies/zombie0.png"; 
+		zombieImage.id = zomNum; 
+		
+		//div to hold health text and zombie image
+		zombieHolder.height = "40%";
+		zombieHolder.maxHeight = "150px";
+		zombieHolder.style.position = "absolute";
+		zombieHolder.style.top = yPos + "%"; 
+		zombieHolder.style.left = xPos + "%";
+		zombieHolder.id = zomNum;
+		
+		//adding health text and zombie image to zombieHolder
+		zombieHolder.appendChild(zombieHealthText);
+		zombieHolder.appendChild(zombieImage);	
+		
+		//adding zombieHolder to screen
+		document.getElementById("lawn").appendChild(zombieHolder);
+		
+		console.log(zombieHolder.style.width);
+		
 		/*
 		taken from the net  
 		*/ 
@@ -117,7 +85,7 @@ $(document).ready(function(){
 		}*/
 		
 		/*
-		taken from the net ENDS, returns true if image has caused game over 
+		returns true if zombie has caused game over 
 		*/
 		function atDotted() {
 			return yPos >= 100;
@@ -127,7 +95,7 @@ $(document).ready(function(){
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
 		this.move = function() {
-			console.log(yPos);
+			//console.log(yPos);
 			if (atDotted()){
 				// clears the animation and movement 
 				clearInterval(moveTimer);
@@ -141,8 +109,8 @@ $(document).ready(function(){
 			} else {
 				this.animate;
 				yPos += speed;
-				zombieImage.style.top = yPos + "%";
-				zomHealthHolder.style.top = yPos + "%";
+				//zombieImage.style.top = yPos + "%";
+				zombieHolder.style.top = yPos + "%";
 			}
 		} 
 		
@@ -162,7 +130,7 @@ $(document).ready(function(){
 		this.hit = function(){
 			checkGun();
 			updateRandomBullet();
-			zomHealthHolder.innerHTML = health;
+			zombieHolder.innerHTML = health;
 			if (health == 0){
 				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
 				$( "#" + zomNum ).toggle( "explode", "slow");
@@ -269,7 +237,6 @@ $(document).ready(function(){
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
 		document.getElementById(i).ondblclick=function(){kill(i)};
-
 	}
 	
 	/*
@@ -288,7 +255,7 @@ $(document).ready(function(){
 	Zombie gen loop
 	*/
 	var i = 1;                     
-	var spawnNum = 15; 
+	var spawnNum = 1; 
 	function genLoop() {           
 		setTimeout(function () {   
 			generate(i)  // generate with zombie id as param 		       
