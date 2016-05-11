@@ -296,7 +296,7 @@ $(document).ready(function() {
 		  if (i < spawnNum) {    
 				  genLoop();        
 		  }                     
-		}, 4000)	
+		}, 4000)
 	}
 	
 	genLoop();  // auto call 
