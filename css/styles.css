@@ -1,7 +1,5 @@
-@font-face {
-    font-family: nosesifer;
-    src: url(".../fonts/Nosifer-Regular.ttf")format("truetype");;
-}
+@import url(https://fonts.googleapis.com/css?family=Nosifer);
+
 html,body {
 	min-height: 100%;
 	max-height: 100%;
@@ -53,25 +51,21 @@ div.topBar{
 	font-size: 1.5em;
 	text-align: center;
 	padding: 0;
-	z-index: 1;
 }
 div.pauseButton{
 	background-color:#f20000;
-	z-index: 1;
 }
 div.queue{
 	background-color:#333; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0;
-	z-index: 1;
 }
 div.currentQueue{
 	background-color:#f20000; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0; 
-	z-index: 1;
 }
 div.insideQueue{
 	position: absolute;
@@ -85,7 +79,6 @@ div.insideQueue{
 	vertical-align: middle;
 	top: 25%;
 	left: 0;
-	z-index: 1;
 }
 div.gunsBar{
 	min-height: 3%;
@@ -104,23 +97,51 @@ div.bulletImage{
 	min-width: 100%;
 }
 div.youDiedTitle{
+	width: 100%;
 	min-height: 20%;
 	color: red;
-	font: nosesifer, Helvetica, sans-serif;
-	font-size: 2.5em;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
 	text-align: center;
 	vertical-align: middle;
+	padding: 0;
+}
+div.scoreDisplay{
+	min-height: 35%;
 }
 div.buttonHolder{
 	min-height: 15%;
 }
 .btn.sharp {
-  border-radius:0;
-  background: red;
-  border: solid black;
-  width: 100%;
-  
+	border-radius:0;
+	background: red;
+	border: solid black;
+	color: black;
+	width: 100%;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 3.0em;
+
 }
+
+<!-- modal stuff -->
+#myModal{
+	background: black;
+	text-align: center;
+}
+.modal-content{
+	background: black;	
+}
+.modal-title {
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+}
+
 @media only screen and (min-width : 1200px){
 	div.container{
 		max-height: 100%;
@@ -141,6 +162,12 @@ div.buttonHolder{
 	div.topBar{
 		font-size: 1.8em;
 	}
+	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	.btn.sharp {
+		font-size: 2.5em;
+	}
 }
 @media only screen and (max-width: 768px) {
 	div.container{
@@ -155,5 +182,11 @@ div.buttonHolder{
 	}
 	div.topBar{
 		font-size: 1.3em;
+	}
+	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	.btn.sharp {
+		font-size: 2.0em;
 	}
 }

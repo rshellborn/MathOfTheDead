@@ -18,7 +18,7 @@ $(document).ready(function(){
 		this.zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.04;
+		var speed = 0.5;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 
@@ -127,7 +127,6 @@ $(document).ready(function(){
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
 		this.move = function() {
-			console.log(yPos);
 			if (atDotted()){
 				// clears the animation and movement 
 				clearInterval(moveTimer);
@@ -137,14 +136,14 @@ $(document).ready(function(){
 				// causes screen to shake 
 				//$( "div" ).effect( "bounce", "slow" );
 				console.log("||| G A M E O V E R |||");
-				//document.location.href = 'endOfGame.html';
+				document.location.href = 'endOfGame.html';
 			} else {
 				this.animate;
 				yPos += speed;
 				zombieImage.style.top = yPos + "%";
 				zomHealthHolder.style.top = yPos + "%";
 			}
-		} 
+		}
 		
 		/*
 		animates the image ie. makes it "walk"
@@ -231,7 +230,7 @@ $(document).ready(function(){
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 		}
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 10);  
+		moveTimer = setInterval(this.move, 50);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
