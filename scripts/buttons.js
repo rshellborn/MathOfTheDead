@@ -70,10 +70,8 @@ $(document).ready(function() {
 	var curQueue = document.getElementById("curQueue");
 	
 	pause.onclick = function() {
-		$("#pause").click(function(){
-        	$("#myModal").modal();
-   		});
 	}
+	
 	plusGun.onclick = function(){
 		changeGun(1);
 	}
