@@ -1,9 +1,9 @@
-//holds the zombies
-var zs = new Array();
-
 $(document).ready(function(){
+	//holds the zombies
+	var zs = new Array();
 	var genTimer = null;
 	var score = 0;
+	
 	document.getElementById("score").textContent=("Score: " +score);
 	killCount = 0;
 	/*
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.2;
+		var speed = 0.1;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -31,23 +31,33 @@ $(document).ready(function(){
 		var zombieHolder = document.createElement("div");
 		var zombieHealthText = document.createElement("div");
 		
-		//creating health visualizer
-		zombieHealthText.innerHTML = health;
-		zombieHealthText.style.textAlign = "center";
-		zombieHealthText.style.color = "White";
-		zombieHealthText.style.fontSize = "200%";
-		//zombieHealthText.id = zomNum;
-		
-		//zombie image data
-		zombieImage.src = "images/zombies/zombie0.png"; 
-		
 		//div to hold health text and zombie image
-		zombieHolder.height = "40%";
-		zombieHolder.maxHeight = "150px";
+		zombieHolder.style.height = "40%";
+		zombieHolder.style.maxHeight = "188px";
+		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
 		zombieHolder.id = zomNum;
+		
+		//creating health visualizer
+		zombieHealthText.innerHTML = health;
+		zombieHealthText.style.textAlign = "center";
+		zombieHealthText.style.color = "White";
+		zombieHealthText.style.fontSize = "150%";
+		zombieHealthText.style.position = "relative";
+		zombieHealthText.style.height = "20%";
+		zombieHealthText.style.top = "-100%";
+		
+		//zombie image data
+		zombieImage.id = zomNum + "zImage";
+		zombieImage.src = "images/zombies/zombie0.png";
+		zombieImage.style.height = "80%";
+		zombieImage.style.position = "relative";
+		zombieImage.style.display = "block";
+		zombieImage.style.top = "-100%";
+		zombieImage.style.marginLeft = "auto";
+		zombieImage.style.marginRight = "auto";
 		
 		//adding health text and zombie image to zombieHolder
 		zombieHolder.appendChild(zombieHealthText);
@@ -57,35 +67,6 @@ $(document).ready(function(){
 		document.getElementById("lawn").appendChild(zombieHolder);
 		
 		console.log(zombieHolder.style.width);
-		
-		/*
-		taken from the net  
-		*/ 
-		/*function getPosition(el) {
-			var xPos = 0;
-			var yPos = 0;
-
-			while (el) {
-				if (el.tagName == "BODY") {
-					// deal with browser quirks with body/window/document and page scroll
-					var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-					var yScroll = el.scrollTop || document.documentElement.scrollTop;
-
-					xPos += (el.offsetLeft - xScroll + el.clientLeft);
-					yPos += (el.offsetTop - yScroll + el.clientTop);
-				} else {
-					// for all other non-BODY elements
-					xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-					yPos += (el.offsetTop - el.scrollTop + el.clientTop);
-				}
-
-				el = el.offsetParent;
-			}
-			return {
-				x: xPos,
-				y: yPos
-			};
-		}*/
 		
 		/*
 		returns true if zombie has caused game over 
@@ -164,68 +145,80 @@ $(document).ready(function(){
 			}			
 		}
 
-	  function checkGun() {
-	  //checks gun selected
-		if(selectedGun == 1) {
-			//plus gun
-			plusOperation();
-		} else if (selectedGun == 2) {
-			//minus gun
-			minusOperation();
-		} else if (selectedGun == 3) {
-			//multiplication gun
-			multiOperation();
-		} else if (selectedGun == 4) {
-			//division gun
-			diviOperation();
+		function checkGun() {
+		  //checks gun selected
+			if(selectedGun == 1) {
+				//plus gun
+				plusOperation();
+			} else if (selectedGun == 2) {
+				//minus gun
+				minusOperation();
+			} else if (selectedGun == 3) {
+				//multiplication gun
+				multiOperation();
+			} else if (selectedGun == 4) {
+				//division gun
+				diviOperation();
+			}
 		}
-	  }
   
-	function plusOperation() {
-		health = health + currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function minusOperation() {
-		health = health - currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function multiOperation() {
-		health = health * currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function diviOperation() {
-		if(currentBullet == 0) {
-			triggerEasterEgg();	
+		function plusOperation() {
+			health = health + currentBullet;
+			console.log("new health: " + health);
 		}
 		
-		health = Math.ceil(health / currentBullet);
-		console.log("new health: " + health);
-	}
-	
-	
-	function triggerEasterEgg() {
-		//INITIALIZING EASTER EGG
-		//changing css
-		var egg = document.getElementById("css");
-		egg.setAttribute('href', "css/easterEgg.css");
-		//changing script
-		//gets rid of zombie script
-		var c = document.getElementsByTagName('script');
-		c[3].parentElement.removeChild(c[3]);
-		//adds pony script
-		var fileref=document.createElement('script')
-		fileref.setAttribute("src", "scripts/pony.js");
-		document.getElementsByTagName("head")[0].appendChild(fileref);
+		function minusOperation() {
+			health = health - currentBullet;
+			console.log("new health: " + health);
 		}
+		
+		function multiOperation() {
+			health = health * currentBullet;
+			console.log("new health: " + health);
+		}
+		
+		function diviOperation() {
+			if(currentBullet == 0) {
+				triggerEasterEgg();	
+			}
+			
+			health = Math.ceil(health / currentBullet);
+			console.log("new health: " + health);
+		}
+	
+	
+		function triggerEasterEgg() {
+			//INITIALIZING EASTER EGG
+			//changing css
+			var egg = document.getElementById("css");
+			egg.setAttribute('href', "css/easterEgg.css");
+			//changing script
+			//gets rid of zombie script
+			var c = document.getElementsByTagName('script');
+			c[3].parentElement.removeChild(c[3]);
+			//adds pony script
+			var fileref=document.createElement('script')
+			fileref.setAttribute("src", "scripts/pony.js");
+			document.getElementsByTagName("head")[0].appendChild(fileref);
+		}
+		
+		this.stopMove = function() {
+				clearInterval(moveTimer);
+				moveTimer = null;
+				clearInterval(animateTimer);
+				animateTimer = null;
+		}
+	
+		this.startMove = function() {
+			moveTimer = setInterval(this.move, 10);  
+			animateTimer = setInterval(this.animate, 800);		
+		}
+	
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 10);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	// ___________________________________________________out of zombie 
-	
 	
 	/*
 	random num helper for health 
@@ -252,21 +245,44 @@ $(document).ready(function(){
 		// params health, xPos, zomNum, yPos
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
 		// onclick handel 
-		document.getElementById(i).onclick = zs[i].hit;
+		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
 	
 	/*
 	Zombie gen loop
 	*/
-	var i = 0;                     
-	var spawnNum = 1; 
-	function genLoop() {           
-		setTimeout(function () {   
+	var i = 0; 
+	var spawnNum = 8;
+	var generator;
+	function genLoop() {
+		console.log('in gen');
+		if(paused == 0) {
+			console.log('starting');
+		  setTimeout(function () { 
 			generate(i)  // generate with zombie id as param   
 			i++;                  
-			if (i < spawnNum) {    
-				genLoop();        
+			if (i < spawnNum && paused == 0) {    
+					genLoop();        
 			}                     
+		  }, 4000)
+		} else {
+			stopGen();
+		}
+	}
+	
+	function stopGen() {
+		console.log('stopping');
+		clearTimeout(generator);	
+	}
+	
+	function startGen() {
+		console.log('starting');
+		setTimeout(function () {   
+		  generate(i)  // generate with zombie id as param   
+		  i++;                  
+		  if (i < spawnNum) {    
+				  genLoop();        
+		  }                     
 		}, 4000)
 	}
 	genLoop();  // auto call 
@@ -289,5 +305,5 @@ $(document).ready(function(){
 		document.getElementById(zomNum).remove(); 			// one call to "zombie"
 		//document.getElementById(zomNum).remove(); 	// another call to number container
 		zs[zomNum] = null; 						  	// remove ref for garbage collection 
-	} */                
+	} */            
 });

@@ -12,6 +12,7 @@ html,body {
 	
 	margin: 0;
     padding: 0;
+	overflow: hidden;
 }
 
 #dottedLine {
@@ -23,6 +24,7 @@ html,body {
 
 /* BOOTSTRAP MADNESS */
 div.special {
+
 	min-height: 100%;
 	max-height: 100%;
 	height:100%;
@@ -38,8 +40,7 @@ div.specialrow {
 div.lawns{
 	margin: 0;
     padding: 0;
-	min-height: 50%;
-
+	min-height: 65%;
 }
 div.topBar{
 	border: 1px solid;
@@ -58,7 +59,8 @@ div.pauseButton{
 	z-index: 1;
 }
 div.queue{
-	background-color:#333; 
+	background: url("../images/bulletv2.png");
+	background-size: 100% 100%;
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0;
@@ -68,8 +70,22 @@ div.currentQueue{
 	background-color:#f20000; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
-	padding: 0;
+	padding: 0; 
 	z-index: 1; 
+}
+div.thisQueue{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 4.0em;
+	text-align: center;
+	vertical-align: middle;
+	top: 10%;
+	left: 0;
+	padding-right: 20%;
+	z-index: 1;
 }
 div.insideQueue{
 	position: absolute;
@@ -81,9 +97,9 @@ div.insideQueue{
 	font-size: 2.0em;
 	text-align: center;
 	vertical-align: middle;
-	top: 25%;
+	top: 20%;
 	left: 0;
-	z-index: 1;
+	padding-right: 20%;
 }
 div.gunsBar{
 	min-height: 3%;
@@ -108,21 +124,14 @@ div.youDiedTitle{
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 	text-align: center;
-	vertical-align: middle;
 	padding: 0;
 }
-div.gameScreenTitle{
-	width: 100%;
-	min-height: 20%;
-	color: red;
-	font-family: 'Nosifer', cursive;
-	font-size: 6.0em;
-	text-align: center;
-	vertical-align: middle;
-	padding: 0;
-}
-div.scoreDisplay{
+div.displayPanel{
 	min-height: 35%;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 3.0em;
+	text-align: center;
 }
 div.buttonHolder{
 	min-height: 15%;
@@ -135,9 +144,16 @@ div.buttonHolder{
 	width: 100%;
 	font: Arial, Helvetica, sans-serif;
 	font-size: 3.0em;
-
 }
-
+div.scores{
+	padding:0;
+}
+div.insideQueue{
+	background: none;
+}
+div.scoreDisplay{
+	min-height: 35%;
+}
 <!-- modal stuff -->
 #myModal{
 	background: black;
@@ -184,22 +200,25 @@ div.buttonHolder{
 	div.youDiedTitle{
 		font-size: 4.5em;
 	}
-	div.gameScreenTitle{
-		font-size: 4.5em;
-	}
 	.btn.sharp {
 		font-size: 2.5em;
 	}
+	div.thisQueue{
+		font-size: 3.5em;
+		top: 0%;
+		left: 0;
+		padding-right: 25%;
+	}
 	.modal { 
-	  position: fixed; 
-	  top: 20px !important; 
-	  right: 3%; 
-	  left: 3%;
-	  width: auto; 
-	  margin: 0; 
+		position: fixed; 
+		top: 20px !important; 
+		right: 3%; 
+		left: 3%;
+		width: auto; 
+		margin: 0; 
 	}
 	.modal-title {
-	  font-size: 3.5em;
+		font-size: 3.5em;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -219,19 +238,25 @@ div.buttonHolder{
 	div.youDiedTitle{
 		font-size: 4.5em;
 	}
-	div.gameScreenTitle{
-		font-size: 3.0em;
-	}
 	.btn.sharp {
 		font-size: 2.0em;
 	}
+	div.displayPanel{
+		font-size: 2.0em;
+	}
+	div.thisQueue{
+		font-size: 3.0em;
+		top: 0%;
+		left: 0;
+		padding-right: 25%;
+	}
 	.modal { 
-	  position: fixed; 
-	  top: 20px !important; 
-	  right: 3%; 
-	  left: 3%;
-	  width: auto; 
-	  margin: 0; 
+		position: fixed; 
+		top: 20px !important; 
+		right: 3%; 
+		left: 3%;
+		width: auto; 
+		margin: 0; 
 	}
 	.modal-title {
 		font-size: 3.5em;

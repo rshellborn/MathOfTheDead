@@ -1,4 +1,5 @@
 var selectedGun = 1;
+var paused = 0;
 		
 function changeGun(gunType) {
 	var plusGun = document.getElementById('plusGun');
@@ -66,11 +67,25 @@ $(document).ready(function() {
 	var diviGun = document.getElementById('diviGun');
 	
 	var pause = document.getElementById("pause");
-	
-	var curQueue = document.getElementById("curQueue");
+	var resume = document.getElementById("resume");
 	
 	pause.onclick = function() {
-		throw new Error();
+		paused = 1;
+		console.log('set status' + paused);
+		console.log('pause pressed');
+			console.log('freezing zombies');
+			for(var i = 0; i < zs.length; i++) {
+				console.log('freezing zombie ' + i);
+				zs[i].stopMove();
+			}
+			console.log('exiting for loop');
+			resume.onclick = function() {
+				console.log('resume clicked');
+				paused = 0;
+			 	for(var i = 0; i < zs.length; i++) {
+				zs[i].startMove();
+			  }
+			}
 	}
 	
 	plusGun.onclick = function(){
