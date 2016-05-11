@@ -1,10 +1,11 @@
+var zs = new Array();
 $(document).ready(function(){
 	//holds the zombies
-	var zs = new Array();
+	//var zs = new Array();
 	var genTimer = null;
 	var score = 0;
-	
 	document.getElementById("score").textContent=("Score: " +score);
+	
 	killCount = 0;
 	/*
 	 a zombie represented with health and a img on screen
@@ -100,7 +101,11 @@ $(document).ready(function(){
 		function die() {
 			killCount++;
 			//stops the zombie from calling move/animate functions
-			speed = 0; 
+			speed = 0;
+			
+			score += 5;
+			document.getElementById("score").textContent=("Score: " + score);
+			
 			clearInterval(moveTimer);
 			moveTimer = null;
 			clearInterval(animateTimer);
@@ -140,7 +145,7 @@ $(document).ready(function(){
 				die();	
 			} else {
 				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
-				console.log("zom #"+ i + " hit w/ gun "+ selectedGun 
+				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
 		}
@@ -203,15 +208,15 @@ $(document).ready(function(){
 		}
 		
 		this.stopMove = function() {
-				clearInterval(moveTimer);
-				moveTimer = null;
-				clearInterval(animateTimer);
-				animateTimer = null;
+		  clearInterval(moveTimer);
+		  moveTimer = null;
+		  clearInterval(animateTimer);
+		  animateTimer = null;
 		}
 	
 		this.startMove = function() {
-			moveTimer = setInterval(this.move, 10);  
-			animateTimer = setInterval(this.animate, 800);		
+		  moveTimer = setInterval(this.move, 10);  
+		  animateTimer = setInterval(this.animate, 800);		
 		}
 	
 		//auto callers for moving and animating 
@@ -249,44 +254,26 @@ $(document).ready(function(){
 	}
 	
 	/*
-	Zombie gen loop
-	*/
-	var i = 0; 
-	var spawnNum = 8;
-	var generator;
-	function genLoop() {
-		console.log('in gen');
-		if(paused == 0) {
-			console.log('starting');
-		  setTimeout(function () { 
-			generate(i)  // generate with zombie id as param   
-			i++;                  
-			if (i < spawnNum && paused == 0) {    
-					genLoop();       
-			}                     
-		  }, 4000)
-		} else {
-			stopGen();
-		}
-	}
-	
-	function stopGen() {
-		console.log('stopping');
-		clearTimeout(generator);	
-	}
-	
-	function startGen() {
-		console.log('starting');
+	//Zombie gen loop
+	var i = 0;                     
+	var spawnNum = 8; 
+	function genLoop() {        
 		setTimeout(function () {   
-		  generate(i)  // generate with zombie id as param   
-		  i++;                  
-		  if (i < spawnNum) {    
-				  genLoop();        
-		  }                     
-		}, 4000)
+				generate(i)  // generate with zombie id as param   
+				i++;                  
+				if (i < spawnNum) {    
+				genLoop();        
+           }                     
+       }, 4000)
+    }
+    genLoop();  // auto call*/
+	
+	var spawnNum = 5;
+	for (i = 0; i < spawnNum; i++) {
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
+		// onclick handel 
+		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
-	genLoop();  // auto call 
-
 	
 	function nextWave() {
 		$("#NW").fadeIn(3000);
