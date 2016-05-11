@@ -111,6 +111,16 @@ div.youDiedTitle{
 	vertical-align: middle;
 	padding: 0;
 }
+div.gameScreenTitle{
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+}
 div.scoreDisplay{
 	min-height: 35%;
 }
@@ -170,6 +180,9 @@ div.buttonHolder{
 	div.youDiedTitle{
 		font-size: 4.5em;
 	}
+	div.gameScreenTitle{
+		font-size: 4.5em;
+	}
 	.btn.sharp {
 		font-size: 2.5em;
 	}
@@ -189,6 +202,9 @@ div.buttonHolder{
 		font-size: 1.3em;
 	}
 	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	div.gameScreenTitle{
 		font-size: 4.5em;
 	}
 	.btn.sharp {
