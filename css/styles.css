@@ -174,7 +174,7 @@ div.scoreDisplay{
 }
 .modal-backdrop
 {	/*uncomment this after javascript stops executing*/
-    /*opacity:1.0 !important;*/
+    opacity:1.0 !important;
 }
 
 @media only screen and (min-width : 1200px){
