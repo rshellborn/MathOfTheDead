@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 	//holds the zombies
 	var zs = new Array();
@@ -44,7 +43,7 @@ $(document).ready(function(){
 		zombieHealthText.innerHTML = health;
 		zombieHealthText.style.textAlign = "center";
 		zombieHealthText.style.color = "White";
-		zombieHealthText.style.fontSize = "200%";
+		zombieHealthText.style.fontSize = "150%";
 		zombieHealthText.style.position = "relative";
 		zombieHealthText.style.height = "20%";
 		zombieHealthText.style.top = "-100%";
