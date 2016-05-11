@@ -250,8 +250,7 @@ $(document).ready(function(){
 	}
 	
 	/*
-	Zombie gen loop
-	*/
+	//Zombie gen loop
 	var i = 0;                     
 	var spawnNum = 8; 
 	function genLoop() {        
@@ -263,7 +262,14 @@ $(document).ready(function(){
            }                     
        }, 4000)
     }
-    genLoop();  // auto call
+    genLoop();  // auto call*/
+	
+	var spawnNum = 5;
+	for (i = 0; i < spawnNum; i++) {
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
+		// onclick handel 
+		document.getElementById(i + "zImage").onclick = zs[i].hit;
+	}
 	
 	function nextWave() {
 		$("#NW").fadeIn(3000);
