@@ -128,10 +128,10 @@ div.youDiedTitle{
 }
 div.mainMenu{
 	width: 100%;
-	min-height: 20%;
+	min-height: 35%;
 	color: red;
 	font-family: 'Nosifer', cursive;
-	font-size: 6.0em;
+	font-size: 5.5em;
 	text-align: center;
 	padding: 0;
 }
@@ -176,6 +176,8 @@ div.scoreDisplay{
 	min-height: 35%;
 }
 div.emptySpace{
+	min-height: 60%;
+}div.emptySpace{
 	min-height: 20%;
 }
 <!-- modal stuff -->
@@ -207,16 +209,22 @@ div.emptySpace{
 		min-width: 100%;
 		border: none;
 	}
+	div.mainMenu{
+	}
 	div.emptySpace{
 	min-height: 15%;
 	}
+
 }
 @media only screen and (max-width : 992px) {
 	div.container{
 		max-width: 50%;
 	}
 	div.emptySpace{
-	min-height: 20%;
+	min-height: 30%;
+	}
+	div.mainMenu{
+	min-height: 20%
 	}
 	div.lawns{
 		margin: 0;
@@ -231,7 +239,7 @@ div.emptySpace{
 		font-size: 4.5em;
 	}
 	div.mainMenu{
-		font-size: 4.5em;
+		font-size: 4.0em;
 	}
 	div.nextWave{
 		font-size: 4.0em;
@@ -264,6 +272,8 @@ div.emptySpace{
 	}
 	div.emptySpace{
 	min-height: 35%;
+	}
+	div.mainMenu{
 	}
 	div.lawns{
 		margin: 0;
