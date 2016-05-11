@@ -190,6 +190,17 @@ div.buttonHolder{
 	.btn.sharp {
 		font-size: 2.5em;
 	}
+	.modal { 
+	  position: fixed; 
+	  top: 20px !important; 
+	  right: 3%; 
+	  left: 3%;
+	  width: auto; 
+	  margin: 0; 
+	}
+	.modal-title {
+	  font-size: 3.5em;
+	}
 }
 @media only screen and (max-width: 768px) {
 	div.container{
@@ -213,5 +224,16 @@ div.buttonHolder{
 	}
 	.btn.sharp {
 		font-size: 2.0em;
+	}
+	.modal { 
+	  position: fixed; 
+	  top: 20px !important; 
+	  right: 3%; 
+	  left: 3%;
+	  width: auto; 
+	  margin: 0; 
+	}
+	.modal-title {
+		font-size: 3.5em;
 	}
 }
