@@ -256,7 +256,7 @@ $(document).ready(function(){
 			generate(i)  // generate with zombie id as param   
 			i++;                  
 			if (i < spawnNum && paused == 0) {    
-					genLoop();        
+					genLoop();       
 			}                     
 		  }, 4000)
 		} else {
