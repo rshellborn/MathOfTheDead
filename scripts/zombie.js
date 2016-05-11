@@ -126,7 +126,7 @@ $(document).ready(function(){
 		/*
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
-		this.move = function() {
+		this.move = function() {  // __________________________________________
 			if (atDotted()){
 				// clears the animation and movement 
 				clearInterval(moveTimer);
@@ -135,15 +135,28 @@ $(document).ready(function(){
 				animateTimer = null;
 				// causes screen to shake 
 				//$( "div" ).effect( "bounce", "slow" );
-				console.log("||| G A M E O V E R |||");
+				console.log("||| G A M E O V E R |||" + zomNum);
 				document.location.href = 'endOfGame.html';
 			} else {
-				this.animate;
+				//this.animate;   does this do anything? 
 				yPos += speed;
 				zombieImage.style.top = yPos + "%";
+				//console.log("top" + zombieImage.style.top)
 				zomHealthHolder.style.top = yPos + "%";
+				//console.log("top" + zomHealthHolder.style.top);
 			}
 		} 
+		/*
+		helper for zombie kill, but no work   < ------ broken 
+		*/ 
+
+		this.stop = function() {
+			speed = 0; 
+			clearInterval(moveTimer);
+			moveTimer = null;
+			clearInterval(animateTimer);
+			animateTimer = null;
+		}
 		
 		/*
 		animates the image ie. makes it "walk"
@@ -163,12 +176,13 @@ $(document).ready(function(){
 			updateRandomBullet();
 			zomHealthHolder.innerHTML = health;
 			if (health == 0){
-				$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
-				$( "#" + zomNum ).toggle( "explode", "slow");
+				//$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
+				//$( "#" + zomNum ).toggle( "explode", "slow");
+				stop(); 
 				kill(zomNum);	
 			} else {
 				// $( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
-				console.log("#"+ i + " hit w/ gun"+ selectedGun 
+				console.log("zom #"+ i + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
 		}
@@ -233,6 +247,7 @@ $(document).ready(function(){
 		moveTimer = setInterval(this.move, 50);  
 		animateTimer = setInterval(this.animate, 800);
 	};
+	// out of zombie 
 	
 	
 	/*
@@ -263,7 +278,8 @@ $(document).ready(function(){
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );    
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
+		console.log(zs[i].zomNum);   
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
@@ -272,30 +288,33 @@ $(document).ready(function(){
 	}
 	
 	/*
-	"kills" a zombie by removing all elements by id
-	note: currently two calls are required to kill the zombie 
-	and the health number because they share the same id. 
-	*/
-	function kill(zomNum) {
-		score += 5;
-		document.getElementById("score").textContent=("Score: " + score);
-		document.getElementById(zomNum).remove(); // one call to "zombie"
-		document.getElementById(zomNum).remove(); // another call to number container
-		zs[zomNum] = null; 						  // remove ref for garbage collection 
-	}
-	/*
 	Zombie gen loop
 	*/
-	var i = 1;                     
-	var spawnNum = 15; 
+	var i = 0;                     
+	var spawnNum = 1; 
 	function genLoop() {           
 		setTimeout(function () {   
-			generate(i)  // generate with zombie id as param 		       
+			generate(i)  // generate with zombie id as param   
 			i++;                  
 			if (i < spawnNum) {    
 				genLoop();        
 			}                     
 		}, 4000)
 	}
-	genLoop();                   
+	genLoop();  // auto call 
+
+	/*
+	"kills" a zombie by removing all elements by id
+	note: currently two calls are required to kill the zombie 
+	and the health number because they share the same id.
+	*/
+	function kill(zomNum) {   // < ---------------- broken 
+		score += 5;
+		document.getElementById("score").textContent=("Score: " + score);
+		console.log( zomNum + " is dead");
+		zs[zomNum].stop;
+		document.getElementById(zomNum).remove(); // one call to "zombie"
+		document.getElementById(zomNum).remove(); // another call to number container
+		zs[zomNum] = null; 						  // remove ref for garbage collection 
+	}                 
 });
