@@ -11,12 +11,38 @@
   <script src="scripts/zombie-test.js"></script>
   <script src="scripts/buttons.js"></script>
   <script src="scripts/bulletQueue.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
+<style>
+</style>
 </head>
 <body>
 
-			<a href=""><div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div></a>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" align="center">GAME PAUSED</h4>
+        </div>
+        <div class="modal-body">
+        	<div class"text-center">
+            	<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
+                <br /><br />
+                <button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'game-screen.html';" >Restart</button>
+                <br /><br />
+                <button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'main-menu.html';">Main Menu</button>
+          	</div>
+        </div>
+        <div class="modal-footer">
+        <!-- footer stuff -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+			<a href="#pause"><div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div></a>
 			<div class="col-lg-2 col-xs-4 topBar" >Wave 1</div>
 			<div id="score" class="col-lg-2 col-xs-4 topBar" ></div>
 
@@ -71,5 +97,6 @@
 			</div>
 		</div>
 	</div>
+    
 </body>
 </html>

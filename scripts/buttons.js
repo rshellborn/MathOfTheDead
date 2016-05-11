@@ -70,7 +70,9 @@ $(document).ready(function() {
 	var curQueue = document.getElementById("curQueue");
 	
 	pause.onclick = function() {
-		//alert('Game Paused! Press Ok to continue slaying some zombies.');
+		$("#pause").click(function(){
+        	$("#myModal").modal();
+   		});
 	}
 	plusGun.onclick = function(){
 		changeGun(1);
