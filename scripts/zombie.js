@@ -4,8 +4,8 @@ $(document).ready(function(){
 	//var zs = new Array();
 	var genTimer = null;
 	var score = 0;
-	
 	document.getElementById("score").textContent=("Score: " +score);
+	
 	killCount = 0;
 	/*
 	 a zombie represented with health and a img on screen
@@ -101,7 +101,11 @@ $(document).ready(function(){
 		function die() {
 			killCount++;
 			//stops the zombie from calling move/animate functions
-			speed = 0; 
+			speed = 0;
+			
+			score += 5;
+			document.getElementById("score").textContent=("Score: " + score);
+			
 			clearInterval(moveTimer);
 			moveTimer = null;
 			clearInterval(animateTimer);
