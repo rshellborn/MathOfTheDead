@@ -52,11 +52,11 @@ div.topBar{
 	font-size: 1.5em;
 	text-align: center;
 	padding: 0;
-	z-index: 1;
+	z-index: 2;
 }
 div.pauseButton{
 	background-color:#f20000;
-	z-index: 1;
+	z-index: 2;
 }
 div.queue{
 	background: url("../images/bulletv2.png");
@@ -64,14 +64,14 @@ div.queue{
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0;
-	z-index: 1;
+	z-index: 2;
 }
 div.currentQueue{
 	background-color:#f20000; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0; 
-	z-index: 1; 
+	z-index: 2; 
 }
 div.thisQueue{
 	position: absolute;
@@ -85,7 +85,7 @@ div.thisQueue{
 	top: 10%;
 	left: 0;
 	padding-right: 20%;
-	z-index: 1;
+	z-index: 2;
 }
 div.insideQueue{
 	position: absolute;

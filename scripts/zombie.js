@@ -18,7 +18,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.1;
+		var speed = 0.08;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -59,6 +59,7 @@ $(document).ready(function(){
 		zombieImage.style.top = "-100%";
 		zombieImage.style.marginLeft = "auto";
 		zombieImage.style.marginRight = "auto";
+		zombieImage.style.zIndex = "1";
 		
 		//adding health text and zombie image to zombieHolder
 		zombieHolder.appendChild(zombieHealthText);
@@ -245,7 +246,7 @@ $(document).ready(function(){
 		return Math.floor(Math.random() * 4) * 25; 
 	}
 
-	function generate(i) {
+	/*function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
