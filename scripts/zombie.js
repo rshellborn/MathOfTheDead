@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var genTimer = null;
 	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
+	killCount = 0;
 	/*
 	 a zombie represented with health and a img on screen
 	 starts "walking" upon instantiation.
@@ -116,6 +117,7 @@ $(document).ready(function(){
 		
 		//kills the zombie.
 		function die() {
+			killCount++;
 			//stops the zombie from calling move/animate functions
 			speed = 0; 
 			clearInterval(moveTimer);
@@ -128,6 +130,10 @@ $(document).ready(function(){
 			
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
+			alert(killCount);
+			if (killCount == spawnNum) {
+				nextWave();
+			}
 		}
 		
 		/*
@@ -218,7 +224,7 @@ $(document).ready(function(){
 		moveTimer = setInterval(this.move, 10);  
 		animateTimer = setInterval(this.animate, 800);
 	};
-	// out of zombie 
+	// ___________________________________________________out of zombie 
 	
 	
 	/*
@@ -253,7 +259,7 @@ $(document).ready(function(){
 	Zombie gen loop
 	*/
 	var i = 0;                     
-	var spawnNum = 2; 
+	var spawnNum = 1; 
 	function genLoop() {           
 		setTimeout(function () {   
 			generate(i)  // generate with zombie id as param   
@@ -265,6 +271,11 @@ $(document).ready(function(){
 	}
 	genLoop();  // auto call 
 
+	
+	function nextWave() {
+		$("#NW").fadeIn();
+	}
+	
 	/*
 	"kills" a zombie by removing all elements by id
 	note: currently two calls are required to kill the zombie 
