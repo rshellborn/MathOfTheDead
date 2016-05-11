@@ -18,7 +18,7 @@ $(document).ready(function(){
 		this.zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.5;
+		var speed = 0.04;
 		var health = health;
 		console.log("I'm zombie #" + zomNum + "current health: " + health)
 
@@ -127,6 +127,7 @@ $(document).ready(function(){
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
 		this.move = function() {
+			console.log(yPos);
 			if (atDotted()){
 				// clears the animation and movement 
 				clearInterval(moveTimer);
@@ -136,7 +137,7 @@ $(document).ready(function(){
 				// causes screen to shake 
 				//$( "div" ).effect( "bounce", "slow" );
 				console.log("||| G A M E O V E R |||");
-				document.location.href = 'endOfGame.html';
+				//document.location.href = 'endOfGame.html';
 			} else {
 				this.animate;
 				yPos += speed;
@@ -230,7 +231,7 @@ $(document).ready(function(){
 		document.getElementsByTagName("head")[0].appendChild(fileref);
 	}
 		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 50);  
+		moveTimer = setInterval(this.move, 10);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
@@ -269,7 +270,7 @@ $(document).ready(function(){
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -200 );    
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );    
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
