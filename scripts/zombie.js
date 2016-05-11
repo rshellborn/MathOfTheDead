@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var score = 0;
 	
 	document.getElementById("score").textContent=("Score: " +score);
+	killCount = 0;
 	/*
 	 a zombie represented with health and a img on screen
 	 starts "walking" upon instantiation.
@@ -97,6 +98,7 @@ $(document).ready(function(){
 		
 		//kills the zombie.
 		function die() {
+			killCount++;
 			//stops the zombie from calling move/animate functions
 			speed = 0; 
 			clearInterval(moveTimer);
@@ -109,6 +111,10 @@ $(document).ready(function(){
 			
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
+			alert(killCount);
+			if (killCount == spawnNum) {
+				nextWave();
+			}
 		}
 		
 		/*
@@ -212,7 +218,7 @@ $(document).ready(function(){
 		moveTimer = setInterval(this.move, 10);  
 		animateTimer = setInterval(this.animate, 800);
 	};
-	// out of zombie 
+	// ___________________________________________________out of zombie 
 	
 	/*
 	random num helper for health 
@@ -245,14 +251,14 @@ $(document).ready(function(){
 	/*
 	Zombie gen loop
 	*/
-	var i = 0;                     
+	var i = 0; 
 	var spawnNum = 8;
 	var generator;
 	function genLoop() {
 		console.log('in gen');
 		if(paused == 0) {
 			console.log('starting');
-		  setTimeout(function () {   
+		  setTimeout(function () { 
 			generate(i)  // generate with zombie id as param   
 			i++;                  
 			if (i < spawnNum && paused == 0) {    
@@ -279,6 +285,25 @@ $(document).ready(function(){
 		  }                     
 		}, 4000)
 	}
+	genLoop();  // auto call 
+
 	
-	genLoop();  // auto call                
+	function nextWave() {
+		$("#NW").fadeIn();
+	}
+	
+	/*
+	"kills" a zombie by removing all elements by id
+	note: currently two calls are required to kill the zombie 
+	and the health number because they share the same id.
+	*/
+	/*function kill(zomNum) {   // < ---------------- not sure why works
+		score += 5;
+		document.getElementById("score").textContent=("Score: " + score);
+		console.log( zomNum + " ______________________is dead");
+		zs[zomNum].stopMove;
+		document.getElementById(zomNum).remove(); 			// one call to "zombie"
+		//document.getElementById(zomNum).remove(); 	// another call to number container
+		zs[zomNum] = null; 						  	// remove ref for garbage collection 
+	} */            
 });
