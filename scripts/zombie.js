@@ -1,7 +1,7 @@
 //holds the zombies
 var zs = new Array();
 
-$(document).ready(function(){
+$(document).ready(function() {
 	var genTimer = null;
 	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
@@ -213,13 +213,25 @@ $(document).ready(function(){
 		var fileref=document.createElement('script')
 		fileref.setAttribute("src", "scripts/pony.js");
 		document.getElementsByTagName("head")[0].appendChild(fileref);
-		}
-		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 10);  
-		animateTimer = setInterval(this.animate, 800);
-	};
-	// out of zombie 
+	}
+		
+	this.stopMove = function() {
+			clearInterval(moveTimer);
+			moveTimer = null;
+			clearInterval(animateTimer);
+			animateTimer = null;
+	}
 	
+	this.startMove = function() {
+		moveTimer = setInterval(this.move, 10);  
+		animateTimer = setInterval(this.animate, 800);		
+	}
+	
+	//auto callers for moving and animating 
+	moveTimer = setInterval(this.move, 10);  
+	animateTimer = setInterval(this.animate, 800);
+};
+	// out of zombie 
 	
 	/*
 	random num helper for health 
@@ -253,17 +265,43 @@ $(document).ready(function(){
 	Zombie gen loop
 	*/
 	var i = 0;                     
-	var spawnNum = 2; 
-	function genLoop() {           
-		setTimeout(function () {   
+	var spawnNum = 8;
+	var generator;
+	function genLoop() {
+		console.log('in gen');
+		if(paused == 0) {
+			console.log('starting');
+		  setTimeout(function () {   
 			generate(i)  // generate with zombie id as param   
 			i++;                  
-			if (i < spawnNum) {    
-				genLoop();        
+			if (i < spawnNum && paused == 0) {    
+					genLoop();        
 			}                     
-		}, 4000)
+		  }, 4000)
+		} else {
+			stopGen();
+		}
 	}
+	
+	function stopGen() {
+		console.log('stopping');
+		clearTimeout(generator);	
+	}
+	
+	function startGen() {
+		console.log('starting');
+		setTimeout(function () {   
+		  generate(i)  // generate with zombie id as param   
+		  i++;                  
+		  if (i < spawnNum) {    
+				  genLoop();        
+		  }                     
+		}, 4000)	
+	}
+	
 	genLoop();  // auto call 
+	
+	
 
 	/*
 	"kills" a zombie by removing all elements by id
