@@ -1,3 +1,5 @@
+//holds the zombies
+var zs = new Array();
 
 $(document).ready(function(){
 	var genTimer = null;
@@ -11,10 +13,10 @@ $(document).ready(function(){
 	var Zombie = function(health, xPos, zomNum, yPos) {  
 		
 		//assigning arguments to variables
-		this.zomNum = zomNum;
+		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.1;
+		var speed = 0.2;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -105,21 +107,27 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||" + zomNum);
 				//document.location.href = 'endOfGame.html';
 			} else {
-				//this.animate;   does this do anything? 
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
+				//console.log("#" + zomNum + " " + zombieHolder.style.top); 
 			}
 		} 
-		/*
-		helper for zombie kill, but no work   < ------ not sure why works
-		*/ 
-
-		stop = function() {
+		
+		
+		//kills the zombie.
+		function die() {
+			//stops the zombie from calling move/animate functions
 			speed = 0; 
 			clearInterval(moveTimer);
 			moveTimer = null;
 			clearInterval(animateTimer);
 			animateTimer = null;
+			
+			//removes the zombie from the array
+			zs[zomNum] = null;
+			
+			//removes the image from the screen
+			document.getElementById(zomNum).remove();
 		}
 		
 		/*
@@ -142,8 +150,7 @@ $(document).ready(function(){
 			if (health == 0){
 				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
 				//$( "#" + zomNum ).toggle( "explode", "slow");
-				stop(); 
-				kill(zomNum);	
+				die();	
 			} else {
 				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("zom #"+ i + " hit w/ gun "+ selectedGun 
@@ -234,26 +241,19 @@ $(document).ready(function(){
 		return Math.floor(Math.random() * 4) * 25; 
 	}
 
-	/*
-	generates zombies 
-	*/ 
-	var zs = new Array();
-
 	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
-		// god mode auto kill (for testing)
-		//document.getElementById(i).ondblclick=function(){kill(i)};  // broken 
 	}
 	
 	/*
 	Zombie gen loop
 	*/
 	var i = 0;                     
-	var spawnNum = 1; 
+	var spawnNum = 2; 
 	function genLoop() {           
 		setTimeout(function () {   
 			generate(i)  // generate with zombie id as param   
@@ -270,13 +270,13 @@ $(document).ready(function(){
 	note: currently two calls are required to kill the zombie 
 	and the health number because they share the same id.
 	*/
-	function kill(zomNum) {   // < ---------------- not sure why works
+	/*function kill(zomNum) {   // < ---------------- not sure why works
 		score += 5;
 		document.getElementById("score").textContent=("Score: " + score);
-		console.log( zomNum + " is dead");
-		zs[zomNum].stop;
+		console.log( zomNum + " ______________________is dead");
+		zs[zomNum].stopMove;
 		document.getElementById(zomNum).remove(); 			// one call to "zombie"
 		//document.getElementById(zomNum).remove(); 	// another call to number container
 		zs[zomNum] = null; 						  	// remove ref for garbage collection 
-	}                 
+	} */                
 });
