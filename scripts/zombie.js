@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	//holds the zombies
 	var zs = new Array();
@@ -139,68 +140,80 @@ $(document).ready(function(){
 			}			
 		}
 
-	  function checkGun() {
-	  //checks gun selected
-		if(selectedGun == 1) {
-			//plus gun
-			plusOperation();
-		} else if (selectedGun == 2) {
-			//minus gun
-			minusOperation();
-		} else if (selectedGun == 3) {
-			//multiplication gun
-			multiOperation();
-		} else if (selectedGun == 4) {
-			//division gun
-			diviOperation();
+		function checkGun() {
+		  //checks gun selected
+			if(selectedGun == 1) {
+				//plus gun
+				plusOperation();
+			} else if (selectedGun == 2) {
+				//minus gun
+				minusOperation();
+			} else if (selectedGun == 3) {
+				//multiplication gun
+				multiOperation();
+			} else if (selectedGun == 4) {
+				//division gun
+				diviOperation();
+			}
 		}
-	  }
   
-	function plusOperation() {
-		health = health + currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function minusOperation() {
-		health = health - currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function multiOperation() {
-		health = health * currentBullet;
-		console.log("new health: " + health);
-	}
-	
-	function diviOperation() {
-		if(currentBullet == 0) {
-			triggerEasterEgg();	
+		function plusOperation() {
+			health = health + currentBullet;
+			console.log("new health: " + health);
 		}
 		
-		health = Math.ceil(health / currentBullet);
-		console.log("new health: " + health);
-	}
-	
-	
-	function triggerEasterEgg() {
-		//INITIALIZING EASTER EGG
-		//changing css
-		var egg = document.getElementById("css");
-		egg.setAttribute('href', "css/easterEgg.css");
-		//changing script
-		//gets rid of zombie script
-		var c = document.getElementsByTagName('script');
-		c[3].parentElement.removeChild(c[3]);
-		//adds pony script
-		var fileref=document.createElement('script')
-		fileref.setAttribute("src", "scripts/pony.js");
-		document.getElementsByTagName("head")[0].appendChild(fileref);
+		function minusOperation() {
+			health = health - currentBullet;
+			console.log("new health: " + health);
 		}
+		
+		function multiOperation() {
+			health = health * currentBullet;
+			console.log("new health: " + health);
+		}
+		
+		function diviOperation() {
+			if(currentBullet == 0) {
+				triggerEasterEgg();	
+			}
+			
+			health = Math.ceil(health / currentBullet);
+			console.log("new health: " + health);
+		}
+	
+	
+		function triggerEasterEgg() {
+			//INITIALIZING EASTER EGG
+			//changing css
+			var egg = document.getElementById("css");
+			egg.setAttribute('href', "css/easterEgg.css");
+			//changing script
+			//gets rid of zombie script
+			var c = document.getElementsByTagName('script');
+			c[3].parentElement.removeChild(c[3]);
+			//adds pony script
+			var fileref=document.createElement('script')
+			fileref.setAttribute("src", "scripts/pony.js");
+			document.getElementsByTagName("head")[0].appendChild(fileref);
+		}
+		
+		this.stopMove = function() {
+				clearInterval(moveTimer);
+				moveTimer = null;
+				clearInterval(animateTimer);
+				animateTimer = null;
+		}
+	
+		this.startMove = function() {
+			moveTimer = setInterval(this.move, 10);  
+			animateTimer = setInterval(this.animate, 800);		
+		}
+	
 		//auto callers for moving and animating 
 		moveTimer = setInterval(this.move, 10);  
 		animateTimer = setInterval(this.animate, 800);
 	};
 	// out of zombie 
-	
 	
 	/*
 	random num helper for health 
@@ -234,15 +247,39 @@ $(document).ready(function(){
 	Zombie gen loop
 	*/
 	var i = 0;                     
-	var spawnNum = 2; 
-	function genLoop() {           
-		setTimeout(function () {   
+	var spawnNum = 8;
+	var generator;
+	function genLoop() {
+		console.log('in gen');
+		if(paused == 0) {
+			console.log('starting');
+		  setTimeout(function () {   
 			generate(i)  // generate with zombie id as param   
 			i++;                  
-			if (i < spawnNum) {    
-				genLoop();        
+			if (i < spawnNum && paused == 0) {    
+					genLoop();        
 			}                     
+		  }, 4000)
+		} else {
+			stopGen();
+		}
+	}
+	
+	function stopGen() {
+		console.log('stopping');
+		clearTimeout(generator);	
+	}
+	
+	function startGen() {
+		console.log('starting');
+		setTimeout(function () {   
+		  generate(i)  // generate with zombie id as param   
+		  i++;                  
+		  if (i < spawnNum) {    
+				  genLoop();        
+		  }                     
 		}, 4000)
 	}
+	
 	genLoop();  // auto call                
 });
