@@ -141,7 +141,7 @@ $(document).ready(function(){
 				die();	
 			} else {
 				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
-				console.log("zom #"+ i + " hit w/ gun "+ selectedGun 
+				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
 		}
