@@ -1,9 +1,9 @@
-//holds the zombies
-var zs = new Array();
-
 $(document).ready(function(){
+	//holds the zombies
+	var zs = new Array();
 	var genTimer = null;
 	var score = 0;
+	
 	document.getElementById("score").textContent=("Score: " +score);
 	/*
 	 a zombie represented with health and a img on screen
@@ -16,7 +16,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.2;
+		var speed = 0.1;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -30,23 +30,33 @@ $(document).ready(function(){
 		var zombieHolder = document.createElement("div");
 		var zombieHealthText = document.createElement("div");
 		
+		//div to hold health text and zombie image
+		zombieHolder.style.height = "40%";
+		zombieHolder.style.maxHeight = "188px";
+		zombieHolder.style.width = "25%";
+		zombieHolder.style.position = "absolute";
+		zombieHolder.style.top = yPos + "%"; 
+		zombieHolder.style.left = xPos + "%";
+		zombieHolder.id = zomNum;
+		
 		//creating health visualizer
 		zombieHealthText.innerHTML = health;
 		zombieHealthText.style.textAlign = "center";
 		zombieHealthText.style.color = "White";
 		zombieHealthText.style.fontSize = "200%";
-		//zombieHealthText.id = zomNum;
+		zombieHealthText.style.position = "relative";
+		zombieHealthText.style.height = "20%";
+		zombieHealthText.style.top = "-100%";
 		
 		//zombie image data
-		zombieImage.src = "images/zombies/zombie0.png"; 
-		
-		//div to hold health text and zombie image
-		zombieHolder.height = "40%";
-		zombieHolder.maxHeight = "150px";
-		zombieHolder.style.position = "absolute";
-		zombieHolder.style.top = yPos + "%"; 
-		zombieHolder.style.left = xPos + "%";
-		zombieHolder.id = zomNum;
+		zombieImage.id = zomNum + "zImage";
+		zombieImage.src = "images/zombies/zombie0.png";
+		zombieImage.style.height = "80%";
+		zombieImage.style.position = "relative";
+		zombieImage.style.display = "block";
+		zombieImage.style.top = "-100%";
+		zombieImage.style.marginLeft = "auto";
+		zombieImage.style.marginRight = "auto";
 		
 		//adding health text and zombie image to zombieHolder
 		zombieHolder.appendChild(zombieHealthText);
@@ -56,35 +66,6 @@ $(document).ready(function(){
 		document.getElementById("lawn").appendChild(zombieHolder);
 		
 		console.log(zombieHolder.style.width);
-		
-		/*
-		taken from the net  
-		*/ 
-		/*function getPosition(el) {
-			var xPos = 0;
-			var yPos = 0;
-
-			while (el) {
-				if (el.tagName == "BODY") {
-					// deal with browser quirks with body/window/document and page scroll
-					var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-					var yScroll = el.scrollTop || document.documentElement.scrollTop;
-
-					xPos += (el.offsetLeft - xScroll + el.clientLeft);
-					yPos += (el.offsetTop - yScroll + el.clientTop);
-				} else {
-					// for all other non-BODY elements
-					xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-					yPos += (el.offsetTop - el.scrollTop + el.clientTop);
-				}
-
-				el = el.offsetParent;
-			}
-			return {
-				x: xPos,
-				y: yPos
-			};
-		}*/
 		
 		/*
 		returns true if zombie has caused game over 
@@ -246,7 +227,7 @@ $(document).ready(function(){
 		// params health, xPos, zomNum, yPos
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
 		// onclick handel 
-		document.getElementById(i).onclick = zs[i].hit;
+		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
 	
 	/*
@@ -263,20 +244,5 @@ $(document).ready(function(){
 			}                     
 		}, 4000)
 	}
-	genLoop();  // auto call 
-
-	/*
-	"kills" a zombie by removing all elements by id
-	note: currently two calls are required to kill the zombie 
-	and the health number because they share the same id.
-	*/
-	/*function kill(zomNum) {   // < ---------------- not sure why works
-		score += 5;
-		document.getElementById("score").textContent=("Score: " + score);
-		console.log( zomNum + " ______________________is dead");
-		zs[zomNum].stopMove;
-		document.getElementById(zomNum).remove(); 			// one call to "zombie"
-		//document.getElementById(zomNum).remove(); 	// another call to number container
-		zs[zomNum] = null; 						  	// remove ref for garbage collection 
-	} */                
+	genLoop();  // auto call                
 });
