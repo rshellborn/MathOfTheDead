@@ -70,6 +70,7 @@ $(document).ready(function() {
 	var curQueue = document.getElementById("curQueue");
 	
 	pause.onclick = function() {
+		throw new Error();
 	}
 	
 	plusGun.onclick = function(){

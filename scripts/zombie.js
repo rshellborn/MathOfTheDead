@@ -103,7 +103,7 @@ $(document).ready(function(){
 				animateTimer = null;
 				
 				console.log("||| G A M E O V E R |||" + zomNum);
-				document.location.href = 'endOfGame.html';
+				//document.location.href = 'endOfGame.html';
 			} else {
 				//this.animate;   does this do anything? 
 				yPos += speed;
