@@ -156,6 +156,10 @@ div.buttonHolder{
 	vertical-align: middle;
 	padding: 0;
 }
+.modal-backdrop
+{	/*uncomment this after javascript stops executing*/
+    /*opacity:1.0 !important;*/
+}
 
 @media only screen and (min-width : 1200px){
 	div.container{
