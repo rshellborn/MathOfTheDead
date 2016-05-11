@@ -289,7 +289,8 @@ $(document).ready(function(){
 
 	
 	function nextWave() {
-		$("#NW").fadeIn();
+		$("#NW").fadeIn(3000);
+		$("#NW").fadeOut(3000);
 	}
 	
 	/*
