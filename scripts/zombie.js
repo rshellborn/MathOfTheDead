@@ -14,7 +14,7 @@ $(document).ready(function(){
 		this.zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.4;
+		var speed = 0.1;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		zombieHealthText.style.textAlign = "center";
 		zombieHealthText.style.color = "White";
 		zombieHealthText.style.fontSize = "200%";
-		zombieHealthText.id = zomNum; 
+		//zombieHealthText.id = zomNum;
 		
 		//zombie image data
 		zombieImage.src = "images/zombies/zombie0.png"; 
@@ -138,7 +138,7 @@ $(document).ready(function(){
 		this.hit = function(){
 			checkGun();
 			updateRandomBullet();
-			zombieHolder.innerHTML = health;
+			zombieHealthText.innerHTML = health;
 			if (health == 0){
 				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
 				//$( "#" + zomNum ).toggle( "explode", "slow");
@@ -253,7 +253,7 @@ $(document).ready(function(){
 	Zombie gen loop
 	*/
 	var i = 0;                     
-	var spawnNum = 15; 
+	var spawnNum = 1; 
 	function genLoop() {           
 		setTimeout(function () {   
 			generate(i)  // generate with zombie id as param   
@@ -275,8 +275,8 @@ $(document).ready(function(){
 		document.getElementById("score").textContent=("Score: " + score);
 		console.log( zomNum + " is dead");
 		zs[zomNum].stop;
-		document.getElementById(zomNum); // one call to "zombie"
-		document.getElementById(zomNum).remove(); // another call to number container
-		zs[zomNum] = null; 						  // remove ref for garbage collection 
+		document.getElementById(zomNum).remove(); 			// one call to "zombie"
+		//document.getElementById(zomNum).remove(); 	// another call to number container
+		zs[zomNum] = null; 						  	// remove ref for garbage collection 
 	}                 
 });
