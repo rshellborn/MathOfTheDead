@@ -51,21 +51,25 @@ div.topBar{
 	font-size: 1.5em;
 	text-align: center;
 	padding: 0;
+	z-index: 1;
 }
 div.pauseButton{
 	background-color:#f20000;
+	z-index: 1;
 }
 div.queue{
 	background-color:#333; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0;
+	z-index: 1;
 }
 div.currentQueue{
 	background-color:#f20000; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
-	padding: 0; 
+	padding: 0;
+	z-index: 1; 
 }
 div.insideQueue{
 	position: absolute;
@@ -79,6 +83,7 @@ div.insideQueue{
 	vertical-align: middle;
 	top: 25%;
 	left: 0;
+	z-index: 1;
 }
 div.gunsBar{
 	min-height: 3%;
