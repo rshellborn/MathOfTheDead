@@ -133,8 +133,6 @@ $(document).ready(function(){
 				moveTimer = null;
 				clearInterval(animateTimer);
 				animateTimer = null;
-				// causes screen to shake 
-				//$( "div" ).effect( "bounce", "slow" );
 				console.log("||| G A M E O V E R |||" + zomNum);
 				document.location.href = 'endOfGame.html';
 			} else {
@@ -147,10 +145,10 @@ $(document).ready(function(){
 			}
 		} 
 		/*
-		helper for zombie kill, but no work   < ------ broken 
+		helper for zombie kill, but no work   < ------ not sure why works
 		*/ 
 
-		this.stop = function() {
+		stop = function() {
 			speed = 0; 
 			clearInterval(moveTimer);
 			moveTimer = null;
@@ -176,12 +174,12 @@ $(document).ready(function(){
 			updateRandomBullet();
 			zomHealthHolder.innerHTML = health;
 			if (health == 0){
-				//$( "#" + zomNum ).toggle( "explode", "fast"); // need two for toggle
+				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
 				//$( "#" + zomNum ).toggle( "explode", "slow");
 				stop(); 
 				kill(zomNum);	
 			} else {
-				// $( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
+				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("zom #"+ i + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
@@ -224,7 +222,7 @@ $(document).ready(function(){
 			triggerEasterEgg();	
 		}
 		
-		health = health / currentBullet;
+		health = Math.ceil(health / currentBullet);
 		console.log("new health: " + health);
 	}
 	
@@ -267,7 +265,7 @@ $(document).ready(function(){
 	*/ 
 	function xRandom() {
 		//return Math.floor((Math.random() * 100));
-		return Math.floor(Math.random() * 4)* 25; 
+		return Math.floor(Math.random() * 4) * 25; 
 	}
 
 	/*
@@ -279,11 +277,10 @@ $(document).ready(function(){
 		// call to constr 
 		// params health, xPos, zomNum, yPos
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
-		console.log(zs[i].zomNum);   
 		// onclick handel 
 		document.getElementById(i).onclick = zs[i].hit;
 		// god mode auto kill (for testing)
-		document.getElementById(i).ondblclick=function(){kill(i)};
+		//document.getElementById(i).ondblclick=function(){kill(i)};  // broken 
 
 	}
 	
@@ -308,7 +305,7 @@ $(document).ready(function(){
 	note: currently two calls are required to kill the zombie 
 	and the health number because they share the same id.
 	*/
-	function kill(zomNum) {   // < ---------------- broken 
+	function kill(zomNum) {   // < ---------------- not sure why works
 		score += 5;
 		document.getElementById("score").textContent=("Score: " + score);
 		console.log( zomNum + " is dead");
