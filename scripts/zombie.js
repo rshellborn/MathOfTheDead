@@ -5,6 +5,9 @@ $(document).ready(function(){
 	var genTimer = null;
 	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
+
+	var wave = 1;
+	document.getElementById("wave").textContent=("Wave " +wave);
 	
 	killCount = 0;
 	/*
@@ -118,8 +121,17 @@ $(document).ready(function(){
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
 			//alert(killCount);
+			
 			if (killCount == spawnNum) {
-				nextWave();
+				fadeStatus = false;
+				fade();
+				wave++;
+				document.getElementById("wave").textContent=("Wave " + wave);
+				killCount = 0;
+					if(fadeStatus == true){
+					spawnNum++;
+					callWave(spawnNum);
+					}
 			}
 		}
 		
@@ -270,15 +282,20 @@ $(document).ready(function(){
     genLoop();  // auto call*/
 	
 	var spawnNum = 5;
+	function callWave(spawnNum){
 	for (i = 0; i < spawnNum; i++) {
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
-	
-	function nextWave() {
+}
+	callWave(spawnNum);
+
+	var fadeStatus;
+	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
+		fadeStatus = true;
 	}
 	
 	/*
