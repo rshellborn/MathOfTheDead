@@ -76,14 +76,16 @@ $(document).ready(function() {
 			console.log('freezing zombies');
 			for(var i = 0; i < zs.length; i++) {
 				console.log('freezing zombie ' + i);
-				zs[i].stopMove();
+				if (zs[i] != null)
+					zs[i].stopMove();
 			}
 			console.log('exiting for loop');
 			resume.onclick = function() {
 				console.log('resume clicked');
 				paused = 0;
 			 	for(var i = 0; i < zs.length; i++) {
-				zs[i].startMove();
+			 		if (zs[i] != null)
+						zs[i].startMove();
 			  }
 			}
 	}
