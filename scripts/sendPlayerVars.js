@@ -1,5 +1,5 @@
-var playerWave;
-var playerScore;
+var playerWave = 1;
+var playerScore = 0;
 
 function getQueryVariable(variable)
 {
@@ -13,11 +13,18 @@ function getQueryVariable(variable)
 }
 
 function carryVars() {
-		playerWave = wave;
-		playerScore = score;
-	alert('working');
+	playerWave = wave;
+	playerScore = score;
 	console.log("current wave " + wave);
 	console.log("current score " + score);
+}
+
+function getCurWave() {
+	return playerWave;
+}
+
+function getCurScore() {
+	return playerScore;
 }
 
 	$(document).ready(function(){
