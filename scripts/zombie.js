@@ -203,6 +203,7 @@ $(document).ready(function(){
 		if(currentBullet == 0) {
 			die(); 
 			if (easterEggThisWave){
+				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
 		}
@@ -271,22 +272,6 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
-	
-	/*
-	//Zombie gen loop
-	var i = 0;                     
-	var spawnNum = 8; 
-	function genLoop() {        
-		setTimeout(function () {   
-				generate(i)  // generate with zombie id as param   
-				i++;                  
-				if (i < spawnNum) {    
-				genLoop();        
-           }                     
-       }, 4000)
-    }
-    genLoop();  // auto call*/
-	
 	var spawnNum = 5;
 	function callWave(spawnNum){
 	for (i = 0; i < spawnNum; i++) {

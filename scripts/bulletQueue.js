@@ -1,5 +1,6 @@
 	var bulletQueueValues = new Array(5);
 	var currentBullet = 1;
+	var easterEggThisWave = 1; 
 
 	function generateQueue(){
 		for(i = 0; i < 5; i++){
