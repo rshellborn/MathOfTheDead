@@ -8,8 +8,3 @@ function getQueryVariable(variable)
        }
        return(false);
 }
-
-$(document).ready(function(){
-var wave = getQueryVariable("wave");
-var score = getQueryVariable("score");
-});

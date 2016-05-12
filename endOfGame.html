@@ -8,7 +8,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/playerVars.js"></script>
+  <script src="scripts/sendPlayerVars.js"></script>
+  
+  <script>
+	$(document).ready(function(){
+	  //get values
+	  var wave = getQueryVariable("wave");
+	  var score = getQueryVariable("score");
+	  
+	  //print onto screen
+	  document.getElementById("wave").textContent=("Wave " + wave);
+	  document.getElementById("score").textContent=("Score: " + score);
+	});
+  </script>
   
   </head>
   <body>
