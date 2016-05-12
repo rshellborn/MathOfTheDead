@@ -143,7 +143,11 @@ $(document).ready(function(){
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
 			//alert(killCount);
+			console.log('kill count ' + killCount);
+			console.log('spawn count ' + spawnNum);
 			if (killCount == spawnNum) {
+				console.log('switching');
+				
 				easterEggThisWave = 0; // set flag no pony mode again
 				backToMainGame();
 			}
