@@ -4,7 +4,7 @@
 
 	function generateQueue(){
 		for(i = 0; i < 5; i++){
-			bulletQueueValues[i] = Math.floor((Math.random() *21) - 10);  
+			bulletQueueValues[i] = Math.floor((Math.random() *11) - 5);  
 			document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 		}
 		currentBullet = bulletQueueValues[0];
@@ -13,7 +13,7 @@
 	
 	function addRandomBullet(){
 		var length = bulletQueueValues.length;
-		var x = Math.floor((Math.random() * 21) - 10);
+		var x = Math.floor((Math.random() * 11) - 5);
 		bulletQueueValues.shift();
 		bulletQueueValues.push(x);
 		for(i = 0; i < length; i++){

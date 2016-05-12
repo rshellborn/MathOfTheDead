@@ -20,7 +20,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.1;
+		var speed = 0.08;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -185,7 +185,7 @@ $(document).ready(function(){
 			if(selectedGun == 1) {
 				//plus gun
 				plusOperation();
-				health = 0;
+				//health = 0;
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
@@ -278,7 +278,7 @@ $(document).ready(function(){
 	random num helper for health 
 	*/ 
 	function healthRandom() {
-		out = Math.floor((Math.random() * 10) + 1);
+		out = Math.floor((Math.random() * 5) + 1);
 		if ((Math.random() * 2) > 1) {
 			return out * -1;
 		} else {
