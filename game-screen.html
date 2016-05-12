@@ -11,6 +11,7 @@
   <script src="scripts/zombie.js"></script>
   <script src="scripts/buttons.js"></script>
   <script src="scripts/bulletQueue.js"></script>
+  <script src="scripts/playerVars.js"></script>
 </head>
 <body>
 	<!-- PAUSE MODAL THAT POPS UP -->
@@ -45,9 +46,8 @@
 	<div class="container special">
 		<div class ="row specialrow">
 			<a data-target="#myModal" data-backdrop="static" data-toggle="modal" href="#pause"><div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div></a>
-			<div class="col-lg-2 col-xs-4 topBar" >Wave 1</div>
+			<div id="wave" class="col-lg-2 col-xs-4 topBar" ></div>
 			<div id="score" class="col-lg-2 col-xs-4 topBar" ></div>
-
 				  
 			<div class="col-lg-1 col-lg-offset-3 col-xs-2 queue" id="queue4">
 				<div class="insideQueue" id="insideQueue4">
@@ -67,7 +67,7 @@
             </div>
 			<a href="#curQueue">
             	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
-                	<img src="images/Bullet.png" class="img-responsive bulletImage" alt="Bullet">
+                	<img src="images/bullet.png" class="img-responsive bulletImage" alt="Bullet">
 					<div class="insideQueue" id="insideQueue0">
 					</div>
                 </div>
