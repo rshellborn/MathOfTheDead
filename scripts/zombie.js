@@ -281,12 +281,8 @@ $(document).ready(function(){
     }
     genLoop();  // auto call*/
 	
-<<<<<<< HEAD
 	var spawnNum = 5;
 	function callWave(spawnNum){
-=======
-	var spawnNum = 15;
->>>>>>> 41c9e5f684ff285086673b72f8720d144bc35fd3
 	for (i = 0; i < spawnNum; i++) {
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
 		// onclick handel 
@@ -299,25 +295,6 @@ $(document).ready(function(){
 	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
-<<<<<<< HEAD
 		fadeStatus = true;
 	}
-	
-	/*
-	"kills" a zombie by removing all elements by id
-	note: currently two calls are required to kill the zombie 
-	and the health number because they share the same id.
-	*/
-	/*function kill(zomNum) {   // < ---------------- not sure why works
-		score += 5;
-		document.getElementById("score").textContent=("Score: " + score);
-		console.log( zomNum + " ______________________is dead");
-		zs[zomNum].stopMove;
-		document.getElementById(zomNum).remove(); 			// one call to "zombie"
-		//document.getElementById(zomNum).remove(); 	// another call to number container
-		zs[zomNum] = null; 						  	// remove ref for garbage collection 
-	} */            
-=======
-	}         
->>>>>>> 41c9e5f684ff285086673b72f8720d144bc35fd3
 });
