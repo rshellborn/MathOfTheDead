@@ -245,6 +245,7 @@ $(document).ready(function(){
 		}
 		
 		this.stopMove = function() {
+		  console.log('freezing pony ' + i);
 		  clearInterval(moveTimer);
 		  moveTimer = null;
 		  clearInterval(animateTimer);
@@ -252,6 +253,7 @@ $(document).ready(function(){
 		}
 	
 		this.startMove = function() {
+			console.log('unfreezing pony ' + i);
 		  moveTimer = setInterval(this.move, 10);  
 		  animateTimer = setInterval(this.animate, 800);		
 		}
