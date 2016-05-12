@@ -153,7 +153,7 @@ $(document).ready(function(){
 			if (health == 0){
 				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
 				//$( "#" + zomNum ).toggle( "explode", "slow");
-				die();	
+				die();
 			} else {
 				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
@@ -196,8 +196,9 @@ $(document).ready(function(){
 		
 		function diviOperation() {
 		if(currentBullet == 0) {
-			die(); 
+			die();
 			if (easterEggThisWave){
+				
 				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
@@ -267,6 +268,7 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
+
 	var spawnNum = 5;
 	function callWave(spawnNum){
 	for (i = 0; i < spawnNum; i++) {

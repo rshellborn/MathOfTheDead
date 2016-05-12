@@ -138,7 +138,8 @@ $(document).ready(function(){
 			document.getElementById(zomNum).remove();
 			//alert(killCount);
 			if (killCount == spawnNum) {
-				nextWave();
+				easterEggThisWave = 0; // set flag no pony mode again
+				backToMainGame();
 			}
 		}
 		
@@ -206,7 +207,7 @@ $(document).ready(function(){
 		
 		function diviOperation() {
 			if(currentBullet == 0) {
-				die();
+				die(); 
 				easterEggThisWave = 0; // set flag no pony mode again
 				backToMainGame();
 			}
@@ -285,8 +286,12 @@ $(document).ready(function(){
 		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
 	}
 	
-	function nextWave() {
+	callWave(spawnNum);
+
+	var fadeStatus;
+	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
-	}         
+		fadeStatus = true;
+	}        
 });
