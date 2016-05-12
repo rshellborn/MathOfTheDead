@@ -90,7 +90,12 @@ $(document).ready(function(){
 				animateTimer = null;
 				
 				console.log("||| G A M E O V E R |||" + zomNum);
-				document.location.href = 'endOfGame.html';
+     			
+				var send = "wave=" + wave + "&score=" + score + "";
+				
+				document.location.href = 'endOfGame.html?' + send;
+						
+				//document.location.href = 'endOfGame.html';
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
