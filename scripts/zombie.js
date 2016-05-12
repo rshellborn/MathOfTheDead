@@ -215,8 +215,9 @@ $(document).ready(function(){
 		
 		function diviOperation() {
 		if(currentBullet == 0) {
-			health = 0;
 			if (easterEggThisWave){
+				//increase score
+				score += 5;
 				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}

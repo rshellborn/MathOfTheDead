@@ -230,7 +230,9 @@ $(document).ready(function(){
 		
 		function diviOperation() {
 			if(currentBullet == 0) {
-				easterEggThisWave = 0; // set flag no pony mode again
+				easterEggThisWave = 0; // set flag no pony mode again		
+				//increase score
+				score += 5;
 				backToMainGame();
 			}
 			health = Math.ceil(health / currentBullet);
