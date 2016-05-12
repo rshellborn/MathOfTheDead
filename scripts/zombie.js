@@ -18,7 +18,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.08;
+		var speed = 0.1;
 		var health = health;
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -67,8 +67,6 @@ $(document).ready(function(){
 		
 		//adding zombieHolder to screen
 		document.getElementById("lawn").appendChild(zombieHolder);
-		
-		console.log(zombieHolder.style.width);
 		
 		/*
 		returns true if zombie has caused game over 
@@ -184,13 +182,15 @@ $(document).ready(function(){
 		}
 		
 		function diviOperation() {
-			if(currentBullet == 0) {
+		if(currentBullet == 0) {
+			die(); 
+			if (easterEggThisWave){
 				triggerEasterEgg();	
 			}
-			
-			health = Math.ceil(health / currentBullet);
-			console.log("new health: " + health);
 		}
+		health = Math.ceil(health / currentBullet);
+		console.log("new health: " + health);
+	}
 	
 	
 		function triggerEasterEgg() {
@@ -246,7 +246,7 @@ $(document).ready(function(){
 		return Math.floor(Math.random() * 4) * 25; 
 	}
 
-	/*function generate(i) {
+	function generate(i) {
 		// call to constr 
 		// params health, xPos, zomNum, yPos
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
@@ -271,7 +271,7 @@ $(document).ready(function(){
 	
 	var spawnNum = 15;
 	for (i = 0; i < spawnNum; i++) {
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (10 * i) );  
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
