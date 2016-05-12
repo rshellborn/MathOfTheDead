@@ -111,7 +111,7 @@ $(document).ready(function(){
 				
 				var send = "wave=" + wave + "&score=" + score + "";
 				
-				document.location.href = 'endOfGame-easterEgg.html?' + send;
+				document.location.href = 'endOfGame.html?' + send;
 				
 			} else {
 				yPos += speed;

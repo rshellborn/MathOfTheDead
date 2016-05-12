@@ -95,7 +95,6 @@ $(document).ready(function(){
 				
 				document.location.href = 'endOfGame.html?' + send;
 						
-				//document.location.href = 'endOfGame.html';
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
