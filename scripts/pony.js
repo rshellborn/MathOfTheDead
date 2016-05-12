@@ -20,7 +20,7 @@ $(document).ready(function(){
 		var zomNum = "p" + zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.1;
+		var speed = 0.08;
 		var health = health;
 		console.log("Pony # " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -294,7 +294,7 @@ $(document).ready(function(){
 	random num helper for health 
 	*/ 
 	function healthRandom() {
-		out = Math.floor((Math.random() * 10) + 1);
+		out = Math.floor((Math.random() * 5) + 1);
 		if ((Math.random() * 2) > 1) {
 			return out * -1;
 		} else {
