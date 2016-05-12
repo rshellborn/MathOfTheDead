@@ -1,12 +1,11 @@
 var zs = new Array();
-var score = 0;
+var score = getCurScore();
+var wave = getCurWave();
 $(document).ready(function(){
 	//holds the zombies
 	//var zs = new Array();
 	var genTimer = null;
 	document.getElementById("score").textContent=("Score: " +score);
-
-	var wave = 1;
 	document.getElementById("wave").textContent=("Wave " +wave);
 	
 	killCount = 0;
@@ -92,9 +91,7 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||" + zomNum);
      			
 				var send = "wave=" + wave + "&score=" + score + "";
-				
 				document.location.href = 'endOfGame.html?' + send;
-						
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
@@ -202,7 +199,6 @@ $(document).ready(function(){
 		if(currentBullet == 0) {
 			die();
 			if (easterEggThisWave){
-				
 				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
@@ -214,13 +210,15 @@ $(document).ready(function(){
 	
 		function triggerEasterEgg() {
 			//INITIALIZING EASTER EGG
+			//sending player vars
+			carryVars();
 			//changing css
 			var egg = document.getElementById("css");
 			egg.setAttribute('href', "css/easterEgg.css");
 			//changing script
 			//gets rid of zombie script
 			var c = document.getElementsByTagName('script');
-			c[3].parentElement.removeChild(c[3]);
+			c[4].parentElement.removeChild(c[4]);
 			//adds pony script
 			var fileref=document.createElement('script')
 			fileref.setAttribute("src", "scripts/pony.js");

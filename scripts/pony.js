@@ -1,9 +1,11 @@
 var zs = new Array();
+var score = getCurScore();
+var wave = getCurWave();
+
 $(document).ready(function(){
 	//holds the zombies
 	//var zs = new Array();
 	var genTimer = null;
-	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
 	
 	killCount = 0;
@@ -222,6 +224,8 @@ $(document).ready(function(){
 	
 		function backToMainGame() {
 			//INITIALIZING EASTER EGG
+			//sending player vars
+			carryVars();
 			//changing css
 			console.log("______________________backToMainGame")
 			var egg = document.getElementById("css");
@@ -229,7 +233,7 @@ $(document).ready(function(){
 			//changing script
 			//gets rid of zombie script
 			var c = document.getElementsByTagName('script');
-			c[5].parentElement.removeChild(c[5]);
+			c[6].parentElement.removeChild(c[6]);
 			//adds pony script
 			var fileref=document.createElement('script')
 			fileref.setAttribute("src", "scripts/zombie.js");
@@ -290,7 +294,7 @@ $(document).ready(function(){
 		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
 	}
 	
-	callWave(spawnNum);
+	//callWave(spawnNum);
 
 	var fadeStatus;
 	function fade() {

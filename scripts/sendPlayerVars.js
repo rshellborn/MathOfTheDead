@@ -1,3 +1,6 @@
+var playerWave = 1;
+var playerScore = 0;
+
 function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);
@@ -8,3 +11,24 @@ function getQueryVariable(variable)
        }
        return(false);
 }
+
+function carryVars() {
+	playerWave = wave;
+	playerScore = score;
+	console.log("current wave " + wave);
+	console.log("current score " + score);
+}
+
+function getCurWave() {
+	return playerWave;
+}
+
+function getCurScore() {
+	return playerScore;
+}
+
+	$(document).ready(function(){
+	  //get values
+	  var wave = getQueryVariable("wave");
+	  var score = getQueryVariable("score");
+	});
