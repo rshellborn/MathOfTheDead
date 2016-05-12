@@ -100,11 +100,25 @@ $(document).ready(function(){
 				zombieHolder.style.top = yPos + "%";
 				//console.log("#" + zomNum + " " + zombieHolder.style.top); 
 			}
-		} 
+		}
 		
+		this.wipe = function() {
+			clearInterval(moveTimer);
+			moveTimer = null;
+			clearInterval(animateTimer);
+			animateTimer = null;
+			
+			//removes the zombie from the array
+			zs[zomNum] = null;
+			
+			//removes the image from the screen
+			document.getElementById(zomNum).remove();
+			//alert(killCount);
+		}
 		
 		//kills the zombie.
 		function die() {
+			console.log("die");
 			killCount++;
 			//stops the zombie from calling move/animate functions
 			speed = 0;
@@ -157,7 +171,9 @@ $(document).ready(function(){
 			if (health == 0){
 				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
 				//$( "#" + zomNum ).toggle( "explode", "slow");
+				console.log("before");
 				die();
+				console.log("after");
 			} else {
 				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
@@ -200,21 +216,23 @@ $(document).ready(function(){
 		
 		function diviOperation() {
 		if(currentBullet == 0) {
-			die();
+			health = 0;
 			if (easterEggThisWave){
 				
 				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
+		} else {
+			health = Math.ceil(health / currentBullet);
+			console.log("new health: " + health);
 		}
-		health = Math.ceil(health / currentBullet);
-		console.log("new health: " + health);
 	}
 	
 	
 		function triggerEasterEgg() {
 			//INITIALIZING EASTER EGG
 			//changing css
+			killAll();
 			var egg = document.getElementById("css");
 			egg.setAttribute('href', "css/easterEgg.css");
 			//changing script
@@ -244,6 +262,15 @@ $(document).ready(function(){
 		animateTimer = setInterval(this.animate, 800);
 	};
 	// ___________________________________________________out of zombie 
+	
+	function killAll() {
+		for (j = 0; j < zs.length; j++) {
+			console.log("length" + zs.length);
+			console.log("index" + j);
+			zs[j].wipe();
+			console.log("doot");
+		}
+	}
 	
 	/*
 	random num helper for health 

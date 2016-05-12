@@ -120,6 +120,18 @@ $(document).ready(function(){
 			}
 		} 
 		
+		this.wipe = function() {
+			clearInterval(moveTimer);
+			moveTimer = null;
+			clearInterval(animateTimer);
+			animateTimer = null;
+			
+			//removes the zombie from the array
+			zs[zomNum] = null;
+			
+			//removes the image from the screen
+			document.getElementById(zomNum).remove();
+		}
 		
 		//kills the zombie.
 		function die() {
@@ -211,7 +223,6 @@ $(document).ready(function(){
 		
 		function diviOperation() {
 			if(currentBullet == 0) {
-				die(); 
 				easterEggThisWave = 0; // set flag no pony mode again
 				backToMainGame();
 			}
@@ -223,6 +234,7 @@ $(document).ready(function(){
 		function backToMainGame() {
 			//INITIALIZING EASTER EGG
 			//changing css
+			killAll();
 			console.log("______________________backToMainGame")
 			var egg = document.getElementById("css");
 			egg.setAttribute('href', "css/styles.css");
@@ -253,6 +265,15 @@ $(document).ready(function(){
 		animateTimer = setInterval(this.animate, 800);
 	};
 	// ___________________________________________________out of zombie 
+	
+	function killAll() {
+		for (j = 0; j < zs.length; j++) {
+			console.log("length" + zs.length);
+			console.log("index" + j);
+			zs[j].wipe();
+			console.log("doot");
+		}
+	}
 	
 	/*
 	random num helper for health 
@@ -289,13 +310,11 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
 	}
-	
-	callWave(spawnNum);
 
-	var fadeStatus;
+	/*var fadeStatus;
 	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
 		fadeStatus = true;
-	}        
+	} */       
 });
