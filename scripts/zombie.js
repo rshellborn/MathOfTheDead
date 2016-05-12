@@ -1,9 +1,9 @@
 var zs = new Array();
+var score = 0;
 $(document).ready(function(){
 	//holds the zombies
 	//var zs = new Array();
 	var genTimer = null;
-	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
 	
 	killCount = 0;
