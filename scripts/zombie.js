@@ -281,12 +281,9 @@ $(document).ready(function(){
     }
     genLoop();  // auto call*/
 	
-<<<<<<< HEAD
+
 	var spawnNum = 5;
 	function callWave(spawnNum){
-=======
-	var spawnNum = 15;
->>>>>>> 41c9e5f684ff285086673b72f8720d144bc35fd3
 	for (i = 0; i < spawnNum; i++) {
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (10 * i) );  
 		// onclick handel 
@@ -299,7 +296,6 @@ $(document).ready(function(){
 	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
-<<<<<<< HEAD
 		fadeStatus = true;
 	}
 	
@@ -317,7 +313,6 @@ $(document).ready(function(){
 		//document.getElementById(zomNum).remove(); 	// another call to number container
 		zs[zomNum] = null; 						  	// remove ref for garbage collection 
 	} */            
-=======
+
 	}         
->>>>>>> 41c9e5f684ff285086673b72f8720d144bc35fd3
 });
