@@ -7,9 +7,7 @@ function getQueryVariable(variable)
                if(pair[0] == variable){return pair[1];}
        }
        return(false);
-
-	alert(pair[0]);
-	alert(pair[1]);
 }
 
-getQueryVariable();
+alert(getQueryVariable(wave));
+alert(getQueryVariable(score));
