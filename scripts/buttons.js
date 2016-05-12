@@ -1,5 +1,6 @@
 var selectedGun = 1;
 var paused = 0;
+var easterEggThisWave = 1; 
 		
 function changeGun(gunType) {
 	var plusGun = document.getElementById('plusGun');

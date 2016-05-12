@@ -87,7 +87,7 @@ $(document).ready(function(){
 				animateTimer = null;
 				
 				console.log("||| G A M E O V E R |||" + zomNum);
-				document.location.href = 'endOfGame.html';
+				//document.location.href = 'endOfGame.html';
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
@@ -185,6 +185,7 @@ $(document).ready(function(){
 		if(currentBullet == 0) {
 			die(); 
 			if (easterEggThisWave){
+				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
 		}
@@ -253,23 +254,8 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
-	
-	/*
-	//Zombie gen loop
-	var i = 0;                     
-	var spawnNum = 8; 
-	function genLoop() {        
-		setTimeout(function () {   
-				generate(i)  // generate with zombie id as param   
-				i++;                  
-				if (i < spawnNum) {    
-				genLoop();        
-           }                     
-       }, 4000)
-    }
-    genLoop();  // auto call*/
-	
-	var spawnNum = 15;
+		
+	var spawnNum = 2;
 	for (i = 0; i < spawnNum; i++) {
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (10 * i) );  
 		// onclick handel 
