@@ -9,5 +9,10 @@ function getQueryVariable(variable)
        return(false);
 }
 
-alert(getQueryVariable(wave));
-alert(getQueryVariable(score));
+$(document).ready(function(){
+var wave = getQueryVariable("wave");
+var score = getQueryVariable("score");
+
+document.getElementById("wave").textContent=("Wave " + wave);
+document.getElementById("score").textContent=("Score: " + score);
+});

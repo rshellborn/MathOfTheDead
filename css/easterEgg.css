@@ -1,11 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Nosifer);
+
 html,body {
 	min-height: 100%;
 	max-height: 100%;
 	height:100%;
+	
 	background: url("../images/easterEgg/ponyBG.png"), no-repeat;
 	
 	margin: 0;
     padding: 0;
+	overflow: hidden;
 }
 
 #dottedLine {
@@ -13,6 +17,8 @@ html,body {
 	position: relative;
 	width: 100%;
 	margin-top: 0;
+	padding:0;
+	margin-bottom: 0;
 }
 
 /* BOOTSTRAP MADNESS */
@@ -21,7 +27,6 @@ div.special {
 	max-height: 100%;
 	height:100%;
 	padding:0;
-	z-index:1;
 }
 div.specialrow {
 	min-height: 100%;
@@ -29,98 +34,262 @@ div.specialrow {
 	height:100%;
 	padding:0;
 	margin:0;
-	z-index:1;
 }
 div.lawns{
 	margin: 0;
     padding: 0;
-	min-height: 50%;
-
+	min-height: 65%;
+	height:65%;
+	max-height: 65%;
 }
 div.topBar{
 	border: 1px solid;
 	max-width: 50%;
-	min-height: 5%;
+	min-height: 5%; /** might need to change this*/
     background-color: #333;
 	color: white;
 	font: Arial, Helvetica, sans-serif;
 	font-size: 1.5em;
 	text-align: center;
 	padding: 0;
-	z-index:1;
+	z-index: 2;
 }
 div.pauseButton{
 	background-color:#ffe605;
+	z-index: 2;
 }
 div.queue{
-	background-color:#333; 
+	background: url("../images/bulletv2.png");
+	background-size: 100% 100%;
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0;
-	z-index:1;
-
+	z-index: 2;
 }
 div.currentQueue{
+	background: url("../images/bullet.png");
+	background-size: 100% 100%;
 	background-color:#ffe605; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0; 
-	z-index:1;
-
+	z-index: 2; 
 }
-div.insideQueue{
+div.thisQueue{
 	position: absolute;
 	height: 100%;
 	width: 100%;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 4.0em;
+	padding-right: 20%;
+	z-index: 2;
+	
+	/** Making contents inside div centered*/
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+div.insideQueue{
+	position: absolute;
+	min-height: 100%;
+	min-width: 100%;
+	
+	/** Making contents inside div centered*/
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 
+	background: none;
 	color: white;
 	font: Arial, Helvetica, sans-serif;
 	font-size: 2.0em;
-	text-align: center;
-	vertical-align: middle;
-	top: 25%;
-	left: 0;
-	z-index:1;
+
+	padding-right: 20%;
 }
 div.gunsBar{
-	min-height: 3%;
+	min-height: 20%;
+	max-height: 20%;
+	height: 20%;
 	padding:0;
-	z-index:1;
+	z-index: 2;
 }
 div.guns{
 	border: 1px solid #FFF;
 	background-color: #ffe605;
+	height: 100%;
 }
 div.guns.clicked{
 	border: 1px solid #FFF;
 	background-color: #CCC;
 }
-div.bulletImage{
-	min-height: 100%;
-	min-width: 100%;
-	z-index:1;
-	
-
+div.plus{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/PlusGun.png");
+	background-size: 100% 100%;
+	padding: 0;
 }
+div.minus{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/subGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+div.multiply{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/MultiGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+div.divide{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/diviGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+div.youDiedTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #ffe605;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+}
+div.mainMenu{
+	width: 100%;
+	min-height: 35%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.5em;
+	text-align: center;
+	padding: 0;
+}
+div.nextWave{
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.5em;
+	text-align: center;
+	padding: 0;
+}
+div.displayPanel{
+	min-height: 35%;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 3.0em;
+	text-align: center;
+}
+div.buttonHolder{
+	min-height: 15%;
+}
+div.menuButtonHolder{
+	min-height: 15%;
+}
+.btn.sharp {
+	border-radius:0;
+	background: red;
+	border: solid black;
+	color: black;
+	width: 100%;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 3.0em;
+}
+div.scores{
+	padding:0;
+}
+div.insideQueue{
+	background: none;
+}
+div.scoreDisplay{
+	min-height: 35%;
+}
+div.emptySpace{
+	min-height: 20%;
+}
+<!-- modal stuff -->
+#myModal{
+	background: black;
+	text-align: center;
+}
+.modal-content{
+	background: black;	
+}
+.modal-title {
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0;
+}
+.modal-backdrop{	
+	/*uncomment this after javascript stops executing*/
+    opacity:1.0 !important;
+}
+
 @media only screen and (min-width : 1200px){
 	div.container{
 		max-height: 100%;
 		min-width: 100%;
 		border: none;
 	}
+	div.emptySpace{
+		min-height: 15%;
+	}
 }
 @media only screen and (max-width : 992px) {
 	div.container{
 		max-width: 50%;
 	}
-	div.lawns{
-		margin: 0;
-		padding: 0;
-		min-height: 65%;
-		height:65%;
+	div.emptySpace{
+		min-height: 30%;
+	}
+	div.mainMenu{
+		min-height: 20%;
+		font-size: 4.0em;
 	}
 	div.topBar{
 		font-size: 1.8em;
+	}
+	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	div.nextWave{
+		font-size: 4.0em;
+	}
+	.btn.sharp {
+		font-size: 2.5em;
+	}
+	div.thisQueue{
+		font-size: 3.5em;
+		top: 0%;
+		left: 0;
+		padding-right: 25%;
+	}
+	.modal { 
+		position: fixed; 
+		top: 20px !important; 
+		right: 3%; 
+		left: 3%;
+		width: auto; 
+		margin: 0; 
+	}
+	.modal-title {
+		font-size: 3.5em;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -128,14 +297,50 @@ div.bulletImage{
 		max-width: 100%;
 		min-height: 100%;
 	}
-	div.lawns{
-		margin: 0;
-		padding: 0;
-		height: 64%;
-		min-height: 64%;
+	div.emptySpace{
+		min-height: 35%;
 	}
 	div.topBar{
-		font-size: 1.3em;
+		font-size: 1.5em;
 	}
-
+	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	div.mainMenu{
+		font-size: 3.0em;
+	}
+	div.nextWave{
+	font-size: 4.0em;
+	}
+	.btn.sharp {
+		font-size: 2.0em;
+	}
+	div.displayPanel{
+		font-size: 2.0em;
+	}
+	div.thisQueue{
+		font-size: 3.0em;
+		padding-right: 25%;
+	}
+	div.lawns{
+		min-height: 70%;
+		max-height: 70%;
+		height: 70%;
+	}
+	div.gunsBar{
+		min-height: 15%;
+		max-height: 15%;
+		height: 15%;
+	}
+	.modal { 
+		position: fixed; 
+		top: 20px !important; 
+		right: 3%; 
+		left: 3%;
+		width: auto; 
+		margin: 0; 
+	}
+	.modal-title {
+		font-size: 3.5em;
+	}
 }
