@@ -92,9 +92,7 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||" + zomNum);
      			
 				var send = "wave=" + wave + "&score=" + score + "";
-				
 				document.location.href = 'endOfGame.html?' + send;
-						
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
@@ -202,7 +200,7 @@ $(document).ready(function(){
 		if(currentBullet == 0) {
 			die();
 			if (easterEggThisWave){
-				
+				carryVars();
 				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
@@ -214,6 +212,10 @@ $(document).ready(function(){
 	
 		function triggerEasterEgg() {
 			//INITIALIZING EASTER EGG
+			//sending player vars
+			var send = "wave=" + wave + "&score=" + score + "";
+			document.location.href = 'game-screen.html?' + send;
+			
 			//changing css
 			var egg = document.getElementById("css");
 			egg.setAttribute('href', "css/easterEgg.css");
