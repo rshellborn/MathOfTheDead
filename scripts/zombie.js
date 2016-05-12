@@ -1,10 +1,13 @@
 var zs = new Array();
+var score = 0;
 $(document).ready(function(){
 	//holds the zombies
 	//var zs = new Array();
 	var genTimer = null;
-	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
+
+	var wave = 1;
+	document.getElementById("wave").textContent=("Wave " +wave);
 	
 	killCount = 0;
 	/*
@@ -87,7 +90,7 @@ $(document).ready(function(){
 				animateTimer = null;
 				
 				console.log("||| G A M E O V E R |||" + zomNum);
-				//document.location.href = 'endOfGame.html';
+				document.location.href = 'endOfGame.html';
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
@@ -116,8 +119,17 @@ $(document).ready(function(){
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
 			//alert(killCount);
+			
 			if (killCount == spawnNum) {
-				nextWave();
+				fadeStatus = false;
+				fade();
+				wave++;
+				document.getElementById("wave").textContent=("Wave " + wave);
+				killCount = 0;
+					if(fadeStatus == true){
+					spawnNum++;
+					callWave(spawnNum);
+					}
 			}
 		}
 		
@@ -154,6 +166,7 @@ $(document).ready(function(){
 			if(selectedGun == 1) {
 				//plus gun
 				plusOperation();
+				health = 0;
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
@@ -254,16 +267,20 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
-		
-	var spawnNum = 2;
+	var spawnNum = 5;
+	function callWave(spawnNum){
 	for (i = 0; i < spawnNum; i++) {
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (10 * i) );  
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
-	
-	function nextWave() {
+}
+	callWave(spawnNum);
+
+	var fadeStatus;
+	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
-	}         
+		fadeStatus = true;
+	}
 });
