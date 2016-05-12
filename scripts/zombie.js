@@ -132,7 +132,9 @@ $(document).ready(function(){
 			zs[zomNum] = null;
 			
 			//removes the image from the screen
-			document.getElementById(zomNum).remove();
+			if (document.getElementById(zomNum) != null){
+				document.getElementById(zomNum).remove();
+			}
 			//alert(killCount);
 			
 			if (killCount == spawnNum) {
@@ -263,10 +265,12 @@ $(document).ready(function(){
 	
 	function killAll() {
 		for (j = 0; j < zs.length; j++) {
-			console.log("length" + zs.length);
-			console.log("index" + j);
-			zs[j].wipe();
-			console.log("doot");
+			if (zs[j] != null) {
+				console.log("length" + zs.length);
+				console.log("index" + j);
+				zs[j].wipe();
+				console.log("doot");
+			}
 		}
 	}
 	

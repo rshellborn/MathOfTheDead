@@ -131,8 +131,9 @@ $(document).ready(function(){
 			//removes the zombie from the array
 			zs[zomNum] = null;
 			
-			//removes the image from the screen
-			document.getElementById(zomNum).remove();
+			if (document.getElementById(zomNum) != null){
+				document.getElementById(zomNum).remove();
+			}
 		}
 		
 		//kills the zombie.
@@ -278,10 +279,12 @@ $(document).ready(function(){
 	
 	function killAll() {
 		for (j = 0; j < zs.length; j++) {
-			console.log("length" + zs.length);
-			console.log("index" + j);
-			zs[j].wipe();
-			console.log("doot");
+			if (zs[j] != null) {
+				console.log("length" + zs.length);
+				console.log("index" + j);
+				zs[j].wipe();
+				console.log("doot");
+			}
 		}
 	}
 	
