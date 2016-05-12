@@ -1,9 +1,11 @@
 var zs = new Array();
+var score = getCurScore();
+var wave = getCurWave();
+
 $(document).ready(function(){
 	//holds the zombies
 	//var zs = new Array();
 	var genTimer = null;
-	var score = 0;
 	document.getElementById("score").textContent=("Score: " +score);
 	
 	killCount = 0;
@@ -153,7 +155,11 @@ $(document).ready(function(){
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
 			//alert(killCount);
+			console.log('kill count ' + killCount);
+			console.log('spawn count ' + spawnNum);
 			if (killCount == spawnNum) {
+				console.log('switching');
+				
 				easterEggThisWave = 0; // set flag no pony mode again
 				backToMainGame();
 			}
@@ -233,6 +239,8 @@ $(document).ready(function(){
 	
 		function backToMainGame() {
 			//INITIALIZING EASTER EGG
+			//sending player vars
+			carryVars();
 			//changing css
 			killAll();
 			console.log("______________________backToMainGame")
@@ -241,7 +249,7 @@ $(document).ready(function(){
 			//changing script
 			//gets rid of zombie script
 			var c = document.getElementsByTagName('script');
-			c[5].parentElement.removeChild(c[5]);
+			c[6].parentElement.removeChild(c[6]);
 			//adds pony script
 			var fileref=document.createElement('script')
 			fileref.setAttribute("src", "scripts/zombie.js");
@@ -249,6 +257,7 @@ $(document).ready(function(){
 		}
 		
 		this.stopMove = function() {
+		  console.log('freezing pony ' + i);
 		  clearInterval(moveTimer);
 		  moveTimer = null;
 		  clearInterval(animateTimer);
@@ -256,6 +265,7 @@ $(document).ready(function(){
 		}
 	
 		this.startMove = function() {
+			console.log('unfreezing pony ' + i);
 		  moveTimer = setInterval(this.move, 10);  
 		  animateTimer = setInterval(this.animate, 800);		
 		}
@@ -310,7 +320,6 @@ $(document).ready(function(){
 		// onclick handel 
 		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
 	}
-
 	/*var fadeStatus;
 	function fade() {
 		$("#NW").fadeIn(3000);

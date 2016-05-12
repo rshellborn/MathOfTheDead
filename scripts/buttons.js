@@ -76,7 +76,7 @@ $(document).ready(function() {
 		console.log('pause pressed');
 			console.log('freezing zombies');
 			for(var i = 0; i < zs.length; i++) {
-				console.log('freezing zombie ' + i);
+				//console.log('freezing zombie ' + i);
 				if (zs[i] != null)
 					zs[i].stopMove();
 			}
