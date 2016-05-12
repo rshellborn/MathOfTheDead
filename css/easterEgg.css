@@ -6,7 +6,7 @@ html,body {
 	height:100%;
 	
 	background: url("../images/easterEgg/ponyBG.png"), no-repeat;
-	
+	background-size: 100% 100%;
 	margin: 0;
     padding: 0;
 	overflow: hidden;
@@ -166,6 +166,35 @@ div.youDiedTitle{
 	text-align: center;
 	padding: 0;
 }
+div.EOGWavedisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+}
+div.EOGScoredisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	text-align: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+}
 div.mainMenu{
 	width: 100%;
 	min-height: 35%;
@@ -175,7 +204,7 @@ div.mainMenu{
 	text-align: center;
 	padding: 0;
 }
-div.nextWave{
+/*div.nextWave{
 	width: 100%;
 	min-height: 20%;
 	color: red;
@@ -183,7 +212,7 @@ div.nextWave{
 	font-size: 5.5em;
 	text-align: center;
 	padding: 0;
-}
+}*/
 div.displayPanel{
 	min-height: 35%;
 	color: white;
@@ -199,7 +228,7 @@ div.menuButtonHolder{
 }
 .btn.sharp {
 	border-radius:0;
-	background: red;
+	background: #ffe605;
 	border: solid black;
 	color: black;
 	width: 100%;
@@ -229,7 +258,7 @@ div.emptySpace{
 .modal-title {
 	width: 100%;
 	min-height: 20%;
-	color: red;
+	color: #ffe605;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 	text-align: center;

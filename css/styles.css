@@ -169,6 +169,35 @@ div.youDiedTitle{
 	text-align: center;
 	padding: 0;
 }
+div.EOGWavedisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+}
+div.EOGScoredisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	text-align: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+}
 div.mainMenu{
 	width: 100%;
 	min-height: 35%;
@@ -196,6 +225,7 @@ div.displayPanel{
 }
 div.buttonHolder{
 	min-height: 15%;
+	max-height: 15%;
 }
 div.menuButtonHolder{
 	min-height: 15%;
