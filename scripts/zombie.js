@@ -271,7 +271,7 @@ $(document).ready(function(){
 	
 	var spawnNum = 15;
 	for (i = 0; i < spawnNum; i++) {
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (10 * i) );  
+		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
 		// onclick handel 
 		document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
