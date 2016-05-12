@@ -117,7 +117,7 @@ $(document).ready(function(){
 			
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
-			alert(killCount);
+			//alert(killCount);
 			if (killCount == spawnNum) {
 				nextWave();
 			}
