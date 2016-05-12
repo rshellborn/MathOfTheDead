@@ -108,7 +108,11 @@ $(document).ready(function(){
 				animateTimer = null;
 				
 				console.log("||| G A M E O V E R |||" + zomNum);
-				document.location.href = 'endOfGame-easterEgg.html';
+				
+				var send = "wave=" + wave + "&score=" + score + "";
+				
+				document.location.href = 'endOfGame-easterEgg.html?' + send;
+				
 			} else {
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
