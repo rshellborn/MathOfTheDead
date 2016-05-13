@@ -1,49 +1,68 @@
+/*
+zombie as represented with health and a img on screen
+starts "walking" upon instantiation.
+*/
+
+// holds all currently active zombies
 var zs = new Array();
+// gets the score 
 var score = getCurScore();
+// gets the current wave
 var wave = getCurWave();
+
 $(document).ready(function(){
-	//holds the zombies
-	//var zs = new Array();
+	// holds the timer for generating zombies
 	var genTimer = null;
+	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
+	// gets the element for wave
 	document.getElementById("wave").textContent=("Wave " +wave);
-	
+	// holds the kill counter
 	killCount = 0;
 	/*
-	 a zombie represented with health and a img on screen
-	 starts "walking" upon instantiation.
-	 this whole thing is a constr. (no class needed b/c that's how js rolls)
-	 */
+	 constructs a zombie
+	 @params 
+	 health Health of the zombie
+	 xPos x position of the zombie
+	 zomNum Unique number to identify an individual zombie
+	 		(used as ID tag for its div)
+	 yPos   y position of the zombie 
+	*/
 	var Zombie = function(health, xPos, zomNum, yPos) {  
-		
-		//assigning arguments to variables
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
 		var speed = 0.08;
 		var health = health;
+		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
-		//declaring variables for movement/animation
+		// holds timer for movement
 		var moveTimer = null;
+		// holds timer for animation
 		var animateTimer = null;
+		// holds image number
 		var imageNumber = 0;
 		
-		//initializing variables for zombie visuals
+		// creates zombie image element
 		var zombieImage = document.createElement("img");
+		// creates zombie image and health elements
 		var zombieHolder = document.createElement("div");
+		// creates zombie health elements
 		var zombieHealthText = document.createElement("div");
 		
-		//div to hold health text and zombie image
+		//set styles for container for zombie and health 
 		zombieHolder.style.height = "40%";
 		zombieHolder.style.maxHeight = "188px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
+
+		// assign id for holder for zombie and health elemets
 		zombieHolder.id = zomNum;
 		
-		//creating health visualizer
+		//set styles for container health 
 		zombieHealthText.innerHTML = health;
 		zombieHealthText.style.textAlign = "center";
 		zombieHealthText.style.color = "White";
@@ -52,7 +71,7 @@ $(document).ready(function(){
 		zombieHealthText.style.height = "20%";
 		zombieHealthText.style.top = "-100%";
 		
-		//zombie image data
+		//set styles for zombie image 
 		zombieImage.id = zomNum + "zImage";
 		zombieImage.src = "images/zombies/zombie0.png";
 		zombieImage.style.height = "80%";
@@ -80,16 +99,15 @@ $(document).ready(function(){
 		/*
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
-		this.move = function() {  // __________________________________________
+		this.move = function() { 
 			if (atDotted()){
 				// clears the animation and movement 
 				clearInterval(moveTimer);
 				moveTimer = null;
 				clearInterval(animateTimer);
 				animateTimer = null;
-				
+				// game over console message
 				console.log("||| G A M E O V E R |||" + zomNum);
-     			
 				var send = "wave=" + wave + "&score=" + score + "";
 				document.location.href = 'endOfGame.html?' + send;
 			} else {
