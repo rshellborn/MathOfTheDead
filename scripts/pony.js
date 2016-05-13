@@ -233,7 +233,6 @@ $(document).ready(function(){
 			if(selectedGun == 1) {
 				//plus gun
 				plusOperation();
-				health = 0;
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
