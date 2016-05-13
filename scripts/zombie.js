@@ -101,80 +101,83 @@ $(document).ready(function(){
 		*/
 		this.move = function() { 
 			if (atDotted()){
-				// clears the animation and movement 
+				// clears the movement
 				clearInterval(moveTimer);
 				moveTimer = null;
+				// cleats the animation 
 				clearInterval(animateTimer);
 				animateTimer = null;
 				// game over console message
 				console.log("||| G A M E O V E R |||" + zomNum);
+				// holds the wave counter and score for end of game
 				var send = "wave=" + wave + "&score=" + score + "";
 				document.location.href = 'endOfGame.html?' + send;
 			} else {
+				// incruments the image downwards
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
-				//console.log("#" + zomNum + " " + zombieHolder.style.top); 
 			}
 		}
-		
 		/*
-		kills a zombie
+		"kills" a zombie by clearing the intervals
+		and removing it from the array that holds zombies
+		Used when swtiching into the Easter Egg mode
 		*/
 		this.wipe = function() {
 			//stops movement
 			clearInterval(moveTimer);
-			moveTimer = null;
-			
+			moveTimer = null;			
 			//stops animation
 			clearInterval(animateTimer);
-			animateTimer = null;
-			
+			animateTimer = null;			
 			//removes the zombie from the array
 			zs[zomNum] = null;
-			
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
-		}
-		
+		}		
 		/*
-		kills the zombie.
+		"kills" the zombie 
 		*/
 		function die() {
 			console.log("die");
 			killCount++;
 			//stops the zombie from calling move/animate functions
 			speed = 0;
-			
+			// hardcoded health score awarded to player
 			score += 5;
+			// updates the score element
 			document.getElementById("score").textContent=("Score: " + score);
-			
+			//stops movement
 			clearInterval(moveTimer);
 			moveTimer = null;
+			// stops animation 
 			clearInterval(animateTimer);
-			animateTimer = null;
-			
+			animateTimer = null;			
 			//removes the zombie from the array
-			zs[zomNum] = null;
-			
+			zs[zomNum] = null;			
 			//removes the image from the screen
 			if (document.getElementById(zomNum) != null){
 				document.getElementById(zomNum).remove();
 			}
 			
-			//decides if the next wave should start
+			// starts next wave 
 			if (killCount == spawnNum) {
 				fadeStatus = false;
+				// calls fade aimation 
 				fade();
+				// incruments the current wave 
 				wave++;
 				document.getElementById("wave").textContent=("Wave " + wave);
+				// resets kill counter
 				killCount = 0;
-					if(fadeStatus == true){
+				if(fadeStatus == true){
+					// incruments the number of zombies to construct
 					spawnNum++;
+					// starts the next wave 
 					callWave(spawnNum);
-					}
+				}
 			}
-		}
-		
+		}		
 		/*
 		animates the image ie. makes it "walk"
 		*/
@@ -193,27 +196,22 @@ $(document).ready(function(){
 			updateRandomBullet();
 			zombieHealthText.innerHTML = health;
 			if (health == 0){
-				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
-				//$( "#" + zomNum ).toggle( "explode", "slow");
 				console.log("before");
 				die();
 				console.log("after");
 			} else {
-				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
 		}
-
 		/*
-		performs an operation depending on which gun is selected
+		performs a math operation depending on which gun is selected
 		*/
 		function checkGun() {
 		  //checks gun selected
 			if(selectedGun == 1) {
 				//plus gun
-				plusOperation();
-				//health = 0;
+				plusOperation();				
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
@@ -251,17 +249,17 @@ $(document).ready(function(){
 		}
 		
 		/*
-		divides
+		divides (rounds up)
+		checks if easter egg is triggered 
+		when the user divides by zero,
+		else, divides normally
 		*/
-		function diviOperation() {
-		//checks if easter egg should trigger
+		function diviOperation() {		
 		if(currentBullet == 0) {
-			if (easterEggThisWave){
-				//increase score
+			if (easterEggThisWave){				
 				score += 5;
-				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
-			}
+				}
 			} else {
 				health = Math.ceil(health / currentBullet);
 				console.log("new health: " + health);
@@ -311,7 +309,7 @@ $(document).ready(function(){
 		//auto caller for animating
 		animateTimer = setInterval(this.animate, 800);
 	};
-	// ___________________________________________________out of zombie 
+	// ___________________________________________________ zombie constr ends 
 	
 	/*
 	kills all zombies
@@ -346,7 +344,7 @@ $(document).ready(function(){
 		return Math.floor(Math.random() * 4) * 25; 
 	}
 	
-	//The number of zombies we're spawning
+	//holds number of zombies that are spawned
 	var spawnNum = 5;
 	/*
 	spawns spawnNum zombies
@@ -358,9 +356,11 @@ $(document).ready(function(){
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
 	}
+	// a new wave is automatically called at load
 	callWave(spawnNum);
-	
+	// flag for fading 
 	var fadeStatus;
+	// handles fading animation 
 	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
