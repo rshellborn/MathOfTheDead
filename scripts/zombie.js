@@ -99,9 +99,15 @@ $(document).ready(function(){
 			}
 		}
 		
+		/*
+		kills a zombie
+		*/
 		this.wipe = function() {
+			//stops movement
 			clearInterval(moveTimer);
 			moveTimer = null;
+			
+			//stops animation
 			clearInterval(animateTimer);
 			animateTimer = null;
 			
@@ -110,10 +116,11 @@ $(document).ready(function(){
 			
 			//removes the image from the screen
 			document.getElementById(zomNum).remove();
-			//alert(killCount);
 		}
 		
-		//kills the zombie.
+		/*
+		kills the zombie.
+		*/
 		function die() {
 			console.log("die");
 			killCount++;
@@ -135,8 +142,8 @@ $(document).ready(function(){
 			if (document.getElementById(zomNum) != null){
 				document.getElementById(zomNum).remove();
 			}
-			//alert(killCount);
 			
+			//decides if the next wave should start
 			if (killCount == spawnNum) {
 				fadeStatus = false;
 				fade();
@@ -160,7 +167,7 @@ $(document).ready(function(){
 		}
 		
 		/*
-		handler for onclick havoir, if zombie's health is 0, it dies
+		handler for onclick behavoir, if zombie's health is 0, it dies
 		 else, health is changed
 		*/
 		this.hit = function(){
@@ -180,6 +187,9 @@ $(document).ready(function(){
 			}			
 		}
 
+		/*
+		performs an operation depending on which gun is selected
+		*/
 		function checkGun() {
 		  //checks gun selected
 			if(selectedGun == 1) {
@@ -197,23 +207,36 @@ $(document).ready(function(){
 				diviOperation();
 			}
 		}
-  
+		
+		/*
+		adds
+		*/
 		function plusOperation() {
 			health = health + currentBullet;
 			console.log("new health: " + health);
 		}
 		
+		/*
+		subtracts
+		*/
 		function minusOperation() {
 			health = health - currentBullet;
 			console.log("new health: " + health);
 		}
 		
+		/*
+		multiplies
+		*/
 		function multiOperation() {
 			health = health * currentBullet;
 			console.log("new health: " + health);
 		}
 		
+		/*
+		divides
+		*/
 		function diviOperation() {
+		//checks if easter egg should trigger
 		if(currentBullet == 0) {
 			if (easterEggThisWave){
 				//increase score
@@ -221,15 +244,16 @@ $(document).ready(function(){
 				//console.log("++++++++++++++++ Trigger value: " + easterEggTriggered);
 				triggerEasterEgg();	
 			}
-		} else {
-			health = Math.ceil(health / currentBullet);
-			console.log("new health: " + health);
+			} else {
+				health = Math.ceil(health / currentBullet);
+				console.log("new health: " + health);
+			}
 		}
-	}
 	
-	
+		/*
+		sets up the easter egg
+		*/
 		function triggerEasterEgg() {
-			//INITIALIZING EASTER EGG
 			//sending player vars
 			carryVars();
 			//changing css
@@ -246,24 +270,34 @@ $(document).ready(function(){
 			document.getElementsByTagName("head")[0].appendChild(fileref);
 		}
 		
+		/*
+		stops movement when pause clicked
+		*/
 		this.stopMove = function() {
 		  clearInterval(moveTimer);
 		  moveTimer = null;
 		  clearInterval(animateTimer);
 		  animateTimer = null;
 		}
-	
+		
+		/*
+		starts movement after pause
+		*/
 		this.startMove = function() {
 		  moveTimer = setInterval(this.move, 10);  
 		  animateTimer = setInterval(this.animate, 800);		
 		}
 	
-		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 10);  
+		//auto caller for moving 
+		moveTimer = setInterval(this.move, 10);
+		//auto caller for animating
 		animateTimer = setInterval(this.animate, 800);
 	};
 	// ___________________________________________________out of zombie 
 	
+	/*
+	kills all zombies
+	*/
 	function killAll() {
 		for (j = 0; j < zs.length; j++) {
 			if (zs[j] != null) {
@@ -291,28 +325,23 @@ $(document).ready(function(){
 	random num helper for xPos 
 	*/ 
 	function xRandom() {
-		//return Math.floor((Math.random() * 100));
 		return Math.floor(Math.random() * 4) * 25; 
 	}
-
-	function generate(i) {
-		// call to constr 
-		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
-		// onclick handel 
-		document.getElementById(i + "zImage").onclick = zs[i].hit;
-	}
-
+	
+	//The number of zombies we're spawning
 	var spawnNum = 5;
+	/*
+	spawns spawnNum zombies
+	*/
 	function callWave(spawnNum){
-	for (i = 0; i < spawnNum; i++) {
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
-		// onclick handel 
-		document.getElementById(i + "zImage").onclick = zs[i].hit;
+		for (i = 0; i < spawnNum; i++) {
+			zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
+			// onclick handel 
+			document.getElementById(i + "zImage").onclick = zs[i].hit;
+		}
 	}
-}
 	callWave(spawnNum);
-
+	
 	var fadeStatus;
 	function fade() {
 		$("#NW").fadeIn(3000);
