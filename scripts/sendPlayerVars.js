@@ -4,7 +4,7 @@ var playerWave = 1;
 var playerScore = 0;
 
 /*
-Retrieves the players wave number and score from the URL. This is used to transfer over to the end of game screen to display them.
+Retrieves the players wave number and score from the URL. This is used to transfer over to the end of game screen to display them. (You can see them in the URL one endOfGame.html)
 */
 function getQueryVariable(variable) {
    var query = window.location.search.substring(1);
