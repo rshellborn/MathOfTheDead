@@ -133,7 +133,9 @@ $(document).ready(function(){
 			//removes the zombie from the array
 			zs[zomNum] = null;
 			//removes the image from the screen
-			document.getElementById(zomNum).remove();
+			if (document.getElementById(zomNum) != null){
+				document.getElementById(zomNum).remove();
+			}
 		}		
 		/*
 		"kills" the zombie 
@@ -360,6 +362,7 @@ $(document).ready(function(){
 	callWave(spawnNum);
 	// flag for fading 
 	var fadeStatus;
+	
 	// handles fading animation 
 	function fade() {
 		$("#NW").fadeIn(3000);
