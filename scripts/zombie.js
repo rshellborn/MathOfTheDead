@@ -118,6 +118,7 @@ $(document).ready(function(){
 				zombieHolder.style.top = yPos + "%";
 			}
 		}
+		
 		/*
 		"kills" a zombie by clearing the intervals
 		and removing it from the array that holds zombies
@@ -137,6 +138,7 @@ $(document).ready(function(){
 				document.getElementById(zomNum).remove();
 			}
 		}		
+		
 		/*
 		"kills" the zombie 
 		*/
@@ -180,6 +182,7 @@ $(document).ready(function(){
 				}
 			}
 		}		
+		
 		/*
 		animates the image ie. makes it "walk"
 		*/
@@ -206,6 +209,7 @@ $(document).ready(function(){
 						+ " health: " + health);
 			}			
 		}
+		
 		/*
 		performs a math operation depending on which gun is selected
 		*/

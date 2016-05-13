@@ -143,6 +143,7 @@ $(document).ready(function(){
 				zombieHolder.style.top = yPos + "%";				
 			}
 		} 
+
 		/*
 		"kills" a zombie by clearing the intervals
 		and removing it from the array that holds zombies
@@ -163,7 +164,9 @@ $(document).ready(function(){
 			}
 		}
 		
-		//kills the zombie.
+		/*
+		"kills" the zombie 
+		*/
 		function die() {
 			killCount++;
 			//stops the zombie from calling move/animate functions
@@ -222,6 +225,9 @@ $(document).ready(function(){
 			}			
 		}
 
+		/*
+		performs a math operation depending on which gun is selected
+		*/
 		function checkGun() {
 		  //checks gun selected
 			if(selectedGun == 1) {
@@ -239,22 +245,37 @@ $(document).ready(function(){
 				diviOperation();
 			}
 		}
-  
+		
+		/*
+		adds
+		*/
 		function plusOperation() {
 			health = health + currentBullet;
 			console.log("new health: " + health);
 		}
 		
+		/*
+		subtracts
+		*/
 		function minusOperation() {
 			health = health - currentBullet;
 			console.log("new health: " + health);
 		}
 		
+		/*
+		multiplies
+		*/
 		function multiOperation() {
 			health = health * currentBullet;
 			console.log("new health: " + health);
 		}
 		
+		/*
+		divides (rounds up)
+		checks if easter egg is triggered 
+		when the user divides by zero,
+		else, divides normally
+		*/
 		function diviOperation() {
 			if(currentBullet == 0) {
 				easterEggThisWave = 0; // set flag no pony mode again		
@@ -266,7 +287,9 @@ $(document).ready(function(){
 			console.log("new health: " + health);	
 		}
 	
-	
+		/*
+		returns to main game
+		*/
 		function backToMainGame() {
 			//INITIALIZING EASTER EGG
 			//sending player vars
@@ -286,6 +309,9 @@ $(document).ready(function(){
 			document.getElementsByTagName("head")[0].appendChild(fileref);
 		}
 		
+		/*
+		stops movement when pause clicked
+		*/
 		this.stopMove = function() {
 		  console.log('freezing pony ' + i);
 		  clearInterval(moveTimer);
@@ -293,19 +319,26 @@ $(document).ready(function(){
 		  clearInterval(animateTimer);
 		  animateTimer = null;
 		}
-	
+		
+		/*
+		starts movement after pause
+		*/
 		this.startMove = function() {
 			console.log('unfreezing pony ' + i);
 		  moveTimer = setInterval(this.move, 10);  
 		  animateTimer = setInterval(this.animate, 800);		
 		}
 	
-		//auto callers for moving and animating 
-		moveTimer = setInterval(this.move, 10);  
+		//auto caller for move
+		moveTimer = setInterval(this.move, 10);
+		//auto caller for animate
 		animateTimer = setInterval(this.animate, 800);
 	};
 	
 	
+	/*
+	kills all ponies
+	*/
 	function killAll() {
 		for (j = 0; j < zs.length; j++) {
 			if (zs[j] != null) {
@@ -336,26 +369,16 @@ $(document).ready(function(){
 		//return Math.floor((Math.random() * 100));
 		return Math.floor(Math.random() * 4) * 25; 
 	}
-
-	function generate(i) {
-		// call to constr 
-		// params health, xPos, zomNum, yPos
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -100 );  
-		// onclick handel 
-		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
-	}
-		
+	
+	//number of ponies to spawn
 	var spawnNum = 2;
+	/*
+	spawns ponies
+	*/
 	for (i = 0; i < spawnNum; i++) {
 		var chosen =  Math.floor((Math.random() * 5) + 0);
 		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i), chosen );
 		// onclick handel 
 		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
-	}
-	/*var fadeStatus;
-	function fade() {
-		$("#NW").fadeIn(3000);
-		$("#NW").fadeOut(3000);
-		fadeStatus = true;
-	} */       
+	} 
 });
