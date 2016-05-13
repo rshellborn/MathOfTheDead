@@ -13,7 +13,7 @@ html,body {
 }
 
 #dottedLine {
-	border: 3px dashed white;
+	border: 3px dashed black;
 	position: relative;
 	width: 100%;
 	margin-top: 0;
@@ -22,6 +22,7 @@ html,body {
 }
 
 /* BOOTSTRAP MADNESS */
+/** Outer container that holds all divs and elements*/
 div.special {
 	min-height: 100%;
 	max-height: 100%;
@@ -35,6 +36,7 @@ div.specialrow {
 	padding:0;
 	margin:0;
 }
+/** Setting playable space in the game screen to 65% of screen size.*/
 div.lawns{
 	margin: 0;
     padding: 0;
@@ -42,6 +44,7 @@ div.lawns{
 	height:65%;
 	max-height: 65%;
 }
+/** Top bar of game screen that holds the pause, wave #, and score. */
 div.topBar{
 	border: 1px solid;
 	max-width: 50%;
@@ -54,10 +57,12 @@ div.topBar{
 	padding: 0;
 	z-index: 2;
 }
+/** Making the pause button red.*/
 div.pauseButton{
 	background-color:#ffe605;
 	z-index: 2;
 }
+/** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
 	background: url("../images/bulletv2.png");
 	background-size: 100% 100%;
@@ -66,6 +71,7 @@ div.queue{
 	padding: 0;
 	z-index: 2;
 }
+/** Setting the image of the current bullet in the bullet queue to a different background color.*/
 div.currentQueue{
 	background: url("../images/bullet.png");
 	background-size: 100% 100%;
@@ -75,6 +81,7 @@ div.currentQueue{
 	padding: 0; 
 	z-index: 2; 
 }
+/** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
 div.thisQueue{
 	position: absolute;
 	height: 100%;
@@ -93,6 +100,7 @@ div.thisQueue{
 	-webkit-justify-content: center;
     justify-content: center;
 }
+/** Centering the bullet queue value in the rest of the queue to a smaller font size and centering it.*/
 div.insideQueue{
 	position: absolute;
 	min-height: 100%;
@@ -113,6 +121,7 @@ div.insideQueue{
 
 	padding-right: 20%;
 }
+/** Setting the height of the gun bar to only 20% of screen size.*/
 div.gunsBar{
 	min-height: 20%;
 	max-height: 20%;
@@ -120,22 +129,26 @@ div.gunsBar{
 	padding:0;
 	z-index: 2;
 }
+/** Setting the background color of each gun to red. */
 div.guns{
 	border: 1px solid #FFF;
 	background-color: #ffe605;
 	height: 100%;
 }
+/** Setting the background color of the selected gun to grey. */
 div.guns.clicked{
 	border: 1px solid #FFF;
 	background-color: #CCC;
 }
+/** Setting the background image of the plus gun.*/
 div.plus{
 	height:100%;
 	width: 100%;
-	background: url("../images/guns/PlusGun.png");
+	background: url("../images/guns/plusGun.png");
 	background-size: 100% 100%;
 	padding: 0;
 }
+/** Setting the background image of the minus gun.*/
 div.minus{
 	height:100%;
 	width: 100%;
@@ -143,13 +156,15 @@ div.minus{
 	background-size: 100% 100%;
 	padding: 0;
 }
+/** Setting the background image of the multiply gun.*/
 div.multiply{
 	height:100%;
 	width: 100%;
-	background: url("../images/guns/MultiGun.png");
+	background: url("../images/guns/multiGun.png");
 	background-size: 100% 100%;
 	padding: 0;
 }
+/** Setting the background image of the divide gun.*/
 div.divide{
 	height:100%;
 	width: 100%;
@@ -157,6 +172,7 @@ div.divide{
 	background-size: 100% 100%;
 	padding: 0;
 }
+/** Setting the font-size, font-family, and color of the game over text in the gameOver screen.*/
 div.youDiedTitle{
 	width: 100%;
 	min-height: 20%;
@@ -166,6 +182,7 @@ div.youDiedTitle{
 	text-align: center;
 	padding: 0;
 }
+/** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
 div.EOGWavedisplay{
 	width: 100%;
 	min-height: 15%;
@@ -183,6 +200,7 @@ div.EOGWavedisplay{
 	font-family: 'Nosifer', cursive;
 	padding: 0;
 }
+/** Setting the container size, font properties, and centering text of the score in the end of game screen */
 div.EOGScoredisplay{
 	width: 100%;
 	min-height: 15%;
@@ -195,6 +213,7 @@ div.EOGScoredisplay{
 	font-family: 'Nosifer', cursive;
 	padding: 0;
 }
+/** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
 	width: 100%;
 	min-height: 35%;
@@ -204,28 +223,15 @@ div.mainMenu{
 	text-align: center;
 	padding: 0;
 }
-/*div.nextWave{
-	width: 100%;
-	min-height: 20%;
-	color: red;
-	font-family: 'Nosifer', cursive;
-	font-size: 5.5em;
-	text-align: center;
-	padding: 0;
-}*/
-div.displayPanel{
-	min-height: 35%;
-	color: white;
-	font: Arial, Helvetica, sans-serif;
-	font-size: 3.0em;
-	text-align: center;
-}
+/** Sets the game over button container size to 15% of screen size.*/
 div.buttonHolder{
 	min-height: 15%;
 }
+/** Sets the main menu button container size to 15% of screen size.*/
 div.menuButtonHolder{
 	min-height: 15%;
 }
+/** General buttons styling.*/
 .btn.sharp {
 	border-radius:0;
 	background: #ffe605;
@@ -235,19 +241,19 @@ div.menuButtonHolder{
 	font: Arial, Helvetica, sans-serif;
 	font-size: 3.0em;
 }
+/** Ensuring 0 padding of scores div.*/
 div.scores{
 	padding:0;
 }
+/** Ensuring no duplicate background in nesting divs.*/
 div.insideQueue{
 	background: none;
 }
-div.scoreDisplay{
-	min-height: 35%;
-}
+/** Setting the space between the game title in the main menu screen and the buttons to 20% of screen size.*/
 div.emptySpace{
 	min-height: 20%;
 }
-<!-- modal stuff -->
+<!-- modal pause menu stuff -->
 #myModal{
 	background: black;
 	text-align: center;
@@ -269,7 +275,8 @@ div.emptySpace{
 	/*uncomment this after javascript stops executing*/
     opacity:1.0 !important;
 }
-
+<!-- End of modal stuff-->
+<!-- Beginning of setting responsive design for different screen sizes -->
 @media only screen and (min-width : 1200px){
 	div.container{
 		max-height: 100%;
@@ -373,3 +380,4 @@ div.emptySpace{
 		font-size: 3.5em;
 	}
 }
+<!-- End of responsive styling -->
