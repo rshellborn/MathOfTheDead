@@ -1,4 +1,3 @@
-	
 	// an array of 5 intergers used to kill zombies.
 	var bulletQueueValues = new Array(5);
 	// the currentBullet being used in zombie mode.

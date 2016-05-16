@@ -11,10 +11,16 @@
 	displayed on bullets at the top of the screen.
 	*/
 	function generateQueue(){
+		bulletQueueValues[0] = -1
+		bulletQueueValues[1] = 2
+		bulletQueueValues[2] = 4
+		bulletQueueValues[3] = 0
+		bulletQueueValues[4] = -1
+		
 		for(i = 0; i < 5; i++){
-			bulletQueueValues[i] = Math.floor((Math.random() *11) - 5);  
 			document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 		}
+		
 		currentBullet = bulletQueueValues[0];
 		
 	}
@@ -41,7 +47,7 @@
 	var queue = document.getElementById('queue0');
 	generateQueue();
 	currentBullet = bulletQueueValues[0];
-	queue.onclick = function() {
+	/*queue.onclick = function() {
 		updateRandomBullet();
-	}
+	}*/
 });
