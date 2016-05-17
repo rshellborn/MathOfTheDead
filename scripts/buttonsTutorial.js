@@ -12,7 +12,6 @@ function changeGun(gunType) {
 	var minusGun = document.getElementById('minusGun');
 	var multiGun = document.getElementById('multiGun');
 	var diviGun = document.getElementById('diviGun');
-	
 	//Checks which gun is selected and sets the selectedGun to a number and sets the attributes on the web page to show the player which one is currently selected.
 	if(gunType == 1) {
 	  //Plus Gun
@@ -58,7 +57,7 @@ function hotKeys(e) {
 	}else if(e.which){
 		theKeyPressed = e.which;
 	}
-	if(theKeyPressed == 32){
+	if(theKeyPressed == 32) {
 		//alert('Game Paused! Press Ok to continue slaying some zombies.');
 	} else if (theKeyPressed == 65) {
 		changeGun(1);
@@ -116,6 +115,7 @@ $(document).ready(function() {
 	plusGun.onclick = function(){
 		changeGun(1);
 	}
+	/*
 	minusGun.onclick = function(){
 		changeGun(2);
 
@@ -126,4 +126,5 @@ $(document).ready(function() {
 	diviGun.onclick = function(){
 		changeGun(4);
 	}
+	*/
 });

@@ -218,7 +218,8 @@ $(document).ready(function(){
 			if(selectedGun == 1) {
 				//plus gun
 				plusOperation();				
-			} else if (selectedGun == 2) {
+			} 
+			/*else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
 			} else if (selectedGun == 3) {
@@ -228,6 +229,7 @@ $(document).ready(function(){
 				//division gun
 				diviOperation();
 			}
+			*/
 		}
 		
 		/*
