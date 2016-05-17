@@ -22,111 +22,7 @@
   
 </head>
 <body>
-	<!-- PAUSE MODAL THAT POPS UP -->
-	<!-- Modal -->
-	<div class="modal fade" id="PauseModal" role="dialog">
-		<div class="modal-dialog">
-
-		<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" align="center">GAME PAUSED</h4>
-				</div>
-				<div class="modal-body">
-					<div class"text-center">
-						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
-						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';" >Restart Tutorial</button>
-						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'mainMenu.html';">Main Menu</button>
-					</div>
-				</div>
-				<div class="modal-footer">
-				<!-- footer stuff -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END OF PAUSE MODAL THAT POPS UP -->
-    
-    
-    <!-- ABOUT THE GAME MODAL THAT POPS UP -->
-	<!-- Modal -->
-	<div class="modal fade" id="AboutGameModal" role="dialog">
-		<div class="modal-dialog">
-
-		<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" align="center">Tutorial</h4>
-				</div>
-				<div class="modal-body">
-					<div class"text-center">
-                    	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
-                    	<br /> <br />
-						<button id="accept" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal" data-dismiss="modal">OK I understand!</button>
-					</div>
-				</div>
-				<div class="modal-footer">
-				<!-- footer stuff -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END OF ABOUT THE GAME MODAL THAT POPS UP -->
-    
-    
-    <!-- TOP BAR MODAL THAT POPS UP -->
-	<!-- Modal -->
-	<div class="modal fade" id="TopBarModal" role="dialog">
-		<div class="modal-dialog">
-
-		<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" align="center">Tutorial</h4>
-				</div>
-				<div class="modal-body">
-					<div class"text-center">
-                    	<p>At the top of your screen you will find the pause button, wave number, and your score. Directly beneath this is the bullet queue of 5 numbers which you will use to kill zombies.</p> <p>Note you may go above and below zero but only a health of exactly zero will kill a zombie.</p>
-                    	<br /> <br />
-						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
-					</div>
-				</div>
-				<div class="modal-footer">
-				<!-- footer stuff -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END OF TOP BAR MODAL THAT POPS UP -->
-    
-    
-     <!-- TOP BAR MODAL THAT POPS UP -->
-	<!-- Modal -->
-	<div class="modal fade" id="BottomBarModal" role="dialog">
-		<div class="modal-dialog">
-
-		<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" align="center">Tutorial</h4>
-				</div>
-				<div class="modal-body">
-					<div class"text-center">
-                    	<p>At the bottom of your screen you will find a dotted horizontal white line. You must kill zombies before they reach this line or you will lose the game.</p>
-<p>Beneath this you will find four guns for adding, subtracting, multiplying, and dividing the numbers from the bullet queue against the numbers above the zombies head.</p>
-                    	<br /> <br />
-						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
-					</div>
-				</div>
-				<div class="modal-footer">
-				<!-- footer stuff -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END OF TOP BAR MODAL THAT POPS UP -->
+	
 
 	<!-- Beginning of Container housing all divs and elements -->
 	<div class="container special">
@@ -155,7 +51,7 @@
 				<div class="insideQueue" id="insideQueue1">
 				</div>
             </div>
-			<a href="#curQueue">
+			<a data-target="#QueueModal" data-backdrop="static" data-toggle="modal" href="#curQueue">
             	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
 					<div class="thisQueue" id="insideQueue0">
 					</div>
