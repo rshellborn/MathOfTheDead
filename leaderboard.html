@@ -23,7 +23,28 @@
 						<div class="col-xs-2 leaderBoardWave">wave</div>
 						<div class="col-xs-4 leaderBoardScore">score</div>
 					</div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<script>
+						
+$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}) + "&q=" + JSON.stringify({"score" : {"$exists" : true}}),
+		  //data: JSON.stringify( { } ),
+		  type: "GET",
+		  contentType: "application/json; charset=utf-8",
+		  success: function(data, testStatus, jqXHR) {
+		  	alert(JSON.stringify(data)); // payload
+		  },
+		  error: function(jqXHR, testStatus, errorThrown) {
+		  	alert("ERROR");
+		  }
+		 } );
+ 
+
+
+	</script> 
+
+
+
+					</div>
 					<div class="col-xs-12 leaderboardDisplay"></div>
 					<div class="col-xs-12 leaderboardDisplay"></div>
 					<div class="col-xs-12 leaderboardDisplay"></div>
