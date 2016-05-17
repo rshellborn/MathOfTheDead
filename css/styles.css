@@ -273,12 +273,6 @@ div.emptySpace{
 	text-align: center;
 }
 
-#AboutGameModal{
-	top: 20%;
-	background: none;
-	text-align: center;
-}
-
 .modal-content{
 	background: black;	
 	color: white;
