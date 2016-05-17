@@ -32,7 +32,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.02;
+		var speed = 0.5;
 		var health = health;
 		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
@@ -111,7 +111,7 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||" + zomNum);
 				// holds the wave counter and score for end of game
 				var send = "wave=" + wave + "&score=" + score + "";
-				document.location.href = 'endOfGame.html?' + send;
+				//document.location.href = 'endOfGame.html?' + send;
 			} else {
 				// incruments the image downwards
 				yPos += speed;
