@@ -166,20 +166,8 @@ $(document).ready(function(){
 			
 			// starts next wave 
 			if (killCount == spawnNum) {
-				fadeStatus = false;
-				// calls fade aimation 
-				fade();
-				// incruments the current wave 
-				wave++;
-				document.getElementById("wave").textContent=("Wave " + wave);
-				// resets kill counter
-				killCount = 0;
-				if(fadeStatus == true){
-					// incruments the number of zombies to construct
-					spawnNum++;
-					// starts the next wave 
-					callWave(spawnNum);
-				}
+				$("#TutorialCompletedModal").modal('show');
+				console.log('done!');
 			}
 		}		
 		
@@ -275,6 +263,7 @@ $(document).ready(function(){
 		  moveTimer = null;
 		  clearInterval(animateTimer);
 		  animateTimer = null;
+		  console.log('stopped');
 		}
 		
 		/*
@@ -326,7 +315,7 @@ $(document).ready(function(){
 	}
 	
 	//holds number of zombies that are spawned
-	var spawnNum = 1;
+	var spawnNum = 3;
 	/*
 	spawns spawnNum zombies
 	*/
@@ -334,11 +323,17 @@ $(document).ready(function(){
 		zs[0] = new Zombie(1, xRandom(), 0, -50 - (50 * 1) );  
 		zs[1] = new Zombie(-2, xRandom(), 1, -50 - (50 * 1) );  
 		zs[2] = new Zombie(4, xRandom(), 2, -50 - (50 * 1) );  
+		
+		//freeze zombies
+		for(var i = 0; i < zs.length; i++)
+			zs[i].stopMove();
+		
 		// onclick handel 
 		document.getElementById(0 + "zImage").onclick = zs[0].hit;
 		document.getElementById(1 + "zImage").onclick = zs[1].hit;
 		document.getElementById(2 + "zImage").onclick = zs[2].hit;
 	}
+	
 	// a new wave is automatically called at load
 	callWave(spawnNum);
 	// flag for fading 
@@ -351,3 +346,8 @@ $(document).ready(function(){
 		fadeStatus = true;
 	}*/
 });
+
+function startZombies() {
+		for(var i = 0; i < zs.length; i++)
+			zs[i].startMove();		
+	}

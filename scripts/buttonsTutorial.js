@@ -13,7 +13,6 @@ var disableModalD = 0;
 function checkTotalClicked() {
 	if(totalClicked == 5) {
 		$("#InitiateWave").modal('show');
-		console.log('Tutorial Completed');
 	}	
 }
 
@@ -98,6 +97,8 @@ $(document).ready(function() {
 	//Grabs resume button from the div which pops up in the modal dialog box
 	var resume = document.getElementById("resume");
 	
+	
+	
 	/*
 	If paused is clicked, it sets paused variable to true(1), stops the movement of the zombies or ponies, and once resume is clicked it starts to movement again.
 	*/
@@ -154,9 +155,9 @@ $(document).ready(function() {
 		}
 	}
 	
+	
 	function openModal(modalName) {
 		totalClicked += 1;
 		$(modalName).modal('show');
-		checkTotalClicked();
 	}
 });
