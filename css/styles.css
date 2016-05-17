@@ -331,6 +331,16 @@ div.mainMenu{
 	text-align: center;
 	padding: 0;
 }
+/** Setting the text properties of the next wave*/
+#youWin{
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.75em;
+	text-align: center;
+	padding: 0;
+}
 /** Sets the game over button container size to 15% of screen size.*/
 div.buttonHolder{
 	min-height: 15%;
