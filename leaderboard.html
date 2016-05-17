@@ -19,7 +19,7 @@
 			success: function(data, testStatus, jqXHR) {
 				var jsonObj= data; // payload
 				//console.log(jsonObj); 
-				for(var i = 0; i < jsonObj.length; i++) {
+				for(var i = 0; i < 7; i++) {
 					var obj = jsonObj[i];
 					document.getElementById("rank" + i).innerHTML = i + 1;
 					document.getElementById("name" + i).innerHTML = obj.name;
@@ -48,10 +48,12 @@
 						<div class="col-xs-3 leaderBoardScore">Score</div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
+
 						<div class="col-xs-2 leaderBoardRank"     id="rank0"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name0"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave0"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score0"></div>
+
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank1"></div>
@@ -84,11 +86,12 @@
 						<div class="col-xs-3 leaderBoardScore"    id="score5"></div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
-						<div class="col-xs-2 leaderBoardRank"     id="rank5"></div>
-						<div class="col-xs-5 leaderBoardUserName" id="name5"></div>
-						<div class="col-xs-2 leaderBoardWave"     id="wave5"></div>
-						<div class="col-xs-3 leaderBoardScore"    id="score5"></div>
+						<div class="col-xs-2 leaderBoardRank"     id="rank6"></div>
+						<div class="col-xs-5 leaderBoardUserName" id="name6"></div>
+						<div class="col-xs-2 leaderBoardWave"     id="wave6"></div>
+						<div class="col-xs-3 leaderBoardScore"    id="score6"></div>
 					</div>
+					
 				</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<a href="mainMenu.html">

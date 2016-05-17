@@ -10,7 +10,7 @@ var score = getCurScore();
 // gets the current wave
 var wave = getCurWave();
 // gets the player's name
-var name = getQueryVariable("name");
+var name = getName();
 
 $(document).ready(function(){
 	// holds the timer for generating zombies
@@ -36,9 +36,10 @@ $(document).ready(function(){
 		var yPos = yPos;
 		var speed = 0.08;
 		var health = health;
-		var maxHealth = health;
+		var maxHealth = Math.abs(health);
 		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
+		console.log('max health: ' + maxHealth);
 		
 		// holds timer for movement
 		var moveTimer = null;
@@ -112,9 +113,7 @@ $(document).ready(function(){
 				animateTimer = null;
 				// game over console message
 				console.log("||| G A M E O V E R |||" + zomNum);
-				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "";
-				document.location.href = 'endOfGame.html?' + send;
+				document.location.href = 'endOfGame.html';
 			} else {
 				// incruments the image downwards
 				yPos += speed;
