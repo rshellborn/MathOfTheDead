@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 						<script>
-							$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}) + "&q",
+							$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}) + "&q",
 								//data: JSON.stringify( { } ),  only used to send in "post" type
 								type: "GET",
 								contentType: "application/json; charset=utf-8",
@@ -37,31 +37,31 @@
     									console.log("score: " + obj.score);
     									console.log("wave: " + obj.wave);
     									console.log("name: " + obj.name);
-									}
-									error: function(jqXHR, testStatus, errorThrown) {
-										alert("ERROR");
-									}
+    								}
+    							},
+								error: function(jqXHR, testStatus, errorThrown) {
+									alert("ERROR");
 								}
 							});
 						</script> 
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
-						<div class="col-xs-2 leaderBoardRank">rank</div>
-						<div class="col-xs-5 leaderBoardUserName">name</div>
-						<div class="col-xs-2 leaderBoardWave">wave</div>
-						<div class="col-xs-3 leaderBoardScore">score</div>
+						<div class="col-xs-2 leaderBoardRank"     id="rank0">rank</div>
+						<div class="col-xs-5 leaderBoardUserName" id="name0">name</div>
+						<div class="col-xs-2 leaderBoardWave"     id="wave0">wave</div>
+						<div class="col-xs-3 leaderBoardScore"    id="score0">score</div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
-						<div class="col-xs-2 leaderBoardRank">rank</div>
-						<div class="col-xs-5 leaderBoardUserName">name</div>
-						<div class="col-xs-2 leaderBoardWave">wave</div>
-						<div class="col-xs-3 leaderBoardScore">score</div>
+						<div class="col-xs-2 leaderBoardRank"     id="rank0">rank</div>
+						<div class="col-xs-5 leaderBoardUserName" id="name0">name</div>
+						<div class="col-xs-2 leaderBoardWave"     id="wave0">wave</div>
+						<div class="col-xs-3 leaderBoardScore"    id="score0">score</div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
-						<div class="col-xs-2 leaderBoardRank">rank</div>
-						<div class="col-xs-5 leaderBoardUserName">name</div>
-						<div class="col-xs-2 leaderBoardWave">wave</div>
-						<div class="col-xs-3 leaderBoardScore">score</div>
+						<div class="col-xs-2 leaderBoardRank"     id="rank0">rank</div>
+						<div class="col-xs-5 leaderBoardUserName" id="rank0">name</div>
+						<div class="col-xs-2 leaderBoardWave"     id="rank0">wave</div>
+						<div class="col-xs-3 leaderBoardScore"    id="rank0">score</div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank">rank</div>
