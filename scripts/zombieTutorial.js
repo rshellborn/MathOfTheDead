@@ -262,36 +262,9 @@ $(document).ready(function(){
 		when the user divides by zero,
 		else, divides normally
 		*/
-		function diviOperation() {		
-		if(currentBullet == 0) {
-			if (easterEggThisWave){				
-				score += 5;
-				triggerEasterEgg();	
-				}
-			} else {
-				health = Math.ceil(health / currentBullet);
-				console.log("new health: " + health);
-			}
-		}
-	
-		/*
-		sets up the easter egg
-		*/
-		function triggerEasterEgg() {
-			//sending player vars
-			carryVars();
-			//changing css
-			killAll();
-			var egg = document.getElementById("css");
-			egg.setAttribute('href', "css/easterEgg.css");
-			//changing script
-			//gets rid of zombie script
-			var c = document.getElementsByTagName('script');
-			c[4].parentElement.removeChild(c[4]);
-			//adds pony script
-			var fileref=document.createElement('script')
-			fileref.setAttribute("src", "scripts/pony.js");
-			document.getElementsByTagName("head")[0].appendChild(fileref);
+		function diviOperation() {
+		  health = Math.ceil(health / currentBullet);
+		  console.log("new health: " + health);
 		}
 		
 		/*
@@ -358,11 +331,11 @@ $(document).ready(function(){
 	spawns spawnNum zombies
 	*/
 	function callWave(spawnNum){
-		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(1, xRandom(), i, -50 - (50 * i) );  
-			// onclick handel 
-			document.getElementById(i + "zImage").onclick = zs[i].hit;
-		}
+		zs[0] = new Zombie(1, xRandom(), 0, -50 - (50 * 1) );  
+		zs[1] = new Zombie(-2, xRandom(), 1, -50 - (50 * 1) );  
+		zs[2] = new Zombie(4, xRandom(), 2, -50 - (50 * 1) );  
+		// onclick handel 
+		//document.getElementById(i + "zImage").onclick = zs[i].hit;
 	}
 	// a new wave is automatically called at load
 	callWave(spawnNum);
@@ -370,9 +343,9 @@ $(document).ready(function(){
 	var fadeStatus;
 	
 	// handles fading animation 
-	function fade() {
+	/*function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
 		fadeStatus = true;
-	}
+	}*/
 });
