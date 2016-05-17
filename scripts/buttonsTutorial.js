@@ -3,17 +3,18 @@ var selectedGun = 1;
 //sets the game to be unpaused at the start
 var paused = 0;
 
-var totalClicked = 0;
-
 var disableModalP = 0;
 var disableModalS = 0;
 var disableModalM = 0;
 var disableModalD = 0;
 
-function checkTotalClicked() {
-	if(totalClicked == 5) {
-		$("#InitiateWave").modal('show');
-	}	
+function startTutorialWave() {
+	$("#InitiateWave").modal('show');
+	disableModalP = 1;
+	disableModalS = 1;
+	disableModalM = 1;
+	disableModalD = 1;
+	disableModalBQ = 1;
 }
 
 /**
@@ -128,7 +129,7 @@ $(document).ready(function() {
 	plusGun.onclick = function(){
 		changeGun(1);
 		if(disableModalP == 0) {
-			openModal("#AddGunModal");
+			$("#AddGunModal").modal({backdrop: 'static', keyboard: false});
 			disableModalP = 1;
 		}
 	}
@@ -136,28 +137,19 @@ $(document).ready(function() {
 	minusGun.onclick = function(){
 		changeGun(2);
 		if(disableModalS == 0) {
-			openModal("#SubGunModal");
-			disableModalS = 1;
+			$("#SubGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 	multiGun.onclick = function(){
 		changeGun(3);
 		if(disableModalM == 0) {
-			openModal("#MultiGunModal");
-			disableModalM = 1;
+			$("#MultiGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 	diviGun.onclick = function(){
 		changeGun(4);
 		if(disableModalD == 0) {
-			openModal("#DiviGunModal");
-			disableModalD = 1;
+			$("#DiviGunModal").modal({backdrop: 'static', keyboard: false});
 		}
-	}
-	
-	
-	function openModal(modalName) {
-		totalClicked += 1;
-		$(modalName).modal('show');
 	}
 });
