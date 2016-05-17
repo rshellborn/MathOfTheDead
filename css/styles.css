@@ -185,7 +185,30 @@ div.youDiedTitle{
 	text-align: center;
 	padding: 0;
 }
-div.youDiedTitle{
+div.enterNameTitle{
+	width: 100%;
+	min-height: 40%;
+	color: #f20000;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+}
+input[type=text] {
+	width:100%;
+    padding: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+div.leaderBoardTitle{
 	width: 100%;
 	min-height: 20%;
 	color: #f20000;
@@ -193,6 +216,51 @@ div.youDiedTitle{
 	font-size: 6.0em;
 	text-align: center;
 	padding: 0;
+	height: 20%;
+}
+div.leaderboardContainer{
+	width: 50%;
+	height: 65%;
+	padding: 0;
+	margin-left: 25%;
+
+}
+div.leaderboardDisplay{
+	width:100%;
+	height: 10%;
+	background: grey;
+	border: 1px solid black;
+	padding: 0;
+}
+div.leaderBoardRank{
+	vertical-align: middle;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+}
+div.leaderBoardUser{
+	
+}
+div.leaderBoardWave{
+	
+}
+div.leaderBoardScore{
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+div.nameSignIn{
+	width:100%;
 }
 /** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
 div.EOGWavedisplay{
@@ -245,15 +313,6 @@ div.mainMenu{
 	text-align: center;
 	padding: 0;
 }
-div.NW{
-	width: 100%;
-	min-height: 20%;
-	color: red;
-	font-family: 'Nosifer', cursive;
-	font-size: 3.75em;
-	text-align: center;
-	padding: 0;
-}
 /** Sets the game over button container size to 15% of screen size.*/
 div.buttonHolder{
 	min-height: 15%;
@@ -290,12 +349,10 @@ div.emptySpace{
 	background: black;
 	text-align: center;
 }
-
 .modal-content{
 	background: black;	
 	color: white;
 }
-
 .modal-title {
 	width: 100%;
 	min-height: 10%;
@@ -306,16 +363,13 @@ div.emptySpace{
 	vertical-align: bottom;
 	padding: 0;
 }
-
 .modal-backdrop{	
 	/*uncomment this after javascript stops executing*/
     /*opacity:1.0 !important;*/
 }
-
 #redT {
 	color: red;
 }
-
 <!-- End of modal stuff-->
 <!-- Beginning of setting responsive design for different screen sizes -->
 @media only screen and (min-width : 1200px){
@@ -372,7 +426,10 @@ div.emptySpace{
 		margin: 0; 
 	}
 	.modal-title {
-		font-size: 2.5em;
+		font-size: 3.5em;
+	}
+	div.leaderBoardTitle{
+		font-size: 3.5em;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -430,7 +487,17 @@ div.emptySpace{
 		margin: 0; 
 	}
 	.modal-title {
-		font-size: 2.5em;
+		font-size: 3.5em;
+	}
+	div.leaderBoardTitle{
+		min-height: 15%;
+		height: 15%;
+		max-height: 15%;
+		font-size: 2.6em;
+	}
+	div.leaderboardContainer{
+		margin-left: 10%;
+		width: 80%;
 	}
 }
 <!-- End of responsive styling -->
