@@ -57,9 +57,7 @@ function hotKeys(e) {
 	}else if(e.which){
 		theKeyPressed = e.which;
 	}
-	if(theKeyPressed == 32) {
-		//alert('Game Paused! Press Ok to continue slaying some zombies.');
-	} else if (theKeyPressed == 65) {
+	 else if (theKeyPressed == 65) {
 		changeGun(1);
 	} else if (theKeyPressed == 83) {
 		changeGun(2);
@@ -114,8 +112,9 @@ $(document).ready(function() {
 	*/
 	plusGun.onclick = function(){
 		changeGun(1);
+		
 	}
-	/*
+	
 	minusGun.onclick = function(){
 		changeGun(2);
 
@@ -126,5 +125,5 @@ $(document).ready(function() {
 	diviGun.onclick = function(){
 		changeGun(4);
 	}
-	*/
+	
 });
