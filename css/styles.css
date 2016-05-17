@@ -185,6 +185,15 @@ div.youDiedTitle{
 	text-align: center;
 	padding: 0;
 }
+div.youDiedTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #f20000;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+}
 /** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
 div.EOGWavedisplay{
 	width: 100%;
@@ -227,12 +236,21 @@ div.mainMenu{
 	padding: 0;
 }
 /** Setting the text properties of the next wave */
-div.nextWave{
+#NW{
 	width: 100%;
 	min-height: 20%;
 	color: red;
 	font-family: 'Nosifer', cursive;
-	font-size: 5.5em;
+	font-size: 3.75em;
+	text-align: center;
+	padding: 0;
+}
+div.NW{
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.75em;
 	text-align: center;
 	padding: 0;
 }
