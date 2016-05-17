@@ -15,15 +15,16 @@
   
   <script>
   	$(document).ready(function(){
-		
-	});
+        $('#AboutGameModal').modal('show');
+    });
+</script>
   </script>
   
 </head>
 <body>
 	<!-- PAUSE MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal fade" id="PauseModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -50,17 +51,42 @@
     
     <!-- INFO MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="TopBar" role="dialog">
+	<div class="modal fade" id="AboutGameModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" align="center">Top Bar</h4>
+					<h4 class="modal-title" align="center">Tutorial</h4>
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
-                    	<p>This is the top bar</p>
+                    	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
+                    	<br /> <br />
+						<button id="accept" type="button" class="btn btn-primary btn-lg sharp" data-target="#TopBarModal" data-dismiss="modal">OK I understand!</button>
+					</div>
+				</div>
+				<div class="modal-footer">
+				<!-- footer stuff -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END OF INFO MODAL THAT POPS UP -->
+    
+    <!-- TOP BAR MODAL THAT POPS UP -->
+	<!-- Modal -->
+	<div class="modal fade" id="TopBarModal" role="dialog">
+		<div class="modal-dialog">
+
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" align="center">Tutorial</h4>
+				</div>
+				<div class="modal-body">
+					<div class"text-center">
+                    	<p>At the top of your screen you will find the pause button, wave number, and your score. Directly beneath this is the bullet queue of 5 numbers which you will use to kill zombies.</p> <p>Note you may go above and below zero but only a health of exactly zero will kill a zombie.</p>
                     	<br /> <br />
 						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
@@ -71,12 +97,13 @@
 			</div>
 		</div>
 	</div>
-	<!-- END OF INFO MODAL THAT POPS UP -->
+	<!-- END OF TOP BAR MODAL THAT POPS UP -->
+    
 
 	<!-- Beginning of Container housing all divs and elements -->
 	<div class="container special">
 		<div class ="row specialrow">
-			<a data-target="#myModal" data-backdrop="static" data-toggle="modal" href="#pause">
+			<a data-target="#PauseModal" data-backdrop="static" data-toggle="modal" href="#pause">
 				<div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div>
 			</a>
 			<div id="wave" class="col-lg-2 col-xs-4 topBar" ></div>

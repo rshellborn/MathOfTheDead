@@ -16,7 +16,7 @@ $(document).ready(function(){
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
 	// gets the element for wave
-	document.getElementById("wave").textContent=("Tutorial Wave");
+	document.getElementById("wave").textContent=("Wave 1");
 	// holds the kill counter
 	killCount = 0;
 	/*

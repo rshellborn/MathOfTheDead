@@ -268,27 +268,37 @@ div.emptySpace{
 	min-height: 20%;
 }
 <!-- modal pause menu stuff -->
-#myModal{
+#PauseModal{
 	background: black;
 	text-align: center;
 }
+
+#AboutGameModal{
+	top: 20%;
+	background: none;
+	text-align: center;
+}
+
 .modal-content{
 	background: black;	
+	color: white;
 }
 .modal-title {
 	width: 100%;
-	min-height: 20%;
+	min-height: 10%;
 	color: red;
 	font-family: 'Nosifer', cursive;
-	font-size: 6.0em;
+	font-size: 3.0em;
 	text-align: center;
-	vertical-align: middle;
+	vertical-align: bottom;
 	padding: 0;
 }
+
 .modal-backdrop{	
 	/*uncomment this after javascript stops executing*/
-    opacity:1.0 !important;
+    /*opacity:1.0 !important;*/
 }
+
 <!-- End of modal stuff-->
 <!-- Beginning of setting responsive design for different screen sizes -->
 @media only screen and (min-width : 1200px){
@@ -343,6 +353,9 @@ div.emptySpace{
 		left: 3%;
 		width: auto; 
 		margin: 0; 
+	}
+	#AboutGameModal{
+		top: 50%;
 	}
 	.modal-title {
 		font-size: 3.5em;
@@ -401,6 +414,9 @@ div.emptySpace{
 		left: 3%;
 		width: auto; 
 		margin: 0; 
+	}
+	#AboutGameModal{
+		top: 50%;
 	}
 	.modal-title {
 		font-size: 3.5em;
