@@ -26,32 +26,67 @@
 					<div class="col-xs-12 leaderboardDisplay">
 						<script>
 						
-$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}) + "&q=" + JSON.stringify({"score" : {"$exists" : true}}),
-		  //data: JSON.stringify( { } ),
-		  type: "GET",
-		  contentType: "application/json; charset=utf-8",
-		  success: function(data, testStatus, jqXHR) {
-		  	alert(JSON.stringify(data)); // payload
-		  },
-		  error: function(jqXHR, testStatus, errorThrown) {
-		  	alert("ERROR");
-		  }
-		 } );
- 
-
-
-	</script> 
-
-
-
+							$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+								//data: JSON.stringify( { } ),  only used to send in "post" type
+								type: "GET",
+								contentType: "application/json; charset=utf-8",
+								success: function(data, testStatus, jqXHR) {
+									var jsonObj= data; // payload
+									//console.log(jsonObj); 
+									for(var i = 0; i < jsonObj.length; i++) {
+    									var obj = jsonObj[i];
+    									console.log("score: " + obj.score);
+    									console.log("wave: " + obj.wave);
+    									console.log("name: " + obj.name);
+    								}
+									error: function(jqXHR, testStatus, errorThrown) {
+									alert("ERROR");
+								}
+							} );
+					</script> 
 					</div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
-					<div class="col-xs-12 leaderboardDisplay"></div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
+					<div class="col-xs-12 leaderboardDisplay">
+						<div class="col-xs-2 leaderBoardRank">rank</div>
+						<div class="col-xs-5 leaderBoardUserName">name</div>
+						<div class="col-xs-2 leaderBoardWave">wave</div>
+						<div class="col-xs-3 leaderBoardScore">score</div>
+					</div>
 				</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<a href="mainMenu.html">
