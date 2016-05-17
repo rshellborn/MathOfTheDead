@@ -116,7 +116,8 @@
 					<div class"text-center">
                     	<p><b id="redT">You must kill zombies before they reach the dotted line</b> at the bottom of the screen or you will lose the game.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">OK I understand!</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal"  data-backdrop="static" data-keyboard="false"
+                         data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -273,7 +274,7 @@
                 		<p>Each time you use this gun you will be performing division with the numbers from the bullet queue and the numbers above the zombies head.</p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1. Also this gun rounds up if you attempt to divide 15 by 7 you will cause the zombie’s health to be 3.</p>
                     	<br /> <br />
-						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -298,7 +299,7 @@
 					<div class"text-center">
                 		<p>Now that you know what all the buttons mean, <b id="redT">kill these three zombies!</b></p>
                     	<br /> <br />
-						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Let's do this!</button>
+						<button onclick="startZombies()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Let's do this!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -378,7 +379,7 @@
 			
 			<!-- BEGINNING OF LAWNS A.K.A PLAYABLE SPACE -->	  
 			<div class = "col-xs-12 lawns" id="lawn">
-				<div id="startWave" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton"><a href="#">Start Practice Wave</a></div>
+				<div id="startWave" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton"><button onclick="startTutorialWave()">Start Practice Wave</button></div>
 			</div>
 			<!-- END OF LAWNS -->
 			
