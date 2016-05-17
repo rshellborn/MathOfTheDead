@@ -12,7 +12,7 @@ var disableModalD = 0;
 
 function checkTotalClicked() {
 	if(totalClicked == 5) {
-		$("TutorialCompleteModal").modal('show');
+		$("#InitiateWave").modal('show');
 		console.log('Tutorial Completed');
 	}	
 }
