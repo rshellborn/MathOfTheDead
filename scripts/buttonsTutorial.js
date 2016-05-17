@@ -3,6 +3,20 @@ var selectedGun = 1;
 //sets the game to be unpaused at the start
 var paused = 0;
 
+var totalClicked = 0;
+
+var disableModalP = 0;
+var disableModalS = 0;
+var disableModalM = 0;
+var disableModalD = 0;
+
+function checkTotalClicked() {
+	if(totalClicked == 5) {
+		$("TutorialCompleteModal").modal('show');
+		console.log('Tutorial Completed');
+	}	
+}
+
 /**
 Toggling gun selection.
 */
@@ -112,18 +126,37 @@ $(document).ready(function() {
 	*/
 	plusGun.onclick = function(){
 		changeGun(1);
-		
+		if(disableModalP == 0) {
+			openModal("#AddGunModal");
+			disableModalP = 1;
+		}
 	}
 	
 	minusGun.onclick = function(){
 		changeGun(2);
-
+		if(disableModalS == 0) {
+			openModal("#SubGunModal");
+			disableModalS = 1;
+		}
 	}
 	multiGun.onclick = function(){
 		changeGun(3);
+		if(disableModalM == 0) {
+			openModal("#MultiGunModal");
+			disableModalM = 1;
+		}
 	}
 	diviGun.onclick = function(){
 		changeGun(4);
+		if(disableModalD == 0) {
+			openModal("#DiviGunModal");
+			disableModalD = 1;
+		}
 	}
 	
+	function openModal(modalName) {
+		totalClicked += 1;
+		$(modalName).modal('show');
+		checkTotalClicked();
+	}
 });

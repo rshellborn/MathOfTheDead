@@ -32,7 +32,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.5;
+		var speed = 0.08;
 		var health = health;
 		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
@@ -335,7 +335,9 @@ $(document).ready(function(){
 		zs[1] = new Zombie(-2, xRandom(), 1, -50 - (50 * 1) );  
 		zs[2] = new Zombie(4, xRandom(), 2, -50 - (50 * 1) );  
 		// onclick handel 
-		//document.getElementById(i + "zImage").onclick = zs[i].hit;
+		document.getElementById(0 + "zImage").onclick = zs[0].hit;
+		document.getElementById(1 + "zImage").onclick = zs[1].hit;
+		document.getElementById(2 + "zImage").onclick = zs[2].hit;
 	}
 	// a new wave is automatically called at load
 	callWave(spawnNum);
