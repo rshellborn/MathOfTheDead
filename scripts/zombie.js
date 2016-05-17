@@ -261,6 +261,8 @@ $(document).ready(function(){
 		multiplies
 		*/
 		function multiOperation() {
+			if(currentBullet == 0)
+				maxHealth = 5;
 			health = health * currentBullet;
 			console.log("new health: " + health);
 		}
