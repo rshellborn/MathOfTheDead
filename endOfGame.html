@@ -13,11 +13,11 @@
   <script>
 	$(document).ready(function(){
 	  // gets current wave number
-	  var wave = getQueryVariable("wave");
+	  var wave = getCurWave();
 	  // gets the current score value
-	  var score = getQueryVariable("score");
+	  var score = getCurScore();
 	  // gets the player's name
-	  var name = getQueryVariable("name");
+	  var name = getName;
 	  
 	  //prints the wave number onto the top bar of the screen
 	  document.getElementById("wave").textContent=("Wave " + wave);
