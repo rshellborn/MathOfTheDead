@@ -9,6 +9,8 @@ var zs = new Array();
 var score = getCurScore();
 // gets the current wave
 var wave = getCurWave();
+// gets the player's name
+var name = getQueryVariable("name");
 
 $(document).ready(function(){
 	// holds the timer for generating zombies
@@ -110,7 +112,7 @@ $(document).ready(function(){
 				// game over console message
 				console.log("||| G A M E O V E R |||" + zomNum);
 				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "";
+				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "";
 				document.location.href = 'endOfGame.html?' + send;
 			} else {
 				// incruments the image downwards
