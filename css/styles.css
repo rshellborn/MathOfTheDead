@@ -294,6 +294,10 @@ div.emptySpace{
     /*opacity:1.0 !important;*/
 }
 
+#redT {
+	color: red;
+}
+
 <!-- End of modal stuff-->
 <!-- Beginning of setting responsive design for different screen sizes -->
 @media only screen and (min-width : 1200px){
@@ -406,9 +410,6 @@ div.emptySpace{
 		left: 3%;
 		width: auto; 
 		margin: 0; 
-	}
-	#AboutGameModal{
-		top: 50%;
 	}
 	.modal-title {
 		font-size: 2.5em;
