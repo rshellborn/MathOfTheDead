@@ -23,11 +23,6 @@
 	  document.getElementById("wave").textContent=("Wave " + wave);
 	  //prints the wave number onto the top bar of the screen
 	  document.getElementById("score").textContent=("Score: " + score);
-	
-	$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu",
-		  data: JSON.stringify( { "score" : score, "wave" : wave, "name" : name } ), 
-		  type: "POST",
-		  contentType: "application/json" } );
 	  });
 	
   </script>
