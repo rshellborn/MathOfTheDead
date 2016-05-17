@@ -362,6 +362,38 @@ div.insideQueue{
 div.emptySpace{
 	min-height: 20%;
 }
+
+#startWave{
+	min-width: 40%;
+	width: 40%;
+	max-width: 40%;
+	top:32%;
+	left: 5%;
+	height: 36%;
+	min-height: 36%;
+	max-height: 36%;
+	padding: 0;
+
+}
+.btn.tutorial{
+	width: 100%;
+	height:100%;
+	padding: 0;
+	background: red;
+	
+	text-align: center;	
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+}
+
+
+
+
+
+
+
+
 <!-- modal pause menu stuff -->
 #PauseModal{
 	background: black;
@@ -398,6 +430,30 @@ div.emptySpace{
 	}
 	div.emptySpace{
 		min-height: 15%;
+	}
+}
+@media only screen and (min-width: 993px) and (max-width: 1199px){
+	#startWave{
+		min-width: 60%;
+		width: 60%;
+		max-width: 60%;
+		height: 36%;
+		min-height: 36%;
+		max-height: 36%;
+		padding: 0;
+		top:32%;
+		left: 20%;
+	}
+	.btn.tutorial{
+		width: 100%;
+		height:100%;
+		padding: 0;
+		background: red;
+		
+		text-align: center;	
+		color: white;
+		font: Arial, Helvetica, sans-serif;
+		font-size: 2.0em;
 	}
 }
 @media only screen and (max-width : 992px) {
@@ -452,6 +508,28 @@ div.emptySpace{
 	div.leaderboardContainer{
 		width: 100%;
 		margin: 0;
+	}
+	#startWave{
+		min-width: 80%;
+		width: 80%;
+		max-width: 80%;
+		height: 36%;
+		min-height: 36%;
+		max-height: 36%;
+		padding: 0;
+		top:32%;
+		left: 10%;
+	}
+	.btn.tutorial{
+		width: 100%;
+		height:100%;
+		padding: 0;
+		background: red;
+		
+		text-align: center;	
+		color: white;
+		font: Arial, Helvetica, sans-serif;
+		font-size: 2.0em;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -532,6 +610,30 @@ div.emptySpace{
 	}
 	div.leaderBoardScore{
 		font-size: 1.5em;
+	}
+	#startWave{
+		min-width: 80%;
+		width: 80%;
+		max-width: 80%;
+		height: 36%;
+		min-height: 36%;
+		max-height: 36%;
+		padding: 0;
+		margin-left: 10%;
+		margin-top: 32%;
+		top:0;
+		left: 0;
+	}
+	.btn.tutorial{
+		width: 100%;
+		height:100%;
+		padding: 0;
+		background: red;
+		
+		text-align: center;	
+		color: white;
+		font: Arial, Helvetica, sans-serif;
+		font-size: 2.0em;
 	}
 }
 <!-- End of responsive styling -->
