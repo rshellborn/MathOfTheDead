@@ -128,7 +128,7 @@ $(document).ready(function() {
 	plusGun.onclick = function(){
 		changeGun(1);
 		if(disableModalP == 0) {
-			openModal("#AddGunModal");
+			$("#AddGunModal").modal('show');
 			disableModalP = 1;
 		}
 	}
@@ -136,28 +136,19 @@ $(document).ready(function() {
 	minusGun.onclick = function(){
 		changeGun(2);
 		if(disableModalS == 0) {
-			openModal("#SubGunModal");
-			disableModalS = 1;
+			$("#SubGunModal").modal('show');
 		}
 	}
 	multiGun.onclick = function(){
 		changeGun(3);
 		if(disableModalM == 0) {
-			openModal("#MultiGunModal");
-			disableModalM = 1;
+			$("#MultiGunModal").modal('show');
 		}
 	}
 	diviGun.onclick = function(){
 		changeGun(4);
 		if(disableModalD == 0) {
-			openModal("#DiviGunModal");
-			disableModalD = 1;
+			$("#DiviGunModal").modal('show');
 		}
-	}
-	
-	
-	function openModal(modalName) {
-		totalClicked += 1;
-		$(modalName).modal('show');
 	}
 });
