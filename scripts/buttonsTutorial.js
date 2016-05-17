@@ -97,8 +97,12 @@ $(document).ready(function() {
 	var pause = document.getElementById("pause");
 	//Grabs resume button from the div which pops up in the modal dialog box
 	var resume = document.getElementById("resume");
+	//grabs start practice wave button
+	var startWave = document.getElementById("startWave");
 	
-	
+	startWave.onclick = function() {
+		startWave.setAttribute("class", "hidden");
+	}
 	
 	/*
 	If paused is clicked, it sets paused variable to true(1), stops the movement of the zombies or ponies, and once resume is clicked it starts to movement again.
