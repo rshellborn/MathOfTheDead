@@ -36,6 +36,7 @@ $(document).ready(function(){
 		var yPos = yPos;
 		var speed = 0.08;
 		var health = health;
+		var maxHealth = health;
 		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -200,6 +201,7 @@ $(document).ready(function(){
 		*/
 		this.hit = function(){
 			checkGun();
+			checkMaxHealth();
 			updateRandomBullet();
 			zombieHealthText.innerHTML = health;
 			if (health == 0){
@@ -210,6 +212,13 @@ $(document).ready(function(){
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
+		}
+		
+		function checkMaxHealth() {
+			if((Math.abs(health)) > maxHealth) {
+			 maxHealth = Math.abs(health);
+			 console.log('new max health= ' + maxHealth);
+			}
 		}
 		
 		/*
