@@ -25,8 +25,7 @@
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 						<script>
-						
-							$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+							$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}) + "&q",
 								//data: JSON.stringify( { } ),  only used to send in "post" type
 								type: "GET",
 								contentType: "application/json; charset=utf-8",
@@ -38,12 +37,13 @@
     									console.log("score: " + obj.score);
     									console.log("wave: " + obj.wave);
     									console.log("name: " + obj.name);
-    								}
+									}
 									error: function(jqXHR, testStatus, errorThrown) {
-									alert("ERROR");
+										alert("ERROR");
+									}
 								}
-							} );
-					</script> 
+							});
+						</script> 
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank">rank</div>
