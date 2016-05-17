@@ -2,6 +2,8 @@
 var playerWave = 1;
 //The score the player starts with
 var playerScore = 0;
+//The default player name
+var playerName = "";
 
 /*
 Retrieves the players wave number and score from the URL. This is used to transfer over to the end of game screen to display them. (You can see them in the URL one endOfGame.html)
@@ -24,6 +26,7 @@ Sets the players wave and score before switching scripts (used for switching bet
 function carryVars() {
   playerWave = wave;
   playerScore = score;
+  playerName = name;
   console.log("current wave " + wave);
   console.log("current score " + score);
 }
@@ -46,4 +49,5 @@ $(document).ready(function(){
   //get values
   var wave = getQueryVariable("wave");
   var score = getQueryVariable("score");
+  var name = getQueryVariable("name");
 });

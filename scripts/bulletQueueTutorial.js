@@ -55,10 +55,8 @@
 	}
 	
 	function openModal() {
-		totalClicked += 1;
 		if(disableModalBQ == 0) {
-			$('#BQueueModal').modal('show');
-			disableModalBQ = 1;
+			$('#BQueueModal').modal({backdrop: 'static', keyboard: false});
 		}
 	}
 });
