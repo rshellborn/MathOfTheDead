@@ -109,9 +109,13 @@ $(document).ready(function(){
 				animateTimer = null;
 				// game over console message
 				console.log("||| G A M E O V E R |||" + zomNum);
-				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "";
-				//document.location.href = 'endOfGame.html?' + send;
+				
+				//restart wave
+				for(var i = 0; i < zs.length; i++)
+					zs[i].wipe();
+				callWave();
+				//start zombies when ok is pressed
+				$("#FailedTutorialModal").modal({backdrop: 'static', keyboard: false});
 			} else {
 				// incruments the image downwards
 				yPos += speed;
@@ -347,7 +351,7 @@ $(document).ready(function(){
 	}*/
 });
 
-function startZombies() {
+	function startZombies() {
 		for(var i = 0; i < zs.length; i++)
 			zs[i].startMove();		
 	}
