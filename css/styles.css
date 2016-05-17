@@ -277,6 +277,7 @@ div.emptySpace{
 	background: black;	
 	color: white;
 }
+
 .modal-title {
 	width: 100%;
 	min-height: 10%;
@@ -348,11 +349,8 @@ div.emptySpace{
 		width: auto; 
 		margin: 0; 
 	}
-	#AboutGameModal{
-		top: 50%;
-	}
 	.modal-title {
-		font-size: 3.5em;
+		font-size: 2.5em;
 	}
 }
 @media only screen and (max-width: 768px) {
@@ -413,7 +411,7 @@ div.emptySpace{
 		top: 50%;
 	}
 	.modal-title {
-		font-size: 3.5em;
+		font-size: 2.5em;
 	}
 }
 <!-- End of responsive styling -->
