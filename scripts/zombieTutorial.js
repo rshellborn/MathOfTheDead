@@ -115,7 +115,7 @@ $(document).ready(function(){
 					zs[i].wipe();
 				callWave();
 				//start zombies when ok is pressed
-				$("#FailedTutorialModal").modal({backdrop: 'static', keyboard: false});
+				$("#failedTutorialModal").modal({backdrop: 'static', keyboard: false});
 			} else {
 				// incruments the image downwards
 				yPos += speed;
@@ -170,7 +170,7 @@ $(document).ready(function(){
 			
 			// starts next wave 
 			if (killCount == spawnNum) {
-				$("#TutorialCompletedModal").modal('show');
+				$("#tutorialCompletedModal").modal('show');
 				console.log('done!');
 			}
 		}		

@@ -15,7 +15,7 @@
   
   <script>
   	$(document).ready(function(){
-        $('#AboutGameModal').modal({backdrop: 'static', keyboard: false});
+        $('#tutorialModal').modal({backdrop: 'static', keyboard: false});
     });
   </script>
   
@@ -23,7 +23,7 @@
 <body>
 	<!-- PAUSE MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="PauseModal" role="dialog">
+	<div class="modal fade" id="pauseModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -49,9 +49,9 @@
 	<!-- END OF PAUSE MODAL THAT POPS UP -->
     
     
-    <!-- ABOUT THE GAME MODAL THAT POPS UP -->
+    <!-- TUTORIAL MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="AboutGameModal" role="dialog">
+	<div class="modal fade" id="tutorialModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -63,7 +63,7 @@
 					<div class"text-center">
                     	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#howToKillModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -75,9 +75,9 @@
 	<!-- END OF ABOUT THE GAME MODAL THAT POPS UP -->
     
     
-    <!-- TOP BAR MODAL THAT POPS UP -->
+    <!-- HOW TO KILL ZOMBIES MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="TopBarModal" role="dialog">
+	<div class="modal fade" id="howToKillModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -90,7 +90,7 @@
                     	<p>Select a gun and click on a zombie to decrease or increase its health by the number on the bullet icon in the red box at the top of the page.</b></p>
                         <p>The <b id="redT">currently selected gun</b> is highlighted in grey.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#BottomBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#dieModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -102,9 +102,9 @@
 	<!-- END OF TOP BAR MODAL THAT POPS UP -->
     
     
-    <!-- TOP BAR MODAL THAT POPS UP -->
+    <!-- DON'T DIE MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="BottomBarModal" role="dialog">
+	<div class="modal fade" id="dieModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -116,7 +116,7 @@
 					<div class"text-center">
                     	<p><b id="redT">You must kill zombies before they reach the dotted line</b> at the bottom of the screen or you will lose the game.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal"  data-backdrop="static" data-keyboard="false"
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#tryItModal"  data-backdrop="static" data-keyboard="false"
                          data-dismiss="modal">Next</button>
 					</div>
 				</div>
@@ -128,9 +128,9 @@
 	</div>
 	<!-- END OF TOP BAR MODAL THAT POPS UP -->
 
-	<!-- Try It  -->
+	<!-- TRY IT MODAL THAT POPS UP  -->
 	<!-- Modal -->
-	<div class="modal fade" id="TryItModal" role="dialog">
+	<div class="modal fade" id="tryItModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -154,9 +154,9 @@
 	</div>
 	<!-- END OF TRY IT MODAL THAT POPS UP -->
 
-	<!-- Bullet queue  -->
+	<!-- BULLET QUEUE MODAL THAT POPS UP  -->
 	<!-- Modal -->
-	<div class="modal fade" id="BQueueModal" role="dialog">
+	<div class="modal fade" id="bulletQueueModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -183,7 +183,7 @@
 
 	<!-- AddGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="AddGunModal" role="dialog">
+	<div class="modal fade" id="addGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -209,7 +209,7 @@
 
 	<!-- SubGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="SubGunModal" role="dialog">
+	<div class="modal fade" id="subGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -235,7 +235,7 @@
 
 	<!-- MultiGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="MultiGunModal" role="dialog">
+	<div class="modal fade" id="multiGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -261,7 +261,7 @@
 
 	<!-- DiviGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="DiviGunModal" role="dialog">
+	<div class="modal fade" id="diviGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -287,7 +287,7 @@
     
     <!-- Initiate Practice Wave Modal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="InitiateWave" role="dialog">
+	<div class="modal fade" id="initiateWaveModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -313,7 +313,7 @@
 
 	<!-- Tutorial complete modular -->
 	<!-- Modal -->
-	<div class="modal fade" id="TutorialCompletedModal" role="dialog">
+	<div class="modal fade" id="tutorialCompletedModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -343,7 +343,7 @@
     
     <!-- Tutorial complete modular -->
 	<!-- Modal -->
-	<div class="modal fade" id="FailedTutorialModal" role="dialog">
+	<div class="modal fade" id="failedTutorialModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->

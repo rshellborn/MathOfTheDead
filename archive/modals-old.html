@@ -1,6 +1,6 @@
 <!-- PAUSE MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="pauseModal" role="dialog">
+	<div class="modal fade" id="PauseModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -26,9 +26,9 @@
 	<!-- END OF PAUSE MODAL THAT POPS UP -->
     
     
-    <!-- TUTORIAL MODAL THAT POPS UP -->
+    <!-- ABOUT THE GAME MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="tutorialModal" role="dialog">
+	<div class="modal fade" id="AboutGameModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -40,7 +40,7 @@
 					<div class"text-center">
                     	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+						<button id="accept" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -52,22 +52,21 @@
 	<!-- END OF ABOUT THE GAME MODAL THAT POPS UP -->
     
     
-    <!-- HOW TO KILL ZOMBIES MODAL THAT POPS UP -->
+    <!-- TOP BAR MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="howToKillModal" role="dialog">
+	<div class="modal fade" id="TopBarModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" align="center">How To Kill The Zombies</h4>
+					<h4 class="modal-title" align="center">Top Bar And Bullet Queue</h4>
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
-                    	<p>Select a gun and click on a zombie to decrease or increase its health by the number on the bullet icon in the red box at the top of the page.</b></p>
-                        <p>The <b id="redT">currently selected gun</b> is highlighted in grey.</p>
+                    	<p>At the top of your screen you will find the pause button, wave number, and your score. Directly beneath this is the bullet queue of 5 numbers which you will use to kill zombies.</p> <p>Note you may go above and below zero but only a health of exactly zero will kill a zombie.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#BottomBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#BottomBarModal" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -79,22 +78,22 @@
 	<!-- END OF TOP BAR MODAL THAT POPS UP -->
     
     
-    <!-- DON'T DIE MODAL THAT POPS UP -->
+    <!-- TOP BAR MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="dieModal" role="dialog">
+	<div class="modal fade" id="BottomBarModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" align="center">Don't Die!</h4>
+					<h4 class="modal-title" align="center">Boundary Line and Guns</h4>
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
-                    	<p><b id="redT">You must kill zombies before they reach the dotted line</b> at the bottom of the screen or you will lose the game.</p>
+                    	<p>At the bottom of your screen you will find a dotted horizontal white line. You must kill zombies before they reach this line or you will lose the game.</p>
+<p>Beneath this you will find four guns for adding, subtracting, multiplying, and dividing the numbers from the bullet queue against the numbers above the zombies head.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal"  data-backdrop="static" data-keyboard="false"
-                         data-dismiss="modal">Next</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -105,9 +104,9 @@
 	</div>
 	<!-- END OF TOP BAR MODAL THAT POPS UP -->
 
-	<!-- TRY IT MODAL THAT POPS UP  -->
+	<!-- Try It  -->
 	<!-- Modal -->
-	<div class="modal fade" id="tryItModal" role="dialog">
+	<div class="modal fade" id="TryItModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -117,10 +116,11 @@
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
-                    	<p><b id="redT">Click boxes with a red background</b> to learn more about them.</p>
-                    	<p>When you are ready, <b id="redT">click Start Practice Wave</b> to kill some zombies!</p>
+                    	<p>To get a feel for the game try pressing all boxes with a red background.</p>
+                    	<p>Note the addition gun has a grey background at the moment because that is the currently selected gun.</p>
+                    	<p>Your first wave will not begin until all buttons have been pressed once.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Sounds good!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -131,9 +131,9 @@
 	</div>
 	<!-- END OF TRY IT MODAL THAT POPS UP -->
 
-	<!-- BULLET QUEUE MODAL THAT POPS UP  -->
+	<!-- Bullet queue  -->
 	<!-- Modal -->
-	<div class="modal fade" id="bulletQueueModal" role="dialog">
+	<div class="modal fade" id="BQueueModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -144,10 +144,9 @@
 				<div class="modal-body">
 					<div class"text-center">
                     	<p>These are the numbers you will use to kill the zombies.</p> 
-                    	<p>The number you are currently using is in the red box, you can <b id="redT">use this by clicking on a zombie</b>, or <b id="redT">skip it by clicking on the red box.</b></p>
-                        <p><b id="redT">Try skipping a bullet.</b></p>
+                    	<p>The one you are currently using is in the red box, you can use this by clicking on a zombie, or skip it by clicking on the red box.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -160,7 +159,7 @@
 
 	<!-- AddGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="addGunModal" role="dialog">
+	<div class="modal fade" id="AddGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -171,9 +170,9 @@
 				<div class="modal-body">
 					<div class"text-center">
                     	<p>Each time you use this gun you will be performing addition with the numbers from the bullet queue and the numbers above the zombies head.</p>
-                    	<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal -2.</p>
+                    	<p> For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal -2.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -186,7 +185,7 @@
 
 	<!-- SubGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="subGunModal" role="dialog">
+	<div class="modal fade" id="SubGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -199,7 +198,7 @@
                 		<p>Each time you use this gun you will be performing subtraction  with the numbers from the bullet queue and the numbers above the zombies head.</p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 0.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -212,7 +211,7 @@
 
 	<!-- MultiGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="multiGunModal" role="dialog">
+	<div class="modal fade" id="MultiGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -225,7 +224,7 @@
                 		<p>Each time you use this gun you will be performing multiplication with the numbers from the bullet queue and the numbers above the zombies head. </p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -238,7 +237,7 @@
 
 	<!-- DiviGunModal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="diviGunModal" role="dialog">
+	<div class="modal fade" id="DiviGunModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -249,9 +248,9 @@
 				<div class="modal-body">
 					<div class"text-center">
                 		<p>Each time you use this gun you will be performing division with the numbers from the bullet queue and the numbers above the zombies head.</p>
-                		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1. Also this gun rounds up if you attempt to divide 15 by 7 you will cause the zombie’s health to be 3.</p>
+                		<p> For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1. Also this gun rounds up if you attempt to divide 15 by 7 you will cause the zombie’s health to be 3.</p>
                     	<br /> <br />
-						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -264,7 +263,7 @@
     
     <!-- Initiate Practice Wave Modal  -->
 	<!-- Modal -->
-	<div class="modal fade" id="initiateWaveModal" role="dialog">
+	<div class="modal fade" id="InitiateWave" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -276,7 +275,7 @@
 					<div class"text-center">
                 		<p>Now that you know what all the buttons mean, <b id="redT">kill these three zombies!</b></p>
                     	<br /> <br />
-						<button onclick="startZombies()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Let's do this!</button>
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Let's do this!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -290,7 +289,7 @@
 
 	<!-- Tutorial complete modular -->
 	<!-- Modal -->
-	<div class="modal fade" id="tutorialCompletedModal" role="dialog">
+	<div class="modal fade" id="TutorialCompletedModal" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -308,34 +307,6 @@
 						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';" >Restart Tutorial</button>
 						<br /><br />
 						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'mainMenu.html';">Main Menu</button>
-					</div>
-				</div>
-				<div class="modal-footer">
-				<!-- footer stuff -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END OF TUTORIAL COMPLETED MODAL THAT POPS UP -->
-    
-    <!-- Tutorial complete modular -->
-	<!-- Modal -->
-	<div class="modal fade" id="failedTutorialModal" role="dialog">
-		<div class="modal-dialog">
-
-		<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" align="center">You Died</h4>
-				</div>
-				<div class="modal-body">
-					<div class"text-center">
-						<p>You didn't kill the zombie before it reached the line!</p>
-						<p><b id="redT">HINT</b> try clicking on your current bullet to skip it.</p>
-						<br /> <br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="startZombies();" data-dismiss="modal">Try Again</button>
-						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';" >Restart Tutorial</button>
 					</div>
 				</div>
 				<div class="modal-footer">
