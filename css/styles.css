@@ -234,18 +234,36 @@ div.leaderboardDisplay{
 }
 div.leaderBoardRank{
 	vertical-align: middle;
+	text-align: center;
 	color: white;
 	font: Arial, Helvetica, sans-serif;
 	font-size: 2.0em;
+	padding: 0;
 }
-div.leaderBoardUser{
-	
+div.leaderBoardUserName{
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
 }
 div.leaderBoardWave{
-	
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
 }
 div.leaderBoardScore{
-	
+	vertical-align: middle;
+	text-align: right;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
+	padding-right: 3%;
 }
 
 
@@ -431,6 +449,10 @@ div.emptySpace{
 	div.leaderBoardTitle{
 		font-size: 3.5em;
 	}
+	div.leaderboardContainer{
+		width: 100%;
+		margin: 0;
+	}
 }
 @media only screen and (max-width: 768px) {
 	div.container{
@@ -498,6 +520,18 @@ div.emptySpace{
 	div.leaderboardContainer{
 		margin-left: 10%;
 		width: 80%;
+	}
+	div.leaderBoardRank{
+		font-size: 1.5em;
+	}
+	div.leaderBoardUserName{
+		font-size: 1.5em;
+	}
+	div.leaderBoardWave{
+		font-size: 1.5em;
+	}
+	div.leaderBoardScore{
+		font-size: 1.5em;
 	}
 }
 <!-- End of responsive styling -->
