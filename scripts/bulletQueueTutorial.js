@@ -16,8 +16,8 @@
 		bulletQueueValues[0] = -1
 		bulletQueueValues[1] = -1
 		bulletQueueValues[2] = 4
-		bulletQueueValues[3] = 0
-		bulletQueueValues[4] = -1
+		bulletQueueValues[3] = -2
+		bulletQueueValues[4] = -4
 		
 		for(i = 0; i < 5; i++){
 			document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
