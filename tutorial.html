@@ -15,7 +15,7 @@
   
   <script>
   	$(document).ready(function(){
-        $('#AboutGameModal').modal('show');
+        $('#AboutGameModal').modal({backdrop: 'static', keyboard: false});
     });
   </script>
   
@@ -63,7 +63,7 @@
 					<div class"text-center">
                     	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal" data-dismiss="modal">OK I understand!</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -90,7 +90,7 @@
                     	<p>Select a gun and click on a zombie to decrease or increase its health by the number in the red box at the top of the page.</b></p>
                         <p>The <b id="redT">currently selected gun</b> is highlighted in grey.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#BottomBarModal" data-dismiss="modal">OK I understand!</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#BottomBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -116,7 +116,7 @@
 					<div class"text-center">
                     	<p><b id="redT">You must kill zombies before they reach the dotted line</b> at the bottom of the screen or you will lose the game.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal" data-dismiss="modal">OK I understand!</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
