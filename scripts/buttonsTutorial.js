@@ -129,7 +129,7 @@ $(document).ready(function() {
 	plusGun.onclick = function(){
 		changeGun(1);
 		if(disableModalP == 0) {
-			$("#AddGunModal").modal('show');
+			$("#AddGunModal").modal({backdrop: 'static', keyboard: false});
 			disableModalP = 1;
 		}
 	}
@@ -137,19 +137,19 @@ $(document).ready(function() {
 	minusGun.onclick = function(){
 		changeGun(2);
 		if(disableModalS == 0) {
-			$("#SubGunModal").modal('show');
+			$("#SubGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 	multiGun.onclick = function(){
 		changeGun(3);
 		if(disableModalM == 0) {
-			$("#MultiGunModal").modal('show');
+			$("#MultiGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 	diviGun.onclick = function(){
 		changeGun(4);
 		if(disableModalD == 0) {
-			$("#DiviGunModal").modal('show');
+			$("#DiviGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 });

@@ -56,7 +56,7 @@
 	
 	function openModal() {
 		if(disableModalBQ == 0) {
-			$('#BQueueModal').modal('show');
+			$('#BQueueModal').modal({backdrop: 'static', keyboard: false});
 		}
 	}
 });
