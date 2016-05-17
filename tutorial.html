@@ -63,7 +63,7 @@
 					<div class"text-center">
                     	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
                     	<br /> <br />
-						<button id="accept" type="button" class="btn btn-primary btn-lg sharp" data-target="#TopBarModal" data-dismiss="modal">OK I understand!</button>
+						<button id="accept" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -98,6 +98,33 @@
 		</div>
 	</div>
 	<!-- END OF TOP BAR MODAL THAT POPS UP -->
+    
+    
+    <!-- [ Modal #2 ] -->
+  <div class="modal fade" id="demo-2" tabindex="-1">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title caps"><strong>Demo Modal #2</strong></h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Input Placeholder..." />
+            <span class="input-group-btn"><button class="btn btn-default" type="button">Action</button></span>
+          </div>
+        </div>
+      </div>
+       <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demo-1" data-dismiss="modal">Close current, Launch Modal #1</button>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demo-3" data-dismiss="modal">Close current, Launch Modal #3</button>
+        </div>
+     </div>
+    </div>
+  </div>
     
 
 	<!-- Beginning of Container housing all divs and elements -->
