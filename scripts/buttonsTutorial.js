@@ -3,17 +3,18 @@ var selectedGun = 1;
 //sets the game to be unpaused at the start
 var paused = 0;
 
-var totalClicked = 0;
-
 var disableModalP = 0;
 var disableModalS = 0;
 var disableModalM = 0;
 var disableModalD = 0;
 
-function checkTotalClicked() {
-	if(totalClicked == 5) {
-		$("#InitiateWave").modal('show');
-	}	
+function startTutorialWave() {
+	$("#InitiateWave").modal('show');
+	disableModalP = 1;
+	disableModalS = 1;
+	disableModalM = 1;
+	disableModalD = 1;
+	disableModalBQ = 1;
 }
 
 /**
