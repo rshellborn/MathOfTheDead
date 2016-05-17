@@ -151,7 +151,7 @@ $(document).ready(function(){
 			//stops the zombie from calling move/animate functions
 			speed = 0;
 			// hardcoded health score awarded to player
-			score += 5;
+			score += maxHealth;
 			// updates the score element
 			document.getElementById("score").textContent=("Score: " + score);
 			//stops movement
