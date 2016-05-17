@@ -32,7 +32,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.08;
+		var speed = 0.02;
 		var health = health;
 		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
@@ -353,13 +353,13 @@ $(document).ready(function(){
 	}
 	
 	//holds number of zombies that are spawned
-	var spawnNum = 5;
+	var spawnNum = 1;
 	/*
 	spawns spawnNum zombies
 	*/
 	function callWave(spawnNum){
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
+			zs[i] = new Zombie(1, xRandom(), i, -50 - (50 * i) );  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
