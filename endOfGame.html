@@ -18,12 +18,18 @@
 	  var score = getCurScore();
 	  // gets the player's name
 	  var name = getName;
-	  
-	  //prints the wave number onto the top bar of the screen
-	  document.getElementById("wave").textContent=("Wave " + wave);
-	  //prints the wave number onto the top bar of the screen
-	  document.getElementById("score").textContent=("Score: " + score);
-	  });
+
+		//prints the wave number onto the top bar of the screen
+		document.getElementById("wave").textContent=("Wave " + wave);
+		//prints the wave number onto the top bar of the screen
+		document.getElementById("score").textContent=("Score: " + score);
+		
+		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+			data: JSON.stringify( {"score": score, "wave": wave, "name": name } ),
+			type: "post",
+			contentType: "application/json; charset=utf-8",
+		});
+	});
   </script>
   
   </head>
