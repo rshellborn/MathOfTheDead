@@ -12,7 +12,7 @@
 	*/
 	function generateQueue(){
 		bulletQueueValues[0] = -1
-		bulletQueueValues[1] = 2
+		bulletQueueValues[1] = -1
 		bulletQueueValues[2] = 4
 		bulletQueueValues[3] = 0
 		bulletQueueValues[4] = -1
@@ -47,7 +47,7 @@
 	var queue = document.getElementById('queue0');
 	generateQueue();
 	currentBullet = bulletQueueValues[0];
-	/*queue.onclick = function() {
+	queue.onclick = function() {
 		updateRandomBullet();
-	}*/
+	}
 });
