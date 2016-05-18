@@ -40,7 +40,7 @@
 					<div class"text-center">
                     	<p>Welcome to Math Of The Dead. This tutorial will guide you through the main concept and features of this interactive brain game. You will improve your mental math and kill zombies by using mathematical operations (addition, subtraction, multiplication, and division) to get their health to equal zero.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#TopBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#howToKillModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -66,8 +66,9 @@
 					<div class"text-center">
                     	<p>Select a gun and click on a zombie to decrease or increase its health by the number on the bullet icon in the red box at the top of the page.</b></p>
                         <p>The <b id="redT">currently selected gun</b> is highlighted in grey.</p>
+                        <p><b id="redT">Score is dependant on the highest absolute value you get the zombie to</b> and then kill it. For example if you get the zombies health to (-11) or 11, when you kill it your score will be 11 points for that zombie.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#BottomBarModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#dieModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -93,7 +94,7 @@
 					<div class"text-center">
                     	<p><b id="redT">You must kill zombies before they reach the dotted line</b> at the bottom of the screen or you will lose the game.</p>
                     	<br /> <br />
-						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#TryItModal"  data-backdrop="static" data-keyboard="false"
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#hotKeysModal"  data-backdrop="static" data-keyboard="false"
                          data-dismiss="modal">Next</button>
 					</div>
 				</div>
@@ -104,8 +105,8 @@
 		</div>
 	</div>
 	<!-- END OF TOP BAR MODAL THAT POPS UP -->
-    
-    <!-- HOT KEYS MODAL THAT POPS UP -->
+
+	  <!-- HOT KEYS MODAL THAT POPS UP -->
 	<!-- Modal -->
 	<div class="modal fade" id="hotKeysModal" role="dialog">
 		<div class="modal-dialog">
@@ -137,7 +138,7 @@
 		</div>
 	</div>
 	<!-- END OF HOT KEYS MODAL THAT POPS UP -->
-    
+   
 
 	<!-- TRY IT MODAL THAT POPS UP  -->
 	<!-- Modal -->
@@ -181,7 +182,7 @@
                     	<p>The number you are currently using is in the red box, you can <b id="redT">use this by clicking on a zombie</b>, or <b id="redT">skip it by clicking on the red box.</b></p>
                         <p><b id="redT">Try skipping a bullet.</b></p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -207,7 +208,7 @@
                     	<p>Each time you use this gun you will be performing addition with the numbers from the bullet queue and the numbers above the zombies head.</p>
                     	<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal -2.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -233,7 +234,7 @@
                 		<p>Each time you use this gun you will be performing subtraction  with the numbers from the bullet queue and the numbers above the zombies head.</p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 0.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -259,7 +260,7 @@
                 		<p>Each time you use this gun you will be performing multiplication with the numbers from the bullet queue and the numbers above the zombies head. </p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -330,7 +331,7 @@
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" align="center">CONGRATULATIONS</h4>
+					<h4 class="modal-title" align="center">You Won!</h4>
 				</div>
 				<div class="modal-body">
 					<div class"text-center">

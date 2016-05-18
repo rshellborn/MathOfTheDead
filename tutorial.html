@@ -89,6 +89,7 @@
 					<div class"text-center">
                     	<p>Select a gun and click on a zombie to decrease or increase its health by the number on the bullet icon in the red box at the top of the page.</b></p>
                         <p>The <b id="redT">currently selected gun</b> is highlighted in grey.</p>
+                        <p><b id="redT">Score is dependant on the highest absolute value you get the zombie to</b> and then kill it. For example if you get the zombies health to (-11) or 11, when you kill it your score will be 11 points for that zombie.</p>
                     	<br /> <br />
 						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#dieModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
@@ -204,7 +205,7 @@
                     	<p>The number you are currently using is in the red box, you can <b id="redT">use this by clicking on a zombie</b>, or <b id="redT">skip it by clicking on the red box.</b></p>
                         <p><b id="redT">Try skipping a bullet.</b></p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -230,7 +231,7 @@
                     	<p>Each time you use this gun you will be performing addition with the numbers from the bullet queue and the numbers above the zombies head.</p>
                     	<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal -2.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -256,7 +257,7 @@
                 		<p>Each time you use this gun you will be performing subtraction  with the numbers from the bullet queue and the numbers above the zombies head.</p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 0.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -282,7 +283,7 @@
                 		<p>Each time you use this gun you will be performing multiplication with the numbers from the bullet queue and the numbers above the zombies head. </p>
                 		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1.</p>
                     	<br /> <br />
-						<button onclick="checkTotalClicked()" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -353,7 +354,7 @@
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" align="center">CONGRATULATIONS</h4>
+					<h4 class="modal-title" align="center">You Won!</h4>
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
@@ -430,7 +431,7 @@
 				<div class="insideQueue" id="insideQueue1">
 				</div>
             </div>
-			<a data-backdrop="static" data-toggle="modal" href="#curQueue">
+			<a href="#curQueue">
             	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
 					<div class="thisQueue" id="insideQueue0">
 					</div>
