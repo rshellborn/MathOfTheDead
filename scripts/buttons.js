@@ -1,17 +1,31 @@
+/**
+THESE HAVE BEEN MOVED TO GLOBALS.JS
+*/
 //the currently selected gun - starts on the plus gun.
 var selectedGun = 1;
 //sets the game to be unpaused at the start
 var paused = 0;
+/**
+END OF MOVE
+*/
 
 /**
 Toggling gun selection.
 */
 function changeGun(gunType) {
 	//Sets the guns to be assigned to a div in the html
+	/**
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	ALMOST 100% THESE DON'T NEED TO BE HERE THEY ARE
+	IN THE DOCUMENT.READY FUNCTION 
+	*/
 	var plusGun = document.getElementById('plusGun');
 	var minusGun = document.getElementById('minusGun');
 	var multiGun = document.getElementById('multiGun');
 	var diviGun = document.getElementById('diviGun');
+	/*
+	END OF NOT NEEDED SHIT
+	*/
 	
 	//Checks which gun is selected and sets the selectedGun to a number and sets the attributes on the web page to show the player which one is currently selected.
 	if(gunType == 1) {
