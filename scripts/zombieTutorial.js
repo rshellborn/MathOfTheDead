@@ -3,13 +3,6 @@ zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 
-// holds all currently active zombies
-var zs = new Array();
-// gets the score 
-var score = getCurScore();
-// gets the current wave
-var wave = getCurWave();
-
 $(document).ready(function(){
 	// holds the timer for generating zombies
 	var genTimer = null;
@@ -53,7 +46,7 @@ $(document).ready(function(){
 		
 		//set styles for container for zombie and health 
 		zombieHolder.style.height = "40%";
-		zombieHolder.style.maxHeight = "188px";
+		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
@@ -74,7 +67,7 @@ $(document).ready(function(){
 		//set styles for zombie image 
 		zombieImage.id = zomNum + "zImage";
 		zombieImage.src = "images/zombies/zombie0.png";
-		zombieImage.style.height = "80%";
+		zombieImage.style.height = "100%";
 		zombieImage.style.position = "relative";
 		zombieImage.style.display = "block";
 		zombieImage.style.top = "-100%";
@@ -83,8 +76,8 @@ $(document).ready(function(){
 		zombieImage.style.zIndex = "1";
 		
 		//adding health text and zombie image to zombieHolder
-		zombieHolder.appendChild(zombieHealthText);
 		zombieHolder.appendChild(zombieImage);	
+		zombieHolder.appendChild(zombieHealthText);
 		
 		//adding zombieHolder to screen
 		document.getElementById("lawn").appendChild(zombieHolder);
@@ -341,15 +334,7 @@ $(document).ready(function(){
 	
 	// a new wave is automatically called at load
 	callWave(spawnNum);
-	// flag for fading 
-	var fadeStatus;
 	
-	// handles fading animation 
-	/*function fade() {
-		$("#NW").fadeIn(3000);
-		$("#NW").fadeOut(3000);
-		fadeStatus = true;
-	}*/
 });
 
 	function startZombies() {

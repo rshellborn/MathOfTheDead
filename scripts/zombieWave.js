@@ -54,8 +54,13 @@ $(document).ready(function(){
 		var zombieHealthText = document.createElement("div");
 
 		//set styles for container for zombie and health 
+
+		zombieHolder.style.height = "30%";
+		zombieHolder.style.maxHeight = "188px";
+
 		zombieHolder.style.height = "40%";
 		zombieHolder.style.maxHeight = "150px";
+
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
@@ -235,7 +240,7 @@ $(document).ready(function(){
 			if(selectedGun == 1) {
 				//plus gun
 				plusOperation();
-				health = 0;				
+				health = 0;		
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
