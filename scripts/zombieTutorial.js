@@ -3,13 +3,6 @@ zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 
-// holds all currently active zombies
-var zs = new Array();
-// gets the score 
-var score = getCurScore();
-// gets the current wave
-var wave = getCurWave();
-
 $(document).ready(function(){
 	// holds the timer for generating zombies
 	var genTimer = null;
@@ -341,15 +334,7 @@ $(document).ready(function(){
 	
 	// a new wave is automatically called at load
 	callWave(spawnNum);
-	// flag for fading 
-	var fadeStatus;
 	
-	// handles fading animation 
-	/*function fade() {
-		$("#NW").fadeIn(3000);
-		$("#NW").fadeOut(3000);
-		fadeStatus = true;
-	}*/
 });
 
 	function startZombies() {
