@@ -185,6 +185,24 @@ div.youDiedTitle{
 	text-align: center;
 	padding: 0;
 }
+div.youWonTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #f20000;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.0em;
+	text-align: center;
+	padding: 0;
+}
+div.congrats{
+	width: 100%;
+	min-height: 20%;
+	color: white;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.0em;
+	text-align: center;
+	padding: 0;
+}
 div.enterNameTitle{
 	width: 100%;
 	min-height: 40%;
@@ -483,6 +501,12 @@ div.emptySpace{
 	div.youDiedTitle{
 		font-size: 4.5em;
 	}
+	div.youWonTitle{
+		font-size: 4.5em;
+	}
+	div.congrats{
+		font-size: 2.5em;
+	}
 	div.nextWave{
 		font-size: 4.0em;
 	}
@@ -555,6 +579,12 @@ div.emptySpace{
 	}
 	div.youDiedTitle{
 		font-size: 4.5em;
+	}
+	div.youWonTitle{
+		font-size: 4.5em;
+	}
+	div.congrats{
+		font-size: 1.5em;
 	}
 	div.mainMenu{
 		font-size: 3.0em;
