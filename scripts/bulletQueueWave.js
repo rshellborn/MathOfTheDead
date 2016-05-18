@@ -17,6 +17,7 @@ function generateQueueFirst(){
 	currentBullet = bulletQueueValues[0];
 
 }
+
 /*
 	generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.
@@ -29,6 +30,7 @@ function generateQueueSecond(){
 	currentBullet = bulletQueueValues[0];
 
 }
+
 /*
 	generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.

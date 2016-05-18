@@ -113,6 +113,7 @@ $(document).ready(function(){
 				//restart wave
 				for(var i = 0; i < zs.length; i++)
 					zs[i].wipe();
+					
 				callWave();
 				//start zombies when ok is pressed
 				$("#failedTutorialModal").modal({backdrop: 'static', keyboard: false});
