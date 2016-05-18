@@ -16,6 +16,9 @@ var fadeStatus;
 var killCount = 0;
 // the amount of zombies created per wave
 var spawnNum = 5;
+// base speed for zombies
+var speed = 0.08
+
 
 /**
 Button globals
