@@ -175,7 +175,9 @@ $(document).ready(function(){
 				if(disable == false) {
 				fade();
 				}
-				
+				if(wave == 4) {
+					fadeEnd();
+				}
 				document.getElementById("wave").textContent=("Wave " + wave);
 				// resets kill counter
 				killCount = 0;
@@ -386,6 +388,13 @@ $(document).ready(function(){
 	function xRandom() {
 		return Math.floor(Math.random() * 4) * 25; 
 	}
+
+	/*
+	random num helper for yPos 
+	*/ 
+	function yRandom() {
+		return Math.floor(((Math.random() * 150) + 50) * -1); 
+	}
 	
 	//holds number of zombies that are spawned
 	var spawnNum = 1;
@@ -394,23 +403,21 @@ $(document).ready(function(){
 	*/
 	function callWaveFirst(spawnNum){
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthFirst(), xRandom(), i, -50 - (50 * i) );  
+			zs[i] = new Zombie(healthFirst(), xRandom(), i, yRandom() );  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
 	}
 	function callWaveSecond(spawnNum){
-		spawnNum = 5;
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthSecond(), xRandom(), i, -50 - (50 * i) );  
+			zs[i] = new Zombie(healthSecond(), xRandom(), i, yRandom() );  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
 	}
-	function callWave(spawnNum){
-		spawnNum = 10;
+	function callWaveFinal(spawnNum){
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthFinal(), xRandom(), i, -50 - (50 * i) );  
+			zs[i] = new Zombie(healthFinal(), xRandom(), i, yRandom() );  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
@@ -424,10 +431,12 @@ $(document).ready(function(){
 	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
+		alert(wave);
 		fadeStatus = true;
 	}
 	function fadeEnd() {
 		$("#youWin").fadeIn(3000);
+		document.location.href = 'youWin.html?';
 		
 	}
 });
