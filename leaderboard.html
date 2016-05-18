@@ -12,16 +12,15 @@
   </head>
   <body>
   	<script>  // start of database talking 
-  		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+  		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
 			//data: JSON.stringify( { } ),  only used to send in "post" type
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
 			success: function(data, testStatus, jqXHR) {
 				var jsonObj = data; // payload
-				var playerRank;     // holds current player's rank 
-				console.log(name);  //poopyButt
-				// console.log(jsonObj); 
-				// for top 3
+				console.log("My ID: " + playerID); 
+				console.log(jsonObj); 
+				// top 3 loop
 				for(var i = 0; i < 3; i++) { // jsonObj.length
 					var obj = jsonObj[i];
 					document.getElementById("rank" + i).innerHTML = i + 1;
@@ -31,17 +30,28 @@
 					console.log("score: " + obj.score);
 					console.log("wave: " + obj.wave);
 					console.log("name: " + obj.name);
+					console.log("playerID: " + obj.playerID);
 					
-				}
+				} // neighbours loop note: only shows player and who is lower
+				var divOffset = 4;
+				var divIncru = 1;  
 				for (var j = 0; j < jsonObj.length; j++){
 					var obj = jsonObj[j];
-					if (obj.name == name){
-						document.getElementById("rank"  + 4).innerHTML = j+1;
-						document.getElementById("name"  + 4).innerHTML = obj.name;
-						document.getElementById("wave"  + 4).innerHTML = obj.wave;
-						document.getElementById("score" + 4).innerHTML = obj.score;
+					if (obj.playerID == playerID){
+						document.getElementById("rank"  + divOffset).innerHTML = j + 1;
+						document.getElementById("name"  + divOffset).innerHTML = obj.name;
+						document.getElementById("wave"  + divOffset).innerHTML = obj.wave;
+						document.getElementById("score" + divOffset).innerHTML = obj.score;
+						for(var k = j+1; k < j+3; k++) { // jsonObj.length
+							var obj = jsonObj[k];
+							document.getElementById("rank"  + (divOffset+divIncru)).innerHTML = k+1;
+							document.getElementById("name"  + (divOffset+divIncru)).innerHTML = obj.name;
+							document.getElementById("wave"  + (divOffset+divIncru)).innerHTML = obj.wave;
+							document.getElementById("score" + (divOffset+divIncru)).innerHTML = obj.score;
+							divIncru++;					
+						}
 					}
-				}
+				} 
 			},
 			error: function(jqXHR, testStatus, errorThrown) {
 				alert("ERROR");
