@@ -1,10 +1,4 @@
-	// an array of 5 intergers used to kill zombies.
-	var bulletQueueValues = new Array(5);
-	// the currentBullet being used in zombie mode.
-	var currentBullet = 1;
-	//	the currentBullet being used in easter egg mode.
-	var easterEggThisWave = 1; 
-
+	
 	/*
 	generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.

@@ -56,7 +56,6 @@
 	
 	function openModal() {
 		if(disableModalBQ == 0) {
-			console.log('clicked');
 			$('#bulletQueueModal').modal({backdrop: 'static', keyboard: false});
 		}
 	}
