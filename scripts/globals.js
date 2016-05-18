@@ -5,15 +5,17 @@ Zombie globals
 // holds all currently active zombies
 var zs = new Array();
 // gets the score 
-var score = getCurScore();
+var score;
 // gets the current wave
-var wave = getCurWave();
+var wave;
 // gets the player's name
-var name = getName();
+var name;
 // flag for fading 
 var fadeStatus;
 //	kill count used to determine the wave 
 var killCount = 0;
+// the amount of zombies created per wave
+var spawnNum = 5;
 
 /**
 Button globals
