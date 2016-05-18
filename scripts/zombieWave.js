@@ -146,6 +146,46 @@ $(document).ready(function(){
 			}
 		}		
 
+		function changeWave() {
+			// incruments the current wave 
+				wave++;
+				fadeStatus = false;
+				// calls fade aimation 
+				if(disable == false) {
+					fade();
+				}
+				if(wave == 4) {
+					fadeEnd();
+				}
+				document.getElementById("wave").textContent=("Wave " + wave);
+				// resets kill counter
+				killCount = 0;
+				if(fadeStatus == true){
+					// incruments the number of zombies to construct
+					spawnNum++;
+
+					// starts the next wave 
+					if(wave == 1) {
+						callWaveFirst(spawnNum);
+					}
+					if(wave >=2 && wave <=2) { 
+						callWaveSecond(spawnNum);
+						//alert("second betch");
+					}
+					if(wave >=3 && wave <=3) { 
+						callWaveFinal(spawnNum);
+						//alert("final betch");
+					}
+
+					switch(wave) {
+						case 1: //wave 1
+						break;
+						case 2: 
+
+					}
+				}
+		}
+
 		/*
 		"kills" the zombie 
 		 */
@@ -173,35 +213,7 @@ $(document).ready(function(){
 			}
 			// starts next wave 
 			if (killCount == spawnNum) {
-				// incruments the current wave 
-				wave++;
-				fadeStatus = false;
-				// calls fade aimation 
-				if(disable == false) {
-					fade();
-				}
-				if(wave == 4) {
-					fadeEnd();
-				}
-				document.getElementById("wave").textContent=("Wave " + wave);
-				// resets kill counter
-				killCount = 0;
-				if(fadeStatus == true){
-					// incruments the number of zombies to construct
-					spawnNum++;
-					// starts the next wave 
-					if(wave == 1) {
-						callWaveFirst(spawnNum);
-					}
-					if(wave >=2 && wave <=2) { 
-						callWaveSecond(spawnNum);
-						//alert("second betch");
-					}
-					if(wave >=3 && wave <=3) { 
-						callWaveFinal(spawnNum);
-						//alert("final betch");
-					}
-				}
+				changeWave();
 			}
 		}		
 
