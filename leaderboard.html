@@ -11,7 +11,7 @@
   <script src="scripts/sendPlayerVars.js"></script>
   </head>
   <body>
-  	<script>
+  	<script>  // start of database talking 
   		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
 			//data: JSON.stringify( { } ),  only used to send in "post" type
 			type: "GET",
@@ -19,7 +19,8 @@
 			success: function(data, testStatus, jqXHR) {
 				var jsonObj= data; // payload
 				//console.log(jsonObj); 
-				for(var i = 0; i < 7; i++) {
+				// for top 3
+				for(var i = 0; i < 3; i++) { // jsonObj.length
 					var obj = jsonObj[i];
 					document.getElementById("rank" + i).innerHTML = i + 1;
 					document.getElementById("name" + i).innerHTML = obj.name;
@@ -34,6 +35,7 @@
 				alert("ERROR");
 			}
 		} );
+		// end of database talking 
 	</script> 
 	<div class="container special">
 		<div class="row specialrow">
@@ -66,7 +68,7 @@
 						<div class="col-xs-5 leaderBoardUserName" id="name2"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave2"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score2"></div>
-					</div>
+					</div> <!-- end of 3 --> 
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank3"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name3"></div>
