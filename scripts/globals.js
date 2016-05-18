@@ -27,6 +27,18 @@ var selectedGun = 1;
 var paused = 0;
 
 /**
+Button tutorial globals
+*/
+
+// disables addidtion gun from being called again
+var disableModalP = 0;
+// disables subtraction gun from being called again
+var disableModalS = 0;
+// disables mulitplication gun from being called again
+var disableModalM = 0;
+// disables division gun from being called again
+var disableModalD = 0;
+/**
 Bullet queue globals
 */
 
