@@ -113,6 +113,9 @@ $(document).ready(function(){
 				animateTimer = null;
 				// game over console message
 				console.log("||| G A M E O V E R |||" + zomNum);
+				
+				//send player vars again
+				
 				document.location.href = 'endOfGame.html';
 			} else {
 				// incruments the image downwards

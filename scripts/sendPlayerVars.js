@@ -6,6 +6,21 @@ var playerScore = 0;
 var playerName;
 
 /*
+Retrieves the players wave number and score from the URL. This is used to transfer over to the end of game screen to display them. (You can see them in the URL one endOfGame.html)
+*/
+function getQueryVariable(variable) {
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+	 var pair = vars[i].split("=");
+	 if (pair[0] == variable) {
+		 return pair[1];
+	 }
+   }
+   return(false);
+}
+
+/*
 Sets the players wave and score before switching scripts (used for switching between easter egg mode and regular mode)
 */
 function carryVars() {
