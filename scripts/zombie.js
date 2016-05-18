@@ -115,8 +115,9 @@ $(document).ready(function(){
 				console.log("||| G A M E O V E R |||" + zomNum);
 				
 				//send player vars again
-				
-				document.location.href = 'endOfGame.html';
+				// holds the wave counter and score for end of game
+				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "";
+				document.location.href = 'endOfGame.html?' + send;
 			} else {
 				// incruments the image downwards
 				yPos += speed;

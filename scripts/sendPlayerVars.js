@@ -3,7 +3,7 @@ var playerWave = 1;
 //The score the player starts with
 var playerScore = 0;
 //The default player name
-var playerName;
+var playerName = "Guest";
 
 /*
 Retrieves the players wave number and score from the URL. This is used to transfer over to the end of game screen to display them. (You can see them in the URL one endOfGame.html)
