@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+<title>Game Over Screen</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="scripts/sendPlayerVars.js"></script>
+  
+  <script>
+	$(document).ready(function(){
+	  // gets current wave number
+	  var wave = getCurWave();
+	  // gets the current score value
+	  var score = getCurScore();
+	  // gets the player's name
+	  var name = getName();
+
+		//prints the wave number onto the top bar of the screen
+		document.getElementById("score").textContent=("Score: " + score);
+		
+		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+			data: JSON.stringify( {"score": score, "wave": wave, "name": name } ),
+			type: "post",
+			contentType: "application/json; charset=utf-8",
+		});
+	});
+  </script>
+  
+  </head>
+  <body>
+	<div class="container special">
+		<div class="row specialrow">
+			<!--  Title for end of game  -->
+			<div class="col-xs-12 youWonTitle">YOU WON</div>
+			<div class="col-xs-12 congrats"><p>CONGRATULATIONS!</p>
+				<p>YOU HAVE SURVIVED ALL 10 WAVES</p>
+			</div>
+            <!--  works with script to display score after player wins  -->
+			<div id="score" class="col-xs-12 EOGScoredisplay"></div>
+
+
+			<!-- Beginning of buttons for end of game screen  -->
+			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
+				<a href="game-screen.html">
+					<button type="button" class="btn btn-primary btn-lg sharp">Unlimited Waves</button>
+				</a>
+			</div>
+			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
+				<button type="button" class="btn btn-primary btn-lg sharp">Leaderboard</button>
+			</div>
+			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
+				<a href="mainMenu.html">
+				<button type="button" class="btn btn-primary btn-lg sharp">Main Menu</button>
+                </a>
+			</div>
+			<!-- End of buttons for end of game screen  -->
+		</div>
+	</div>
+</body>
+</html>
