@@ -6,6 +6,10 @@ starts "walking" upon instantiation.
 $(document).ready(function(){
 	// holds the timer for generating zombies
 	var genTimer = null;
+	
+	wave = getCurWave();
+	score = getCurScore();
+	
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
 	// gets the element for wave
