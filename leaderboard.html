@@ -11,15 +11,18 @@
   <script src="scripts/sendPlayerVars.js"></script>
   </head>
   <body>
-  	<script>
+  	<script>  // start of database talking 
   		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
 			//data: JSON.stringify( { } ),  only used to send in "post" type
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
 			success: function(data, testStatus, jqXHR) {
-				var jsonObj= data; // payload
-				//console.log(jsonObj); 
-				for(var i = 0; i < 7; i++) {
+				var jsonObj = data; // payload
+				var playerRank;     // holds current player's rank 
+				console.log(name);  //poopyButt
+				// console.log(jsonObj); 
+				// for top 3
+				for(var i = 0; i < 3; i++) { // jsonObj.length
 					var obj = jsonObj[i];
 					document.getElementById("rank" + i).innerHTML = i + 1;
 					document.getElementById("name" + i).innerHTML = obj.name;
@@ -27,13 +30,24 @@
 					document.getElementById("score" + i).innerHTML = obj.score;
 					console.log("score: " + obj.score);
 					console.log("wave: " + obj.wave);
-					console.log("name: " + obj.name); 
+					console.log("name: " + obj.name);
+					
+				}
+				for (var j = 0; j < jsonObj.length; j++){
+					var obj = jsonObj[j];
+					if (obj.name == name){
+						document.getElementById("rank"  + 4).innerHTML = j+1;
+						document.getElementById("name"  + 4).innerHTML = obj.name;
+						document.getElementById("wave"  + 4).innerHTML = obj.wave;
+						document.getElementById("score" + 4).innerHTML = obj.score;
+					}
 				}
 			},
 			error: function(jqXHR, testStatus, errorThrown) {
 				alert("ERROR");
 			}
 		} );
+		// end of database talking 
 	</script> 
 	<div class="container special">
 		<div class="row specialrow">
@@ -66,7 +80,7 @@
 						<div class="col-xs-5 leaderBoardUserName" id="name2"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave2"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score2"></div>
-					</div>
+					</div> <!-- end of 3 --> 
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank3"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name3"></div>
