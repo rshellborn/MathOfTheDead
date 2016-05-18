@@ -186,13 +186,13 @@ $(document).ready(function(){
 					if(wave == 1) {
 					callWaveFirst(spawnNum);
 					}
-					if(wave >=2 && wave <=3) { 
+					if(wave >=2 && wave <=2) { 
 						callWaveSecond(spawnNum);
 						alert("second betch");
 					}
-					if(wave == 4) {
-						fadeEnd();
-						disabled = true;
+					if(wave >=3 && wave <=3) { 
+						callWaveFinal(spawnNum);
+						alert("final betch");
 					}
 				}
 			}
@@ -400,6 +400,7 @@ $(document).ready(function(){
 		}
 	}
 	function callWaveSecond(spawnNum){
+		spawnNum = 5;
 		for (i = 0; i < spawnNum; i++) {
 			zs[i] = new Zombie(healthSecond(), xRandom(), i, -50 - (50 * i) );  
 			// onclick handel 
@@ -407,6 +408,7 @@ $(document).ready(function(){
 		}
 	}
 	function callWave(spawnNum){
+		spawnNum = 10;
 		for (i = 0; i < spawnNum; i++) {
 			zs[i] = new Zombie(healthFinal(), xRandom(), i, -50 - (50 * i) );  
 			// onclick handel 
