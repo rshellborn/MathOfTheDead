@@ -3,6 +3,9 @@ zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 $(document).ready(function(){
+	// holds the timer for generating zombies
+	var genTimer = null;
+	
 	wave = getCurWave();
 	score = getCurScore();
 	// gets the element for score
@@ -22,6 +25,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
+		var speed = 0.08;
 		var health = health;
 		var maxHealth = Math.abs(health);
 		// message at construction
