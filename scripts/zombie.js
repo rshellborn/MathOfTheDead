@@ -253,9 +253,9 @@ $(document).ready(function(){
 			updateRandomBullet();
 			zombieHealthText.innerHTML = health;
 			if (health == 0){
-				console.log("before");
+				//console.log("before");
 				die();
-				console.log("after");
+				//console.log("after");
 			} else {
 				// shakes the zombie 
 				$( "#" + zomNum ).effect( "shake", "fast");  
