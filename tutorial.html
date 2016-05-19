@@ -13,6 +13,7 @@
   <script src="scripts/globals.js"></script>
   <script src="scripts/changeGuns.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
+  <script src="scripts/transitions.js"></script>
   <script src="scripts/tutorial/zombie.js"></script>
   <script src="scripts/tutorial/buttons.js"></script>
   <script src="scripts/tutorial/bulletQueue.js"></script>
@@ -21,6 +22,10 @@
   	$(document).ready(function(){
         $('#tutorialModal').modal({backdrop: 'static', keyboard: false});
     });
+	
+	var restart = "tutorial.html";
+	var menu = "mainMenu.html";
+	var login = "login.html";
   </script>
   
 </head>
@@ -39,9 +44,9 @@
 					<div class"text-center">
 						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';" >Restart Tutorial</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restart)" >Restart Tutorial</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'mainMenu.html';">Main Menu</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(mainMenu)">Main Menu</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -365,11 +370,11 @@
 						<p>You have succesfully killed the tutorial zombies!</p>
 						<p>Take the next step and <b id="redT">play the game or give the tutorial another go.</b></p>
 						<br /> <br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'waveGame.html';" >Play Game</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(login)" >Play Game</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';" >Restart Tutorial</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restart)" >Restart Tutorial</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'mainMenu.html';">Main Menu</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
 					</div>
 				</div>
 				<div class="modal-footer">

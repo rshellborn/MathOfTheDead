@@ -11,6 +11,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="scripts/transitions.js"></script>
+  
+  <script>
+  var tutorial = "tutorial.html";
+  var leaderboard = "leaderboard.html"
+  </script>
 </head>
 <body>
 	
@@ -57,7 +63,7 @@
 								</label>
 							</div>
 						</div>
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'mainMenu.html';">Back</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Back</button>
 					</div>
 					</div>
 				</div>
@@ -82,10 +88,10 @@
 				<button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#gameModeModal"  data-backdrop="static" data-keyboard="false" onclick="location.href = 'login.html';" >Play!</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuButtonHolder">
-				<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';">Tutorial</button>
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(tutorial)">Tutorial</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuButtonHolder">
-				<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'leaderboard.html';">Leaderboard</button>
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(leaderboard)">Leaderboard</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuButtonHolder">
 				<button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#settingsModal"  data-backdrop="static" data-keyboard="false" >Settings</button>
