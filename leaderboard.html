@@ -25,7 +25,7 @@
 				//console.log("My ID: " + playerID); 
 				//console.log(jsonObj); 
 				// top 7 loop
-				for(var i = 0; i < 3; i++) { // jsonObj.length
+				for(var i = 0; i < 7; i++) { // jsonObj.length
 					var obj = jsonObj[i];
 					document.getElementById("rank" + i).innerHTML = i + 1;
 					document.getElementById("name" + i).innerHTML = obj.name;
@@ -100,10 +100,10 @@
 				<div class="col-xs-10 col-xs-offset-2 leaderboardContainer">
 					<!--<div class="col-xs-12 leaderBoardDisplay"></div>-->
 					<div class="col-xs-12 leaderboardDisplay">
-						<div class="col-xs-2 leaderBoardRank">Rank</div>
-						<div class="col-xs-5 leaderBoardUserName">Name</div>
-						<div class="col-xs-2 leaderBoardWave">Wave</div>
-						<div class="col-xs-3 leaderBoardScore">Score</div>
+						<div class="col-xs-2 leaderBoardRank"><h1>Rank</h1></div>
+						<div class="col-xs-5 leaderBoardUserName"><h1>Name</h1></div>
+						<div class="col-xs-2 leaderBoardWave"><h1>Wave</h1></div>
+						<div class="col-xs-3 leaderBoardScore"><h1>Score</h1></div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 
@@ -126,10 +126,10 @@
 						<div class="col-xs-3 leaderBoardScore"    id="score2"></div>
 					</div> <!-- end of 3 --> 
 					<div class="col-xs-12 leaderboardDisplay">
-						<div class="col-xs-2 leaderBoardRank"     id="rank3"></div>
-						<div class="col-xs-5 leaderBoardUserName" id="name3"></div>
-						<div class="col-xs-2 leaderBoardWave"     id="wave3"></div>
-						<div class="col-xs-3 leaderBoardScore"    id="score3"></div>
+						<div class="col-xs-2 leaderBoardRank"     id="rank3">...</div>
+						<div class="col-xs-5 leaderBoardUserName" id="name3">...</div>
+						<div class="col-xs-2 leaderBoardWave"     id="wave3">...</div>
+						<div class="col-xs-3 leaderBoardScore"    id="score3">...</div>
 					</div>
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank4"></div>

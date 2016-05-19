@@ -75,6 +75,8 @@
 		var id = randomID();
 		console.log(name);
 		
+		removeSessionItem("id");
+		removeSessionItem("name");
 		
 		createSessionItem("id", id);
 		createSessionItem("name", name);
