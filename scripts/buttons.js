@@ -45,7 +45,6 @@ $(document).ready(function() {
 		changeGun(1);
 	}
 	minusGun.onclick = function(){
-		$( "#" + 1 ).effect( "shake", "fast"); 
 		gunSelect.play();
 		changeGun(2);
 
