@@ -13,17 +13,19 @@
   <script src="scripts/transitions.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
   <script src="scripts/audio.js"></script>
+  <script src="scripts/sessionVariables.js"></script>
   
   <script>
 	$(document).ready(function(){
 	  // gets current wave number
-	  var wave = getQueryVariable("wave");
+	  var wave = getSessionItem("wave");
+	  console.log('wave: ' +getSessionItem("wave"));
 	  // gets the current score value
-	  var score = getQueryVariable("score");
+	  var score = getSessionItem("score");
 	  // gets the player's name
-	  var name = getQueryVariable("name");
+	  var name = getSessionItem("name");
 	  //gets player ID
-	  var id = getQueryVariable("id");
+	  var id = getSessionItem("id");
 	  
 	  // audio 
 	  zWantBrains.play(); 
@@ -39,13 +41,14 @@
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
+		removeSessionItem("wave");
+		removeSessionItem("score");
 	});
 	
 	//need to check which mode they are in
 	var restart = "infiniteGame.html";
 	var leaderboard = "leaderboard.html";
 	var menu = "mainMenu.html";
-	
   </script>
   
   </head>

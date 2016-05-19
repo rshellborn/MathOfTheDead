@@ -5,15 +5,17 @@ Zombie globals
 // holds all currently active zombies
 var zs = new Array();
 // gets the score 
-var score;
+//var score;
 // gets the current wave
-var wave;
+//var wave;
 // gets the player's name
-var name;
+//var name;
 // gets the player's id
-var id;
+//var id;
 //game mode
-var mode;
+//var mode;
+
+
 // flag for fading 
 var fadeStatus;
 //	kill count used to determine the wave 

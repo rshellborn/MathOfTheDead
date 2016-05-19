@@ -11,17 +11,18 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
   <script src="scripts/transitions.js"></script>
+  <script src="scripts/sessionVariables.js"></script>
   
   <script>
 	$(document).ready(function(){
 	  // gets current wave number
-	  var wave = getQueryVariable("wave");
+	 var wave = getSessionItem("wave");
 	  // gets the current score value
-	  var score = getQueryVariable("score");
+	  var score = getSessionItem("score");
 	  // gets the player's name
-	  var name = getQueryVariable("name");
-	  //gets the player id
-	  var id = getQueryVariable("id");
+	  var name = getSessionItem("name");
+	  //gets player ID
+	  var id = getSessionItem("id");
 
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("score").textContent=("Score: " + score);
@@ -32,6 +33,9 @@
 			contentType: "application/json; charset=utf-8",
 		});
 	});
+	
+	removeSessionItem("wave");
+	removeSessionItem("score");
   </script>
   
   </head>

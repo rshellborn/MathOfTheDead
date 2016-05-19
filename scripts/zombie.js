@@ -3,15 +3,25 @@ zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 $(document).ready(function(){
+	$(window).bind('beforeunload',function(){
+		wave = 1;
+		score = 0;
+	});
+	//sets score and wave at the start
+	if(!(getSessionItem("score") > 0 && getSessionItem("wave") > 0)) {
+		wave = 1;
+		score = 0;	
+	} else {
+		wave = getSessionItem("wave");
+		score = getSessionItem("score");	
+	}
+	
 	// disables fade function
 	var disable = false;
-	mode = 1;
-	
-	wave = getCurWave();
-	score = getCurScore();
-	name = getQueryVariable("name");
-	id = getQueryVariable("id");
-	//mode = getGameMode();
+	mode = getSessionItem("mode");
+	var name = getSessionItem("name");
+	//gets player ID
+  	var id = getSessionItem("id");
 	
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
@@ -109,8 +119,13 @@ $(document).ready(function(){
 				
 				//send player vars again
 				// holds the wave counter and score for end of game
-				var send = "endOfGame.html?wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
-				fadeEnd(send);
+				//var send = "endOfGame.html?wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
+				
+				createSessionItem("wave", wave);
+				createSessionItem("score", score);
+				console.log('wave: ' +wave);
+				console.log('wave sess: ' + getSessionItem("wave"));
+				fadeEnd("endOfGame.html");
 			} else {
 				// incruments the image downwards
 				yPos += speed;
@@ -204,6 +219,8 @@ $(document).ready(function(){
 			speed = 0;
 			// hardcoded health score awarded to player
 			score += maxHealth;
+			removeSessionItem("score");
+			createSessionItem("score", score);
 			// updates the score element
 			document.getElementById("score").textContent=("Score: " + score);
 			//stops movement
@@ -364,8 +381,11 @@ $(document).ready(function(){
 					fade();
 				}
 				if(wave == 2) {
-					send = "youWin.html?score=" + score;
-					fadeEnd(send);
+					removeSessionItem("score");
+					removeSessionItem("wave");
+					createSessionItem("score", score);
+					createSessionItem("wave", wave);
+					fadeEnd("youWin.html");
 				}
 				document.getElementById("wave").textContent=("Wave " + wave);
 				// resets kill counter

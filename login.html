@@ -12,6 +12,7 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
   <script src="scripts/transitions.js"></script>
+  <script src="scripts/sessionVariables.js"></script>
   
   <script>
   var mode0 = "waveGame";
@@ -69,13 +70,28 @@
 </body>
 
 <script>
-	function sendName(mode) {
+	function sendName(modeName) {
 		var name = document.getElementById("nameInput").value;
+		var id = randomID();
 		console.log(name);
 		
-		var id = randomID();
 		
-		var send = mode + ".html?name=" + name + "&id=" + id + "&mode=" + mode + "";
+		createSessionItem("id", id);
+		createSessionItem("name", name);
+		
+		var mode;
+		
+		if(modeName == "waveGame") {
+			mode = 0;
+		} else if(modeName == "infiniteGame") {
+			mode = 1;
+		}
+		
+		createSessionItem("mode", mode);
+		
+		
+		//var send = mode + ".html?name=" + name + "&id=" + id + "&mode=" + mode + "";
+		var send = modeName + ".html";
 		fadeEnd(send);
 	}
 	
