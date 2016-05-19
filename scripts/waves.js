@@ -62,3 +62,13 @@ var insane = {
 		numOfZombies: 30
 	}
 };
+
+var infinity = {
+	healthDiff: 10,
+	queueDiff: 12,
+	maxZero: 5,
+	
+	wave1: {
+		numOfZombies: 5
+	}
+};

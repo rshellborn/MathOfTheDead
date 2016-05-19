@@ -3,19 +3,21 @@ zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 $(document).ready(function(){
-	// holds the timer for generating zombies
-	var genTimer = null;
+	// disables fade function
+	var disable = false;
+	mode = 0;
 	
 	wave = getCurWave();
 	score = getCurScore();
+	//mode = getGameMode();
+	
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
 	// gets the element for wave
 	document.getElementById("wave").textContent=("Wave " +wave);
 
-
 	/*
-	 constructs a zombie
+	 constructs a zombieg
 	 @params 
 	 health Health of the zombie
 	 xPos x position of the zombie
@@ -87,12 +89,7 @@ $(document).ready(function(){
 		//adding zombieHolder to screen
 		document.getElementById("lawn").appendChild(zombieHolder);
 		
-		/*
-		returns true if zombie has caused game over 
-		*/
-		function atDotted() {
-			return yPos >= 100;
-		} 
+		/* ----------------------------------------MOVING ZOMBIE FUNCTIONS------------------------------------------ */
 		
 		/*
 		Causes the image to move down the screen until it hits the dotted line 
@@ -120,6 +117,54 @@ $(document).ready(function(){
 		}
 		
 		/*
+		animates the image ie. makes it "walk"
+		*/
+		this.animate = function() {
+			imageNumber = (imageNumber + 1) % 2;
+			var imageName = "images/zombies/zombie" + imageNumber + ".png";
+			zombieImage.setAttribute('src', imageName);
+		}
+		
+		
+		/*
+		stops movement when pause clicked
+		*/
+		this.stopMove = function() {
+		  clearInterval(moveTimer);
+		  moveTimer = null;
+		  clearInterval(animateTimer);
+		  animateTimer = null;
+		}
+		
+		/*
+		starts movement after pause
+		*/
+		this.startMove = function() {
+		  moveTimer = setInterval(this.move, 10);  
+		  animateTimer = setInterval(this.animate, 800);		
+		}
+	
+		//auto caller for moving 
+		moveTimer = setInterval(this.move, 10);
+		//auto caller for animating
+		animateTimer = setInterval(this.animate, 800);
+		
+		
+		/* ----------------------------------------END OF GAME SCENARIO------------------------------------------ */
+		
+		/*
+		returns true if zombie has caused game over 
+		*/
+		function atDotted() {
+			return yPos >= 100;
+		} 
+		
+		
+		
+		
+		/* ----------------------------------------KILLING/HITTING ZOMBIE FUNCTIONS------------------------------------------ */
+		
+		/*
 		"kills" a zombie by clearing the intervals
 		and removing it from the array that holds zombies
 		Used when swtiching into the Easter Egg mode
@@ -137,7 +182,14 @@ $(document).ready(function(){
 			if (document.getElementById(zomNum) != null){
 				document.getElementById(zomNum).remove();
 			}
-		}		
+		}	
+		
+	  function checkMaxHealth() {
+		  if((Math.abs(health)) > maxHealth) {
+			   maxHealth = Math.abs(health);
+			   console.log('new max health= ' + maxHealth);
+		  }
+	  }
 		
 		/*
 		"kills" the zombie 
@@ -167,31 +219,9 @@ $(document).ready(function(){
 			
 			// starts next wave 
 			if (killCount == spawnNum) {
-				fadeStatus = false;
-				// calls fade aimation 
-				fade();
-				// incruments the current wave 
-				wave++;
-				document.getElementById("wave").textContent=("Wave " + wave);
-				// resets kill counter
-				killCount = 0;
-				if(fadeStatus == true){
-					// incruments the number of zombies to construct
-					spawnNum++;
-					// starts the next wave 
-					callWave(spawnNum);
-				}
+				changeWave();
 			}
 		}		
-		
-		/*
-		animates the image ie. makes it "walk"
-		*/
-		this.animate = function() {
-			imageNumber = (imageNumber + 1) % 2;
-			var imageName = "images/zombies/zombie" + imageNumber + ".png";
-			zombieImage.setAttribute('src', imageName);
-		}
 		
 		/*
 		handler for onclick behavoir, if zombie's health is 0, it dies
@@ -216,12 +246,27 @@ $(document).ready(function(){
 			}			
 		}
 		
-		function checkMaxHealth() {
-			if((Math.abs(health)) > maxHealth) {
-			 maxHealth = Math.abs(health);
-			 console.log('new max health= ' + maxHealth);
-			}
-		}
+		
+		
+	 /*
+	  kills all zombies
+	  */
+	  function killAll() {
+		  for (j = 0; j < zs.length; j++) {
+			  if (zs[j] != null) {
+				  console.log("length" + zs.length);
+				  console.log("index" + j);
+				  zs[j].wipe();
+				  console.log("doot");
+			  }
+		  }
+	  }
+		
+		
+		
+		
+		
+		/* ----------------------------------------GUNS AND CALCULATIONS FUNCTIONS------------------------------------------ */
 		
 		/*
 		performs a math operation depending on which gun is selected
@@ -307,50 +352,73 @@ $(document).ready(function(){
 			document.getElementsByTagName("head")[0].appendChild(fileref);
 		}
 		
-		/*
-		stops movement when pause clicked
-		*/
-		this.stopMove = function() {
-		  clearInterval(moveTimer);
-		  moveTimer = null;
-		  clearInterval(animateTimer);
-		  animateTimer = null;
+		/* ----------------------------------------WAVE FUNCTIONS ------------------------------------------ */
+		function changeWave() {
+			// increments the current wave if it is in wave mode
+			if(mode == 0) {
+				wave++;
+			
+				fadeStatus = false;
+				// calls fade aimation 
+				if(disable == false) {
+					fade();
+				}
+				if(wave == 10) {
+					fadeEnd();
+				}
+				document.getElementById("wave").textContent=("Wave " + wave);
+				// resets kill counter
+				killCount = 0;
+			}
+				if(fadeStatus == true){
+					// incruments the number of zombies to construct
+					//spawnNum++;
+					
+					switch(wave) {
+						case 2: setWaveDesign(easy.wave2.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
+								callWave();
+						break;
+						case 3: setWaveDesign(easy.wave3.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
+								callWave();
+						break;
+						case 4: setWaveDesign(medium.wave1.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
+								callWave();
+						break;
+						case 5: setWaveDesign(medium.wave2.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
+								callWave();
+						break;
+						case 6: setWaveDesign(medium.wave3.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
+								callWave();
+						break; 
+						case 7: setWaveDesign(hard.wave1.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
+								callWave();
+						break; 
+						case 8: setWaveDesign(hard.wave2.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
+								callWave();
+						break;
+						case 9: setWaveDesign(hard.wave3.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
+								callWave();
+						break;
+						case 10: setWaveDesign(insane.wave1.numOfZombies, insane.healthDiff, insane.queueDiff, insane.maxZero);
+								 callWave();
+						break;
+						default: setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff, infinity.queueDiff, infinity.maxZero);
+						break;
+					}
+				}
 		}
-		
-		/*
-		starts movement after pause
-		*/
-		this.startMove = function() {
-		  moveTimer = setInterval(this.move, 10);  
-		  animateTimer = setInterval(this.animate, 800);		
-		}
-	
-		//auto caller for moving 
-		moveTimer = setInterval(this.move, 10);
-		//auto caller for animating
-		animateTimer = setInterval(this.animate, 800);
 	};
 	// ___________________________________________________ zombie constr ends 
 	
-	/*
-	kills all zombies
-	*/
-	function killAll() {
-		for (j = 0; j < zs.length; j++) {
-			if (zs[j] != null) {
-				console.log("length" + zs.length);
-				console.log("index" + j);
-				zs[j].wipe();
-				console.log("doot");
-			}
-		}
-	}
+	
+	
+	/* ----------------------------------------RANDOMIZE FUNCTIONS------------------------------------------ */
 	
 	/*
-	random num helper for health 
-	*/ 
-	function healthRandom() {
-		out = Math.floor((Math.random() * 5) + 1);
+	random num helper for zombie health 
+	 */ 
+	function genHealth() {
+		var out = Math.floor((Math.random() * healthDiff) + 1);
 		if ((Math.random() * 2) > 1) {
 			return out * -1;
 		} else {
@@ -364,28 +432,56 @@ $(document).ready(function(){
 	function xRandom() {
 		return Math.floor(Math.random() * 4) * 25; 
 	}
+	/*
+	random num helper for yPos 
+	 */ 
+	function yRandom() {
+		return Math.floor(((Math.random() * 150) + 50) * -1); 
+	}
 	
-	//holds number of zombies that are spawned
-	var spawnNum = 5;
 	/*
 	spawns spawnNum zombies
 	*/
-	function callWave(spawnNum){
-		nextWave.play();
+	function callWave(){
+		console.log('in here' + spawnNum);
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
+			zs[i] = new Zombie(genHealth(), xRandom(), i, yRandom() );  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
 	}
+	
+	/*
+	Sets wave difficulty by manipulating number of zombies, their health differential, queue differential, and how many zeros are generated.
+	*/
+	function setWaveDesign(setSpawn, setHealth, setQueue, setZero) {
+		spawnNum = setSpawn;
+		healthDiff = setHealth;
+		queueDiff = setQueue;
+		maxZero = setZero;
+	}
+	
+	
+	// checks mode
+	if(mode == 0) {
+		setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
+	} else if (mode == 1) {
+		setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff, infinity.queueDiff, infinity.maxZero);
+	}
 	// a new wave is automatically called at load
-	callWave(spawnNum);
+	callWave();
 	
 	
-	// handles fading animation 
+	// handles fading animation of next incoming wave
 	function fade() {
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
 		fadeStatus = true;
+	}
+	
+	function fadeEnd() {
+		$("body").animate({opacity: 0, backgroundColor: '#000' }, 1300, function() {
+			document.location.href = 'youWin.html?score=' + score;
+		});
 	}
 });

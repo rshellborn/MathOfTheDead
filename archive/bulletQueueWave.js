@@ -1,10 +1,3 @@
-// an array of 5 intergers used to kill zombies.
-var bulletQueueValues = new Array(5);
-// the currentBullet being used in zombie mode.
-var currentBullet = 1;
-//	the currentBullet being used in easter egg mode.
-var easterEggThisWave = 1;
-
 var zerosGen = 0;
 
 var zeroCount = 0;
@@ -78,7 +71,6 @@ function updateRandomBullet(){
  */
 $(document).ready(function() {
 	var queue = document.getElementById('queue0');
-
 	//alert(wave);
 	generateQueue();
 	currentBullet = bulletQueueValues[0];
