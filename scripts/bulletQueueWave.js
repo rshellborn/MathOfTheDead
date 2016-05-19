@@ -9,6 +9,8 @@ var zerosGen = 0;
 
 var zeroCount = 0;
 
+var waveOneZeroCount=3
+
 function generateValue() {
 	var value;
 	value = Math.floor(Math.random() * (queueDiff - (queueDiff * -1) + 1)) + (queueDiff * -1);
@@ -29,12 +31,12 @@ function checkMaxZero() {
 	return newValue;
 }
 
-function  checkZero() {
+function checkZero() {
 	var zeroCount = 0;
 	if (currentBullet == 0) {
 		zeroCount++;
 	}
-	if(zeroCount == 3) {
+	if(zeroCount == waveOneZeroCount) {
 		alert("woah bud");
 	}
 }
@@ -63,14 +65,15 @@ function updateRandomBullet(){
 	bulletQueueValues.push(x);
 	for(i = 0; i < length; i++){
 		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
+		if(bulletQueueValues[0] == 0){
+		zeroCount++;
+		}
+		if(zeroCount == 3) {
+			alert("wtf")
+		}
 	}
 	currentBullet = bulletQueueValues[0];
-	if(currentBullet == 0){
-		zeroCount++;
-	}
-	if(zeroCount == 3){
-		alert("stop");
-	}
+
 }
 /*
 	when the page loads all the necessary functions to generate a fully functional
