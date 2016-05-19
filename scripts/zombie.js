@@ -109,8 +109,8 @@ $(document).ready(function(){
 				
 				//send player vars again
 				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
-				document.location.href = 'endOfGame.html?' + send;
+				var send = "endOfGame.html?wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
+				fadeEnd(send);
 			} else {
 				// incruments the image downwards
 				yPos += speed;
