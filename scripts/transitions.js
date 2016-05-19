@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	console.log('working');
 	$("body").animate({opacity: 1}, 700);
 });
 
