@@ -5,7 +5,7 @@ starts "walking" upon instantiation.
 $(document).ready(function(){
 	// disables fade function
 	var disable = false;
-	mode = 1;
+	mode = 0;
 	
 	wave = getCurWave();
 	score = getCurScore();
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.06;
+		var speed = 0.03;
 		var health = health;
 		var maxHealth = Math.abs(health);
 		// message at construction
@@ -277,7 +277,6 @@ $(document).ready(function(){
 			if(selectedGun == 1) {
 				//plus gun
 				plusOperation();	
-				health = 0;
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
@@ -365,7 +364,7 @@ $(document).ready(function(){
 				if(disable == false) {
 					fade();
 				}
-				if(wave == 2) {
+				if(wave == 10) {
 					send = "youWin.html?score=" + score;
 					fadeEnd(send);
 				}
@@ -435,11 +434,16 @@ $(document).ready(function(){
 	function xRandom() {
 		return Math.floor(Math.random() * 4) * 25; 
 	}
+	
+	function lanePlacement(laneNum) {
+		return Math.floor(laneNum) * 25;  
+	}
 	/*
 	random num helper for yPos 
 	 */ 
-	function yRandom() {
-		return Math.floor(((Math.random() * 150) + 50) * -1); 
+	function yRandom(innerWave) {
+		var innerWaveDistance = 50;
+		return Math.floor(((Math.random() * innerWaveDistance) + ((innerWaveDistance + 20) * innerWave) + 20) * -1); 
 	}
 	
 	/*
@@ -447,10 +451,14 @@ $(document).ready(function(){
 	*/
 	function callWave(){
 		console.log('in here' + spawnNum);
+		var innerWave = 0;
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(genHealth(), xRandom(), i, yRandom() );  
+			zs[i] = new Zombie(genHealth(), lanePlacement(i % 4), i, yRandom(innerWave));  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
+			if (i % 4 == 3) {
+				innerWave++;
+			}
 		}
 	}
 	
