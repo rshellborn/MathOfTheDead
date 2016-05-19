@@ -7,6 +7,8 @@ var easterEggThisWave = 1;
 
 var zerosGen = 0;
 
+var zeroCount = 0;
+
 function generateValue() {
 	var value;
 	value = Math.floor(Math.random() * (queueDiff - (queueDiff * -1) + 1)) + (queueDiff * -1);
@@ -27,6 +29,15 @@ function checkMaxZero() {
 	return newValue;
 }
 
+function  checkZero() {
+	var zeroCount = 0;
+	if (currentBullet == 0) {
+		zeroCount++;
+	}
+	if(zeroCount == 3) {
+		alert("woah bud");
+	}
+}
 /*
 	generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.
@@ -54,6 +65,12 @@ function updateRandomBullet(){
 		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 	}
 	currentBullet = bulletQueueValues[0];
+	if(currentBullet == 0){
+		zeroCount++;
+	}
+	if(zeroCount == 3){
+		alert("stop");
+	}
 }
 /*
 	when the page loads all the necessary functions to generate a fully functional
