@@ -20,7 +20,7 @@ $(document).ready(function(){
 	if(mode == 0 || mode == 1) {	
 	} else {
 		console.log('setting from default');
-		mode = 0;	
+		mode = 0;
 	}
 	
 	console.log('mode: ' + mode);
@@ -246,7 +246,7 @@ $(document).ready(function(){
 			
 			// starts next wave 
 			if (killCount == spawnNum) {
-				changeWave();
+				 changeWave();
 			}
 		}		
 		
@@ -401,9 +401,6 @@ $(document).ready(function(){
 				// resets kill counter
 				killCount = 0;
 			}
-				if(fadeStatus == true){
-					// incruments the number of zombies to construct
-					//spawnNum++;
 					
 					switch(wave) {
 						case 2: setWaveDesign(easy.wave2.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
@@ -434,9 +431,9 @@ $(document).ready(function(){
 								 callWave();
 						break;
 						default: setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff, infinity.queueDiff, infinity.maxZero);
+								 callWave();
 						break;
 					}
-				}
 		}
 	};
 	// ___________________________________________________ zombie constr ends 
@@ -507,6 +504,8 @@ $(document).ready(function(){
 		setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 	} else if (mode == 1) {
 		setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff, infinity.queueDiff, infinity.maxZero);
+	} else if (mode == 2) {
+		setWaveDesign(tutorial.wave1.numOfZombies, tutorial.healthDiff, tutorial.queueDiff, tutorial.maxZero);
 	}
 	// a new wave is automatically called at load
 	callWave();

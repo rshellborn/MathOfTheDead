@@ -7,8 +7,8 @@ $(document).ready(function(){
 	// holds the timer for generating zombies
 	var genTimer = null;
 	
-	wave = getCurWave();
-	score = getCurScore();
+	wave = 0;
+	score = 0;
 	
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
@@ -28,6 +28,7 @@ $(document).ready(function(){
 		var xPos = xPos;
 		var yPos = yPos;
 		var health = health;
+		var speed = 0.05;
 		// message at construction
 		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
@@ -270,7 +271,8 @@ $(document).ready(function(){
 		*/
 		this.startMove = function() {
 		  moveTimer = setInterval(this.move, 10);  
-		  animateTimer = setInterval(this.animate, 800);		
+		  animateTimer = setInterval(this.animate, 800);	
+		  console.log('started');	
 		}
 	
 		//auto caller for moving 
@@ -341,4 +343,9 @@ $(document).ready(function(){
 	function startZombies() {
 		for(var i = 0; i < zs.length; i++)
 			zs[i].startMove();		
+	}
+	
+	function stopZombies() {
+		for(var i = 0; i < zs.length; i++)
+			zs[i].stopMove();		
 	}
