@@ -266,8 +266,6 @@ $(document).ready(function(){
 		
 		
 		
-		
-		
 		/* ----------------------------------------GUNS AND CALCULATIONS FUNCTIONS------------------------------------------ */
 		
 		/*
@@ -365,8 +363,9 @@ $(document).ready(function(){
 				if(disable == false) {
 					fade();
 				}
-				if(wave == 10) {
-					fadeEnd();
+				if(wave == 2) {
+					send = "youWin.html?score=" + score;
+					fadeEnd(send);
 				}
 				document.getElementById("wave").textContent=("Wave " + wave);
 				// resets kill counter
@@ -479,11 +478,5 @@ $(document).ready(function(){
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
 		fadeStatus = true;
-	}
-	
-	function fadeEnd() {
-		$("body").animate({opacity: 0, backgroundColor: '#000' }, 1300, function() {
-			document.location.href = 'youWin.html?score=' + score;
-		});
 	}
 });
