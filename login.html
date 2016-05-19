@@ -16,6 +16,7 @@
   <script>
   var mode0 = "waveGame";
   var mode1 = "infiniteGame";
+  var menu = "mainMenu.html";
   </script>
   
   </head>
@@ -60,9 +61,7 @@
 				<button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#gameModeModal"  data-backdrop="static" data-keyboard="false" >Start</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-				<a href="mainMenu.html">
-				<button type="button" class="btn btn-primary btn-lg sharp">Back</button>
-                </a>
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Back</button>
 			</div>
 			<!-- End of buttons for end of game screen  -->
 		</div>
