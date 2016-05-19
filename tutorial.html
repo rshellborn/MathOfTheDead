@@ -13,9 +13,9 @@
   <script src="scripts/globals.js"></script>
   <script src="scripts/changeGuns.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
-  <script src="scripts/zombieTutorial.js"></script>
-  <script src="scripts/buttonsTutorial.js"></script>
-  <script src="scripts/bulletQueueTutorial.js"></script>
+  <script src="scripts/tutorial/zombie.js"></script>
+  <script src="scripts/tutorial/buttons.js"></script>
+  <script src="scripts/tutorial/bulletQueue.js"></script>
   
   <script>
   	$(document).ready(function(){
@@ -207,6 +207,7 @@
                     	<p>These are the numbers you will use to kill the zombies.</p> 
                     	<p>The number you are currently using is in the red box, you can <b id="redT">use this by clicking on a zombie</b>, or <b id="redT">skip it by clicking on the red box.</b></p>
                         <p><b id="redT">Try skipping a bullet.</b></p>
+                        <p><b id="redT">NOTE ZEROS ARE NOT UNLIMITED, USE THEM WISELY.</b>
                     	<br /> <br />
 						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
@@ -364,7 +365,7 @@
 						<p>You have succesfully killed the tutorial zombies!</p>
 						<p>Take the next step and <b id="redT">play the game or give the tutorial another go.</b></p>
 						<br /> <br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'game-screen.html';" >Play Game</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'waveGame.html';" >Play Game</button>
 						<br /><br />
 						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'tutorial.html';" >Restart Tutorial</button>
 						<br /><br />

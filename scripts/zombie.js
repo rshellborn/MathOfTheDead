@@ -54,7 +54,7 @@ $(document).ready(function(){
 		var zombieHealthText = document.createElement("div");
 		
 		//set styles for container for zombie and health 
-		zombieHolder.style.height = "40%";
+		zombieHolder.style.height = "20%";
 		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
