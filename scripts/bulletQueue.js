@@ -1,36 +1,71 @@
 var zerosGen = 0;
-
 var zeroCount = 0;
+var value;
+var maxHealth;
+var maxNumZeroes;
 
-function generateValue() {
-	var value;
-	value = Math.floor(Math.random() * (queueDiff - (queueDiff * -1) + 1)) + (queueDiff * -1);
-	
-	//CHECK IF VALUE IS ZERO AND CHECK IF IT HIT THE maxZero
-	
+/*
+	Sets the maximum number of zeroes and the range of numbers the bullet queue should generate for 
+	the wave depending on the difficulty settting.
+*/	
+function setQueueRange(){
+	if(wave >= 1 && wave <= 3){
+		maxHealth = easy.queueDiff;
+		maxNumZeroes = easy.maxZero;
+	}
+	else if(wave >= 4 && wave <= 6){
+		maxHealth = medium.queueDiff;
+		maxNumZeroes = medium.maxZero;
+	}
+	else if(wave >= 7 && wave <= 9){
+		maxHealth = hard.queueDiff;
+		maxNumZeroes = hard.maxZero;
+	} else {
+		maxHealth = insane.queueDiff;
+		maxNumZeroes = insane.maxZero;
+	}
+}
+
+/*
+	Generates a random number within the max range of values and not generating more than the 
+	maximum number of allowed zero values.
+*/
+function generateValue() {	
+	if(checkZero() == 0){
+		value = Math.floor(Math.random() * (maxHealth - (maxHealth * -1) + 1)) + (maxHealth * -1);
+	} else {
+		var genNonZero = 0;
+		while(genNonZero == 0){
+			value = Math.floor(Math.random() * (maxHealth - (maxHealth * -1) + 1)) + (maxHealth * -1);
+			if(value != 0){
+				genNonZero = 1;
+			}
+		}
+	}
 	return value;
 }
 
-//MY ATTEMPT BUT ITS BAD
-function checkMaxZero() {
-	var newValue = 0;
-	//check if value is 0
-		if(maxZero == zerosGen) {
-			console.log('max hit');
-			newValue = generateValue();
-		}
-	return newValue;
-}
-
+/*
+	Incremented the zero counter if the value generated is a zero and returns a 1 meaning false if 
+	the zero counter is equal to the maximum number of zeroes allowed for the wave. 
+*/
 function  checkZero() {
-	var zeroCount = 0;
-	if (currentBullet == 0) {
+	if (value == 0) {
 		zeroCount++;
 	}
-	if(zeroCount == 3) {
-		alert("woah bud");
+	if(zeroCount >= maxNumZeroes) {
+		return 1;
 	}
+	return 0;
 }
+
+/*
+	Resets the zero counter.
+*/
+function resetZeroCounter(){
+	zeroCount = 0;
+}
+
 /*
 	generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.
@@ -38,11 +73,9 @@ function  checkZero() {
 function generateQueue(){
 	for(i = 0; i < 5; i++){
 		bulletQueueValues[i] = generateValue();
-		console.log('bullet gen=' + bulletQueueValues[i]);
 		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 	}
 	currentBullet = bulletQueueValues[0];
-
 }
 /*
 	using shift and push addRandomBullet inserts a new random integer to the back end 
@@ -58,12 +91,6 @@ function updateRandomBullet(){
 		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 	}
 	currentBullet = bulletQueueValues[0];
-	if(currentBullet == 0){
-		zeroCount++;
-	}
-	if(zeroCount == 3){
-		//alert("stop");
-	}
 }
 /*
 	when the page loads all the necessary functions to generate a fully functional
@@ -71,7 +98,8 @@ function updateRandomBullet(){
  */
 $(document).ready(function() {
 	var queue = document.getElementById('queue0');
-	//alert(wave);
+
+	setQueueRange();
 	generateQueue();
 	currentBullet = bulletQueueValues[0];
 	queue.onclick = function() {
