@@ -374,7 +374,9 @@ $(document).ready(function(){
 			// increments the current wave if it is in wave mode
 			if(mode == 0) {
 				wave++;
-			
+				resetZeroCounter();
+				setQueueRange();
+				generateQueue();
 				fadeStatus = false;
 				// calls fade aimation 
 				if(disable == false) {
