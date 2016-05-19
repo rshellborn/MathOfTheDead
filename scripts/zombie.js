@@ -143,8 +143,7 @@ $(document).ready(function(){
 			console.log("die");
 			killCount++;
 			//stops the zombie from calling move/animate functions
-			spe
-			ed = 0;
+			speed = 0;
 			// hardcoded health score awarded to player
 			score += maxHealth;
 			// updates the score element
