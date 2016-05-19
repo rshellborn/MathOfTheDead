@@ -227,7 +227,7 @@ $(document).ready(function(){
 				if(disable == false) {
 					fade();
 				}
-				if(wave == 2) {
+				if(wave == 10) {
 					fadeEnd();
 				}
 				document.getElementById("wave").textContent=("Wave " + wave);
@@ -499,7 +499,8 @@ $(document).ready(function(){
 	}
 	
 	function fadeEnd() {
-		$("#youWin").fadeIn(3000);
-		document.location.href = 'youWin.html?score=' + score;
+		$("body").animate({opacity: 0, backgroundColor: '#000' }, 1300, function() {
+			document.location.href = 'youWin.html?score=' + score;
+		});
 	}
 });
