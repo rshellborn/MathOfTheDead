@@ -332,7 +332,7 @@ div.EOGScoredisplay{
 /** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
 	width: 100%;
-	min-height: 35%;
+	min-height: 25%;
 	color: red;
 	font-family: 'Nosifer', cursive;
 	font-size: 5.5em;
@@ -367,6 +367,7 @@ div.buttonHolder{
 /** Sets the main menu button container size to 15% of screen size.*/
 div.menuButtonHolder{
 	min-height: 15%;
+	max-height: 15%;
 }
 /** General buttons styling.*/
 .btn.sharp {
@@ -377,6 +378,8 @@ div.menuButtonHolder{
 	width: 100%;
 	font: Arial, Helvetica, sans-serif;
 	font-size: 3.0em;
+	padding-top:8px;
+	padding-bottom:8px;
 }
 /** Ensuring 0 padding of scores div.*/
 div.scores{
@@ -388,7 +391,8 @@ div.insideQueue{
 }
 /** Setting the space between the game title in the main menu screen and the buttons to 20% of screen size.*/
 div.emptySpace{
-	min-height: 20%;
+	min-height: 15%;
+	max-height: 15%;
 }
 
 #startWave{
@@ -461,6 +465,15 @@ div.emptySpace{
 	}
 }
 @media only screen and (min-width: 993px) and (max-width: 1199px){
+	div.mainMenu{
+		min-height: 20%;
+		font-size: 5.0em;
+	}
+	.btn.sharp{
+		min-height: 10%;
+		height: 10%;
+		max-height: 10%;
+	}
 	#startWave{
 		min-width: 60%;
 		width: 60%;
@@ -489,7 +502,7 @@ div.emptySpace{
 		max-width: 50%;
 	}
 	div.emptySpace{
-		min-height: 30%;
+		min-height: 26%;
 	}
 	div.mainMenu{
 		min-height: 20%;
@@ -509,6 +522,10 @@ div.emptySpace{
 	}
 	div.nextWave{
 		font-size: 4.0em;
+	}
+	div.menuButtonHolder{
+		min-height: 12%;
+		max-height: 12%;
 	}
 	.btn.sharp {
 		font-size: 2.5em;
@@ -627,7 +644,7 @@ div.emptySpace{
 		margin: 0; 
 	}
 	.modal-title {
-		font-size: 3.5em;
+		font-size: 2.5em;
 	}
 	div.leaderBoardTitle{
 		min-height: 15%;
