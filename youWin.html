@@ -11,27 +11,31 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
   <script src="scripts/transitions.js"></script>
+  <script src="scripts/sessionVariables.js"></script>
   
   <script>
 	$(document).ready(function(){
 	  // gets current wave number
-	  var wave = getQueryVariable("wave");
+	 var wave = getSessionItem("wave");
 	  // gets the current score value
-	  var score = getQueryVariable("score");
+	  var score = getSessionItem("score");
 	  // gets the player's name
-	  var name = getQueryVariable("name");
-	  //gets the player id
-	  var id = getQueryVariable("id");
+	  var name = getSessionItem("name");
+	  //gets player ID
+	  var id = getSessionItem("id");
 
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("score").textContent=("Score: " + score);
 		
-		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			data: JSON.stringify( {"playerID": id, "score": score, "wave": wave, "name": name } ),
+		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+			data: JSON.stringify( {"playerID": "not_used", "score": score, "wave": wave, "name": name } ),
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
 	});
+	
+	removeSessionItem("wave");
+	removeSessionItem("score");
   </script>
   
   </head>
