@@ -81,7 +81,10 @@
 		
 		var mode = setMode;
 		
+		removeSessionItem("mode", mode);
 		createSessionItem("mode", mode);
+		
+		console.log('mode set to: ' + mode);
 		
 		fadeEnd("gameScreen.html");
 	}
