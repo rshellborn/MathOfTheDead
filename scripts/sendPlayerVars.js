@@ -31,9 +31,11 @@ function carryVars() {
   playerWave = wave;
   playerScore = score;
   playerName = name;
+  playerID = id;
   console.log("current wave " + wave);
   console.log("current score " + score);
   console.log("player name " + name);
+  console.log("player name " + id);
 }
 
 /*

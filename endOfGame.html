@@ -21,6 +21,9 @@
 	  var score = getQueryVariable("score");
 	  // gets the player's name
 	  var name = getQueryVariable("name");
+	  //gets player ID
+	  var id = getQueryVariable("id");
+	  
 	  // audio 
 	  zWantBrains.play(); 
 	  playerDie.play(); 
@@ -31,7 +34,7 @@
 		document.getElementById("score").textContent=("Score: " + score);
 		
 		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			data: JSON.stringify( {"playerID": playerID, "score": score, "wave": wave, "name": name } ),
+			data: JSON.stringify( {"playerID": id, "score": score, "wave": wave, "name": name } ),
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
