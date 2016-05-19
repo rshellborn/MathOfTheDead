@@ -431,7 +431,7 @@ $(document).ready(function(){
 								 callWave();
 						break;
 						default: setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff, infinity.queueDiff, infinity.maxZero);
-							console.log('setting again');
+								 callWave();
 						break;
 					}
 		}
