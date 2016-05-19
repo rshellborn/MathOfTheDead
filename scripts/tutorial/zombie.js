@@ -271,7 +271,8 @@ $(document).ready(function(){
 		*/
 		this.startMove = function() {
 		  moveTimer = setInterval(this.move, 10);  
-		  animateTimer = setInterval(this.animate, 800);		
+		  animateTimer = setInterval(this.animate, 800);	
+		  console.log('started');	
 		}
 	
 		//auto caller for moving 
@@ -342,4 +343,9 @@ $(document).ready(function(){
 	function startZombies() {
 		for(var i = 0; i < zs.length; i++)
 			zs[i].startMove();		
+	}
+	
+	function stopZombies() {
+		for(var i = 0; i < zs.length; i++)
+			zs[i].stopMove();		
 	}
