@@ -12,6 +12,8 @@ $(document).ready(function(){
 	document.getElementById("score").textContent=("Score: " +score);
 	// gets the element for wave
 	document.getElementById("wave").textContent=("Wave " +wave);
+
+
 	/*
 	 constructs a zombie
 	 @params 
@@ -21,7 +23,8 @@ $(document).ready(function(){
 	 		(used as ID tag for its div)
 	 yPos   y position of the zombie 
 	*/
-	var Zombie = function(health, xPos, zomNum, yPos) {  
+	var Zombie = function(health, xPos, zomNum, yPos) { 
+
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
@@ -205,6 +208,8 @@ $(document).ready(function(){
 				die();
 				console.log("after");
 			} else {
+				// shakes the zombie 
+				$( "#" + zomNum ).effect( "shake", "fast");  
 				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);

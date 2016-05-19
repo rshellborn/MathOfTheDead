@@ -40,10 +40,12 @@ $(document).ready(function() {
 	These all call the functions inside of changeGun
 	*/
 	plusGun.onclick = function(){
+
 		gunSelect.play(); 
 		changeGun(1);
 	}
 	minusGun.onclick = function(){
+		$( "#" + 1 ).effect( "shake", "fast"); 
 		gunSelect.play();
 		changeGun(2);
 
