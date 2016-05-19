@@ -55,13 +55,28 @@
 						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
 						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
 						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
+						if (j == 0) {
+							document.getElementById("rank" + (j + 5)).style.color = "black";
+							document.getElementById("name" + (j + 5)).style.color = "black";
+							document.getElementById("wave" + (j + 5)).style.color = "black";
+							document.getElementById("score" + (j + 5)).style.color = "black";
+							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
+						}
 					} else {
 						var obj = jsonObj[meIndex + j + 1];
 						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 2;
 						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
 						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
 						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
+						if (j == -1) {
+							document.getElementById("rank" + (j + 5)).style.color = "black";
+							document.getElementById("name" + (j + 5)).style.color = "black";
+							document.getElementById("wave" + (j + 5)).style.color = "black";
+							document.getElementById("score" + (j + 5)).style.color = "black";
+							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
+						}
 					}
+					
 				}
 			},
 			error: function(jqXHR, testStatus, errorThrown) {
