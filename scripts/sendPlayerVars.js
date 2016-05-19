@@ -6,6 +6,8 @@ var playerScore = 0;
 var playerName = "Guest";
 //the id for player
 var playerID = 180253480029535; //randomID();
+//game mode
+var mode;
 
 /*
 Retrieves the players wave number and score from the URL. This is used to transfer over to the end of game screen to display them. (You can see them in the URL one endOfGame.html)
