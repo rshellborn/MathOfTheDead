@@ -140,11 +140,11 @@ $(document).ready(function(){
 		"kills" the zombie 
 		*/
 		function die() {
-			console.log("die");
+			zDie.play(); 
+			console.log("Zombe dead");
 			killCount++;
 			//stops the zombie from calling move/animate functions
-			spe
-			ed = 0;
+			speed = 0;
 			// hardcoded health score awarded to player
 			score += maxHealth;
 			// updates the score element
@@ -195,6 +195,7 @@ $(document).ready(function(){
 		 else, health is changed
 		*/
 		this.hit = function(){
+			shot.play();
 			checkGun();
 			checkMaxHealth();
 			updateRandomBullet();
@@ -204,6 +205,7 @@ $(document).ready(function(){
 				die();
 				console.log("after");
 			} else {
+				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
@@ -364,6 +366,7 @@ $(document).ready(function(){
 	spawns spawnNum zombies
 	*/
 	function callWave(spawnNum){
+		nextWave.play();
 		for (i = 0; i < spawnNum; i++) {
 			zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
 			// onclick handel 
