@@ -25,9 +25,9 @@
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName()","location.href = 'zombieWaveTest.html';" >10 Wave Mode</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName()","location.href = 'waveGame.html';" >10 Wave Mode</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName()","location.href = 'game-screen.html';">Infinite Wave Mode</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName()","location.href = 'infiniteGame.html';">Infinite Wave Mode</button>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -70,6 +70,7 @@
 		var send = "name=" + name + "";
 		document.location.href = 'game-screen.html?' + send;
 	}
+	
 	$(document).ready(function() {
 		$('.nameSignIn').keydown(function(event) {
 			if (event.keyCode == 13) {
@@ -78,8 +79,9 @@
 				var send = "name=" + name + "";
 				document.location.href = 'game-screen.html?' + send;
 			 }
-		});
+		})
 	});
+
 </script>
 
 </html>
