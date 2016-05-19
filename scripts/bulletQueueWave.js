@@ -5,8 +5,26 @@ var currentBullet = 1;
 //	the currentBullet being used in easter egg mode.
 var easterEggThisWave = 1;
 
+var zerosGen = 0;
+
 function generateValue() {
-	return Math.floor(Math.random() * (queueDiff - (queueDiff * -1) + 1)) + (queueDiff * -1);
+	var value;
+	value = Math.floor(Math.random() * (queueDiff - (queueDiff * -1) + 1)) + (queueDiff * -1);
+	
+	//CHECK IF VALUE IS ZERO AND CHECK IF IT HIT THE maxZero
+	
+	return value;
+}
+
+//MY ATTEMPT BUT ITS BAD
+function checkMaxZero() {
+	var newValue = 0;
+	//check if value is 0
+		if(maxZero == zerosGen) {
+			console.log('max hit');
+			newValue = generateValue();
+		}
+	return newValue;
 }
 
 /*

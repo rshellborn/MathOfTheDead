@@ -16,72 +16,13 @@ var disable = false;
 var spawnNum;
 var healthDiff;
 var queueDiff;
+var maxZero;
 
-/* DIFFICULTIES AND WAVES */
-var easy = {
-	healthDiff: 5,
-	queueDiff: 3,
-	
-	wave1: {
-		numOfZombies: 3
-	},
-	
-	wave2: {
-		numOfZombies: 5
-	},
-	
-	wave3: {
-		numOfZombies: 7
-	}
-};
-
-var medium = {
-	healthDiff: 10,
-	queueDiff: 6,
-	
-	wave1: {
-		numOfZombies: 10
-	},
-	
-	wave2: {
-		numOfZombies: 12
-	},
-	
-	wave3: {
-		numOfZombies: 14
-	}
-};
-
-var hard = {
-	healthDiff: 15,
-	queueDiff: 9,
-	
-	wave1: {
-		numOfZombies: 20
-	},
-	
-	wave2: {
-		numOfZombies: 22
-	},
-	
-	wave3: {
-		numOfZombies: 24
-	}
-};
-
-var insane = {
-	healthDiff: 20,
-	queueDiff: 12,
-	
-	wave1: {
-		numOfZombies: 30
-	}
-};
-
-function setWaveDesign(setSpawn, setHealth, setQueue) {
+function setWaveDesign(setSpawn, setHealth, setQueue, setZero) {
 	spawnNum = setSpawn;
 	healthDiff = setHealth;
 	queueDiff = setQueue;
+	maxZero = setZero;
 }
 
 
@@ -238,31 +179,31 @@ $(document).ready(function(){
 					//spawnNum++;
 					
 					switch(wave) {
-						case 2: setWaveDesign(easy.wave2.numOfZombies, easy.healthDiff, easy.queueDiff);
+						case 2: setWaveDesign(easy.wave2.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 								callWave();
 						break;
-						case 3: setWaveDesign(easy.wave3.numOfZombies, easy.healthDiff, easy.queueDiff);
+						case 3: setWaveDesign(easy.wave3.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 								callWave();
 						break;
-						case 4: setWaveDesign(medium.wave1.numOfZombies, medium.healthDiff, medium.queueDiff);
+						case 4: setWaveDesign(medium.wave1.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
 								callWave();
 						break;
-						case 5: setWaveDesign(medium.wave2.numOfZombies, medium.healthDiff, medium.queueDiff);
+						case 5: setWaveDesign(medium.wave2.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
 								callWave();
 						break;
-						case 6: setWaveDesign(medium.wave3.numOfZombies, medium.healthDiff, medium.queueDiff);
+						case 6: setWaveDesign(medium.wave3.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
 								callWave();
 						break; 
-						case 7: setWaveDesign(hard.wave1.numOfZombies, hard.healthDiff, hard.queueDiff);
+						case 7: setWaveDesign(hard.wave1.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
 								callWave();
 						break; 
-						case 8: setWaveDesign(hard.wave2.numOfZombies, hard.healthDiff, hard.queueDiff);
+						case 8: setWaveDesign(hard.wave2.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
 								callWave();
 						break;
-						case 9: setWaveDesign(hard.wave3.numOfZombies, hard.healthDiff, hard.queueDiff);
+						case 9: setWaveDesign(hard.wave3.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
 								callWave();
 						break;
-						case 10: setWaveDesign(insane.wave1.numOfZombies, insane.healthDiff, insane.queueDiff);
+						case 10: setWaveDesign(insane.wave1.numOfZombies, insane.healthDiff, insane.queueDiff, insane.maxZero);
 								 callWave();
 						break;
 					}
@@ -486,7 +427,7 @@ $(document).ready(function(){
 		}
 	}
 	// a new wave is automatically called at load
-	setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff);
+	setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 	callWave();
 	// flag for fading 
 	var fadeStatus;
