@@ -33,8 +33,8 @@
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("score").textContent=("Score: " + score);
 		
-		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			data: JSON.stringify( {"playerID": id, "score": score, "wave": wave, "name": name } ),
+		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+			data: JSON.stringify( {"playerID": "not_used", "score": score, "wave": wave, "name": name } ),
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
