@@ -7,7 +7,7 @@
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #000000; border-radius: 0px;
+    border: 2px solid #000000; border-radius: 0px; margin:0;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;

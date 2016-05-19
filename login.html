@@ -78,6 +78,7 @@
 		var send = "name=" + name + "&id=" + id + "&mode=" + mode + "";
 		document.location.href =  mode + '.html?' + send;
 	}
+	
 	$(document).ready(function() {
 		$('.nameSignIn').keydown(function(event) {
 			if (event.keyCode == 13) {
@@ -86,8 +87,9 @@
 				var send = "name=" + name + "";
 				document.location.href = 'game-screen.html?' + send;
 			 }
-		});
+		})
 	});
+
 </script>
 
 </html>
