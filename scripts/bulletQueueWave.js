@@ -3,41 +3,49 @@ var bulletQueueValues = new Array(5);
 // the currentBullet being used in zombie mode.
 var currentBullet = 1;
 //	the currentBullet being used in easter egg mode.
-var easterEggThisWave = 1; 
+var easterEggThisWave = 1;
 
-/*
-	generates a random bullet queue of integers between -5 and 5 which will be 
-	displayed on bullets at the top of the screen.
- */
-function generateQueueFirst(){
-	for(i = 0; i < 5; i++){
-		bulletQueueValues[i] = Math.floor((Math.random() *11) + 5 );  
-		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
-	}
-	currentBullet = bulletQueueValues[0];
+var zerosGen = 0;
 
+var zeroCount = 0;
+
+function generateValue() {
+	var value;
+	value = Math.floor(Math.random() * (queueDiff - (queueDiff * -1) + 1)) + (queueDiff * -1);
+	
+	//CHECK IF VALUE IS ZERO AND CHECK IF IT HIT THE maxZero
+	
+	return value;
 }
 
-/*
-	generates a random bullet queue of integers between -5 and 5 which will be 
-	displayed on bullets at the top of the screen.
- */
-function generateQueueSecond(){
-	for(i = 0; i < 5; i++){
-		bulletQueueValues[i] = Math.floor((Math.random() *21) + 10);  
-		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
-	}
-	currentBullet = bulletQueueValues[0];
-
+//MY ATTEMPT BUT ITS BAD
+function checkMaxZero() {
+	var newValue = 0;
+	//check if value is 0
+		if(maxZero == zerosGen) {
+			console.log('max hit');
+			newValue = generateValue();
+		}
+	return newValue;
 }
 
+function  checkZero() {
+	var zeroCount = 0;
+	if (currentBullet == 0) {
+		zeroCount++;
+	}
+	if(zeroCount == 3) {
+		alert("woah bud");
+	}
+}
 /*
 	generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.
  */
-function generateQueueFinal(){
+function generateQueue(){
 	for(i = 0; i < 5; i++){
-		bulletQueueValues[i] = Math.floor((Math.random() *31) + 10);  
+		bulletQueueValues[i] = generateValue();
+		console.log('bullet gen=' + bulletQueueValues[i]);
 		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 	}
 	currentBullet = bulletQueueValues[0];
@@ -50,43 +58,19 @@ function generateQueueFinal(){
  */
 function updateRandomBullet(){
 	var length = bulletQueueValues.length;
-	var x = Math.floor((Math.random() * 11) + 5);
+	var x = generateValue();
 	bulletQueueValues.shift();
 	bulletQueueValues.push(x);
 	for(i = 0; i < length; i++){
 		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
 	}
 	currentBullet = bulletQueueValues[0];
-}
-/*
-	using shift and push addRandomBullet inserts a new random integer to the back end 
-	of the queue effectively creating a never ending stream of random integers between 
-	-5 and 5.
- */
-function updateRandomBulletSecond(){
-	var length = bulletQueueValues.length;
-	var x = Math.floor((Math.random() * 21) + 10);
-	bulletQueueValues.shift();
-	bulletQueueValues.push(x);
-	for(i = 0; i < length; i++){
-		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
+	if(currentBullet == 0){
+		zeroCount++;
 	}
-	currentBullet = bulletQueueValues[0];
-}
-/*
-	using shift and push addRandomBullet inserts a new random integer to the back end 
-	of the queue effectively creating a never ending stream of random integers between 
-	-5 and 5.
- */
-function updateRandomBulletFinal(){
-	var length = bulletQueueValues.length;
-	var x = Math.floor((Math.random() * 31) + 20);
-	bulletQueueValues.shift();
-	bulletQueueValues.push(x);
-	for(i = 0; i < length; i++){
-		document.getElementById("insideQueue" + i).innerHTML = bulletQueueValues[i];
+	if(zeroCount == 3){
+		alert("stop");
 	}
-	currentBullet = bulletQueueValues[0];
 }
 /*
 	when the page loads all the necessary functions to generate a fully functional
@@ -95,29 +79,10 @@ function updateRandomBulletFinal(){
 $(document).ready(function() {
 	var queue = document.getElementById('queue0');
 
-	if(wave == 1) {
-		//alert(wave);
-		generateQueueFirst();
-		currentBullet = bulletQueueValues[0];
-		queue.onclick = function() {
-			updateRandomBullet();
-		}
+	//alert(wave);
+	generateQueue();
+	currentBullet = bulletQueueValues[0];
+	queue.onclick = function() {
+		updateRandomBullet();
 	}
-	if(wave == 2) {
-		alert(wave);
-		generateQueueSecond();
-		currentBullet = bulletQueueValues[0];
-		queue.onclick = function() {
-			updateRandomBulletSecond();
-		}
-	}
-	if(wave == 3) {
-		alert(wave);
-		generateQueueFinal();
-		currentBullet = bulletQueueValues[0];
-		queue.onclick = function() {
-			updateRandomBulletFinal();
-		}
-	}
-
 });

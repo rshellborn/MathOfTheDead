@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 <title>Game Over Screen</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -9,6 +10,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
+  <script src="scripts/audio.js"></script>
   
   <script>
 	$(document).ready(function(){
@@ -18,6 +20,9 @@
 	  var score = getQueryVariable("score");
 	  // gets the player's name
 	  var name = getQueryVariable("name");
+	  // audio 
+	  zWantBrains.play(); 
+	  playerDie.play(); 
 
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("wave").textContent=("Wave " + wave);
@@ -50,7 +55,9 @@
 				</a>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-				<button type="button" class="btn btn-primary btn-lg sharp">Leaderboard</button>
+				<a href="leaderboard.html">
+					<button type="button" class="btn btn-primary btn-lg sharp">Leaderboard</button>
+				</a>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<a href="mainMenu.html">

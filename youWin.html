@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Game Over Screen</title>
+<title>You Won</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -10,15 +10,16 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
+  <script src="scripts/fadeIn.js"></script>
   
   <script>
 	$(document).ready(function(){
 	  // gets current wave number
-	  var wave = getCurWave();
+	  var wave = getQueryVariable("wave");
 	  // gets the current score value
-	  var score = getCurScore();
+	  var score = getQueryVariable("score");
 	  // gets the player's name
-	  var name = getName();
+	  var name = getQueryVariable("name");
 
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("score").textContent=("Score: " + score);
@@ -30,6 +31,12 @@
 		});
 	});
   </script>
+  
+  <style>
+  body {
+  	opacity: 0;
+  }
+  </style>
   
   </head>
   <body>
