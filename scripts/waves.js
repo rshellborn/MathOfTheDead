@@ -73,3 +73,14 @@ var infinity = {
 		numOfZombies: 5
 	}
 };
+
+var tutorial = {
+	healthDiff: 5,
+	queueDiff: 10,
+	maxZero: 5,
+	//maxSpeed,
+	
+	wave1: {
+		numOfZombies: 3
+	}
+};

@@ -16,9 +16,15 @@ $(document).ready(function(){
 		score = getSessionItem("score");	
 	}
 	
+	var mode;
+	if(mode != 0 && mode != 1) {
+		mode = 0;	
+	} else {
+		mode = getSessionItem("mode");	
+	}
+	
 	// disables fade function
 	var disable = false;
-	mode = getSessionItem("mode");
 	var name = getSessionItem("name");
 	//gets player ID
   	var id = getSessionItem("id");
@@ -382,7 +388,7 @@ $(document).ready(function(){
 				if(disable == false) {
 					fade();
 				}
-				if(wave == 2) {
+				if(wave == 11) {
 					//removeSessionItem("score");
 					//removeSessionItem("wave");
 					createSessionItem("score", score);
