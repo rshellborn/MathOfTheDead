@@ -16,12 +16,14 @@ $(document).ready(function(){
 		score = getSessionItem("score");	
 	}
 	
-	var mode;
-	if(mode != 0 && mode != 1) {
-		mode = 0;	
+	var mode = getSessionItem("mode");
+	if(mode == 0 || mode == 1) {	
 	} else {
-		mode = getSessionItem("mode");	
+		console.log('setting from default');
+		mode = 0;	
 	}
+	
+	console.log('mode: ' + mode);
 	
 	// disables fade function
 	var disable = false;
