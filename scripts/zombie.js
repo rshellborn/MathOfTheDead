@@ -5,10 +5,13 @@ starts "walking" upon instantiation.
 $(document).ready(function(){
 	// disables fade function
 	var disable = false;
-	mode = 0;
+	mode = 1;
 	
 	wave = getCurWave();
 	score = getCurScore();
+	name = getQueryVariable("name");
+	id = getQueryVariable("id");
+
 	//mode = getGameMode();
 	
 	// gets the element for score
@@ -30,7 +33,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.08;
+		var speed = 0.06;
 		var health = health;
 		var maxHealth = Math.abs(health);
 		// message at construction
@@ -52,7 +55,7 @@ $(document).ready(function(){
 		var zombieHealthText = document.createElement("div");
 		
 		//set styles for container for zombie and health 
-		zombieHolder.style.height = "40%";
+		zombieHolder.style.height = "20%";
 		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
@@ -107,8 +110,8 @@ $(document).ready(function(){
 				
 				//send player vars again
 				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "";
-				document.location.href = 'endOfGame.html?' + send;
+				var send = "endOfGame.html?wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
+				fadeEnd(send);
 			} else {
 				// incruments the image downwards
 				yPos += speed;
@@ -264,8 +267,6 @@ $(document).ready(function(){
 		
 		
 		
-		
-		
 		/* ----------------------------------------GUNS AND CALCULATIONS FUNCTIONS------------------------------------------ */
 		
 		/*
@@ -364,8 +365,9 @@ $(document).ready(function(){
 				if(disable == false) {
 					fade();
 				}
-				if(wave == 10) {
-					fadeEnd();
+				if(wave == 2) {
+					send = "youWin.html?score=" + score;
+					fadeEnd(send);
 				}
 				document.getElementById("wave").textContent=("Wave " + wave);
 				// resets kill counter
@@ -478,11 +480,5 @@ $(document).ready(function(){
 		$("#NW").fadeIn(3000);
 		$("#NW").fadeOut(3000);
 		fadeStatus = true;
-	}
-	
-	function fadeEnd() {
-		$("body").animate({opacity: 0, backgroundColor: '#000' }, 1300, function() {
-			document.location.href = 'youWin.html?score=' + score;
-		});
 	}
 });

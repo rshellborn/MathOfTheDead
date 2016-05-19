@@ -10,7 +10,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
-  <script src="scripts/fadeIn.js"></script>
+  <script src="scripts/transitions.js"></script>
   
   <script>
 	$(document).ready(function(){
@@ -20,23 +20,19 @@
 	  var score = getQueryVariable("score");
 	  // gets the player's name
 	  var name = getQueryVariable("name");
+	  //gets the player id
+	  var id = getQueryVariable("id");
 
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("score").textContent=("Score: " + score);
 		
-		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			data: JSON.stringify( {"score": score, "wave": wave, "name": name } ),
+		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+			data: JSON.stringify( {"playerID": id, "score": score, "wave": wave, "name": name } ),
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
 	});
   </script>
-  
-  <style>
-  body {
-  	opacity: 0;
-  }
-  </style>
   
   </head>
   <body>
@@ -49,21 +45,22 @@
 			</div>
             <!--  works with script to display score after player wins  -->
 			<div id="score" class="col-xs-12 EOGScoredisplay"></div>
-
+			
+            <script>
+			var leaderboard = "leaderboard.html";
+			var infinite = "infiniteGame.html";
+			var menu = "mainMenu.html";
+			</script>
 
 			<!-- Beginning of buttons for end of game screen  -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-				<a href="game-screen.html">
-					<button type="button" class="btn btn-primary btn-lg sharp">Unlimited Waves</button>
-				</a>
+					<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(infinite)">Unlimited Waves</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-				<button type="button" class="btn btn-primary btn-lg sharp">Leaderboard</button>
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(leaderboard)">Leaderboard</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-				<a href="mainMenu.html">
-				<button type="button" class="btn btn-primary btn-lg sharp">Main Menu</button>
-                </a>
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
 			</div>
 			<!-- End of buttons for end of game screen  -->
 		</div>
