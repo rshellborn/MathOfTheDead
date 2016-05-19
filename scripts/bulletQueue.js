@@ -62,7 +62,7 @@ function updateRandomBullet(){
 		zeroCount++;
 	}
 	if(zeroCount == 3){
-		alert("stop");
+		//alert("stop");
 	}
 }
 /*

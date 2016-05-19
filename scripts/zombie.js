@@ -9,7 +9,6 @@ $(document).ready(function(){
 	
 	wave = getCurWave();
 	score = getCurScore();
-	name = getName();
 	//mode = getGameMode();
 	
 	// gets the element for score
@@ -276,7 +275,8 @@ $(document).ready(function(){
 		  //checks gun selected
 			if(selectedGun == 1) {
 				//plus gun
-				plusOperation();				
+				plusOperation();	
+				health = 0;
 			} else if (selectedGun == 2) {
 				//minus gun
 				minusOperation();
