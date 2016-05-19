@@ -27,7 +27,7 @@
 		document.getElementById("score").textContent=("Score: " + score);
 		
 		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			data: JSON.stringify( {"playerID": "not_used", "score": parseInt(score), "wave": wave, "name": name } ),
+			data: JSON.stringify( {"playerID": "not_used", "score": parseInt(score), "wave": parseInt(wave), "name": name } ),
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
