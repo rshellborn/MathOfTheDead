@@ -64,9 +64,10 @@ var insane = {
 };
 
 var infinity = {
-	healthDiff: 10,
-	queueDiff: 12,
+	healthDiff: 12,
+	queueDiff: 10,
 	maxZero: 5,
+	//maxSpeed,
 	
 	wave1: {
 		numOfZombies: 5

@@ -5,7 +5,7 @@ starts "walking" upon instantiation.
 $(document).ready(function(){
 	// disables fade function
 	var disable = false;
-	mode = 0;
+	mode = 1;
 	
 	wave = getCurWave();
 	score = getCurScore();
@@ -32,7 +32,7 @@ $(document).ready(function(){
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.08;
+		var speed = 0.06;
 		var health = health;
 		var maxHealth = Math.abs(health);
 		// message at construction
