@@ -9,6 +9,7 @@ $(document).ready(function(){
 	
 	wave = getCurWave();
 	score = getCurScore();
+	name = getName();
 	//mode = getGameMode();
 	
 	// gets the element for score
