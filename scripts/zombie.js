@@ -379,6 +379,13 @@ $(document).ready(function(){
 		
 		/* ----------------------------------------WAVE FUNCTIONS ------------------------------------------ */
 		function changeWave() {
+			if(mode == 2) {
+				if (killCount == spawnNum) {
+				$("#tutorialCompletedModal").modal('show');
+				console.log('done!');
+			}
+			}
+			
 			// increments the current wave if it is in wave mode
 			if(mode == 0) {
 				wave++;
@@ -507,6 +514,8 @@ $(document).ready(function(){
 		setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 	} else if (mode == 1) {
 		setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff, infinity.queueDiff, infinity.maxZero);
+	} else if (mode == 2) {
+		setWaveDesign(tutorial.wave1.numOfZombies, tutorial.healthDiff, tutorial.queueDiff, tutorial.maxZero);
 	}
 	// a new wave is automatically called at load
 	callWave();
