@@ -11,6 +11,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/sendPlayerVars.js"></script>
+  <script src="scripts/transitions.js"></script>
   
   <script>
   var mode0 = "waveGame";
@@ -75,8 +76,8 @@
 		
 		var id = randomID();
 		
-		var send = "name=" + name + "&id=" + id + "&mode=" + mode + "";
-		document.location.href =  mode + '.html?' + send;
+		var send = mode + ".html?name=" + name + "&id=" + id + "&mode=" + mode + "";
+		fadeEnd(send);
 	}
 	
 	/*$(document).ready(function() {
