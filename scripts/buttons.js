@@ -40,16 +40,20 @@ $(document).ready(function() {
 	These all call the functions inside of changeGun
 	*/
 	plusGun.onclick = function(){
+		gunSelect.play(); 
 		changeGun(1);
 	}
 	minusGun.onclick = function(){
+		gunSelect.play();
 		changeGun(2);
 
 	}
 	multiGun.onclick = function(){
+		gunSelect.play();
 		changeGun(3);
 	}
 	diviGun.onclick = function(){
+		gunSelect.play();
 		changeGun(4);
 	}
 });

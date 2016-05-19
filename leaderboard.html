@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 <title>Leaderboard</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -12,7 +13,7 @@
   </head>
   <body>
   	<script>  // start of database talking 
-  		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+  		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/gerkins?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
 			//data: JSON.stringify( { } ),  only used to send in "post" type
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
@@ -33,25 +34,51 @@
 					console.log("playerID: " + obj.playerID);
 					
 				} // neighbours loop note: only shows player and who is lower
-				var divOffset = 4;
-				var divIncru = 1;  
-				for (var j = 0; j < jsonObj.length; j++){
-					var obj = jsonObj[j];
-					if (obj.playerID == playerID){
-						document.getElementById("rank"  + divOffset).innerHTML = j + 1;
-						document.getElementById("name"  + divOffset).innerHTML = obj.name;
-						document.getElementById("wave"  + divOffset).innerHTML = obj.wave;
-						document.getElementById("score" + divOffset).innerHTML = obj.score;
-						for(var k = j+1; k < j+3; k++) { // jsonObj.length
-							var obj = jsonObj[k];
-							document.getElementById("rank"  + (divOffset+divIncru)).innerHTML = k+1;
-							document.getElementById("name"  + (divOffset+divIncru)).innerHTML = obj.name;
-							document.getElementById("wave"  + (divOffset+divIncru)).innerHTML = obj.wave;
-							document.getElementById("score" + (divOffset+divIncru)).innerHTML = obj.score;
-							divIncru++;					
+				
+				//finds the index of this users score
+				var meIndex = -1;
+				var found = false;
+				while(!found) {
+					console.log(meIndex);
+					
+					found = (jsonObj[++meIndex].playerID == playerID);
+					
+					console.log(meIndex);
+					console.log(jsonObj[meIndex].playerID == playerID);
+					console.log(jsonObj[meIndex].playerID);
+				}
+				
+				//iterates 3 times
+				for (var j = -1; j < 2; j++) {
+					if (meIndex != 0) {
+						var obj = jsonObj[meIndex + j];
+						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 1;
+						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
+						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
+						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
+						if (j == 0) {
+							document.getElementById("rank" + (j + 5)).style.color = "black";
+							document.getElementById("name" + (j + 5)).style.color = "black";
+							document.getElementById("wave" + (j + 5)).style.color = "black";
+							document.getElementById("score" + (j + 5)).style.color = "black";
+							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
+						}
+					} else {
+						var obj = jsonObj[meIndex + j + 1];
+						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 2;
+						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
+						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
+						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
+						if (j == -1) {
+							document.getElementById("rank" + (j + 5)).style.color = "black";
+							document.getElementById("name" + (j + 5)).style.color = "black";
+							document.getElementById("wave" + (j + 5)).style.color = "black";
+							document.getElementById("score" + (j + 5)).style.color = "black";
+							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
 						}
 					}
-				} 
+					
+				}
 			},
 			error: function(jqXHR, testStatus, errorThrown) {
 				alert("ERROR");
@@ -64,7 +91,7 @@
 			<!--  Title for login screen -->
 			<div class="col-xs-12 leaderBoardTitle">LEADERBOARD</div>
 				<div class="col-xs-10 col-xs-offset-2 leaderboardContainer">
-					<div class="col-xs-12 leaderBoardDisplay"></div>
+					<!--<div class="col-xs-12 leaderBoardDisplay"></div>-->
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank">Rank</div>
 						<div class="col-xs-5 leaderBoardUserName">Name</div>

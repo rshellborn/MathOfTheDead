@@ -17,6 +17,8 @@ var killCount = 0;
 // the amount of zombies created per wave
 var spawnNum = 5;
 
+
+
 /**
 Button globals
 */

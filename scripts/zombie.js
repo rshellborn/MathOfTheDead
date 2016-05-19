@@ -2,32 +2,16 @@
 zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
-
-/*
-THESE HAVE BEEN MOVED TO GLOBAL.JS
-*/
-// holds all currently active zombies
-var zs = new Array();
-// gets the score 
-var score = getCurScore();
-// gets the current wave
-var wave = getCurWave();
-// gets the player's name
-var name = getName();
-// flag for fading 
-var fadeStatus;
-/*
-END OF MOVE
-*/
 $(document).ready(function(){
 	// holds the timer for generating zombies
 	var genTimer = null;
+	
+	wave = getCurWave();
+	score = getCurScore();
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
 	// gets the element for wave
 	document.getElementById("wave").textContent=("Wave " +wave);
-	// holds the kill counter
-	killCount = 0;
 	/*
 	 constructs a zombie
 	 @params 
@@ -156,7 +140,8 @@ $(document).ready(function(){
 		"kills" the zombie 
 		*/
 		function die() {
-			console.log("die");
+			zDie.play(); 
+			console.log("Zombe dead");
 			killCount++;
 			//stops the zombie from calling move/animate functions
 			speed = 0;
@@ -210,6 +195,7 @@ $(document).ready(function(){
 		 else, health is changed
 		*/
 		this.hit = function(){
+			shot.play();
 			checkGun();
 			checkMaxHealth();
 			updateRandomBullet();
@@ -219,6 +205,7 @@ $(document).ready(function(){
 				die();
 				console.log("after");
 			} else {
+				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
@@ -379,6 +366,7 @@ $(document).ready(function(){
 	spawns spawnNum zombies
 	*/
 	function callWave(spawnNum){
+		nextWave.play();
 		for (i = 0; i < spawnNum; i++) {
 			zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i) );  
 			// onclick handel 
