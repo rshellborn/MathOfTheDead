@@ -15,15 +15,15 @@
   </head>
   <body>
   	<script>  // start of database talking 
-  		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/maksTest?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
+  		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
 			//data: JSON.stringify( { } ),  only used to send in "post" type
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
 			success: function(data, testStatus, jqXHR) {
 				var jsonObj = data; // payload
-				console.log("My ID: " + playerID); 
-				console.log(jsonObj); 
-				// top 3 loop
+				//console.log("My ID: " + playerID); 
+				//console.log(jsonObj); 
+				// top 7 loop
 				for(var i = 0; i < 3; i++) { // jsonObj.length
 					var obj = jsonObj[i];
 					document.getElementById("rank" + i).innerHTML = i + 1;
@@ -36,7 +36,7 @@
 					console.log("playerID: " + obj.playerID);
 					
 				} // neighbours loop note: only shows player and who is lower
-				
+				/*
 				//finds the index of this users score
 				var meIndex = -1;
 				var found = false;
@@ -80,8 +80,9 @@
 						}
 					}
 					
-				}
+				} */
 			},
+			
 			error: function(jqXHR, testStatus, errorThrown) {
 				alert("ERROR");
 			}
