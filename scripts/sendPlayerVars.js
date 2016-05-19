@@ -5,7 +5,7 @@ var playerScore = 0;
 //The default player name
 var playerName = "Guest";
 //the id for player
-var playerID = 180253480029535; //randomID();
+var playerID; //randomID();
 //game mode
 var mode;
 

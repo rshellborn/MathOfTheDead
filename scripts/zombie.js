@@ -9,7 +9,8 @@ $(document).ready(function(){
 	
 	wave = getCurWave();
 	score = getCurScore();
-	name = getName();
+	name = getQueryVariable("name");
+	id = getQueryVariable("id");
 	//mode = getGameMode();
 	
 	// gets the element for score
@@ -108,7 +109,7 @@ $(document).ready(function(){
 				
 				//send player vars again
 				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "";
+				var send = "wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
 				document.location.href = 'endOfGame.html?' + send;
 			} else {
 				// incruments the image downwards
