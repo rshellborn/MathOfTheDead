@@ -76,8 +76,8 @@
 		
 		var id = randomID();
 		
-		var send = "name=" + name + "&id=" + id + "&mode=" + mode + "";
-		document.location.href =  mode + '.html?' + send;
+		var send = mode + ".html?name=" + name + "&id=" + id + "&mode=" + mode + "";
+		fadeEnd(send);
 	}
 	
 	/*$(document).ready(function() {

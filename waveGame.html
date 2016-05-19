@@ -19,6 +19,11 @@
   <script src="scripts/transitions.js"></script>
   <script src="scripts/bulletQueue.js"></script>
   <script src="scripts/audio.js"></script>
+  
+  <script>
+  var restart = "waveGame.html";
+  var menu = "mainMenu.html";
+  </script>
 </head>
 <body>
 	<!-- PAUSE MODAL THAT POPS UP -->
@@ -35,9 +40,9 @@
 					<div class"text-center">
 						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'waveGame.html';" >Restart</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restart)" >Restart</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="location.href = 'mainMenu.html';">Main Menu</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
 					</div>
 				</div>
 				<div class="modal-footer">
