@@ -59,3 +59,17 @@ var bulletQueueValues = new Array(5);
 var currentBullet = 1;
 //	the currentBullet being used in easter egg mode.
 var easterEggThisWave = 1; 
+
+
+/*
+Generates a random ID
+*/
+function randomID() {
+	var out = (Math.random() * 4503599627370496);
+	
+	if (Math.random * 2 > 1) {
+		out = out * -1;
+	}
+//	console.log(out);
+	return out;
+}

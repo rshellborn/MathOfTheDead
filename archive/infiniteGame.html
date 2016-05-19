@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+  <title>Game Screen</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="scripts/globals.js"></script>
+  <script src="scripts/changeGuns.js"></script>
+  <script src="scripts/waves.js"></script>
+  <script src="scripts/zombie.js"></script>
+  <script src="scripts/buttons.js"></script>
+  <script src="scripts/transitions.js"></script>
+  <script src="scripts/bulletQueue.js"></script>
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/sessionVariables.js"></script>
+  
+  <script>
+  var restart = "gameScreen.html";
+  var menu = "mainMenu.html";
+  </script>
+</head>
+<body>
+	<!-- PAUSE MODAL THAT POPS UP -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" align="center">GAME PAUSED</h4>
+				</div>
+				<div class="modal-body">
+					<div class"text-center">
+						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
+						<br /><br />
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restart)" >Restart</button>
+						<br /><br />
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
+					</div>
+				</div>
+				<div class="modal-footer">
+				<!-- footer stuff -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END OF PAUSE MODAL THAT POPS UP -->
+
+	<!-- Beginning of Container housing all divs and elements -->
+	<div class="container special">
+		<div class ="row specialrow">
+			<a data-target="#myModal" data-backdrop="static" data-toggle="modal" href="#pause">
+				<div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div>
+			</a>
+			<div id="wave" class="col-lg-2 col-xs-4 topBar" ></div>
+			<div id="score" class="col-lg-2 col-xs-4 topBar" ></div>
+
+			
+			<!-- BEGINNING OF BULLET QUEUE -->	  
+			<div class="col-lg-1 col-lg-offset-3 col-xs-2 queue" id="queue4">
+				<div class="insideQueue" id="insideQueue4">
+				</div>
+            </div>
+			<div class="col-lg-1 col-xs-2 queue" id="queue3">
+				<div class="insideQueue" id="insideQueue3">
+				</div>
+            </div>
+			<div class="col-lg-1 col-xs-2 queue" id="queue2">
+				<div class="insideQueue" id="insideQueue2">
+				</div>
+            </div>
+			<div class="col-lg-1 col-xs-2 queue" id="queue1">
+				<div class="insideQueue" id="insideQueue1">
+				</div>
+            </div>
+			<a href="#curQueue">
+            	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
+					<div class="thisQueue" id="insideQueue0">
+					</div>
+                </div>
+            </a> 
+			<!-- END OF BULLET QUEUE -->	  
+			
+			
+			<!-- BEGINNING OF LAWNS A.K.A PLAYABLE SPACE -->	  
+			<div class = "col-xs-12 lawns" id="lawn">
+				<div id="NW" style="display:none;" class = "col-xs-12 youDiedTitle">NEXT WAVE INCOMING</div>   
+			</div>
+			<!-- END OF LAWNS -->
+			
+			
+			<!-- BOUNDARY LINE -->
+    		<hr id="dottedLine">
+			
+			
+			<!-- BEGINNING OF GUNBAR -->
+			<div class="col-lg-6 col-lg-offset-3 col-xs-12 gunsBar">
+       
+				<div id="plusGun" class="col-xs-3 guns clicked">
+					<a href="#plus">
+						<div class="plus"></div>
+					</a>
+				</div>
+				<div id="minusGun" class="col-xs-3 guns">
+					<a href="#minus">
+						<div class="minus"></div>
+					</a>
+				</div>
+				<div id="multiGun" class="col-xs-3 guns">
+					<a href="#multiplication">
+						<div class="multiply"></div>
+					</a>
+				</div>
+				<div id="diviGun" class="col-xs-3 guns">
+					<a href="#division">
+						<div class="divide"></div>
+					</a>
+				</div>
+			</div>
+			<!-- END OF GUNBAR -->
+			
+		</div>
+	</div>
+	<!-- END OF CONTAINER -->
+</body>
+</html>
