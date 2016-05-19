@@ -14,8 +14,11 @@ var name;
 var fadeStatus;
 //	kill count used to determine the wave 
 var killCount = 0;
-// the amount of zombies created per wave
-var spawnNum = 5;
+//holds number of zombies that are spawned
+	var spawnNum;
+	var healthDiff;
+	var queueDiff;
+	var maxZero;
 
 
 

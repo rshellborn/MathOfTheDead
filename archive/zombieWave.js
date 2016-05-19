@@ -12,15 +12,24 @@ var wave = getCurWave();
 // disables fade function
 var disable = false;
 
+//holds number of zombies that are spawned
+var spawnNum;
+var healthDiff;
+var queueDiff;
+var maxZero;
+
+
+
+
 $(document).ready(function(){
-	// holds the timer for generating zombies
-	var genTimer = null;
 	// gets the element for score
 	document.getElementById("score").textContent=("Score: " +score);
 	// gets the element for wave
 	document.getElementById("wave").textContent=("Wave " +wave);
 	// holds the kill counter
 	killCount = 0;
+	
+	
 	/*
 	 constructs a zombie
 	 @params 
@@ -154,7 +163,7 @@ $(document).ready(function(){
 				if(disable == false) {
 					fade();
 				}
-				if(wave == 4) {
+				if(wave == 10) {
 					fadeEnd();
 				}
 				document.getElementById("wave").textContent=("Wave " + wave);
@@ -162,26 +171,36 @@ $(document).ready(function(){
 				killCount = 0;
 				if(fadeStatus == true){
 					// incruments the number of zombies to construct
-					spawnNum++;
-
-					// starts the next wave 
-					if(wave == 1) {
-						callWaveFirst(spawnNum);
-					}
-					if(wave >=2 && wave <=2) { 
-						callWaveSecond(spawnNum);
-						//alert("second betch");
-					}
-					if(wave >=3 && wave <=3) { 
-						callWaveFinal(spawnNum);
-						//alert("final betch");
-					}
-
+					//spawnNum++;
+					
 					switch(wave) {
-						case 1: //wave 1
+						case 2: setWaveDesign(easy.wave2.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
+								callWave();
 						break;
-						case 2: 
-
+						case 3: setWaveDesign(easy.wave3.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
+								callWave();
+						break;
+						case 4: setWaveDesign(medium.wave1.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
+								callWave();
+						break;
+						case 5: setWaveDesign(medium.wave2.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
+								callWave();
+						break;
+						case 6: setWaveDesign(medium.wave3.numOfZombies, medium.healthDiff, medium.queueDiff, medium.maxZero);
+								callWave();
+						break; 
+						case 7: setWaveDesign(hard.wave1.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
+								callWave();
+						break; 
+						case 8: setWaveDesign(hard.wave2.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
+								callWave();
+						break;
+						case 9: setWaveDesign(hard.wave3.numOfZombies, hard.healthDiff, hard.queueDiff, hard.maxZero);
+								callWave();
+						break;
+						case 10: setWaveDesign(insane.wave1.numOfZombies, insane.healthDiff, insane.queueDiff, insane.maxZero);
+								 callWave();
+						break;
 					}
 				}
 		}
@@ -369,36 +388,15 @@ $(document).ready(function(){
 	/*
 	random num helper for first section of waves for zombie health 
 	 */ 
-	function healthFirst() {
-		out = Math.floor((Math.random() * 5) + 1);
+	function genHealth() {
+		var out = Math.floor((Math.random() * healthDiff) + 1);
 		if ((Math.random() * 2) > 1) {
 			return out * -1;
 		} else {
 			return out;
 		}
 	}
-	/*
-	random num helper for second section of waves for zombie health 
-	 */ 
-	function healthSecond() {
-		out = Math.floor((Math.random() * 10) + 1);
-		if ((Math.random() * 2) > 1) {
-			return out * -1;
-		} else {
-			return out;
-		}
-	}
-	/*
-	random num helper for final section of waves for zombie health 
-	 */ 
-	function healthFinal() {
-		out = Math.floor((Math.random() * 15) + 1);
-		if ((Math.random() * 2) > 1) {
-			return out * -1;
-		} else {
-			return out;
-		}
-	}
+	
 	/*
 	random num helper for xPos 
 	 */ 
@@ -412,35 +410,21 @@ $(document).ready(function(){
 	function yRandom() {
 		return Math.floor(((Math.random() * 150) + 50) * -1); 
 	}
-
-	//holds number of zombies that are spawned
-	var spawnNum = 1;
+	
 	/*
 	spawns spawnNum zombies
 	 */
-	function callWaveFirst(spawnNum){
+	function callWave(){
 		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthFirst(), xRandom(), i, yRandom() );  
+			zs[i] = new Zombie(genHealth(), xRandom(), i, yRandom() );  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 		}
 	}
-	function callWaveSecond(spawnNum){
-		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthSecond(), xRandom(), i, yRandom() );  
-			// onclick handel 
-			document.getElementById(i + "zImage").onclick = zs[i].hit;
-		}
-	}
-	function callWaveFinal(spawnNum){
-		for (i = 0; i < spawnNum; i++) {
-			zs[i] = new Zombie(healthFinal(), xRandom(), i, yRandom() );  
-			// onclick handel 
-			document.getElementById(i + "zImage").onclick = zs[i].hit;
-		}
-	}
+	
 	// a new wave is automatically called at load
-	callWaveFirst(spawnNum);
+	setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
+	callWave();
 	// flag for fading 
 	var fadeStatus;
 
@@ -450,9 +434,10 @@ $(document).ready(function(){
 		$("#NW").fadeOut(3000);
 		fadeStatus = true;
 	}
+	
 	function fadeEnd() {
-		$("#youWin").fadeIn(3000);
-		document.location.href = 'youWin.html?';
-
+		$("body").animate({opacity: 0, backgroundColor: '#000' }, 1300, function() {
+			document.location.href = 'youWin.html?score=' + score;
+		});
 	}
 });
