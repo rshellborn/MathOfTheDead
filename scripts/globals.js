@@ -21,10 +21,14 @@ var fadeStatus;
 //	kill count used to determine the wave 
 var killCount = 0;
 //holds number of zombies that are spawned
-	var spawnNum;
-	var healthDiff;
-	var queueDiff;
-	var maxZero;
+var spawnNum;
+// the health differential of a zombie ie -5 to 5. Based on wave count
+var healthDiff;
+// the bullet queue differential also based of wave count.
+var queueDiff;
+// the maximum amount of zeros allowed to generate. Used to make sure players don't just
+// spam the queue looking for zero's 
+var maxZero;
 
 
 
