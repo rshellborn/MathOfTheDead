@@ -15,7 +15,7 @@ $(document).ready(function(){
 		wave = getSessionItem("wave");
 		score = getSessionItem("score");	
 	}
-	
+	// sets the game mode(either infinite mode or 10 wave mode depending on the session varaible)
 	var mode = getSessionItem("mode");
 	if(mode == 0 || mode == 1) {	
 	} else {
@@ -46,7 +46,6 @@ $(document).ready(function(){
 	 yPos   y position of the zombie 
 	*/
 	var Zombie = function(health, xPos, zomNum, yPos) { 
-
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
@@ -208,7 +207,9 @@ $(document).ready(function(){
 				document.getElementById(zomNum).remove();
 			}
 		}	
-		
+	  /**
+	   checks the health to determine the score for a zombie kill(based on absolute value)
+	  */		
 	  function checkMaxHealth() {
 		  if((Math.abs(health)) > maxHealth) {
 			   maxHealth = Math.abs(health);
@@ -217,7 +218,7 @@ $(document).ready(function(){
 	  }
 		
 		/*
-		"kills" the zombie 
+		"kills" the zombie and increments the kill count to determine the end of a wave
 		*/
 		function die() {
 			zDie.play(); 
@@ -227,7 +228,9 @@ $(document).ready(function(){
 			speed = 0;
 			// hardcoded health score awarded to player
 			score += maxHealth;
+			// deletes the score of the player
 			removeSessionItem("score");
+			// creates the score of the player
 			createSessionItem("score", score);
 			// updates the score element
 			document.getElementById("score").textContent=("Score: " + score);
@@ -276,7 +279,7 @@ $(document).ready(function(){
 		
 		
 	 /*
-	  kills all zombies
+	  kills all zombies used for pony mode so there is no more zombies when the gamemode switches
 	  */
 	  function killAll() {
 		  for (j = 0; j < zs.length; j++) {
@@ -401,7 +404,9 @@ $(document).ready(function(){
 				// resets kill counter
 				killCount = 0;
 			}
-					
+					/**
+					switch case used to determine which wave should be called at the appropriate time
+					*/
 					switch(wave) {
 						case 2: setWaveDesign(easy.wave2.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 								callWave();
@@ -460,7 +465,9 @@ $(document).ready(function(){
 	function xRandom() {
 		return Math.floor(Math.random() * 4) * 25; 
 	}
-	
+	/**
+	lanePlacement ensures multiple zombies will not spawn on top of eachtother on the x axis
+	*/
 	function lanePlacement(laneNum) {
 		return Math.floor(laneNum) * 25;  
 	}
@@ -499,7 +506,7 @@ $(document).ready(function(){
 	}
 	
 	
-	// checks mode
+	// checks mode either infinte mode, 10 wave tutorial mode, or tutorial
 	if(mode == 0) {
 		setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff, easy.queueDiff, easy.maxZero);
 	} else if (mode == 1) {

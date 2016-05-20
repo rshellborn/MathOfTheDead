@@ -1,7 +1,15 @@
-var zerosGen = 0;
+/*
+	This script is used to randomly generate values within a set range depending on the wave number 
+	(which determines the difficulty of the game) for the bullet queue.
+*/
+
+/* Keeps track of the number of zeroes generated in each wave.*/
 var zeroCount = 0;
+/* Stores the current value of the randomly generated number.*/
 var value;
+/* Stores the max health range of bullet queue values that can be generated for that specific wave.*/
 var maxHealth;
+/* Stores the maximum number of 0 values that can be generated for that wave.*/
 var maxNumZeroes;
 
 /*
