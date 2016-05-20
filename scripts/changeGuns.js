@@ -1,4 +1,4 @@
-/**
+/*
 Toggling gun selection.
 */
 function changeGun(gunType) {
