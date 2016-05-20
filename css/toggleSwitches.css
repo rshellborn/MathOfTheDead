@@ -1,3 +1,4 @@
+<!-- toggle switches generated from https://proto.io/freebies/onoff/ -->
 .onoffswitch {
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -43,7 +44,14 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+<!-- End of styling for toggle switches -->
+/*
+	End of toggle switches styling.
+*/
 
+/*
+	Setting the width of the settings container in the settings modal.
+*/
 div.settingsContainer{
 	width: 80%;
 	min-width: 80%;
@@ -51,12 +59,20 @@ div.settingsContainer{
 	margin-left: 10%;
 	padding: 0;
 }
+
+/*
+	Setting the font properties of the settings text.
+*/
 div.settingsHeadings{
 	text-align: left;
 	vertical-align: middle;
 	font-size: 1.5em;
 	padding: 0;
 }
+
+/*
+	Centering the content in the setttings menu modal.
+*/
 div.settingsSlider{
 	padding: 0;
    display: -webkit-flex;
@@ -65,7 +81,4 @@ div.settingsSlider{
    flex-direction: column;
    -webkit-align-items: flex-end;
    align-items: flex-end;
-}
-@media only screen and (max-width: 768px) {
-
 }

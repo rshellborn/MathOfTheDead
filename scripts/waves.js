@@ -1,4 +1,6 @@
-/* DIFFICULTIES AND WAVES */
+/* DESIGN OF DIFFICULTIES AND WAVES */
+
+/* Easy difficulty which consists of 3 waves. */
 var easy = {
 	healthDiff: 5,
 	queueDiff: 3,
@@ -17,6 +19,7 @@ var easy = {
 	}
 };
 
+/* Medium difficulty which consists of 3 waves. */
 var medium = {
 	healthDiff: 10,
 	queueDiff: 6,
@@ -35,6 +38,7 @@ var medium = {
 	}
 };
 
+/* Hard difficulty which consists of 3 waves. */
 var hard = {
 	healthDiff: 15,
 	queueDiff: 9,
@@ -53,6 +57,7 @@ var hard = {
 	}
 };
 
+/* Insane difficulty which consists of 1 wave. */
 var insane = {
 	healthDiff: 20,
 	queueDiff: 12,
@@ -63,6 +68,7 @@ var insane = {
 	}
 };
 
+/* Infinity Mode difficulty. */
 var infinity = {
 	healthDiff: 12,
 	queueDiff: 10,
@@ -71,16 +77,5 @@ var infinity = {
 	
 	wave1: {
 		numOfZombies: 5
-	}
-};
-
-var tutorial = {
-	healthDiff: 5,
-	queueDiff: 10,
-	maxZero: 5,
-	//maxSpeed,
-	
-	wave1: {
-		numOfZombies: 3
 	}
 };
