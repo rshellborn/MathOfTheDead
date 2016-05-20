@@ -1,0 +1,59 @@
+// neighbours loop note: only shows player and who is lower 
+				// !!!! broken moved to sprint 3 !!!!
+				/*
+				//finds the index of this users score
+				var meIndex = -1;
+				var found = false;
+				while(!found) {
+					console.log(meIndex);
+					
+					found = (jsonObj[++meIndex].playerID == playerID);
+					
+					console.log(meIndex);
+					console.log(jsonObj[meIndex].playerID == playerID);
+					console.log(jsonObj[meIndex].playerID);
+				}
+				
+				//iterates 3 times
+				for (var j = -1; j < 2; j++) {
+					if (meIndex != 0) {
+						var obj = jsonObj[meIndex + j];
+						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 1;
+						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
+						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
+						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
+						if (j == 0) {
+							document.getElementById("rank" + (j + 5)).style.color = "black";
+							document.getElementById("name" + (j + 5)).style.color = "black";
+							document.getElementById("wave" + (j + 5)).style.color = "black";
+							document.getElementById("score" + (j + 5)).style.color = "black";
+							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
+						}
+					} else {
+						var obj = jsonObj[meIndex + j + 1];
+						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 2;
+						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
+						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
+						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
+						if (j == -1) {
+							document.getElementById("rank" + (j + 5)).style.color = "black";
+							document.getElementById("name" + (j + 5)).style.color = "black";
+							document.getElementById("wave" + (j + 5)).style.color = "black";
+							document.getElementById("score" + (j + 5)).style.color = "black";
+							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
+						}
+					}
+					
+				} */
+				
+	//unused
+	/*$(document).ready(function() {
+		$('.nameSignIn').keydown(function(event) {
+			if (event.keyCode == 13) {
+				var name = document.getElementById("nameInput").value;
+				console.log(name);
+				var send = "name=" + name + "";
+				document.location.href = 'infiniteGame.html?' + send;
+			 }
+		})
+	});*/

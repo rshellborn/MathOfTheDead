@@ -14,74 +14,34 @@
   <script src="scripts/sessionVariables.js"></script>
   </head>
   <body>
-  	<script>  // start of database talking 
+  	<script>  
+		// start of database talking 
   		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?s={\"score\":-1}&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			//data: JSON.stringify( { } ),  only used to send in "post" type
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
 			success: function(data, testStatus, jqXHR) {
-				var jsonObj = data; // payload
-				//console.log("My ID: " + playerID); 
-				//console.log(jsonObj); 
+				
+				// payload
+				var jsonObj = data;
+				
 				// top 7 loop
-				for(var i = 0; i < 7; i++) { // jsonObj.length
+				for(var i = 0; i < 7; i++) {
+					//current player
 					var obj = jsonObj[i];
+					
+					//sets elements on page to player data
 					document.getElementById("rank" + i).innerHTML = i + 1;
 					document.getElementById("name" + i).innerHTML = obj.name;
 					document.getElementById("wave" + i).innerHTML = obj.wave;
 					document.getElementById("score" + i).innerHTML = obj.score;
+					
+					//debugging for the above
 					console.log("score: " + obj.score);
 					console.log("wave: " + obj.wave);
 					console.log("name: " + obj.name);
 					console.log("playerID: " + obj.playerID);
 					
-				} // neighbours loop note: only shows player and who is lower 
-				// !!!! broken moved to sprint 3 !!!!
-				/*
-				//finds the index of this users score
-				var meIndex = -1;
-				var found = false;
-				while(!found) {
-					console.log(meIndex);
-					
-					found = (jsonObj[++meIndex].playerID == playerID);
-					
-					console.log(meIndex);
-					console.log(jsonObj[meIndex].playerID == playerID);
-					console.log(jsonObj[meIndex].playerID);
-				}
-				
-				//iterates 3 times
-				for (var j = -1; j < 2; j++) {
-					if (meIndex != 0) {
-						var obj = jsonObj[meIndex + j];
-						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 1;
-						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
-						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
-						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
-						if (j == 0) {
-							document.getElementById("rank" + (j + 5)).style.color = "black";
-							document.getElementById("name" + (j + 5)).style.color = "black";
-							document.getElementById("wave" + (j + 5)).style.color = "black";
-							document.getElementById("score" + (j + 5)).style.color = "black";
-							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
-						}
-					} else {
-						var obj = jsonObj[meIndex + j + 1];
-						document.getElementById("rank" + (j + 5)).innerHTML =  meIndex + j + 2;
-						document.getElementById("name" + (j + 5)).innerHTML = obj.name;
-						document.getElementById("wave" + (j + 5)).innerHTML = obj.wave;
-						document.getElementById("score" + (j + 5)).innerHTML = obj.score;
-						if (j == -1) {
-							document.getElementById("rank" + (j + 5)).style.color = "black";
-							document.getElementById("name" + (j + 5)).style.color = "black";
-							document.getElementById("wave" + (j + 5)).style.color = "black";
-							document.getElementById("score" + (j + 5)).style.color = "black";
-							document.getElementsByClassName("col-xs-12 leaderboardDisplay")[6].style.backgroundColor = "#cccccc";
-						}
-					}
-					
-				} */
+				} 
 			},
 			
 			error: function(jqXHR, testStatus, errorThrown) {
@@ -90,59 +50,67 @@
 		} );
 		// end of database talking 
 		
-		
+		//stores info for link
 		var menu = "mainMenu.html";
 	</script> 
 	<div class="container special">
 		<div class="row specialrow">
-			<!--  Title for login screen -->
+			<!--  Title for leaderboard screen -->
 			<div class="col-xs-12 leaderBoardTitle">LEADERBOARD</div>
+			
+				<!--  LEADERBOARD  -->
 				<div class="col-xs-10 col-xs-offset-2 leaderboardContainer">
-					<!--<div class="col-xs-12 leaderBoardDisplay"></div>-->
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank">Rank</div>
 						<div class="col-xs-5 leaderBoardUserName">Name</div>
 						<div class="col-xs-2 leaderBoardWave">Wave</div>
 						<div class="col-xs-3 leaderBoardScore">Score</div>
 					</div>
+					
 					<div class="col-xs-12 leaderboardDisplay">
-
 						<div class="col-xs-2 leaderBoardRank"     id="rank0"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name0"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave0"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score0"></div>
 
 					</div>
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank1"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name1"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave1"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score1"></div>
 					</div>
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank2"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name2"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave2"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score2"></div>
-					</div> <!-- end of 3 --> 
+					</div> 
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank3"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name3"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave3"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score3"></div>
 					</div>
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank4"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name4"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave4"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score4"></div>
 					</div>
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank5"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name5"></div>
 						<div class="col-xs-2 leaderBoardWave"     id="wave5"></div>
 						<div class="col-xs-3 leaderBoardScore"    id="score5"></div>
 					</div>
+					
 					<div class="col-xs-12 leaderboardDisplay">
 						<div class="col-xs-2 leaderBoardRank"     id="rank6"></div>
 						<div class="col-xs-5 leaderBoardUserName" id="name6"></div>
@@ -151,10 +119,13 @@
 					</div>
 					
 				</div>
+				
+				<!--  End of Leaderboard  -->
+			
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)" >Back</button>
 			</div>
-			<!-- End of buttons for end of game screen  -->
+			<!-- End of buttons for Leaderboard screen  -->
 		</div>
 	</div>
 </body>

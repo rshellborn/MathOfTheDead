@@ -26,6 +26,7 @@
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("score").textContent=("Score: " + score);
 		
+		//sends user info to database
 		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
 			data: JSON.stringify( {"playerID": "not_used", "score": parseInt(score), "wave": parseInt(wave), "name": name } ),
 			type: "post",
@@ -33,6 +34,7 @@
 		});
 	});
 	
+	//clears session items for replay
 	removeSessionItem("wave");
 	removeSessionItem("score");
   </script>
@@ -50,6 +52,7 @@
 			<div id="score" class="col-xs-12 EOGScoredisplay"></div>
 			
             <script>
+			//stores data for links
 			var leaderboard = "leaderboard.html";
 			var infinite = "infiniteGame.html";
 			var menu = "mainMenu.html";
