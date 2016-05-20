@@ -1,6 +1,6 @@
 /* 
 Easter Egg Script 
-a my litte pony is represented with health and a img on screen
+A "My Litte Pony" is represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 
@@ -123,7 +123,7 @@ $(document).ready(function(){
 		/*
 		Causes the image to move down the screen until it hits the dotted line 
 		*/
-		this.move = function() {  // __________________________________________
+		this.move = function() { 
 			if (atDotted()){
 				// clears the movement
 				clearInterval(moveTimer);
@@ -271,7 +271,7 @@ $(document).ready(function(){
 		
 		/*
 		divides (rounds up)
-		checks if easter egg is triggered 
+		checks if main game mode is triggered
 		when the user divides by zero,
 		else, divides normally
 		*/
