@@ -3,74 +3,82 @@ zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
 */
 $(document).ready(function(){
+	/* Checks if the game mode has been selected, and if it hasn't it sends player to login screen. */
+	var mode = getSessionItem("mode");
+	if(mode == null) {
+		fadeEnd("login.html");
+	}
+	
+	/* Resets the wave and score if the page is reloaded. */
 	$(window).bind('beforeunload',function(){
 		wave = 1;
 		score = 0;
 	});
-	//sets score and wave at the start
-	if(!(getSessionItem("score") > 0 && getSessionItem("wave") > 0)) {
-		wave = 1;
-		score = 0;	
-	} else {
+	
+	// disables fade function - MAY NOT NEED THIS?
+	var disable = false;
+	
+	// MIGHT NOT NEED THESE
+	var name = getSessionItem("name");
+	// gets player ID
+  	var id = getSessionItem("id");
+	//-----------------------------------
+	
+	/* Initializes wave and score. */
+	wave = 1;
+	score = 0;
+	
+	/* Allows passing of score and wave to and from the easter egg. */
+	if(getSessionItem("egg") == 1) {
 		wave = getSessionItem("wave");
 		score = getSessionItem("score");	
 	}
-	// sets the game mode(either infinite mode or 10 wave mode depending on the session varaible)
-	var mode = getSessionItem("mode");
-	if(mode == 0 || mode == 1) {	
-	} else {
-		console.log('setting from default');
-		mode = 0;
-	}
 	
-	console.log('mode: ' + mode);
-	
-	// disables fade function
-	var disable = false;
-	var name = getSessionItem("name");
-	//gets player ID
-  	var id = getSessionItem("id");
-	
-	// gets the element for score
-	document.getElementById("score").textContent=("Score: " +score);
-	// gets the element for wave
+	// Displays score on the screen
+	document.getElementById("score").textContent=("Score: " + score);
+	// Displays wave on the screen
 	document.getElementById("wave").textContent=("Wave " +wave);
 
 	/*
-	 constructs a zombieg
+	 Constructs a zombie with a health, x position and y position, and a number
 	 @params 
 	 health Health of the zombie
-	 xPos x position of the zombie
-	 zomNum Unique number to identify an individual zombie
-	 		(used as ID tag for its div)
+	 xPos 	x position of the zombie
+     zomNum Unique number to identify an individual zombie (used as ID tag for its div)
 	 yPos   y position of the zombie 
 	*/
 	var Zombie = function(health, xPos, zomNum, yPos) { 
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.03;
 		var health = health;
-		var maxHealth = Math.abs(health);
-		// message at construction
-		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
-		console.log('max health: ' + maxHealth);
 		
-		// holds timer for movement
+		// Speed of the zombie
+		var speed = 0.03;
+		// Used the calculate score that will be awarded for killing this zombie
+		var maxHealth = Math.abs(health);
+		
+		//Message to show the zombie has been spawned.
+		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos + " yPos: " + yPos);
+		
+		// Holds timer for movement
 		var moveTimer = null;
-		// holds timer for animation
+		// Holds timer for animation
 		var animateTimer = null;
-		// holds image number
+		// Holds image number
 		var imageNumber = 0;
 		
-		// creates zombie image element
+		// Creates zombie image element
 		var zombieImage = document.createElement("img");
-		// creates zombie image and health elements
+		// Creates zombie image and health elements
 		var zombieHolder = document.createElement("div");
-		// creates zombie health elements
+		// Creates zombie health elements
 		var zombieHealthText = document.createElement("div");
 		
-		//set styles for container for zombie and health 
+		
+		/* ----------------------------------START OF Zombie Styling-------------------------------------- */
+
+		// Set styles for container for zombie and health 
 		zombieHolder.style.height = "20%";
 		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
@@ -78,10 +86,10 @@ $(document).ready(function(){
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
 
-		// assign id for holder for zombie and health elemets
+		// Assign id for holder for zombie and health elemets
 		zombieHolder.id = zomNum;
 		
-		//set styles for container health 
+		// Set styles for container health 
 		zombieHealthText.innerHTML = health;
 		zombieHealthText.style.textAlign = "center";
 		zombieHealthText.style.color = "White";
@@ -90,7 +98,7 @@ $(document).ready(function(){
 		zombieHealthText.style.height = "20%";
 		zombieHealthText.style.top = "-100%";
 		
-		//set styles for zombie image 
+		// Set styles for zombie image 
 		zombieImage.id = zomNum + "zImage";
 		zombieImage.src = "images/zombies/zombie0.png";
 		zombieImage.style.height = "100%";
@@ -101,12 +109,14 @@ $(document).ready(function(){
 		zombieImage.style.marginRight = "auto";
 		zombieImage.style.zIndex = "1";
 		
-		//adding health text and zombie image to zombieHolder
+		// Adding health text and zombie image to zombieHolder
 		zombieHolder.appendChild(zombieImage);
 		zombieHolder.appendChild(zombieHealthText);	
 		
 		//adding zombieHolder to screen
 		document.getElementById("lawn").appendChild(zombieHolder);
+		
+		/* ----------------------------------END OF Zombie Styling-------------------------------------- */
 		
 		/* ----------------------------------------MOVING ZOMBIE FUNCTIONS------------------------------------------ */
 		
@@ -115,29 +125,33 @@ $(document).ready(function(){
 		*/
 		this.move = function() { 
 			if (atDotted()){
-				// clears the movement
-				clearInterval(moveTimer);
-				moveTimer = null;
-				// cleats the animation 
-				clearInterval(animateTimer);
-				animateTimer = null;
-				// game over console message
-				console.log("||| G A M E O V E R |||" + zomNum);
-				
-				//send player vars again
-				// holds the wave counter and score for end of game
-				//var send = "endOfGame.html?wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
-				
-				createSessionItem("wave", wave);
-				createSessionItem("score", score);
-				console.log('wave: ' +wave);
-				console.log('wave sess: ' + getSessionItem("wave"));
-				fadeEnd("endOfGame.html");
+				gameOver();
 			} else {
-				// incruments the image downwards
+				// increments the image downwards
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
 			}
+		}
+		
+		function gameOver() {
+		  // clears the movement
+		  clearInterval(moveTimer);
+		  moveTimer = null;
+		  // cleats the animation 
+		  clearInterval(animateTimer);
+		  animateTimer = null;
+		  // game over console message
+		  console.log("||| G A M E O V E R |||" + zomNum);
+		  
+		  //send player vars again
+		  // holds the wave counter and score for end of game
+		  //var send = "endOfGame.html?wave=" + wave + "&score=" + score + "&name=" + name + "" + "&id=" + id + "";
+		  
+		  createSessionItem("wave", wave);
+		  createSessionItem("score", score);
+		  console.log('wave: ' +wave);
+		  console.log('wave sess: ' + getSessionItem("wave"));
+		  fadeEnd("endOfGame.html");
 		}
 		
 		/*

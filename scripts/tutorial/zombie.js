@@ -1,3 +1,4 @@
+var enablePause = 0;
 /*
 zombie as represented with health and a img on screen
 starts "walking" upon instantiation.
@@ -321,9 +322,9 @@ $(document).ready(function(){
 	spawns spawnNum zombies
 	*/
 	function callWave(spawnNum){
-		zs[0] = new Zombie(1, 10, 0, -50 - (50 * 1) );  
-		zs[1] = new Zombie(-2, 45, 1, -100 - (50 * 1) );  
-		zs[2] = new Zombie(4, 80, 2, -150 - (50 * 1) );  
+		zs[0] = new Zombie(1, 10, 0, -40);  
+		zs[1] = new Zombie(-2, 45, 1, -75);  
+		zs[2] = new Zombie(4, 80, 2, -95);  
 		
 		//freeze zombies
 		for(var i = 0; i < zs.length; i++)
