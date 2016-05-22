@@ -223,14 +223,18 @@ $(document).ready(function(){
 			score += maxHealth;
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
-			
-			// Removes the zombie
-			zs[zomNum].remove();
+			// animation 
+			$( "#"+zomNum ).toggle( "bounce", { times: 1 }, "fast" );
 			
 			// Checks if the wave is complete and then changes the wave
-			if (killCount == 3) {
-				$("#tutorialCompletedModal").modal('show');
-			}
+			setTimeout(function(){ 
+				// Removes the zombie
+				zs[zomNum].remove(); 
+				// Checks if the wave is complete and then changes the wave
+				if (killCount == 3) {
+					$("#tutorialCompletedModal").modal('show');
+				}
+			},250);
 		}		
 		
 		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
@@ -259,6 +263,10 @@ $(document).ready(function(){
 			if (health == 0){
 				die();
 			} else {
+				// flicker animation
+				$( "#"+zomNum + "zImage" ).toggle( "pulsate" , "fast" );
+				$( "#"+zomNum + "zImage" ).toggle( "pulsate" , "fast" );
+				//audio
 				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);

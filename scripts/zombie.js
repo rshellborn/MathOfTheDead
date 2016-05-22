@@ -262,6 +262,7 @@ $(document).ready(function(){
 		function die() {
 			// Sound of zombie dying
 			zDie.play(); 
+			
 			// Console message of the zombie dying
 			console.log("Zombie " + zomNum + " dead");
 			
@@ -277,17 +278,20 @@ $(document).ready(function(){
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			
+			$( "#"+zomNum ).toggle( "bounce", { times: 1 }, "fast" );
 			// Removes the zombie
-			zs[zomNum].remove();
 			
-			// Checks if the wave is complete and then changes the wave
-			if (killCount == spawnNum) {
-				// Increment wave
-				wave++;
-				if(!gameWon()) {
-					newWave();
+			setTimeout(function(){ 
+				zs[zomNum].remove(); 
+				// Checks if the wave is complete and then changes the wave
+				if (killCount == spawnNum) {
+					// Increment wave
+					wave++;
+					if(!gameWon()) {
+						newWave();
+					}
 				}
-			}
+			},250);
 		}		
 		
 		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
@@ -315,6 +319,10 @@ $(document).ready(function(){
 			if (health == 0){
 				die();
 			} else {
+				// flicker animation
+				$( "#"+zomNum + "zImage" ).toggle( "pulsate" , "fast" );
+				$( "#"+zomNum + "zImage" ).toggle( "pulsate" , "fast" );
+				// audio 
 				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);

@@ -58,6 +58,7 @@ $(document).ready(function() {
 	These all call the functions inside of changeGun
 	*/
 	plusGun.onclick = function(){
+		gunSelect.play(); 
 		changeGun(1);
 		if(disableModalP == 0) {
 			$("#addGunModal").modal({backdrop: 'static', keyboard: false});
@@ -65,18 +66,21 @@ $(document).ready(function() {
 	}
 	
 	minusGun.onclick = function(){
+		gunSelect.play(); 
 		changeGun(2);
 		if(disableModalS == 0) {
 			$("#subGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 	multiGun.onclick = function(){
+		gunSelect.play(); 
 		changeGun(3);
 		if(disableModalM == 0) {
 			$("#multiGunModal").modal({backdrop: 'static', keyboard: false});
 		}
 	}
 	diviGun.onclick = function(){
+		gunSelect.play(); 
 		changeGun(4);
 		if(disableModalD == 0) {
 			$("#diviGunModal").modal({backdrop: 'static', keyboard: false});

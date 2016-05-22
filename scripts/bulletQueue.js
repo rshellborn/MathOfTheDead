@@ -91,6 +91,7 @@ function generateQueue(){
 	-5 and 5.
  */
 function updateRandomBullet(){
+	nextBullet.play(); 
 	var length = bulletQueueValues.length;
 	var x = generateValue();
 	bulletQueueValues.shift();

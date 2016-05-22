@@ -32,6 +32,7 @@
 	-5 and 5.
 	*/
 	function updateRandomBullet(){
+		nextBullet.play(); 
 		var length = bulletQueueValues.length;
 		var x = Math.floor((Math.random() * 11) - 5);
 		bulletQueueValues.shift();
