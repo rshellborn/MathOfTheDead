@@ -16,6 +16,10 @@ $(document).ready(function(){
 	// Displays wave on the screen
 	document.getElementById("wave").textContent=("Wave " + wave);
 	
+	// Triggers achievement modal
+	if(getSessionItem("egg") == 1) {
+		triggerAchievement();	
+	}
 	
 	/*
 	 constructs a zombie

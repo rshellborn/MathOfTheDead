@@ -70,3 +70,9 @@ function randomID() {
 //	console.log(out);
 	return out;
 }
+
+/*
+	Triggers achievement modal
+*/
+	$('#achievementModal').modal({backdrop: 'static', keyboard: false});
+	setTimeout(function(){ $('#achievementModal').modal('hide') }, 3000);

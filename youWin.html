@@ -10,6 +10,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="scripts/transitions.js"></script>
+  <script src="scripts/globals.js"></script>
   <script src="scripts/sessionVariables.js"></script>
   
   <script>
@@ -32,6 +33,11 @@
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 		});
+		
+		//triggers achievement
+		if(getSessionItem("10wave") == 1) {
+			triggerAchievement();
+		}
 	});
 	
 	//clears session items for replay
@@ -41,6 +47,31 @@
   
   </head>
   <body>
+  <!-- ACHIEVEMENTS MODAL THAT POPS UP -->
+	<!-- Modal -->
+	<div class="modal fade" id="achievementModal" role="dialog">
+		<div class="modal-dialog">
+
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" align="center">Achievement Unlocked!</h4>
+				</div>
+				<div class="modal-body">
+					<div class"text-center">
+						Visit the main menu to see!
+					</div>
+				</div>
+				<div class="modal-footer">
+				<!-- footer stuff -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  
+  
+  
 	<div class="container special">
 		<div class="row specialrow">
 			<!--  Title for end of game  -->

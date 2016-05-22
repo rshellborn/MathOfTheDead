@@ -15,6 +15,9 @@ $(document).ready(function(){
   	var id = getSessionItem("id");
 	//-----------------------------------
 	
+	// Initializes total amount kills to 0
+	var totalKills = 0;
+	
 	/* Initializes wave and score. */
 	wave = 1;
 	score = 0;
@@ -172,6 +175,10 @@ $(document).ready(function(){
 			// Create session variables for score and wave
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
+			
+			// Creates session variable that 10 Wave Completed achievement is triggered
+			createSessionItem("10wave", 1);
+			
 			// Transitions to you win screen
 			fadeEnd("youWin.html");
 			return true;
@@ -268,7 +275,21 @@ $(document).ready(function(){
 			
 			// Increments killCount and totalKills
 			killCount++;
-			//totalKills++;
+			
+			// Checks if game mode is Infinite Wave Mode
+			if(mode == 1) {
+			  // Increments total amount of kills
+			  totalKills++;
+			  console.log('Total kills=' +totalKills);
+			  
+			  // Checks if 50 kills in infinite mode achievement is unlocked
+			  if(totalKills == 50) {
+				// Creates session variable that 10 Wave Completed achievement is triggered
+				createSessionItem("50kills", 1);
+				triggerAchievement();
+			  }
+			}
+			
 			
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
@@ -410,6 +431,9 @@ $(document).ready(function(){
 			// Creates session variable for score and wave
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
+			
+			// Award tutorial completed achievement
+			createSessionItem("egg", 1);
 			
 			// Changes CSS file
 			var egg = document.getElementById("css");
@@ -578,7 +602,7 @@ $(document).ready(function(){
 		var innerWaveDistance = 50;
 		return Math.floor(((Math.random() * innerWaveDistance) + ((innerWaveDistance + 20) * innerWave) + 20) * -1); 
 	}
-	/**
+	/*
 		lanePlacement ensures multiple zombies will not spawn on top of eachother on the x axis
 	*/
 	function lanePlacement(laneNum) {

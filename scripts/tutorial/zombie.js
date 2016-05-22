@@ -233,6 +233,10 @@ $(document).ready(function(){
 				// Checks if the wave is complete and then changes the wave
 				if (killCount == 3) {
 					$("#tutorialCompletedModal").modal('show');
+					
+					// Award tutorial completed achievement
+					createSessionItem("tutComplete", 1);
+					triggerAchievement();
 				}
 			},250);
 		}		
