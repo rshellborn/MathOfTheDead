@@ -1,20 +1,18 @@
-var enablePause = 0;
 /*
-zombie as represented with health and a img on screen
-starts "walking" upon instantiation.
+  Zombie as represented with health and a img on screen
+  starts "walking" upon instantiation.
 */
 
 $(document).ready(function(){
-	// holds the timer for generating zombies
-	var genTimer = null;
-	
-	wave = 0;
+	// Sets initial score to 0
 	score = 0;
 	
-	// gets the element for score
-	document.getElementById("score").textContent=("Score: " +score);
-	// gets the element for wave
-	document.getElementById("wave").textContent=("Wave 1");
+	// Displays score on the screen
+	document.getElementById("score").textContent=("Score: " + score);
+	// Displays wave on the screen
+	document.getElementById("wave").textContent=("Wave 0");
+	
+	
 	/*
 	 constructs a zombie
 	 @params 
@@ -29,36 +27,44 @@ $(document).ready(function(){
 		var xPos = xPos;
 		var yPos = yPos;
 		var health = health;
-		var speed = 0.05;
-		// message at construction
-		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos);
 		
-		// holds timer for movement
+		// Speed of the zombie
+		var speed = 0.03;
+		// Used the calculate score that will be awarded for killing this zombie
+		var maxHealth = Math.abs(health);
+		
+		//Message to show the zombie has been spawned.
+		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos + " yPos: " + yPos);
+		
+		// Holds timer for movement
 		var moveTimer = null;
-		// holds timer for animation
+		// Holds timer for animation
 		var animateTimer = null;
-		// holds image number
+		// Holds image number
 		var imageNumber = 0;
 		
-		// creates zombie image element
+		// Creates zombie image element
 		var zombieImage = document.createElement("img");
-		// creates zombie image and health elements
+		// Creates zombie image and health elements
 		var zombieHolder = document.createElement("div");
-		// creates zombie health elements
+		// Creates zombie health elements
 		var zombieHealthText = document.createElement("div");
 		
-		//set styles for container for zombie and health 
-		zombieHolder.style.height = "40%";
+		
+		/* ----------------------------------START OF Zombie Styling-------------------------------------- */
+
+		// Set styles for container for zombie and health 
+		zombieHolder.style.height = "20%";
 		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
 
-		// assign id for holder for zombie and health elemets
+		// Assign id for holder for zombie and health elemets
 		zombieHolder.id = zomNum;
 		
-		//set styles for container health 
+		// Set styles for container health 
 		zombieHealthText.innerHTML = health;
 		zombieHealthText.style.textAlign = "center";
 		zombieHealthText.style.color = "White";
@@ -67,7 +73,7 @@ $(document).ready(function(){
 		zombieHealthText.style.height = "20%";
 		zombieHealthText.style.top = "-100%";
 		
-		//set styles for zombie image 
+		// Set styles for zombie image 
 		zombieImage.id = zomNum + "zImage";
 		zombieImage.src = "images/zombies/zombie0.png";
 		zombieImage.style.height = "100%";
@@ -78,54 +84,111 @@ $(document).ready(function(){
 		zombieImage.style.marginRight = "auto";
 		zombieImage.style.zIndex = "1";
 		
-		//adding health text and zombie image to zombieHolder
-		zombieHolder.appendChild(zombieImage);	
-		zombieHolder.appendChild(zombieHealthText);
+		// Adding health text and zombie image to zombieHolder
+		zombieHolder.appendChild(zombieImage);
+		zombieHolder.appendChild(zombieHealthText);	
 		
 		//adding zombieHolder to screen
 		document.getElementById("lawn").appendChild(zombieHolder);
 		
+		/* ----------------------------------END OF Zombie Styling-------------------------------------- */
+		
+		
+		/* ----------------------------------------START OF Zombie Movement------------------------------------------ */
+		
 		/*
-		returns true if zombie has caused game over 
+			Checks if the zombie hits the boundary line.
+			Returns true if a zombie has hit.
 		*/
 		function atDotted() {
 			return yPos >= 100;
-		} 
+		}
 		
 		/*
-		Causes the image to move down the screen until it hits the dotted line 
+		Causes the image to move down the screen until it hits the dotted line.
 		*/
 		this.move = function() { 
 			if (atDotted()){
-				// clears the movement
-				clearInterval(moveTimer);
-				moveTimer = null;
-				// cleats the animation 
-				clearInterval(animateTimer);
-				animateTimer = null;
-				// game over console message
-				console.log("||| G A M E O V E R |||" + zomNum);
-				
-				//restart wave
-				for(var i = 0; i < zs.length; i++)
-					zs[i].wipe();
-					
+				// Restart practice wave
+				wipeAll();
 				callWave();
-				//start zombies when ok is pressed
+				
+				// Start zombies when ok is pressed
 				$("#failedTutorialModal").modal({backdrop: 'static', keyboard: false});
 			} else {
-				// incruments the image downwards
+				/* Increments y position to move the zombie downwards */
 				yPos += speed;
 				zombieHolder.style.top = yPos + "%";
 			}
 		}
 		
 		/*
-		"kills" a zombie by clearing the intervals
-		and removing it from the array that holds zombies
-		Used when swtiching into the Easter Egg mode
+			Animates the walk by switching between two images of the zombie
 		*/
-		this.wipe = function() {
+		this.animate = function() {
+			imageNumber = (imageNumber + 1) % 2;
+			var imageName = "images/zombies/zombie" + imageNumber + ".png";
+			zombieImage.setAttribute('src', imageName);
+		}
+		
+		/*
+			Stops all zombie movement
+		*/
+		this.stopMove = function() {
+		  clearInterval(moveTimer);
+		  moveTimer = null;
+		  clearInterval(animateTimer);
+		  animateTimer = null;
+		}
+		
+		/*
+			Starts all zombie movement
+		*/
+		this.startMove = function() {
+		  moveTimer = setInterval(this.move, 10);  
+		  animateTimer = setInterval(this.animate, 800);		
+		}
+		
+		//auto caller for moving 
+		moveTimer = setInterval(this.move, 10);
+		//auto caller for animating
+		animateTimer = setInterval(this.animate, 800);
+		
+		/* ----------------------------------------END OF Zombie Movement------------------------------------------ */
+		
+		
+		/* ----------------------------------------START OF Score Calculation------------------------------------------ */
+		
+		/*
+			Checks the health to determine the score for a zombie kill (Based on highest absolute value the health reaches)
+		*/		
+		function checkMaxHealth() {
+		  if((Math.abs(health)) > maxHealth) {
+			maxHealth = Math.abs(health);
+			console.log('new max health= ' + maxHealth);
+		  }
+		}
+		
+		/* ----------------------------------------END OF Score Calculation------------------------------------------ */
+		
+		
+		/* ----------------------------------------START OF Killing Zombies------------------------------------------ */
+		
+		/*
+			Kills all zombies when easter egg is triggered.
+		*/
+		function wipeAll() {
+		  for (i = 0; i < zs.length; i++) {
+			if (zs[i] != null) {
+				zs[i].remove();
+			}
+		  }
+		}
+		
+	 	/* 
+			Removes zombie from the screen and deletes all references to it.
+		*/
+		this.remove = function() {
 			//stops movement
 			clearInterval(moveTimer);
 			moveTimer = null;			
@@ -138,91 +201,97 @@ $(document).ready(function(){
 			if (document.getElementById(zomNum) != null){
 				document.getElementById(zomNum).remove();
 			}
-		}		
+		}
 		
 		/*
-		"kills" the zombie 
+			"Kills" the zombie and increments the kill count to determine the end of a wave.
 		*/
 		function die() {
-			console.log("die");
-			killCount++;
-			//stops the zombie from calling move/animate functions
-			speed = 0;
-			// hardcoded health score awarded to player
-			score += 5;
-			// updates the score element
-			document.getElementById("score").textContent=("Score: " + score);
-			//stops movement
-			clearInterval(moveTimer);
-			moveTimer = null;
-			// stops animation 
-			clearInterval(animateTimer);
-			animateTimer = null;			
-			//removes the zombie from the array
-			zs[zomNum] = null;			
-			//removes the image from the screen
-			if (document.getElementById(zomNum) != null){
-				document.getElementById(zomNum).remove();
-			}
+			// Sound of zombie dying
+			zDie.play(); 
+			// Console message of the zombie dying
+			console.log("Zombie " + zomNum + " dead");
 			
-			// starts next wave 
-			if (killCount == spawnNum) {
+			// Increments killCount and totalKills
+			killCount++;
+			//totalKills++;
+			
+			// Stops the zombie from calling move/animate functions
+			speed = 0;
+			
+			// Assigns the score based on the maximum health the zombie had reached
+			score += maxHealth;
+			// Updates the score on the screen
+			document.getElementById("score").textContent=("Score: " + score);
+			
+			// Removes the zombie
+			zs[zomNum].remove();
+			
+			// Checks if the wave is complete and then changes the wave
+			if (killCount == 3) {
 				$("#tutorialCompletedModal").modal('show');
-				console.log('done!');
 			}
 		}		
 		
-		/*
-		animates the image ie. makes it "walk"
-		*/
-		this.animate = function() {
-			imageNumber = (imageNumber + 1) % 2;
-			var imageName = "images/zombies/zombie" + imageNumber + ".png";
-			zombieImage.setAttribute('src', imageName);
-		}
+		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
+			
+		
+		
+		/* ----------------------------------------START OF Hitting Zombies------------------------------------------ */
 		
 		/*
 		handler for onclick behavoir, if zombie's health is 0, it dies
 		 else, health is changed
 		*/
 		this.hit = function(){
+			// Gunshot sound effect
+			shot.play();
+			// Checks which gun is selected
 			checkGun();
+			// Checks the maximum health of the zombie
+			checkMaxHealth();
+			// Updates bullet queue
 			updateRandomBullet();
+			// Updates health on the screen for the zombie
 			zombieHealthText.innerHTML = health;
+			
+			// Checks if zombie is dead
 			if (health == 0){
-				console.log("before");
 				die();
-				console.log("after");
 			} else {
+				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
 			}			
 		}
 		
+		/* ----------------------------------------END OF Hitting Zombies------------------------------------------ */
+		
+		
+		/* ---------------------------------START OF Gun Selection & Calculations---------------------------------- */
+		
 		/*
-		performs a math operation depending on which gun is selected
+			Performs a math operation on the zombie health depending on which gun is selected
 		*/
 		function checkGun() {
-		  //checks gun selected
+		  // Checks gun selected
 			if(selectedGun == 1) {
-				//plus gun
-				plusOperation();				
-			} 
-			else if (selectedGun == 2) {
-				//minus gun
+				// Plus gun
+				plusOperation();	
+			} else if (selectedGun == 2) {
+				// Minus gun
 				minusOperation();
 			} else if (selectedGun == 3) {
-				//multiplication gun
+				// Multiplication gun
 				multiOperation();
 			} else if (selectedGun == 4) {
-				//division gun
+				// Division gun
 				diviOperation();
 			}
-			
 		}
 		
 		/*
-		adds
+			Addition Operation
 		*/
 		function plusOperation() {
 			health = health + currentBullet;
@@ -230,7 +299,7 @@ $(document).ready(function(){
 		}
 		
 		/*
-		subtracts
+			Subtraction Operation
 		*/
 		function minusOperation() {
 			health = health - currentBullet;
@@ -238,90 +307,31 @@ $(document).ready(function(){
 		}
 		
 		/*
-		multiplies
+			Multiplies Operation
 		*/
 		function multiOperation() {
+			if(currentBullet == 0)
+				maxHealth = 5;
 			health = health * currentBullet;
 			console.log("new health: " + health);
 		}
 		
 		/*
-		divides (rounds up)
-		checks if easter egg is triggered 
-		when the user divides by zero,
-		else, divides normally
+			Division Operation and checks if easter egg is triggered.
 		*/
 		function diviOperation() {
 		  health = Math.ceil(health / currentBullet);
 		  console.log("new health: " + health);
 		}
-		
-		/*
-		stops movement when pause clicked
-		*/
-		this.stopMove = function() {
-		  clearInterval(moveTimer);
-		  moveTimer = null;
-		  clearInterval(animateTimer);
-		  animateTimer = null;
-		  console.log('stopped');
-		}
-		
-		/*
-		starts movement after pause
-		*/
-		this.startMove = function() {
-		  moveTimer = setInterval(this.move, 10);  
-		  animateTimer = setInterval(this.animate, 800);	
-		  console.log('started');	
-		}
 	
-		//auto caller for moving 
-		moveTimer = setInterval(this.move, 10);
-		//auto caller for animating
-		animateTimer = setInterval(this.animate, 800);
+		/* ---------------------------------END OF Gun Selection & Calculations---------------------------------- */
 	};
-	// ___________________________________________________ zombie constr ends 
+	/* --------------------------------------END OF Zombie Object------------------------------------- */
 	
 	/*
-	kills all zombies
+		Spawns 3 hard coded zombies and stops them until Start Practice Wave is pressed
 	*/
-	function killAll() {
-		for (j = 0; j < zs.length; j++) {
-			if (zs[j] != null) {
-				console.log("length" + zs.length);
-				console.log("index" + j);
-				zs[j].wipe();
-				console.log("doot");
-			}
-		}
-	}
-	
-	/*
-	random num helper for health 
-	*/ 
-	function healthRandom() {
-		out = Math.floor((Math.random() * 5) + 1);
-		if ((Math.random() * 2) > 1) {
-			return out * -1;
-		} else {
-			return out;
-		}
-	}
-	
-	/*
-	random num helper for xPos 
-	*/ 
-	function xRandom() {
-		return Math.floor(Math.random() * 4) * 25; 
-	}
-	
-	//holds number of zombies that are spawned
-	var spawnNum = 3;
-	/*
-	spawns spawnNum zombies
-	*/
-	function callWave(spawnNum){
+	function callWave(){
 		zs[0] = new Zombie(1, 10, 0, -40);  
 		zs[1] = new Zombie(-2, 45, 1, -75);  
 		zs[2] = new Zombie(4, 80, 2, -95);  
@@ -336,17 +346,30 @@ $(document).ready(function(){
 		document.getElementById(2 + "zImage").onclick = zs[2].hit;
 	}
 	
-	// a new wave is automatically called at load
-	callWave(spawnNum);
+	// Wave is automatically called at load
+	callWave();
 	
 });
-
+	/*
+		Starts all zombies movement.
+	*/
 	function startZombies() {
-		for(var i = 0; i < zs.length; i++)
-			zs[i].startMove();		
+		console.log('start zom');
+		for(var i = 0; i < zs.length; i++) {
+			if(zs[i] != null) {
+				zs[i].startMove();		
+			}
+		}
 	}
 	
+	/*
+		Stops all zombies movement.
+	*/
 	function stopZombies() {
-		for(var i = 0; i < zs.length; i++)
-			zs[i].stopMove();		
+		console.log('stop zom');
+		for(var i = 0; i < zs.length; i++) {
+			if(zs[i] != null) {
+				zs[i].stopMove();		
+			}
+		}
 	}

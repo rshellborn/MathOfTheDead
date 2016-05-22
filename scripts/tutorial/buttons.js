@@ -8,7 +8,7 @@ function startTutorialWave() {
 	disableModalM = 1;
 	disableModalD = 1;
 	disableModalBQ = 1;
-	enablePause = 1;
+	disablePause = 1;
 }
 
 $(document).ready(function() {
@@ -48,7 +48,7 @@ $(document).ready(function() {
 				console.log('resume clicked');
 				paused = 0;
 			 	for(var i = 0; i < zs.length; i++) {
-			 		if (zs[i] != null && enablePause == 1)
+			 		if (zs[i] != null && disablePause == 1)
 						zs[i].startMove();
 			  }
 			}

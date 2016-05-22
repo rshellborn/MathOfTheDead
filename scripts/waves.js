@@ -72,7 +72,7 @@ var insane = {
 var infinity = {
 	healthDiff: 12,
 	queueDiff: 10,
-	maxZero: 5,
+	maxZero: 10,
 	//maxSpeed,
 	
 	wave1: {

@@ -1,80 +1,102 @@
-/* 
-Easter Egg Script 
-A "My Litte Pony" is represented with health and a img on screen
-starts "walking" upon instantiation.
+/*
+  Zombie as represented with health and a img on screen
+  starts "walking" upon instantiation.
 */
 
-// holds all currently active zombies
-var zs = new Array();
-// gets the score 
-var score = getCurScore();
-// gets the current wave
-var wave = getCurWave();
-
 $(document).ready(function(){
-	// holds the timer for generating zombies
-	var genTimer = null;
-	// gets the element for score
-	document.getElementById("score").textContent=("Score: " +score);
-	// holds the kill counter
-	killCount = 0;
+	// Holds pony image name 
+	var ponyImage;
+	
+	// Gets score and wave from session variables
+	score = parseInt(getSessionItem("score"));
+	wave = getSessionItem("wave");
+	
+	// Displays score on the screen
+	document.getElementById("score").textContent=("Score: " + score);
+	// Displays wave on the screen
+	document.getElementById("wave").textContent=("Wave " + wave);
+	
+	
 	/*
-	 constructs a pony
+	 constructs a zombie
 	 @params 
 	 health Health of the zombie
 	 xPos x position of the zombie
 	 zomNum Unique number to identify an individual zombie
 	 		(used as ID tag for its div)
 	 yPos   y position of the zombie 
-	 chosen the image of the pony 
 	*/
-	var Zombie = function(health, xPos, zomNum, yPos, chosen) {  // extra param 'chosen'
-		var zomNum = "p" + zomNum;
+	var Zombie = function(health, xPos, zomNum, yPos, chosen) {  
+		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var speed = 0.08;
 		var health = health;
-		// message at construction
-		console.log("Pony # " + zomNum + " health: " + health + " xPos: " + xPos);
 		
-		// holds timer for movement
+		// Speed of the zombie
+		var speed = 0.03;
+		// Used the calculate score that will be awarded for killing this zombie
+		var maxHealth = Math.abs(health);
+		
+		//Message to show the zombie has been spawned.
+		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos + " yPos: " + yPos);
+		
+		// Holds timer for movement
 		var moveTimer = null;
-		// holds timer for animation
+		// Holds timer for animation
 		var animateTimer = null;
-		// holds image number
+		// Holds image number
 		var imageNumber = 0;
 		
-		// creates zombie image element
+		// Sets the image depending on the chosen param in constr
+		switch(chosen) {
+		  case 0: ponyImage = "purple";
+		  break;	
+		  case 1: ponyImage = "pink";
+		  break;	
+		  case 2: ponyImage = "orange";
+		  break;	
+		  case 3: ponyImage = "pale";
+		  break;	
+		  case 4: ponyImage = "white";
+		  break;
+		  case 5: ponyImage = "blue";
+		  break;	
+		}
+		
+		// Creates zombie image element
 		var zombieImage = document.createElement("img");
-		// creates zombie image and health elements
+		// Creates zombie image and health elements
 		var zombieHolder = document.createElement("div");
-		// creates zombie health elements
+		// Creates zombie health elements
 		var zombieHealthText = document.createElement("div");
 		
-		//set styles for container for zombie and health 
-		zombieHolder.style.height = "40%";
-		zombieHolder.style.maxHeight = "188px";
+		
+		/* ----------------------------------START OF Zombie Styling-------------------------------------- */
+
+		// Set styles for container for zombie and health 
+		zombieHolder.style.height = "20%";
+		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
 
-		// assign id for holder for zombie and health elemets
+		// Assign id for holder for zombie and health elemets
 		zombieHolder.id = zomNum;
 		
-		// set styles for container health 
+		// Set styles for container health 
 		zombieHealthText.innerHTML = health;
 		zombieHealthText.style.textAlign = "center";
-		zombieHealthText.style.color = "Black"; // unique to pony
+		zombieHealthText.style.color = "Black";
 		zombieHealthText.style.fontSize = "150%";
 		zombieHealthText.style.position = "relative";
 		zombieHealthText.style.height = "20%";
 		zombieHealthText.style.top = "-100%";
 		
-		//set styles for zombie image 
+		// Set styles for zombie image 
 		zombieImage.id = zomNum + "zImage";
-		zombieImage.src = "images/zombies/zombie0.png";
-		zombieImage.style.height = "80%";
+		zombieImage.src = "images/easterEgg/" + ponyImage + "0.png";
+		zombieImage.style.height = "100%";
 		zombieImage.style.position = "relative";
 		zombieImage.style.display = "block";
 		zombieImage.style.top = "-100%";
@@ -82,77 +104,135 @@ $(document).ready(function(){
 		zombieImage.style.marginRight = "auto";
 		zombieImage.style.zIndex = "1";
 		
-		// holds pony image name 
-		var ponyImage;
-
-		// sets the image depending on the chosen param in constr
-		switch(chosen) {
-			  case 0: ponyImage = "purple";
-			  break;	
-			  case 1: ponyImage = "pink";
-			  break;	
-			  case 2: ponyImage = "orange";
-			  break;	
-			  case 3: ponyImage = "pale";
-			  break;	
-			  case 4: ponyImage = "white";
-			  break;
-			  case 5: ponyImage = "blue";
-			  break;	
-		}
-		/*
-		establish path for image
-		*/
-		var setImage = "images/easterEgg/" + ponyImage + "0.png";
-		zombieImage.setAttribute('src', setImage); 
-		
-		//adding health text and zombie image to zombieHolder
-		zombieHolder.appendChild(zombieHealthText);
-		zombieHolder.appendChild(zombieImage);	
+		// Adding health text and zombie image to zombieHolder
+		zombieHolder.appendChild(zombieImage);
+		zombieHolder.appendChild(zombieHealthText);	
 		
 		//adding zombieHolder to screen
 		document.getElementById("lawn").appendChild(zombieHolder);
 		
-		/*
-		returns true if zombie has caused game over 
-		*/
-		function atDotted() {
-			return yPos >= 100;
-		} 
+		/* ----------------------------------END OF Zombie Styling-------------------------------------- */
 		
+		
+		/* ----------------------------------------START OF Zombie Movement------------------------------------------ */
+
 		/*
-		Causes the image to move down the screen until it hits the dotted line 
+		Causes the image to move down the screen until it hits the dotted line.
 		*/
 		this.move = function() { 
 			if (atDotted()){
-				// clears the movement
-				clearInterval(moveTimer);
-				moveTimer = null;
-				// cleats the animation
-				clearInterval(animateTimer);
-				animateTimer = null;
-				// game over console message
-				console.log("||| G A M E O V E R |||" + zomNum);
-				// holds the wave counter and score for end of game
-				var send = "wave=" + wave + "&score=" + score + "";				
-				document.location.href = 'endOfGame.html?' + send;
-				
+				gameOver();
 			} else {
-				// incruments the image downwards
+				/* Increments y position to move the zombie downwards */
 				yPos += speed;
-				zombieHolder.style.top = yPos + "%";				
+				zombieHolder.style.top = yPos + "%";
 			}
-		} 
-
+		}
+		
 		/*
-		"kills" a zombie by clearing the intervals
-		and removing it from the array that holds zombies
-		Used when swtiching into the Easter Egg mode
+			Animates the walk by switching between two images of the zombie
 		*/
-		this.wipe = function() {
+		this.animate = function() {
+			imageNumber = (imageNumber + 1) % 2;
+			var imageName = "images/easterEgg/" + ponyImage + "" + imageNumber + ".png";
+			zombieImage.setAttribute('src', imageName);
+		}
+		
+		/*
+			Stops all zombie movement
+		*/
+		this.stopMove = function() {
+		  clearInterval(moveTimer);
+		  moveTimer = null;
+		  clearInterval(animateTimer);
+		  animateTimer = null;
+		}
+		
+		/*
+			Starts all zombie movement
+		*/
+		this.startMove = function() {
+		  moveTimer = setInterval(this.move, 10);  
+		  animateTimer = setInterval(this.animate, 800);		
+		}
+		
+		//auto caller for moving 
+		moveTimer = setInterval(this.move, 10);
+		//auto caller for animating
+		animateTimer = setInterval(this.animate, 800);
+		
+		/* ----------------------------------------END OF Zombie Movement------------------------------------------ */
+		
+		
+		/* ----------------------------------------START OF End of Game/Game Won Scenarios------------------------------------------ */
+	
+		/* 
+			Stops the zombie from moving, sets the wave and score as session variables, and sends the player to the end of game screen
+		*/
+		function gameOver() {
+		  // Clears the movement
+		  clearInterval(moveTimer);
+		  moveTimer = null;
+		  // Clears the animation 
+		  clearInterval(animateTimer);
+		  animateTimer = null;
+		  // Game over console message
+		  console.log("||| G A M E O V E R |||" + zomNum);
+		  
+		  // Creates session variables for wave and score
+		  createSessionItem("wave", wave);
+		  createSessionItem("score", score);
+		  
+		  // Transitions to end of game screen
+		  fadeEnd("endOfGame.html");
+		}
+		
+		
+		/*
+			Checks if the zombie hits the boundary line.
+			Returns true if a zombie has hit.
+		*/
+		function atDotted() {
+			return yPos >= 100;
+		}
+		
+		/* ----------------------------------------END OF End of Game Scenario------------------------------------------ */
+		
+		/* ----------------------------------------START OF Score Calculation------------------------------------------ */
+		
+		/*
+			Checks the health to determine the score for a zombie kill (Based on highest absolute value the health reaches)
+		*/		
+		function checkMaxHealth() {
+		  if((Math.abs(health)) > maxHealth) {
+			maxHealth = Math.abs(health);
+			console.log('new max health= ' + maxHealth);
+		  }
+		}
+		
+		/* ----------------------------------------END OF Score Calculation------------------------------------------ */
+		
+		
+		/* ----------------------------------------START OF Killing Zombies------------------------------------------ */
+		
+		/*
+			Kills all zombies when easter egg is triggered.
+		*/
+		function wipeAll() {
+		  for (i = 0; i < zs.length; i++) {
+			if (zs[i] != null) {
+				zs[i].remove();
+			}
+		  }
+		}
+		
+	 	/* 
+			Removes zombie from the screen and deletes all references to it.
+		*/
+		this.remove = function() {
 			//stops movement
 			clearInterval(moveTimer);
-			moveTimer = null;
+			moveTimer = null;			
 			//stops animation
 			clearInterval(animateTimer);
 			animateTimer = null;			
@@ -165,88 +245,95 @@ $(document).ready(function(){
 		}
 		
 		/*
-		"kills" the zombie 
+			"Kills" the zombie and increments the kill count to determine the end of a wave.
 		*/
 		function die() {
+			// Sound of zombie dying
+			zDie.play(); 
+			// Console message of the zombie dying
+			console.log("Zombie " + zomNum + " dead");
+			
+			// Increments killCount and totalKills
 			killCount++;
-			//stops the zombie from calling move/animate functions
+			//totalKills++;
+			
+			// Stops the zombie from calling move/animate functions
 			speed = 0;
 			
-			score += 5;
+			// Assigns the score based on the maximum health the zombie had reached
+			score += maxHealth;
+			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			
-			clearInterval(moveTimer);
-			moveTimer = null;
-			clearInterval(animateTimer);
-			animateTimer = null;
+			// Removes the zombie
+			zs[zomNum].remove();
 			
-			//removes the zombie from the array
-			zs[zomNum] = null;
-			
-			//removes the image from the screen
-			document.getElementById(zomNum).remove();
-			//alert(killCount);
-			console.log('kill count ' + killCount);
-			console.log('spawn count ' + spawnNum);
+			// Checks if the wave is complete and then changes the wave
 			if (killCount == spawnNum) {
-				console.log('switching');
-				
 				easterEggThisWave = 0; // set flag no pony mode again
 				backToMainGame();
 			}
-		}
+		}		
+		
+		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
+			
+		
+		
+		/* ----------------------------------------START OF Hitting Zombies------------------------------------------ */
 		
 		/*
-		animates the image ie. makes it "walk"
-		*/
-		this.animate = function() {
-			imageNumber = (imageNumber + 1) % 2;
-			var imageName = "images/easterEgg/" + ponyImage + "" + imageNumber + ".png";
-			zombieImage.setAttribute('src', imageName);
-		}
-		
-		/*
-		handler for onclick havoir, if zombie's health is 0, it dies
+		handler for onclick behavoir, if zombie's health is 0, it dies
 		 else, health is changed
 		*/
 		this.hit = function(){
+			// Gunshot sound effect
+			shot.play();
+			// Checks which gun is selected
 			checkGun();
+			// Checks the maximum health of the zombie
+			checkMaxHealth();
+			// Updates bullet queue
 			updateRandomBullet();
+			// Updates health on the screen for the zombie
 			zombieHealthText.innerHTML = health;
-			console.log("_______pony #"+ zomNum + " hit w/ gun "+ selectedGun 
-						+ " health: " + health);
+			
+			// Checks if zombie is dead
 			if (health == 0){
-				//$( "#" + zomNum ).toggle( "bounce", "slow" ); // need two for toggle
-				//$( "#" + zomNum ).toggle( "explode", "slow");
-				die();	
+				die();
 			} else {
-				//$( "#" + [i] ).effect( "shake", "fast");      // conflicts with explode
-				
+				zStillAlive.play(); 
+				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
+						+ " health: " + health);
 			}			
 		}
-
+		
+		/* ----------------------------------------END OF Hitting Zombies------------------------------------------ */
+		
+		
+		/* ---------------------------------START OF Gun Selection & Calculations---------------------------------- */
+		
 		/*
-		performs a math operation depending on which gun is selected
+			Performs a math operation on the zombie health depending on which gun is selected
 		*/
 		function checkGun() {
-		  //checks gun selected
+		  // Checks gun selected
 			if(selectedGun == 1) {
-				//plus gun
-				plusOperation();
+				// Plus gun
+				plusOperation();	
 			} else if (selectedGun == 2) {
-				//minus gun
+				// Minus gun
 				minusOperation();
 			} else if (selectedGun == 3) {
-				//multiplication gun
+				// Multiplication gun
 				multiOperation();
 			} else if (selectedGun == 4) {
-				//division gun
+				// Division gun
 				diviOperation();
 			}
 		}
 		
 		/*
-		adds
+			Addition Operation
 		*/
 		function plusOperation() {
 			health = health + currentBullet;
@@ -254,7 +341,7 @@ $(document).ready(function(){
 		}
 		
 		/*
-		subtracts
+			Subtraction Operation
 		*/
 		function minusOperation() {
 			health = health - currentBullet;
@@ -262,98 +349,90 @@ $(document).ready(function(){
 		}
 		
 		/*
-		multiplies
+			Multiplies Operation
 		*/
 		function multiOperation() {
+			if(currentBullet == 0)
+				maxHealth = 5;
 			health = health * currentBullet;
 			console.log("new health: " + health);
 		}
 		
 		/*
-		divides (rounds up)
-		checks if main game mode is triggered
-		when the user divides by zero,
-		else, divides normally
+			Division Operation and checks if easter egg is triggered.
 		*/
 		function diviOperation() {
-			if(currentBullet == 0) {
-				easterEggThisWave = 0; // set flag no pony mode again		
-				//increase score
-				score += 5;
-				backToMainGame();
-			}
+		  if(currentBullet == 0) {
+			  easterEggThisWave = 0; // set flag no pony mode again		
+			  //increase score
+			  score += 5;
+			  backToMainGame();
+		  } else {
 			health = Math.ceil(health / currentBullet);
-			console.log("new health: " + health);	
+			console.log("new health: " + health);
+		  }
 		}
 	
+		/* ---------------------------------END OF Gun Selection & Calculations---------------------------------- */
+		
+		
+		/* --------------------------------------START OF Easter Egg Trigger------------------------------------- */
+		
 		/*
-		returns to main game
+			Changes to easter egg mode
 		*/
 		function backToMainGame() {
-			//INITIALIZING EASTER EGG
-			//sending player vars
-			carryVars();
-			//changing css
-			killAll();
-			console.log("______________________backToMainGame")
-			var egg = document.getElementById("css");
-			egg.setAttribute('href', "css/styles.css");
-			//changing script
-			//gets rid of zombie script
+			// Wipes all zombies
+			wipeAll();
+			
+			// Gets score and wave from session variables
+			score = createSessionItem("score", score);
+			wave = createSessionItem("wave", wave);
+			
+			// Changes CSS file
+			var css = document.getElementById("css");
+			css.setAttribute('href', "css/styles.css");
+			/* Changes script */
+			// Deletes pony script
 			var c = document.getElementsByTagName('script');
 			c[6].parentElement.removeChild(c[6]);
-			//adds pony script
+			// Adds zombie script
 			var fileref=document.createElement('script')
 			fileref.setAttribute("src", "scripts/zombie.js");
 			document.getElementsByTagName("head")[0].appendChild(fileref);
 		}
 		
-		/*
-		stops movement when pause clicked
-		*/
-		this.stopMove = function() {
-		  console.log('freezing pony ' + i);
-		  clearInterval(moveTimer);
-		  moveTimer = null;
-		  clearInterval(animateTimer);
-		  animateTimer = null;
-		}
-		
-		/*
-		starts movement after pause
-		*/
-		this.startMove = function() {
-			console.log('unfreezing pony ' + i);
-		  moveTimer = setInterval(this.move, 10);  
-		  animateTimer = setInterval(this.animate, 800);		
-		}
-	
-		//auto caller for move
-		moveTimer = setInterval(this.move, 10);
-		//auto caller for animate
-		animateTimer = setInterval(this.animate, 800);
+		/* --------------------------------------END OF Easter Egg Trigger------------------------------------- */
 	};
+	/* --------------------------------------END OF Zombie Object------------------------------------- */
 	
-	
+	spawnNum = 3;
 	/*
-	kills all ponies
+		Spawns zombies depending on the wave design
 	*/
-	function killAll() {
-		for (j = 0; j < zs.length; j++) {
-			if (zs[j] != null) {
-				console.log("length" + zs.length);
-				console.log("index" + j);
-				zs[j].wipe();
-				console.log("doot");
+	function callWave(){
+		var chosen =  Math.floor((Math.random() * 5) + 0);
+		var innerWave = 0;
+		for (i = 0; i < spawnNum; i++) {
+			zs[i] = new Zombie(genHealth(), lanePlacement(i % 4), i, yRandom(innerWave), chosen);  
+			// onclick handel 
+			document.getElementById(i + "zImage").onclick = zs[i].hit;
+			if (i % 4 == 3) {
+				innerWave++;
 			}
 		}
 	}
+	// Calls a new wave on page load
+	callWave();
+	
+	
+/* ----------------------------START OF Random and Generation Functions-------------------------- */
 	
 	/*
-	random num helper for health 
-	*/ 
-	function healthRandom() {
-		out = Math.floor((Math.random() * 5) + 1);
+	random num helper for zombie health 
+	 */ 
+	function genHealth() {
+		var out = Math.floor((Math.random() * healthDiff) + 1);
 		if ((Math.random() * 2) > 1) {
 			return out * -1;
 		} else {
@@ -362,22 +441,23 @@ $(document).ready(function(){
 	}
 	
 	/*
-	random num helper for xPos 
+		Random num helper for xPos 
 	*/ 
 	function xRandom() {
-		//return Math.floor((Math.random() * 100));
 		return Math.floor(Math.random() * 4) * 25; 
 	}
-	
-	//number of ponies to spawn
-	var spawnNum = 2;
 	/*
-	spawns ponies
+		Random num helper for yPos 
+	 */ 
+	function yRandom(innerWave) {
+		var innerWaveDistance = 50;
+		return Math.floor(((Math.random() * innerWaveDistance) + ((innerWaveDistance + 20) * innerWave) + 20) * -1); 
+	}
+	/**
+		lanePlacement ensures multiple zombies will not spawn on top of eachother on the x axis
 	*/
-	for (i = 0; i < spawnNum; i++) {
-		var chosen =  Math.floor((Math.random() * 5) + 0);
-		zs[i] = new Zombie(healthRandom(), xRandom(), i, -50 - (50 * i), chosen );
-		// onclick handel 
-		document.getElementById("p" + i + "zImage").onclick = zs[i].hit;
-	} 
+	function lanePlacement(laneNum) {
+		return Math.floor(laneNum) * 25;  
+	}
+	/* ----------------------------END OF Random and Generation Functions-------------------------- */
 });

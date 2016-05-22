@@ -20,6 +20,12 @@
   <script src="scripts/sessionVariables.js"></script>
   
   <script>
+  	/* Resets the wave and score if the page is reloaded. */
+	$(window).bind('beforeunload',function(){
+		wave = 1;
+		score = 0;
+	});
+  
   //stores data for links
   var restart = "gameScreen.html";
   var menu = "mainMenu.html";
