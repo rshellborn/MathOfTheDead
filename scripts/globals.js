@@ -86,6 +86,8 @@ var restart = "tutorial.html";
 var menu = "mainMenu.html";
 var login = "login.html";
 
+
+
 /*
 Generates a random ID
 */
