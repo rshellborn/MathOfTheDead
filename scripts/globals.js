@@ -4,8 +4,6 @@ Zombie globals
 
 // holds all currently active zombies
 var zs = new Array();
-
-
 // flag for fading 
 var fadeStatus;
 //	kill count used to determine the wave 
@@ -58,6 +56,27 @@ var currentBullet = 1;
 //	the currentBullet being used in easter egg mode.
 var easterEggThisWave = 1; 
 
+/**
+Bullet queue tutorial globals
+*/
+
+// an array of 5 intergers used to kill zombies.
+var bulletQueueValues = new Array(5);
+// the currentBullet being used in zombie mode.
+var currentBullet = 1;
+//	the currentBullet being used in easter egg mode.
+var easterEggThisWave = 1; 
+//
+var disableModalBQ = 0;
+
+/**
+Tutorial globals
+*/
+
+//holds values for links
+var restart = "tutorial.html";
+var menu = "mainMenu.html";
+var login = "login.html";
 
 /*
 Generates a random ID
