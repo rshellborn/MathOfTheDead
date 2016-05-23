@@ -55,6 +55,14 @@ var bulletQueueValues = new Array(5);
 var currentBullet = 1;
 //	the currentBullet being used in easter egg mode.
 var easterEggThisWave = 1; 
+/* Keeps track of the number of zeroes generated in each wave.*/
+var zeroCount = 0;
+/* Stores the current value of the randomly generated number.*/
+var value;
+/* Stores the max health range of bullet queue values that can be generated for that specific wave.*/
+var maxHealth;
+/* Stores the maximum number of 0 values that can be generated for that wave.*/
+var maxNumZeroes;
 
 /**
 Bullet queue tutorial globals
