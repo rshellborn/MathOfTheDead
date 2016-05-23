@@ -20,7 +20,8 @@ var queueDiff;
 // spam the queue looking for zero's 
 var maxZero;
 
-
+// Number of ponies spawned in easter egg mode
+var numOfPonies = 3;
 
 /**
 Button globals
@@ -74,5 +75,7 @@ function randomID() {
 /*
 	Triggers achievement modal
 */
+function triggerAchievement() {
 	$('#achievementModal').modal({backdrop: 'static', keyboard: false});
 	setTimeout(function(){ $('#achievementModal').modal('hide') }, 3000);
+}

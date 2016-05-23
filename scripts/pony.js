@@ -7,6 +7,9 @@ $(document).ready(function(){
 	// Holds pony image name 
 	var ponyImage;
 	
+	// Sets how many ponies will be spawned from a global variable
+	spawnNum = numOfPonies;
+	
 	// Gets score and wave from session variables
 	score = parseInt(getSessionItem("score"));
 	wave = getSessionItem("wave");
@@ -410,7 +413,6 @@ $(document).ready(function(){
 	};
 	/* --------------------------------------END OF Zombie Object------------------------------------- */
 	
-	spawnNum = 3;
 	/*
 		Spawns zombies depending on the wave design
 	*/
