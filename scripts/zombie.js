@@ -424,7 +424,7 @@ $(document).ready(function(){
 		  // Checks if easter egg is to be triggered.
 		  // Only triggers once per game in Infinite Wave mode.
 		  if(currentBullet == 0) { 
-			if(easterEggThisWave && mode == 1) {		
+			if(easterEggThisWave && mode == 1) {	
 			  score += 5;
 			  triggerEasterEgg();
 			} else if(mode == 0) {
@@ -459,6 +459,9 @@ $(document).ready(function(){
 			// Creates session variable for score and wave
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
+			
+			// Enables pony sound theme
+			createSessionItem("ponyMode", 1);
 			
 			// Award tutorial completed achievement
 			if (getSessionItem("egg") == null) {

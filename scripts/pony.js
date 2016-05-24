@@ -396,6 +396,8 @@ $(document).ready(function(){
 			score = createSessionItem("score", score);
 			wave = createSessionItem("wave", wave);
 			
+			createSessionItem("ponyMode", 0);
+			
 			// Changes CSS file
 			var css = document.getElementById("css");
 			css.setAttribute('href', "css/styles.css");

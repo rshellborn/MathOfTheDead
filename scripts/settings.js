@@ -1,9 +1,9 @@
 /* Resets the wave and score if the page is reloaded. */
-$(window).bind('beforeunload',function(){
+/*$(window).bind('beforeunload',function(){
 	createSessionItem("bgm", 1);
 	createSessionItem("sfx", 1);
 	createSessionItem("colourblind", 0);
-});
+});*/
 	
 
 /*
@@ -11,6 +11,7 @@ $(window).bind('beforeunload',function(){
 */
 function toggleBGM() {
 	if(getSessionItem("bgm") == 1) {
+		console.log('turnging bgm off');
 		createSessionItem("bgm", 0);
 	} else {
 		createSessionItem("bgm", 1);
@@ -38,15 +39,15 @@ function toggleColourblind() {
 
 function setDefaultSettings() {
 	console.log('setting defaults');
-	if (getSessionItem("bgm") == "undefined") {
+	if (getSessionItem("bgm") == null) {
 		createSessionItem("bgm", 1);
 	}
 	
-	if (getSessionItem("sfx") == "undefined") {
+	if (getSessionItem("sfx") == null) {
 		createSessionItem("sfx", 1);
 	}
 	
-	if (getSessionItem("colourblind") == "undefined") {
+	if (getSessionItem("colourblind") == null) {
 		createSessionItem("colourblind", 0);
 	}
 }
@@ -55,14 +56,21 @@ function updateSettings() {
 	/*
 		Checks background music.
 	*/
-	if (getSessionItem("bgm") == 1) {
-		// Turn of background music here
+	if (getSessionItem("bgm") == 0) {
+		bgmWave.volume = 0;
+		bgmInfini.volume = 0;
+		//bgmPony.volume = 0;
+		
+		menuIntro.volume = 0;
+		birds.volume = 0;
+		bird.volume = 0;
+		menuBGM.volume = 0;
 	}
 	
 	/*
 		Checks sound effects.
 	*/
-	if (getSessionItem("sfx") == 1) {
+	if (getSessionItem("sfx") == 0) {
 		// Turn of sound effects here
 	}
 	
