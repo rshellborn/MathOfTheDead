@@ -55,7 +55,7 @@ $(document).ready(function(){
 		var health = health;
 		
 		// Speed of the zombie
-		var speed = 0.03;
+		var speed = enemySpeed;
 		// Used the calculate score that will be awarded for killing this zombie
 		var maxHealth = Math.abs(health);
 		
@@ -290,9 +290,9 @@ $(document).ready(function(){
 			  console.log('Total kills=' +totalKills);
 			  
 			  // Checks if 50 kills in infinite mode achievement is unlocked
-			  if(totalKills == 50 && getSessionItem("50kills") == null) {
+			  if(totalKills == 25 && getSessionItem("kills") == null) {
 				// Creates session variable that 10 Wave Completed achievement is triggered
-				createSessionItem("50kills", 1);
+				createSessionItem("kills", 1);
 				triggerAchievement();
 			  }
 			}
@@ -488,7 +488,7 @@ $(document).ready(function(){
 		setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff);
 	} else if (mode == 1) {	
 		// 1 is Infinite Mode
-		setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff);
+		setWaveDesign(infinite.wave1.numOfZombies, infinite.healthDiff);
 	}
 	// Calls a new wave on page load
 	callWave();

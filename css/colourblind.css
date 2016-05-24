@@ -5,10 +5,11 @@ html,body {
 	max-height: 100%;
 	height:100%;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
-	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/DarkGrass.png"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/colourblind/background.jpg"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/colourblind/background.jpg"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/colourblind/background.jpg"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	background-size: 100% 100%;
 	margin: 0;
     padding: 0;
 	overflow: hidden;
@@ -63,9 +64,9 @@ div.topBar{
 	padding: 0;
 	z-index: 2;
 }
-/** Making the pause button red.*/
+/** Making the pause button #03C.*/
 div.pauseButton{
-	background-color:#f20000;
+	background-color:#03C;
 	z-index: 2;
 }
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
@@ -81,7 +82,7 @@ div.queue{
 div.currentQueue{
 	background: url("../images/bullet.png");
 	background-size: 100% 100%;
-	background-color:#f20000; 
+	background-color:#03C; 
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0; 
@@ -98,7 +99,7 @@ div.thisQueue{
 	padding-right: 20%;
 	z-index: 2;
 	
-	/** Making contents inside div centered*/
+	/** Making contents inside div cente#03C*/
 	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -112,7 +113,7 @@ div.insideQueue{
 	min-height: 100%;
 	min-width: 100%;
 	
-	/** Making contents inside div centered*/
+	/** Making contents inside div cente#03C*/
 	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -135,10 +136,10 @@ div.gunsBar{
 	padding:0;
 	z-index: 2;
 }
-/** Setting the background color of each gun to red. */
+/** Setting the background color of each gun to #03C. */
 div.guns{
 	border: 1px solid #FFF;
-	background-color: #f20000;
+	background-color: #03C;
 	height: 100%;
 }
 /** Setting the background color of the selected gun to grey. */
@@ -182,7 +183,7 @@ div.divide{
 div.youDiedTitle{
 	width: 100%;
 	min-height: 20%;
-	color: #f20000;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 	text-align: center;
@@ -193,7 +194,7 @@ div.youDiedTitle{
 div.youWonTitle{
 	width: 100%;
 	min-height: 20%;
-	color: #f20000;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 5.0em;
 	text-align: center;
@@ -215,7 +216,7 @@ div.congrats{
 div.enterNameTitle{
 	width: 100%;
 	min-height: 40%;
-	color: #f20000;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 	text-align: center;
@@ -232,7 +233,7 @@ input[type=text] {
 div.leaderBoardTitle{
 	width: 100%;
 	min-height: 20%;
-	color: #f20000;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 	text-align: center;
@@ -316,10 +317,9 @@ div.EOGWavedisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
-	z-index: 2;
 }
 /** Setting the container size, font properties, and centering text of the score in the end of game screen */
-div.EOGScoredisplay{
+div.EOGSco#03Cisplay{
 	width: 100%;
 	min-height: 15%;
 	height: 15%;
@@ -330,13 +330,12 @@ div.EOGScoredisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
-	z-index: 2;
 }
 /** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
 	width: 100%;
 	min-height: 25%;
-	color: red;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 5.5em;
 	text-align: center;
@@ -347,7 +346,7 @@ div.mainMenu{
 #NW{
 	width: 100%;
 	min-height: 20%;
-	color: red;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 3.75em;
 	text-align: center;
@@ -357,7 +356,7 @@ div.mainMenu{
 #youWin{
 	width: 100%;
 	min-height: 20%;
-	color: red;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 3.75em;
 	text-align: center;
@@ -378,7 +377,7 @@ div.menuButtonHolder{
 /** General buttons styling.*/
 .btn.sharp {
 	border-radius:0;
-	background: red;
+	background: #03C;
 	border: solid black;
 	color: black;
 	width: 100%;
@@ -418,7 +417,7 @@ div.emptySpace{
 	width: 100%;
 	height:100%;
 	padding: 0;
-	background: red;
+	background: #03C;
 	
 	text-align: center;	
 	color: white;
@@ -434,7 +433,7 @@ div.achievementTitle{
 	padding: 0;
 	
 	text-align: center;	
-	color: red;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 }
@@ -567,7 +566,7 @@ div.space{
 .modal-title {
 	width: 100%;
 	min-height: 10%;
-	color: red;
+	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 3.0em;
 	text-align: center;
@@ -578,8 +577,8 @@ div.space{
 	/*uncomment this after javascript stops executing*/
     /*opacity:1.0 !important;*/
 }
-#redT {
-	color: red;
+##03CT {
+	color: #03C;
 }
 <!-- End of modal stuff-->
 
@@ -619,7 +618,7 @@ div.space{
 		width: 100%;
 		height:100%;
 		padding: 0;
-		background: red;
+		background: #03C;
 		
 		text-align: center;	
 		color: white;
@@ -681,7 +680,7 @@ div.space{
 	div.EOGWavedisplay{
 		font-size: 2.5em;
 	}
-	div.EOGScoredisplay{
+	div.EOGSco#03Cisplay{
 		font-size: 2.5em;
 	}
 	.modal { 
@@ -717,7 +716,7 @@ div.space{
 		width: 100%;
 		height:100%;
 		padding: 0;
-		background: red;
+		background: #03C;
 		
 		text-align: center;	
 		color: white;
@@ -788,7 +787,7 @@ div.space{
 	div.EOGWavedisplay{
 		font-size: 2.5em;
 	}
-	div.EOGScoredisplay{
+	div.EOGSco#03Cisplay{
 		font-size: 2.5em;
 	}
 	.modal { 
@@ -841,7 +840,7 @@ div.space{
 		width: 100%;
 		height:100%;
 		padding: 0;
-		background: red;
+		background: #03C;
 		
 		text-align: center;	
 		color: white;

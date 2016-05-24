@@ -12,7 +12,7 @@ $(document).ready(function(){
 		tutInfo.setAttribute("class", "col-xs-10 achievementInfoUnlocked");
 	}
 	
-	if(getSessionItem("50kills") == 1) {
+	if(getSessionItem("kills") == 1) {
 		// Changes the image
 		var slayer = document.getElementById('slayer');
 		slayer.setAttribute("class", "col-xs-2 achievementImage slayerAchievement");

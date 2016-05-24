@@ -68,12 +68,11 @@ var insane = {
 	}
 };
 
-/* Infinity Mode difficulty. */
-var infinity = {
-	healthDiff: 12,
-	queueDiff: 10,
+/* Infinite Mode difficulty. */
+var infinite = {
+	healthDiff: 10,
+	queueDiff: 6,
 	maxZero: 10,
-	//maxSpeed,
 	
 	wave1: {
 		numOfZombies: 5
