@@ -8,6 +8,9 @@ var birds = new Audio("audio/birds.mp3");
 var bird = new Audio("audio/bird.mp3");
 var menuBGM = new Audio("audio/menuBGM.mp3");
 
+// pony
+var MLPMusic = new Audio("audio/music/MLPMusic.mp3");
+
 // game-screen music
 var bgmWave = new Audio("audio/music/MichaelMyers.mp3");
 var bgmInfini = new Audio("audio/music/BroForce.mp3");

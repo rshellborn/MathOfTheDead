@@ -3,6 +3,16 @@
   starts "walking" upon instantiation.
 */
 $(document).ready(function(){
+	//audio
+	
+	var mode = getSessionItem("mode");
+	if (mode == 0){
+		bgmWave.play();
+	} else {
+		bgmInfini.play();
+	};
+
+
 	/* Checks if the game mode has been selected, and if it hasn't it sends player to login screen. */
 	var mode = getSessionItem("mode");
 	if(mode == null) {
@@ -453,6 +463,12 @@ $(document).ready(function(){
 			Changes to easter egg mode
 		*/
 		function triggerEasterEgg() {
+			var mode = getSessionItem("mode");
+			if (mode == 0){
+				bgmWave.pause();
+			} else {
+				bgmInfini.pause();
+			};
 			// Wipes all zombies
 			wipeAll();
 			
