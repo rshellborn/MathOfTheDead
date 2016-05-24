@@ -59,8 +59,8 @@ var easterEggThisWave = 1;
 var zeroCount = 0;
 /* Stores the current value of the randomly generated number.*/
 var value;
-/* Stores the max health range of bullet queue values that can be generated for that specific wave.*/
-var maxHealth;
+/* Stores the max range of bullet queue values that can be generated for that specific wave.*/
+var maxRange;
 /* Stores the maximum number of 0 values that can be generated for that wave.*/
 var maxNumZeroes;
 

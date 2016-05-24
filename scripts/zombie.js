@@ -488,7 +488,7 @@ $(document).ready(function(){
 		setWaveDesign(easy.wave1.numOfZombies, easy.healthDiff);
 	} else if (mode == 1) {	
 		// 1 is Infinite Mode
-		setWaveDesign(infinity.wave1.numOfZombies, infinity.healthDiff);
+		setWaveDesign(infinite.wave1.numOfZombies, infinite.healthDiff);
 	}
 	// Calls a new wave on page load
 	callWave();

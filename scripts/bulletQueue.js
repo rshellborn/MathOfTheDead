@@ -2,27 +2,52 @@
 	This script is used to randomly generate values within a set range depending on the wave number 
 	(which determines the difficulty of the game) for the bullet queue.
 */
-
+/*
+	when the page loads all the necessary functions to generate a fully functional
+	bullet queue.
+ */
+$(document).ready(function() {
+	var queue = document.getElementById('queue0');
+	var bMode = getSessionItem("mode");
+	console.log('mode = ' +bMode);
+	setQueueRange(bMode);
+	generateQueue();
+	currentBullet = bulletQueueValues[0];
+	queue.onclick = function() {
+		updateRandomBullet();
+		if(bMode == 1) {
+			if(killCount % 2 == 0) {
+				console.log(maxNumZeroes);
+				resetZeroCounter(); 
+			}
+		}
+	}
+});
 
 /*
 	Sets the maximum number of zeroes and the range of numbers the bullet queue should generate for 
 	the wave depending on the difficulty settting.
 */	
-function setQueueRange(){
-	if(wave >= 1 && wave <= 3){
-		maxHealth = easy.queueDiff;
-		maxNumZeroes = easy.maxZero;
-	}
-	else if(wave >= 4 && wave <= 6){
-		maxHealth = medium.queueDiff;
-		maxNumZeroes = medium.maxZero;
-	}
-	else if(wave >= 7 && wave <= 9){
-		maxHealth = hard.queueDiff;
-		maxNumZeroes = hard.maxZero;
-	} else {
-		maxHealth = insane.queueDiff;
-		maxNumZeroes = insane.maxZero;
+function setQueueRange(bMode){
+	if (bMode == 0) {
+	  if(wave >= 1 && wave <= 3){
+		  maxRange = easy.queueDiff;
+		  maxNumZeroes = easy.maxZero;
+	  }
+	  else if(wave >= 4 && wave <= 6){
+		  maxRange = medium.queueDiff;
+		  maxNumZeroes = medium.maxZero;
+	  }
+	  else if(wave >= 7 && wave <= 9){
+		  maxRange = hard.queueDiff;
+		  maxNumZeroes = hard.maxZero;
+	  } else {
+		  maxRange = insane.queueDiff;
+		  maxNumZeroes = insane.maxZero;
+	  }
+	} else if (bMode == 1) {
+		maxRange = infinite.queueDiff;
+		maxNumZeroes = infinite.maxZero;	
 	}
 }
 
@@ -32,11 +57,11 @@ function setQueueRange(){
 */
 function generateValue() {	
 	if(checkZero() == 0){
-		value = Math.floor(Math.random() * (maxHealth - (maxHealth * -1) + 1)) + (maxHealth * -1);
+		value = Math.floor(Math.random() * (maxRange - (maxRange * -1) + 1)) + (maxRange * -1);
 	} else {
 		var genNonZero = 0;
 		while(genNonZero == 0){
-			value = Math.floor(Math.random() * (maxHealth - (maxHealth * -1) + 1)) + (maxHealth * -1);
+			value = Math.floor(Math.random() * (maxRange - (maxRange * -1) + 1)) + (maxRange * -1);
 			if(value != 0){
 				genNonZero = 1;
 			}
@@ -93,24 +118,3 @@ function updateRandomBullet(){
 	}
 	currentBullet = bulletQueueValues[0];
 }
-/*
-	when the page loads all the necessary functions to generate a fully functional
-	bullet queue.
- */
-$(document).ready(function() {
-	var queue = document.getElementById('queue0');
-	var bMode = getSessionItem("mode");
-	setQueueRange();
-	generateQueue();
-	currentBullet = bulletQueueValues[0];
-	queue.onclick = function() {
-		updateRandomBullet();
-		if(bMode == 1) {
-			if(killCount % 2 == 0) {
-				alert(maxNumZeroes);
-				resetZeroCounter();
-				//maxNumZeroes = 10; 
-			}
-		}
-	}
-});

@@ -68,8 +68,8 @@ var insane = {
 	}
 };
 
-/* Infinity Mode difficulty. */
-var infinity = {
+/* Infinite Mode difficulty. */
+var infinite = {
 	healthDiff: 12,
 	queueDiff: 10,
 	maxZero: 10,
