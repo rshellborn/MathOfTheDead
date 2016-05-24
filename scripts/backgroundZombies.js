@@ -1,31 +1,27 @@
 /*
-  Zombie as represented with health and a img on screen
+  Zombie as represented with an img on screen
   starts "walking" upon instantiation.
 */
 $(document).ready(function(){	
 	/* --------------------------------------START OF bgZombie Object------------------------------------- */
 
 	/*
-	 Constructs a zombie with a health, x position and y position, and a number
+	 Constructs a zombie with an x position and y position, and a number
 	 @params 
-	 health Health of the zombie
 	 xPos 	x position of the zombie
      zomNum Unique number to identify an individual zombie (used as ID tag for its div)
 	 yPos   y position of the zombie 
 	*/
-	var bgZombie = function(zomNum, health, xPos, yPos) { 
+	var bgZombie = function(zomNum, xPos, yPos) { 
 		var zomNum = zomNum;
 		var xPos = xPos;
 		var yPos = yPos;
-		var health = health;
 		
 		// Speed of the zombie
 		var speed = 0.03;
-		// Used the calculate score that will be awarded for killing this zombie
-		var maxHealth = Math.abs(health);
 		
 		//Message to show the zombie has been spawned.
-		console.log("fake# " + zomNum + " health: " + health + " xPos: " + xPos + " yPos: " + yPos);
+		console.log("fake# " + zomNum + " xPos: " + xPos + " yPos: " + yPos);
 		
 		// Holds timer for movement
 		var moveTimer = null;
@@ -36,33 +32,20 @@ $(document).ready(function(){
 		
 		// Creates zombie image element
 		var zombieImage = document.createElement("img");
-		// Creates zombie image and health elements
 		var zombieHolder = document.createElement("div");
-		// Creates zombie health elements
-		var zombieHealthText = document.createElement("div");
-		
 		
 		/* ----------------------------------START OF Zombie Styling-------------------------------------- */
 
-		// Set styles for container for zombie and health 
-		zombieHolder.style.height = "20%";
+		// Set styles for container for zombie
+		zombieHolder.style.height = "10%";
 		zombieHolder.style.maxHeight = "150px";
 		zombieHolder.style.width = "25%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
 
-		// Assign id for holder for zombie and health elemets
+		// Assign id for holder for zombie
 		zombieHolder.id = zomNum;
-		
-		// Set styles for container health 
-		zombieHealthText.innerHTML = health;
-		zombieHealthText.style.textAlign = "center";
-		zombieHealthText.style.color = "White";
-		zombieHealthText.style.fontSize = "150%";
-		zombieHealthText.style.position = "relative";
-		zombieHealthText.style.height = "20%";
-		zombieHealthText.style.top = "-100%";
 		
 		// Set styles for zombie image 
 		zombieImage.id = zomNum + "zImage";
@@ -74,9 +57,8 @@ $(document).ready(function(){
 		zombieImage.style.marginLeft = "auto";
 		zombieImage.style.marginRight = "auto";
 		
-		// Adding health text and zombie image to zombieHolder
+		// Adding zombie image to zombieHolder
 		zombieHolder.appendChild(zombieImage);
-		zombieHolder.appendChild(zombieHealthText);	
 		
 		//adding zombieHolder to screen
 		document.getElementsByClassName("row specialrow")[0].appendChild(zombieHolder);
@@ -95,8 +77,8 @@ $(document).ready(function(){
 			yPos += speed;
 			zombieHolder.style.top = yPos + "%";
 			
-			if (yPos >= 120) {
-				yPos = -20; 
+			if (yPos >= 110) {
+				yPos = -10; 
 				xPos = xRandom();
 				zombieHolder.style.left = xPos + "%";
 			}
@@ -168,23 +150,11 @@ $(document).ready(function(){
 	function makeBGZombies() {
 		var bgZombies = new Array();
 		for (var i = 0; i < 5; i++) {
-			bgZombies[i] = new bgZombie(i, genHealth(), xRandom(), ((i * -25) - 20));
+			bgZombies[i] = new bgZombie(i, xRandom(), ((i * -25)));
 		}
 	}
 	
 	/* ----------------------------START OF Random and Generation Functions-------------------------- */
-	
-	/*
-	random num helper for zombie health 
-	 */ 
-	function genHealth() {
-		var out = Math.floor((Math.random() * 10) + 1);
-		if ((Math.random() * 2) > 1) {
-			return out * -1;
-		} else {
-			return out;
-		}
-	}
 	
 	/*
 		Random num helper for xPos 
