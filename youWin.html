@@ -12,38 +12,7 @@
   <script src="scripts/transitions.js"></script>
   <script src="scripts/globals.js"></script>
   <script src="scripts/sessionVariables.js"></script>
-  
-  <script>
-	$(document).ready(function(){
-	  // gets current wave number
-	 var wave = getSessionItem("wave");
-	  // gets the current score value
-	  var score = getSessionItem("score");
-	  // gets the player's name
-	  var name = getSessionItem("name");
-	  //gets player ID
-	  var id = getSessionItem("id");
-
-		//prints the wave number onto the top bar of the screen
-		document.getElementById("score").textContent=("Score: " + score);
-		
-		//sends user info to database
-		$.ajax( { url: "https://api.mlab.com/api/1/databases/mathofthedead/collections/babysfirstdb?&apiKey=ArvUzWX9LKcVcKGcpfgPMVS62vXkF_Xu&f=" + JSON.stringify({"_id" : 0}),
-			data: JSON.stringify( {"playerID": "not_used", "score": parseInt(score), "wave": parseInt(wave), "name": name } ),
-			type: "post",
-			contentType: "application/json; charset=utf-8",
-		});
-		
-		//triggers achievement
-		if(getSessionItem("10wave") == 1) {
-			triggerAchievement();
-		}
-	});
-	
-	//clears session items for replay
-	removeSessionItem("wave");
-	removeSessionItem("score");
-  </script>
+  <script src="scripts/endGame.js"></script>
   
   </head>
   <body>
