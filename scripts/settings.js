@@ -65,7 +65,7 @@ function updateSettings() {
 	if (getSessionItem("bgm") == 0) {
 		bgmWave.volume = 0;
 		bgmInfini.volume = 0;
-		//bgmPony.volume = 0;
+		MLPMusic.volume = 0;
 		
 		menuIntro.volume = 0;
 		birds.volume = 0;
@@ -74,7 +74,7 @@ function updateSettings() {
 	} else {
 		bgmWave.volume = 1;
 		bgmInfini.volume = 1;
-		//bgmPony.volume = 1;
+		MLPMusic.volume = 1;
 		
 		menuIntro.volume = 1;
 		birds.volume = 1;
