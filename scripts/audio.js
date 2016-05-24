@@ -1,6 +1,7 @@
 /* holds audio objects */ 
 console.log("audio loaded");
-
+// main menu
+var menuIntro = new Audio("audio/menuIntro.mp3");
 // game over 
 var zWantBrains = new Audio("audio/zWantBrains.mp3");
 var playerDie = new Audio("audio/playerDie.mp3");
@@ -8,7 +9,7 @@ var playerDie = new Audio("audio/playerDie.mp3");
 // bullet queue red button 
 var nextBullet = new Audio("audio/nextBullet.mp3"); 
 
-// wave starts aka "dino scream"
+// next wave starts
 var nextWave = new Audio("audio/nextWave.mp3"); 
 
 // zombies 
