@@ -17,6 +17,7 @@ function toggleBGM() {
 		createSessionItem("bgm", 1);
 	}
 	updateSettings();
+	setToggles();
 }
 
 function toggleSFX() {
@@ -26,6 +27,7 @@ function toggleSFX() {
 		createSessionItem("sfx", 1);
 	}
 	updateSettings();
+	setToggles();
 }
 
 function toggleColourblind() {
@@ -35,6 +37,7 @@ function toggleColourblind() {
 		createSessionItem("colourblind", 1);
 	}
 	updateSettings();
+	setToggles();
 }
 
 function setDefaultSettings() {
@@ -51,6 +54,8 @@ function setDefaultSettings() {
 	if (getSessionItem("colourblind") == null) {
 		createSessionItem("colourblind", 0);
 	}
+	updateSettings();
+	setToggles();
 }
 
 function updateSettings() {
@@ -138,9 +143,5 @@ function setToggles() {
 
 $(document).ready(function(){
 	// Sets default settings when pages are loaded if nothing is set yet.
-	setDefaultSettings();
-	
 	updateSettings();
-	
-	setToggles();
 });
