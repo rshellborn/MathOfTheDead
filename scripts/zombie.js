@@ -55,7 +55,7 @@ $(document).ready(function(){
 		var health = health;
 		
 		// Speed of the zombie
-		var speed = zombieSpeed;
+		var speed = enemySpeed;
 		// Used the calculate score that will be awarded for killing this zombie
 		var maxHealth = Math.abs(health);
 		
