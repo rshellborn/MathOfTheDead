@@ -11,7 +11,7 @@
 */
 function toggleBGM() {
 	if(getSessionItem("bgm") == 1) {
-		console.log('turnging bgm off');
+		console.log('turning bgm off');
 		createSessionItem("bgm", 0);
 	} else {
 		createSessionItem("bgm", 1);
@@ -44,6 +44,7 @@ function setDefaultSettings() {
 	}
 	
 	if (getSessionItem("sfx") == null) {
+		console.log('setting sfx');
 		createSessionItem("sfx", 1);
 	}
 	
@@ -65,13 +66,38 @@ function updateSettings() {
 		birds.volume = 0;
 		bird.volume = 0;
 		menuBGM.volume = 0;
+	} else {
+		bgmWave.volume = 1;
+		bgmInfini.volume = 1;
+		//bgmPony.volume = 1;
+		
+		menuIntro.volume = 1;
+		birds.volume = 1;
+		bird.volume = 1;
+		menuBGM.volume = 1;
 	}
 	
 	/*
 		Checks sound effects.
 	*/
 	if (getSessionItem("sfx") == 0) {
-		// Turn of sound effects here
+		zWantBrains.volume = 0;
+		playerDie.volume = 0;
+		nextBullet.volume = 0;
+		nextWave.volume = 0;
+		zDie.volume = 0;
+		zStillAlive.volume = 0;
+		shot.volume = 0;
+		gunSelect.volume = 0;
+	} else {
+		zWantBrains.volume = 1;
+		playerDie.volume = 1;
+		nextBullet.volume = 1;
+		nextWave.volume = 1;
+		zDie.volume = 1;
+		zStillAlive.volume = 1;
+		shot.volume = 1;
+		gunSelect.volume = 1;
 	}
 	
 	/*
@@ -86,6 +112,28 @@ function updateSettings() {
 		var colourCss = document.getElementById("css");
 		colourCss.setAttribute('href', "css/styles.css");
 	}	
+	
+	console.log('bgm=' + getSessionItem("bgm") + ' || sfx=' + getSessionItem("sfx") + ' || colourblind=' + getSessionItem("colourblind"));
+}
+
+function setToggles() {
+	if(getSessionItem("bgm") == 1) {
+		document.getElementById("BGMSwitch").checked = true;
+	} else {
+		document.getElementById("BGMSwitch").checked = false;
+	}
+	
+	if(getSessionItem("sfx") == 1) {
+		document.getElementById("soundEffectSwitch").checked = true;
+	} else {
+		document.getElementById("soundEffectSwitch").checked = false;
+	}
+	
+	if(getSessionItem("colourblind") == 1) {
+		document.getElementById("colourBlindSwitch").checked = true;
+	} else {
+		document.getElementById("colourBlindSwitch").checked = false;
+	}
 }
 
 $(document).ready(function(){
@@ -94,5 +142,5 @@ $(document).ready(function(){
 	
 	updateSettings();
 	
-	console.log('bgm=' + getSessionItem("bgm") + ' || sfx=' + getSessionItem("sfx") + ' || colourblind=' + getSessionItem("colourblind")); 
+	setToggles();
 });
