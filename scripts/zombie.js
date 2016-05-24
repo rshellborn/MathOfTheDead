@@ -408,19 +408,24 @@ $(document).ready(function(){
 		  // Checks if easter egg is to be triggered.
 		  // Only triggers once per game in Infinite Wave mode.
 		  //infinityCheck();
-		  if(currentBullet == 0 && easterEggThisWave && mode == 1) {		
-			score += 5;
-			triggerEasterEgg();
-		  }
-		  if(currentBullet == 0 && mode == 0) {
-		  	health = health / 1;
-		  } 
-		  else if(currentBullet > health) {
-		  	health = health / 1;
-		  }
-		  else if(currentBullet < health) {
-			health = Math.ceil(health / currentBullet);
-			console.log("new health: " + health);
+		  if(currentBullet == 0) { 
+			if(easterEggThisWave && mode == 1) {		
+			  score += 5;
+			  triggerEasterEgg();
+			} else if(mode == 0) {
+			  health = health / 1;
+			} 
+		  } else {
+			if(currentBullet > health) {
+			  console.log('health smaller');
+			  health = health / 1;
+			} else if(currentBullet < health) {
+			  console.log('health bigger');
+			  //health = Math.ceil(health / currentBullet);
+			  health = parseInt(health / currentBullet);
+			  console.log(health + '/' + currentBullet);
+			  console.log("new health: " + health);
+			}
 		  }
 		}
 	
