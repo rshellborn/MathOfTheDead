@@ -17,6 +17,8 @@ var queueDiff;
 // the maximum amount of zeros allowed to generate. Used to make sure players don't just
 // spam the queue looking for zero's 
 var maxZero;
+// speed of the zombies
+var zombieSpeed = 0.03;
 
 // Number of ponies spawned in easter egg mode
 var numOfPonies = 3;

@@ -70,10 +70,9 @@ var insane = {
 
 /* Infinite Mode difficulty. */
 var infinite = {
-	healthDiff: 12,
-	queueDiff: 10,
+	healthDiff: 10,
+	queueDiff: 6,
 	maxZero: 10,
-	//maxSpeed,
 	
 	wave1: {
 		numOfZombies: 5
