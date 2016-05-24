@@ -127,6 +127,6 @@ function randomID() {
 	Triggers achievement modal
 */
 function triggerAchievement() {
-	$('#achievementModal').modal({backdrop: 'static', keyboard: false});
+	$('#achievementModal').modal({backdrop: 'static', backdrop: false, keyboard: false});
 	setTimeout(function(){ $('#achievementModal').modal('hide') }, 3000);
 }
