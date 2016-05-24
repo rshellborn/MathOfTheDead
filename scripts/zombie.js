@@ -182,7 +182,9 @@ $(document).ready(function(){
 			createSessionItem("wave", wave);
 			
 			// Creates session variable that 10 Wave Completed achievement is triggered
-			createSessionItem("10wave", 1);
+			if (getSessionItem("10wave") == null) {
+				createSessionItem("10wave", 1);
+			}
 			
 			// Transitions to you win screen
 			fadeEnd("youWin.html");
@@ -288,7 +290,7 @@ $(document).ready(function(){
 			  console.log('Total kills=' +totalKills);
 			  
 			  // Checks if 50 kills in infinite mode achievement is unlocked
-			  if(totalKills == 50) {
+			  if(totalKills == 50 && getSessionItem("50kills") == null) {
 				// Creates session variable that 10 Wave Completed achievement is triggered
 				createSessionItem("50kills", 1);
 				triggerAchievement();
@@ -454,8 +456,10 @@ $(document).ready(function(){
 			createSessionItem("wave", wave);
 			
 			// Award tutorial completed achievement
-			createSessionItem("egg", 1);
-			console.log(getSessionItem("egg") + '-egg');
+			if (getSessionItem("egg") == null) {
+			  createSessionItem("egg", 1);
+			  console.log(getSessionItem("egg") + '-egg');
+			}
 			
 			// Changes CSS file
 			var egg = document.getElementById("css");
