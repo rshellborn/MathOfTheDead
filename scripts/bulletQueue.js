@@ -5,7 +5,9 @@
 
 // removed globals
 //var waveCounter = 0;
-//var bMode = getSessionItem("mode");
+$(document).ready(function(){
+	var bMode = getSessionItem("mode");
+});
 /*
 	Sets the maximum number of zeroes and the range of numbers the bullet queue should generate for 
 	the wave depending on the difficulty settting.
