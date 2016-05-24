@@ -316,6 +316,7 @@ div.EOGWavedisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the container size, font properties, and centering text of the score in the end of game screen */
 div.EOGScoredisplay{
@@ -329,6 +330,7 @@ div.EOGScoredisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
