@@ -236,8 +236,10 @@ $(document).ready(function(){
 					$("#tutorialCompletedModal").modal('show');
 					
 					// Award tutorial completed achievement
-					createSessionItem("tutComplete", 1);
-					triggerAchievement();
+					if (getSessionItem("tutComplete") == null) {
+					  createSessionItem("tutComplete", 1);
+					  triggerAchievement();
+					}
 				}
 			},250);
 		}		

@@ -17,6 +17,8 @@ var queueDiff;
 // the maximum amount of zeros allowed to generate. Used to make sure players don't just
 // spam the queue looking for zero's 
 var maxZero;
+// speed of the zombies
+var enemySpeed = 0.03;
 
 // Number of ponies spawned in easter egg mode
 var numOfPonies = 3;
@@ -59,8 +61,8 @@ var easterEggThisWave = 1;
 var zeroCount = 0;
 /* Stores the current value of the randomly generated number.*/
 var value;
-/* Stores the max health range of bullet queue values that can be generated for that specific wave.*/
-var maxHealth;
+/* Stores the max range of bullet queue values that can be generated for that specific wave.*/
+var maxRange;
 /* Stores the maximum number of 0 values that can be generated for that wave.*/
 var maxNumZeroes;
 
@@ -125,6 +127,6 @@ function randomID() {
 	Triggers achievement modal
 */
 function triggerAchievement() {
-	$('#achievementModal').modal({backdrop: 'static', keyboard: false});
+	$('#achievementModal').modal({backdrop: 'static', backdrop: false, keyboard: false});
 	setTimeout(function(){ $('#achievementModal').modal('hide') }, 3000);
 }
