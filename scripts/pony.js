@@ -4,6 +4,8 @@
 */
 
 $(document).ready(function(){
+	// audio
+	MLPMusic.play(); 
 	// Holds pony image name 
 	var ponyImage;
 	
@@ -389,6 +391,8 @@ $(document).ready(function(){
 			Changes to easter egg mode
 		*/
 		function backToMainGame() {
+			// stop audio
+			MLPMusic.pause();
 			// Wipes all zombies
 			wipeAll();
 			
