@@ -18,14 +18,7 @@
   <script src="scripts/tutorial/buttons.js"></script>
   <script src="scripts/tutorial/bulletQueue.js"></script>
   <script src="scripts/sessionVariables.js"></script>
-  
-  <script>
-	//activates tutorial modal
-  	$(document).ready(function(){
-        $('#tutorialModal').modal({backdrop: 'static', keyboard: false});
-    });
-  </script>
-  
+
 </head>
 <body>
 
@@ -66,7 +59,7 @@
 					<div class"text-center">
 						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restart)" >Restart Tutorial</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restartTutorial)" >Restart Tutorial</button>
 						<br /><br />
 						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
 					</div>
