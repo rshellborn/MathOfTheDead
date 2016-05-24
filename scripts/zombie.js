@@ -305,16 +305,20 @@ $(document).ready(function(){
 			document.getElementById("score").textContent=("Score: " + score);
 			
 			$( "#"+zomNum ).toggle( "bounce", { times: 1 }, "fast" );
-			// Removes the zombie
 			
 			setTimeout(function(){ 
+				// Removes the zombie
 				zs[zomNum].remove(); 
 				// Checks if the wave is complete and then changes the wave
 				if (killCount == spawnNum) {
-					// Increment wave
-					wave++;
-					if(!gameWon()) {
-						newWave();
+					if(mode == 0) {
+					  // Increment wave
+					  wave++;
+					  if(!gameWon()) {
+						  newWave();
+					  }
+					} else if (mode == 1) {
+						newWave();	
 					}
 				}
 			},250);
@@ -326,8 +330,8 @@ $(document).ready(function(){
 		/* ----------------------------------------START OF Hitting Zombies------------------------------------------ */
 		
 		/*
-		handler for onclick behavoir, if zombie's health is 0, it dies
-		 else, health is changed
+			Handler for onclick behaviour, if zombie's health is 0, it dies
+		 	else, health is changed
 		*/
 		this.hit = function(){
 			// Gunshot sound effect
@@ -412,7 +416,6 @@ $(document).ready(function(){
 		function diviOperation() {
 		  // Checks if easter egg is to be triggered.
 		  // Only triggers once per game in Infinite Wave mode.
-		  //infinityCheck();
 		  if(currentBullet == 0) { 
 			if(easterEggThisWave && mode == 1) {		
 			  score += 5;
@@ -475,13 +478,6 @@ $(document).ready(function(){
 	
 	
 	/* --------------------------------------START OF GAME------------------------------------- */
-	
-	function infinityCheck() {
-		if(mode == 0 && currentBullet == 0) {
-		  	health = (health / 1);
-		  }
-	}
-
 	// Checks the game mode 
 	if(mode == 0) {
 		// 0 is 10 Wave Mode
@@ -501,10 +497,12 @@ $(document).ready(function(){
 		Spawns zombies depending on the wave design
 	*/
 	function callWave(){
+		// Resets kill counter
+	  	killCount = 0;
 		var innerWave = 0;
 		for (i = 0; i < spawnNum; i++) {
 			zs[i] = new Zombie(genHealth(), lanePlacement(i % 4), i, yRandom(innerWave));  
-			// onclick handel 
+			// onclick handle
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
 			if (i % 4 == 3) {
 				innerWave++;
@@ -531,8 +529,6 @@ $(document).ready(function(){
 	  changeWaveDesign();
 	  
 	  document.getElementById("wave").textContent=("Wave " + wave);
-	  // resets kill counter
-	  killCount = 0;
 	}
 	
 	/*
@@ -548,9 +544,9 @@ $(document).ready(function(){
 	*/
 	function newWave() {
 		if(mode == 0) {
-			changeWave();	
+			changeWave();
 		} else if(mode == 1) {
-			callWave();	
+			callWave();
 		}
 	}
 	
