@@ -504,6 +504,17 @@ div.achievementInfo{
 	padding-left: 5%;
 	border: 1px black solid ;
 }
+div.achievementInfoUnlocked {
+	width:80%;
+	min-width: 80%;
+	max-width: 80%;
+	min-height: 25%;
+	max-height: 25%;
+	height: 25%;
+	padding-left: 5%;
+	border: 1px black solid ;
+	color: white;	
+}
 div.space{
 	width: 100%;
 	height: 5%;
@@ -839,4 +850,8 @@ div.space{
 	div.achievementInfo h1{
 		font-size: 1.5em;
 	}
+	div.achievementInfoUnlocked h1{
+		font-size: 1.5em;
+	}
+}
 <!-- End of responsive styling -->
