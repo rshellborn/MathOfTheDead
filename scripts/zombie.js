@@ -442,6 +442,7 @@ $(document).ready(function(){
 			
 			// Award tutorial completed achievement
 			createSessionItem("egg", 1);
+			console.log(getSessionItem("egg") + '-egg');
 			
 			// Changes CSS file
 			var egg = document.getElementById("css");
