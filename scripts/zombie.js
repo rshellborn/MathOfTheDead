@@ -290,9 +290,9 @@ $(document).ready(function(){
 			  console.log('Total kills=' +totalKills);
 			  
 			  // Checks if 50 kills in infinite mode achievement is unlocked
-			  if(totalKills == 50 && getSessionItem("50kills") == null) {
+			  if(totalKills == 25 && getSessionItem("kills") == null) {
 				// Creates session variable that 10 Wave Completed achievement is triggered
-				createSessionItem("50kills", 1);
+				createSessionItem("kills", 1);
 				triggerAchievement();
 			  }
 			}
