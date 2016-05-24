@@ -446,26 +446,50 @@ div.achievementImage{
 	border: 1px black solid;
 
 }
-div.tutorialAchievement{
+div.lockedAchievementTut{
 	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.lockedAchievementSurvivor{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.lockedAchievementPony{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.lockedAchievementSlayer{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.tutorialAchievement{
+	background: url("../images/trophies/tutorial.png");
     background-size: contain;
 	background-repeat: no-repeat;
     background-position: center;
 }
 div.survivorAchievement{
-	background: url("../images/trophies/notUnlocked.png");
+	background: url("../images/trophies/10wave.png");
     background-size: contain;
 	background-repeat: no-repeat;
     background-position: center;
 }
 div.easterEggAchievement{
-	background: url("../images/trophies/notUnlocked.png");
+	background: url("../images/trophies/pony.png");
     background-size: contain;
 	background-repeat: no-repeat;
     background-position: center;
 }
 div.slayerAchievement{
-	background: url("../images/trophies/notUnlocked.png");
+	background: url("../images/trophies/50kill.png");
     background-size: contain;
 	background-repeat: no-repeat;
     background-position: center;
