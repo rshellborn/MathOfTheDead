@@ -303,6 +303,11 @@ $(document).ready(function(){
 			
 			// Assigns the score based on the maximum health the zombie had reached
 			score += maxHealth;
+			// makes the score glow, indicating score increase
+			document.getElementById("score").style.color = "grey";
+			window.setTimeout(
+				function(){document.getElementById("score").style.color = "white"},
+			800);
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			
@@ -315,7 +320,7 @@ $(document).ready(function(){
 				if (killCount == spawnNum) {
 					if(mode == 0) {
 					  // Increment wave
-					  wave++;
+					  	wave++;
 					  if(!gameWon()) {
 						  newWave();
 					  }

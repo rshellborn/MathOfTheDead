@@ -387,6 +387,11 @@ div.menuButtonHolder{
 	padding-top:8px;
 	padding-bottom:8px;
 }
+/*for score in game screen*/
+#score {
+	-webkit-transition: color 2s;
+	transition: color 2s;
+}
 /** Ensuring 0 padding of scores div.*/
 div.scores{
 	padding:0;
