@@ -18,7 +18,7 @@ var queueDiff;
 // spam the queue looking for zero's 
 var maxZero;
 // speed of the zombies
-var zombieSpeed = 0.03;
+var enemySpeed = 0.03;
 
 // Number of ponies spawned in easter egg mode
 var numOfPonies = 3;
