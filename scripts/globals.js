@@ -82,12 +82,32 @@ Tutorial globals
 */
 
 //holds values for links
-var restart = "tutorial.html";
+var restartTutorial = "tutorial.html";
 var menu = "mainMenu.html";
+
+/**
+youWin globals
+*/
+var restartYouWin = "gameScreen.html";
+
+/**
+mainMenu globals
+*/
+
+var tutorial = "tutorial.html";
+var leaderboard = "leaderboard.html";
 var login = "login.html";
 
+/**
+gameScreen globals
+*/
+var restartGame = "gameScreen.html";
 
+/**
+endOfGame globals
+*/
 
+var restartEnd = "gameScreen.html";
 /*
 Generates a random ID
 */
