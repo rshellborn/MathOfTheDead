@@ -4,7 +4,8 @@
 */
 
 // removed globals
-
+//var waveCounter = 0;
+//var bMode = getSessionItem("mode");
 /*
 	Sets the maximum number of zeroes and the range of numbers the bullet queue should generate for 
 	the wave depending on the difficulty settting.
@@ -100,6 +101,10 @@ function updateRandomBullet(){
  */
 $(document).ready(function() {
 	var queue = document.getElementById('queue0');
+	if (wave == 1 && killCount == 4) {
+		alert("infinity");
+		alert(killCount);
+	}
 
 	setQueueRange();
 	generateQueue();
