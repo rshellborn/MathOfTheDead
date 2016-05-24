@@ -548,6 +548,7 @@ $(document).ready(function(){
 	*/
 	function newWave() {
 		if(mode == 0) {
+			nextWave.play(); 
 			changeWave();	
 		} else if(mode == 1) {
 			callWave();	
