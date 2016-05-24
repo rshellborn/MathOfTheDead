@@ -6,7 +6,8 @@
 $(document).ready(function(){
 	// Sets initial score to 0
 	score = 0;
-	
+	//activates tutorial modal
+	$('#tutorialModal').modal({backdrop: 'static', keyboard: false});
 	// Displays score on the screen
 	document.getElementById("score").textContent=("Score: " + score);
 	// Displays wave on the screen
