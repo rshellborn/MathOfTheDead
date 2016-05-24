@@ -1,0 +1,869 @@
+@import url(https://fonts.googleapis.com/css?family=Nosifer);
+
+html,body {
+	min-height: 100%;
+	max-height: 100%;
+	height:100%;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+24,1+24,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 24%, rgba(0,0,0,0) 100%), url("../images/colourblind/background.jpg"); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/colourblind/background.jpg"); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 24%,rgba(0,0,0,0) 100%), url("../images/colourblind/background.jpg"); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	background-size: 100% 100%;
+	margin: 0;
+    padding: 0;
+	overflow: hidden;
+}
+
+body {
+  opacity: 0;
+}
+
+#dottedLine {
+	border: 3px dashed white;
+	position: relative;
+	width: 100%;
+	margin-top: 0;
+	padding:0;
+	margin-bottom: 0;
+}
+
+/* BOOTSTRAP MADNESS */
+/** Outer container that holds all divs and elements*/
+div.special {
+	min-height: 100%;
+	max-height: 100%;
+	height:100%;
+	padding:0;
+}
+div.specialrow {
+	min-height: 100%;
+	max-height: 100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+/** Setting playable space in the game screen to 65% of screen size.*/
+div.lawns{
+	margin: 0;
+    padding: 0;
+	min-height: 65%;
+	height:65%;
+	max-height: 65%;
+}
+/** Top bar of game screen containing the pause, wave #, and score.*/
+div.topBar{
+	border: 1px solid;
+	max-width: 50%;
+	min-height: 5%; /** might need to change this*/
+    background-color: #333;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Making the pause button #03C.*/
+div.pauseButton{
+	background-color:#03C;
+	z-index: 2;
+}
+/** Setting the image of the bullet queue to a bullet image to fir container.*/
+div.queue{
+	background: url("../images/bulletv2.png");
+	background-size: 100% 100%;
+	border: 1px solid #FFF; 
+	min-height: 10%;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the image of the current bullet in the bullet queue to a different background color.*/
+div.currentQueue{
+	background: url("../images/bullet.png");
+	background-size: 100% 100%;
+	background-color:#03C; 
+	border: 1px solid #FFF; 
+	min-height: 10%;
+	padding: 0; 
+	z-index: 2; 
+}
+/** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
+div.thisQueue{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 4.0em;
+	padding-right: 20%;
+	z-index: 2;
+	
+	/** Making contents inside div cente#03C*/
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+/** Centering the bullet queue value in the rest of the queue to a smaller font size and centering it.*/
+div.insideQueue{
+	position: absolute;
+	min-height: 100%;
+	min-width: 100%;
+	
+	/** Making contents inside div cente#03C*/
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+
+	background: none;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+
+	padding-right: 20%;
+}
+/** Setting the height of the gun bar to only 20% of screen size.*/
+div.gunsBar{
+	min-height: 20%;
+	max-height: 20%;
+	height: 20%;
+	padding:0;
+	z-index: 2;
+}
+/** Setting the background color of each gun to #03C. */
+div.guns{
+	border: 1px solid #FFF;
+	background-color: #03C;
+	height: 100%;
+}
+/** Setting the background color of the selected gun to grey. */
+div.guns.clicked{
+	border: 1px solid #FFF;
+	background-color: #CCC;
+}
+/** Setting the background image of the plus gun.*/
+div.plus{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/plusGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+/** Setting the background image of the minus gun.*/
+div.minus{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/subGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+/** Setting the background image of the multiply gun.*/
+div.multiply{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/multiGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+/** Setting the background image of the divide gun.*/
+div.divide{
+	height:100%;
+	width: 100%;
+	background: url("../images/guns/diviGun.png");
+	background-size: 100% 100%;
+	padding: 0;
+}
+/** Setting the font-size, font-family, and color of the game over text in the gameOver screen.*/
+div.youDiedTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the font-size, font-family, and color of the you win text in the you win page.*/
+div.youWonTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the font-size, font-family, and color of the congrats text in the you win page.*/
+div.congrats{
+	width: 100%;
+	min-height: 20%;
+	color: white;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the font properties of the login screen. */
+div.enterNameTitle{
+	width: 100%;
+	min-height: 40%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the size of the input field for the name in the login screen. */
+input[type=text] {
+	width:100%;
+    padding: 1px;
+	z-index: 2;
+}
+/** Setting the font properties of the leaderboard title in the leaderboard screen.*/
+div.leaderBoardTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+	height: 20%;
+	z-index: 2;
+}
+/** Setting the size of the leaderboard screen.*/
+div.leaderboardContainer{
+	width: 50%;
+	height: 65%;
+	padding: 0;
+	margin-left: 25%;
+	z-index: 2;
+}
+/** Setting the height of the container containing the leaderboard title of the leaderboard screen. */
+div.leaderboardDisplay{
+	width:100%;
+	height: 10%;
+	background: grey;
+	border: 1px solid black;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the font properties of the rank in the leaderboard.*/
+div.leaderBoardRank{
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
+}
+/** Setting the font properties of the user names in the leaderboard.*/
+div.leaderBoardUserName{
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
+}
+/** Setting the font properties of the wave numbers in the leaderboard.*/
+div.leaderBoardWave{
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
+}
+/** Setting the font properties of the scores in the leaderboard.*/
+div.leaderBoardScore{
+	vertical-align: middle;
+	text-align: right;
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+	padding: 0;
+	padding-right: 3%;
+}
+/** Setting the container of the login name input field.*/
+div.nameSignIn{
+	width:100%;
+	z-index: 2;
+}
+/** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
+div.EOGWavedisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+}
+/** Setting the container size, font properties, and centering text of the score in the end of game screen */
+div.EOGSco#03Cisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	text-align: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+}
+/** Setting the text properties of the main menu title and container size to 35% of screen size.*/
+div.mainMenu{
+	width: 100%;
+	min-height: 25%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.5em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the text properties of the next wave */
+#NW{
+	width: 100%;
+	min-height: 20%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.75em;
+	text-align: center;
+	padding: 0;
+}
+/** Setting the text properties of the next wave*/
+#youWin{
+	width: 100%;
+	min-height: 20%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.75em;
+	text-align: center;
+	padding: 0;
+}
+/** Sets the game over button container size to 15% of screen size.*/
+div.buttonHolder{
+	min-height: 15%;
+	max-height: 15%;
+	z-index: 2;
+}
+/** Sets the main menu button container size to 15% of screen size.*/
+div.menuButtonHolder{
+	min-height: 15%;
+	max-height: 15%;
+	z-index: 2;
+}
+/** General buttons styling.*/
+.btn.sharp {
+	border-radius:0;
+	background: #03C;
+	border: solid black;
+	color: black;
+	width: 100%;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 3.0em;
+	padding-top:8px;
+	padding-bottom:8px;
+}
+/** Ensuring 0 padding of scores div.*/
+div.scores{
+	padding:0;
+}
+/** Ensuring no duplicate background in nesting divs.*/
+div.insideQueue{
+	background: none;
+}
+/** Setting the space between the game title in the main menu screen and the buttons to 20% of screen size.*/
+div.emptySpace{
+	min-height: 15%;
+	max-height: 15%;
+}
+/** Setting the font properties of the start wave text.*/
+#startWave{
+	min-width: 40%;
+	width: 40%;
+	max-width: 40%;
+	top:32%;
+	left: 5%;
+	height: 36%;
+	min-height: 36%;
+	max-height: 36%;
+	padding: 0;
+
+}
+/** Styling the Start Wave button in the tutorial screen. */
+.btn.tutorial{
+	width: 100%;
+	height:100%;
+	padding: 0;
+	background: #03C;
+	
+	text-align: center;	
+	color: white;
+	font: Arial, Helvetica, sans-serif;
+	font-size: 2.0em;
+}
+
+
+/** Achievements Page Styling.*/
+div.achievementTitle{
+	width: 100%;
+	height:20%;
+	padding: 0;
+	
+	text-align: center;	
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+}
+div.achievementsContainer{
+	height: 60%;
+	min-height: 60%;
+	max-height: 60%;
+	width: 60%;
+	min-width:60%;
+	max-width: 60%;
+	margin-left: 20%;
+	padding:0;
+	background: grey;
+}
+div.achievementImage{
+	width:20%;
+	min-width: 20%;
+	max-width: 20%;
+	min-height: 25%;
+	max-height: 25%;
+	height: 25%;
+	border: 1px black solid;
+
+}
+div.lockedAchievementTut{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.lockedAchievementSurvivor{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.lockedAchievementPony{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.lockedAchievementSlayer{
+	background: url("../images/trophies/notUnlocked.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.tutorialAchievement{
+	background: url("../images/trophies/tutorial.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.survivorAchievement{
+	background: url("../images/trophies/10wave.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.easterEggAchievement{
+	background: url("../images/trophies/pony.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.slayerAchievement{
+	background: url("../images/trophies/50kill.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.achievementInfo{
+	width:80%;
+	min-width: 80%;
+	max-width: 80%;
+	min-height: 25%;
+	max-height: 25%;
+	height: 25%;
+	padding-left: 5%;
+	border: 1px black solid ;
+}
+div.achievementInfoUnlocked {
+	width:80%;
+	min-width: 80%;
+	max-width: 80%;
+	min-height: 25%;
+	max-height: 25%;
+	height: 25%;
+	padding-left: 5%;
+	border: 1px black solid ;
+	color: white;	
+}
+div.space{
+	width: 100%;
+	height: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- modal pause menu stuff -->
+#PauseModal{
+	background: black;
+	text-align: center;
+}
+.modal-content{
+	background: black;	
+	color: white;
+}
+.modal-title {
+	width: 100%;
+	min-height: 10%;
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.0em;
+	text-align: center;
+	vertical-align: bottom;
+	padding: 0;
+}
+.modal-backdrop{	
+	/*uncomment this after javascript stops executing*/
+    /*opacity:1.0 !important;*/
+}
+##03CT {
+	color: #03C;
+}
+<!-- End of modal stuff-->
+
+<!-- Beginning of setting responsive design for different screen sizes -->
+@media only screen and (min-width : 1200px){
+	div.container{
+		max-height: 100%;
+		min-width: 100%;
+		border: none;
+	}
+	div.emptySpace{
+		min-height: 15%;
+	}
+}
+@media only screen and (min-width: 993px) and (max-width: 1199px){
+	div.mainMenu{
+		min-height: 20%;
+		font-size: 5.0em;
+	}
+	.btn.sharp{
+		min-height: 10%;
+		height: 10%;
+		max-height: 10%;
+	}
+	#startWave{
+		min-width: 60%;
+		width: 60%;
+		max-width: 60%;
+		height: 36%;
+		min-height: 36%;
+		max-height: 36%;
+		padding: 0;
+		top:32%;
+		left: 20%;
+	}
+	.btn.tutorial{
+		width: 100%;
+		height:100%;
+		padding: 0;
+		background: #03C;
+		
+		text-align: center;	
+		color: white;
+		font: Arial, Helvetica, sans-serif;
+		font-size: 2.0em;
+	}
+	div.achievementsContainer{
+		width: 66%;
+		min-width:66%;
+		max-width: 66%;
+		margin-left: 17%;
+		padding:0;
+	}
+	div.achievementTitle{
+		font-size: 5.0em;
+	}
+	
+	
+}
+@media only screen and (max-width : 992px) {
+	div.container{
+		max-width: 80%;
+	}
+	div.emptySpace{
+		min-height: 26%;
+	}
+	div.mainMenu{
+		min-height: 20%;
+		font-size: 4.0em;
+	}
+	div.topBar{
+		font-size: 1.8em;
+	}
+	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	div.youWonTitle{
+		font-size: 4.5em;
+	}
+	div.congrats{
+		font-size: 2.5em;
+	}
+	div.nextWave{
+		font-size: 4.0em;
+	}
+	div.menuButtonHolder{
+		min-height: 12%;
+		max-height: 12%;
+	}
+	.btn.sharp {
+		font-size: 2.5em;
+	}
+	div.thisQueue{
+		font-size: 3.5em;
+		top: 0%;
+		left: 0;
+		padding-right: 25%;
+	}
+	div.EOGWavedisplay{
+		font-size: 2.5em;
+	}
+	div.EOGSco#03Cisplay{
+		font-size: 2.5em;
+	}
+	.modal { 
+		position: fixed; 
+		top: 20px !important; 
+		right: 3%; 
+		left: 3%;
+		width: auto; 
+		margin: 0; 
+	}
+	.modal-title {
+		font-size: 3.5em;
+	}
+	div.leaderBoardTitle{
+		font-size: 3.5em;
+	}
+	div.leaderboardContainer{
+		width: 100%;
+		margin: 0;
+	}
+	#startWave{
+		min-width: 80%;
+		width: 80%;
+		max-width: 80%;
+		height: 36%;
+		min-height: 36%;
+		max-height: 36%;
+		padding: 0;
+		top:32%;
+		left: 10%;
+	}
+	.btn.tutorial{
+		width: 100%;
+		height:100%;
+		padding: 0;
+		background: #03C;
+		
+		text-align: center;	
+		color: white;
+		font: Arial, Helvetica, sans-serif;
+		font-size: 2.0em;
+	}
+	
+	div.achievementsContainer{
+		width: 100%;
+		min-width:100%;
+		max-width: 100%;
+		margin-left: 0%;
+		padding:0;
+	}
+	div.achievementTitle{
+		height: 15%;
+		min-height: 15%;
+		max-height: 15%;
+		font-size: 4.5em;
+	}
+}
+@media only screen and (max-width: 768px) {
+	div.container{
+		max-width: 100%;
+		min-height: 100%;
+	}
+	div.emptySpace{
+		min-height: 35%;
+	}
+	div.topBar{
+		font-size: 1.5em;
+	}
+	div.youDiedTitle{
+		font-size: 4.5em;
+	}
+	div.youWonTitle{
+		font-size: 4.5em;
+	}
+	div.congrats{
+		font-size: 1.5em;
+	}
+	div.mainMenu{
+		font-size: 3.0em;
+	}
+	div.nextWave{
+	font-size: 4.0em;
+	}
+	.btn.sharp {
+		font-size: 2.0em;
+	}
+	div.displayPanel{
+		font-size: 2.0em;
+	}
+	div.thisQueue{
+		font-size: 3.0em;
+		padding-right: 25%;
+	}
+	div.lawns{
+		min-height: 70%;
+		max-height: 70%;
+		height: 70%;
+	}
+	div.gunsBar{
+		min-height: 15%;
+		max-height: 15%;
+		height: 15%;
+	}
+	div.EOGWavedisplay{
+		font-size: 2.5em;
+	}
+	div.EOGSco#03Cisplay{
+		font-size: 2.5em;
+	}
+	.modal { 
+		position: fixed; 
+		top: 20px !important; 
+		right: 3%; 
+		left: 3%;
+		width: auto; 
+		margin: 0; 
+	}
+	.modal-title {
+		font-size: 2.5em;
+	}
+	div.leaderBoardTitle{
+		min-height: 15%;
+		height: 15%;
+		max-height: 15%;
+		font-size: 2.6em;
+	}
+	div.leaderboardContainer{
+		margin-left: 10%;
+		width: 80%;
+	}
+	div.leaderBoardRank{
+		font-size: 1.5em;
+	}
+	div.leaderBoardUserName{
+		font-size: 1.5em;
+	}
+	div.leaderBoardWave{
+		font-size: 1.5em;
+	}
+	div.leaderBoardScore{
+		font-size: 1.5em;
+	}
+	#startWave{
+		min-width: 80%;
+		width: 80%;
+		max-width: 80%;
+		height: 36%;
+		min-height: 36%;
+		max-height: 36%;
+		padding: 0;
+		margin-left: 10%;
+		margin-top: 32%;
+		top:0;
+		left: 0;
+	}
+	.btn.tutorial{
+		width: 100%;
+		height:100%;
+		padding: 0;
+		background: #03C;
+		
+		text-align: center;	
+		color: white;
+		font: Arial, Helvetica, sans-serif;
+		font-size: 2.0em;
+	}
+	div.achievementsContainer{
+		width: 94%;
+		max-width: 94%;
+		min-width: 94%;
+		margin-left: 3%;
+	}
+	div.achievementTitle{
+		height: 12%;
+		min-height: 12%;
+		max-height: 12%;
+		font-size: 2.5em;
+	}
+	div.achievementInfo h1{
+		font-size: 1.5em;
+	}
+	div.achievementInfoUnlocked h1{
+		font-size: 1.5em;
+	}
+}
+<!-- End of responsive styling -->
