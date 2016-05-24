@@ -315,7 +315,7 @@ $(document).ready(function(){
 				if (killCount == spawnNum) {
 					if(mode == 0) {
 					  // Increment wave
-					  wave++;
+					  	wave++;
 					  if(!gameWon()) {
 						  newWave();
 					  }

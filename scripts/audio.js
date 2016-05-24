@@ -1,7 +1,17 @@
 /* holds audio objects */ 
 console.log("audio loaded");
+
 // main menu
 var menuIntro = new Audio("audio/menuIntro.mp3");
+// heartBeat
+var birds = new Audio("audio/birds.mp3");
+var bird = new Audio("audio/bird.mp3");
+var menuBGM = new Audio("audio/menuBGM.mp3");
+
+// game-screen music
+var bgmWave = new Audio("audio/music/MichaelMyers.mp3");
+var bgmInfini = new Audio("audio/music/BroForce.mp3");
+
 // game over 
 var zWantBrains = new Audio("audio/zWantBrains.mp3");
 var playerDie = new Audio("audio/playerDie.mp3");
