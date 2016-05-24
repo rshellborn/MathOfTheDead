@@ -233,7 +233,7 @@ $(document).ready(function(){
 				zs[zomNum].remove(); 
 				// Checks if the wave is complete and then changes the wave
 				if (killCount == 3) {
-					$("#tutorialCompletedModal").modal('show');
+					$('#tutorialCompletedModal').modal({backdrop: 'static', keyboard: false});
 					
 					// Award tutorial completed achievement
 					if (getSessionItem("tutComplete") == null) {
