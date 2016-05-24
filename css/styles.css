@@ -187,6 +187,7 @@ div.youDiedTitle{
 	font-size: 6.0em;
 	text-align: center;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the font-size, font-family, and color of the you win text in the you win page.*/
 div.youWonTitle{
@@ -197,6 +198,7 @@ div.youWonTitle{
 	font-size: 5.0em;
 	text-align: center;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the font-size, font-family, and color of the congrats text in the you win page.*/
 div.congrats{
@@ -207,6 +209,7 @@ div.congrats{
 	font-size: 3.0em;
 	text-align: center;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the font properties of the login screen. */
 div.enterNameTitle{
@@ -217,11 +220,13 @@ div.enterNameTitle{
 	font-size: 6.0em;
 	text-align: center;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the size of the input field for the name in the login screen. */
 input[type=text] {
 	width:100%;
     padding: 1px;
+	z-index: 2;
 }
 /** Setting the font properties of the leaderboard title in the leaderboard screen.*/
 div.leaderBoardTitle{
@@ -233,6 +238,7 @@ div.leaderBoardTitle{
 	text-align: center;
 	padding: 0;
 	height: 20%;
+	z-index: 2;
 }
 /** Setting the size of the leaderboard screen.*/
 div.leaderboardContainer{
@@ -240,7 +246,7 @@ div.leaderboardContainer{
 	height: 65%;
 	padding: 0;
 	margin-left: 25%;
-
+	z-index: 2;
 }
 /** Setting the height of the container containing the leaderboard title of the leaderboard screen. */
 div.leaderboardDisplay{
@@ -249,6 +255,7 @@ div.leaderboardDisplay{
 	background: grey;
 	border: 1px solid black;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the font properties of the rank in the leaderboard.*/
 div.leaderBoardRank{
@@ -290,6 +297,7 @@ div.leaderBoardScore{
 /** Setting the container of the login name input field.*/
 div.nameSignIn{
 	width:100%;
+	z-index: 2;
 }
 /** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
 div.EOGWavedisplay{
@@ -331,6 +339,7 @@ div.mainMenu{
 	font-size: 5.5em;
 	text-align: center;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the text properties of the next wave */
 #NW{
@@ -356,11 +365,13 @@ div.mainMenu{
 div.buttonHolder{
 	min-height: 15%;
 	max-height: 15%;
+	z-index: 2;
 }
 /** Sets the main menu button container size to 15% of screen size.*/
 div.menuButtonHolder{
 	min-height: 15%;
 	max-height: 15%;
+	z-index: 2;
 }
 /** General buttons styling.*/
 .btn.sharp {
