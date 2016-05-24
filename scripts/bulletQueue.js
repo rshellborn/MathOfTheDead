@@ -3,11 +3,7 @@
 	(which determines the difficulty of the game) for the bullet queue.
 */
 
-// removed globals
-//var waveCounter = 0;
-$(document).ready(function(){
-	var bMode = getSessionItem("mode");
-});
+
 /*
 	Sets the maximum number of zeroes and the range of numbers the bullet queue should generate for 
 	the wave depending on the difficulty settting.
@@ -103,11 +99,13 @@ function updateRandomBullet(){
  */
 $(document).ready(function() {
 	var queue = document.getElementById('queue0');
-	if (wave == 1 && killCount == 4) {
-		alert("infinity");
-		alert(killCount);
+	var bMode = getSessionItem("mode");
+	if(bMode == 1) {
+		maxNumZeroes = 10;
+		if(killCount % 5 == 0) {
+			maxNumZeroes = 10; 
+		}
 	}
-
 	setQueueRange();
 	generateQueue();
 	currentBullet = bulletQueueValues[0];

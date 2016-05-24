@@ -421,10 +421,10 @@ $(document).ready(function(){
 			  health = health / 1;
 			} 
 		  } else {
-			if(currentBullet > health) {
+			if(Math.abs(currentBullet) > Math.abs(health)) {
 			  console.log('health smaller');
 			  health = health / 1;
-			} else if(currentBullet < health) {
+			} else if(Math.abs(currentBullet) <= Math.abs(health)) {
 			  console.log('health bigger');
 			  //health = Math.ceil(health / currentBullet);
 			  health = parseInt(health / currentBullet);
