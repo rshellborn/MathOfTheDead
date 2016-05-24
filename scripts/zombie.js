@@ -27,6 +27,11 @@ $(document).ready(function(){
 		wave = getSessionItem("wave");
 		score = parseInt(getSessionItem("score"));
 	}
+	/* Resets the wave and score if the page is reloaded. */
+	$(window).bind('beforeunload',function(){
+		wave = 1;
+		score = 0;
+	});
 	
 	// Displays score on the screen
 	document.getElementById("score").textContent=("Score: " + score);

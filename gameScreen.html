@@ -19,17 +19,6 @@
   <script src="scripts/audio.js"></script>
   <script src="scripts/sessionVariables.js"></script>
   
-  <script>
-  	/* Resets the wave and score if the page is reloaded. */
-	$(window).bind('beforeunload',function(){
-		wave = 1;
-		score = 0;
-	});
-  
-  //stores data for links
-  var restart = "gameScreen.html";
-  var menu = "mainMenu.html";
-  </script>
 </head>
 <body>
 	<!-- ACHIEVEMENTS MODAL THAT POPS UP -->
@@ -68,7 +57,7 @@
 					<div class"text-center">
 						<button id="resume" type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Resume</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restart)" >Restart</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restartGame)" >Restart</button>
 						<br /><br />
 						<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
 					</div>
