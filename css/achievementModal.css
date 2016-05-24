@@ -1,0 +1,94 @@
+#achievementModal{
+	margin:0;
+}
+.modal-dialog{
+	width: 200px;
+	height: 200px;
+	margin:0;
+}
+.modal-content{
+	width:100%;
+	height: 100%;
+}
+.modal-header{
+	padding: 5px;
+	height: 25%;
+}
+.modal-title{
+	font-size: 1.0em;
+}
+.modal-body{
+	height: 65%;
+	padding: 10px;
+	padding-bottom: 0;
+}
+.image{
+	width: auto;
+	height : auto;
+	max-height: 100%;
+	max-width: 100%;
+	margin:auto;
+}
+.modal-footer{
+	height: 5%;
+	padding: 0;
+}
+div.unlockedAchievementImage{
+	width: 100%;
+	height: 75%;
+}
+
+
+
+@media only screen and (min-width : 1200px){
+
+}
+@media only screen and (min-width: 993px) and (max-width: 1199px){
+	.modal-dialog{
+		width: 150px;
+		height: 150px;
+		margin:0;
+	}
+	.modal-title{
+		font-size: 0.8em;
+	}
+	.modal-body{
+		height: 65%;
+		padding: 10px;
+		padding-bottom: 0;
+		font-size: 0.7em;
+	}
+	
+}
+@media only screen and (max-width : 992px) {
+	.modal-dialog{
+		width: 125px;
+		height: 125px;
+		margin:0;
+	}
+	.modal-title{
+		font-size: 0.6em;
+	}
+	.modal-body{
+		height: 65%;
+		padding: 10px;
+		padding-bottom: 0;
+		font-size: 0.5em;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.modal-dialog{
+		width: 100px;
+		height: 100px;
+		margin:0;
+	}
+	.modal-title{
+		font-size: 0.5em;
+	}
+	.modal-body{
+		height: 65%;
+		padding: 10px;
+		padding-bottom: 0;
+		font-size: 0.4em;
+	}
+}
