@@ -100,16 +100,19 @@ function updateRandomBullet(){
 $(document).ready(function() {
 	var queue = document.getElementById('queue0');
 	var bMode = getSessionItem("mode");
-	if(bMode == 1) {
-		maxNumZeroes = 10;
-		if(killCount % 5 == 0) {
-			maxNumZeroes = 10; 
-		}
-	}
+
 	setQueueRange();
 	generateQueue();
 	currentBullet = bulletQueueValues[0];
 	queue.onclick = function() {
 		updateRandomBullet();
+		if(bMode == 1) {
+		//alert(maxNumZeroes);
+		if(killCount % 2 == 0) {
+			alert(maxNumZeroes);
+			resetZeroCounter();
+			
+		}
+	}
 	}
 });
