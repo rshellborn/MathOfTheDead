@@ -377,7 +377,7 @@ $(document).ready(function(){
 			  score += 5;
 			  backToMainGame();
 		  } else {
-			health = Math.ceil(health / currentBullet);
+			  health = parseInt(health / currentBullet);
 			console.log("new health: " + health);
 		  }
 		}
