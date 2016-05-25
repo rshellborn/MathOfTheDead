@@ -30,6 +30,8 @@ $(document).ready(function(){
 	// Initializes total amount kills to 0
 	var totalKills = 0;
 	
+	var zeroUsed = 0;
+	
 	/* Initializes wave and score. */
 	wave = 1;
 	score = 0;
@@ -247,13 +249,32 @@ $(document).ready(function(){
 		/* ----------------------------------------START OF Score Calculation------------------------------------------ */
 		
 		/*
-			Checks the health to determine the score for a zombie kill (Based on highest absolute value the health reaches)
+			Checks the health to determine the score for a zombie kill.
 		*/		
-		function checkMaxHealth() {
-		  if((Math.abs(health)) > maxHealth) {
-			maxHealth = Math.abs(health);
-			console.log('new max health= ' + maxHealth);
-		  }
+		function assignScore() {
+		  // Assigns the score based on the maximum health the zombie had reached
+			var maxHealthScore = 100;
+			//maxHealth = parseInt(Math.sqrt(maxHealth));
+			if(zeroUsed == 1) {
+				score += 5;
+			} else {
+			  if (maxHealth <= maxHealthScore) {
+				  score += maxHealth + (varietyBonus * 5);
+			  } else {
+				  score += maxHealthScore + (varietyBonus * 5);
+			  }
+			}
+		}
+		
+		/*
+			Makes the score glow in the top bar to indicate score increase.
+		*/
+		function scoreGlow() {
+			// makes the score glow, indicating score increase
+			document.getElementById("score").style.color = "#3399ff";
+			window.setTimeout(
+				function(){document.getElementById("score").style.color = "white"},
+			600);	
 		}
 		
 		/* ----------------------------------------END OF Score Calculation------------------------------------------ */
@@ -306,7 +327,6 @@ $(document).ready(function(){
 			if(mode == 1) {
 			  // Increments total amount of kills
 			  totalKills++;
-			  console.log('Total kills=' +totalKills);
 			  document.getElementById("zombiesLeft").textContent=(totalKills);	
 			  
 			  // Checks if 50 kills in infinite mode achievement is unlocked
@@ -324,20 +344,10 @@ $(document).ready(function(){
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
 			
-			// Assigns the score based on the maximum health the zombie had reached
-			var maxHealthScore = 100;
-			//maxHealth = parseInt(Math.sqrt(maxHealth));
-			if (maxHealth <= maxHealthScore) {
-				score += maxHealth + (varietyBonus * 5);
-			} else {
-				score += maxHealthScore + (varietyBonus * 5);
-			}
+			// Assigns score to the player for the zombie
+			assignScore();
 			
-			// makes the score glow, indicating score increase
-			document.getElementById("score").style.color = "#3399ff";
-			window.setTimeout(
-				function(){document.getElementById("score").style.color = "white"},
-			600);
+			scoreGlow();
 			
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
@@ -375,14 +385,12 @@ $(document).ready(function(){
 			// Gunshot sound effect
 			shot.play();
 			// Phone vibrates (hopefully)
-			if (navigator.vibrate) {
+			if (navigator.vibrate && getSessionItem("vibrate") == 1) {
 				console.log("vibrate");
 				navigator.vibrate(100);
 			}
 			// Checks which gun is selected
 			checkGun();
-			// Checks the maximum health of the zombie
-			checkMaxHealth();
 			// Updates bullet queue
 			updateRandomBullet();
 			// Updates health on the screen for the zombie
@@ -455,13 +463,17 @@ $(document).ready(function(){
 			Multiplies Operation
 		*/
 		function multiOperation() {
-			if(currentBullet == 0)
-				maxHealth = 5;
-			health = health * currentBullet;
+		  if(currentBullet == 0) {
+			  zeroUsed = 1;
+			  maxHealth = 5;
+		  	  health = health * currentBullet;
+		  } else {
 			if (!multGunUsed) {
 				multGunUsed = true;
 				varietyBonus += 1;
 			}
+		  }
+		  zeroUsed = 0;
 		}
 		
 		/*
@@ -470,7 +482,7 @@ $(document).ready(function(){
 		function diviOperation() {
 		  // Checks if easter egg is to be triggered.
 		  // Only triggers once per game in Infinite Wave mode.
-		  if(currentBullet == 0) { 
+		  if(currentBullet == 0) {
 			if(easterEggThisWave && mode == 1) {	
 			  score += 5;
 			  triggerEasterEgg();

@@ -30,6 +30,16 @@ function toggleSFX() {
 	setToggles();
 }
 
+function toggleVB() {
+	if(getSessionItem("vibrate") == 1) {
+		createSessionItem("vibrate", 0);
+	} else {
+		createSessionItem("vibrate", 1);
+	}
+	updateSettings();
+	setToggles();
+}
+
 function toggleColourblind() {
 	if(getSessionItem("colourblind") == 1) {
 		createSessionItem("colourblind", 0);
@@ -49,6 +59,11 @@ function setDefaultSettings() {
 	if (getSessionItem("sfx") == null) {
 		console.log('setting sfx');
 		createSessionItem("sfx", 1);
+	}
+	
+	if (getSessionItem("vibrate") == null) {
+		console.log('setting vibrate');
+		createSessionItem("vibrate", 1);
 	}
 	
 	if (getSessionItem("colourblind") == null) {
@@ -132,6 +147,12 @@ function setToggles() {
 		document.getElementById("soundEffectSwitch").checked = true;
 	} else {
 		document.getElementById("soundEffectSwitch").checked = false;
+	}
+	
+	if(getSessionItem("vibrate") == 1) {
+		document.getElementById("vibrateSwitch").checked = true;
+	} else {
+		document.getElementById("vibrateSwitch").checked = false;
 	}
 	
 	if(getSessionItem("colourblind") == 1) {
