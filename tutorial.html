@@ -145,7 +145,7 @@
 					<div class"text-center">
                         <p><b id="redT">Score is dependant on the highest absolute value you get the zombie to</b> and then kill it. For example if you get the zombies health to (-11) or 11, when you kill it your score will be 11 points for that zombie.</p>
                         <p>This allows you to use math to make a zombie worth more points <b id="redT">however, </b> the score you can get for one zombie will max out at 100. </p>
-                        <p>An added bonus of 20 points can be added to this 100 by using all four operation guns at least once on a single zombie!</p>
+                        <p>An added bonus of 5 points (in addition to 100) will be awarded for each operator gun you use!</p>
                     	<br /> <br />
 						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#dieModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
@@ -463,9 +463,13 @@
 	<!-- Beginning of Container housing all divs and elements -->
 	<div class="container special">
 		<div class ="row specialrow">
-			<a data-target="#pauseModal" data-backdrop="static" data-toggle="modal" href="#pause" onClick="stopZombies()">
-				<div id="pause" class="col-xs-4 col-lg-2 col-lg-offset-3 topBar pauseButton">Pause</div>
-			</a>
+			<div class="col-xs-4 col-lg-2 col-lg-offset-3 topBar ">
+				<a data-target="#myModal" data-backdrop="static" data-toggle="modal" href="#pause">
+					<div id="pause" class="col-xs-4 col-lg-6 pauseButton"><img src="images/pauseButton.png" alt="pause button"/></div>
+				</a>
+				<div class="col-xs-4 col-lg-2 zombieHead"><img src="images/favicon.png" alt="zombieHead" style="width:26px; height:26px;"/></div>
+				<div id="zombiesLeft" class="col-xs-4 col-lg-4 zombiesCounter"></div>
+			</div>
 			<div id="wave" class="col-lg-2 col-xs-4 topBar" ></div>
 			<div id="score" class="col-lg-2 col-xs-4 topBar" ></div>
 

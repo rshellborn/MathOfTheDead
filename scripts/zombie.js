@@ -324,9 +324,9 @@ $(document).ready(function(){
 			var maxHealthScore = 100;
 			//maxHealth = parseInt(Math.sqrt(maxHealth));
 			if (maxHealth <= maxHealthScore) {
-				score += maxHealth + (varietyBonus * 15);
+				score += maxHealth + (varietyBonus * 5);
 			} else {
-				score += maxHealthScore + (varietyBonus * 15);
+				score += maxHealthScore + (varietyBonus * 5);
 			}
 			
 			// makes the score glow, indicating score increase
@@ -370,6 +370,11 @@ $(document).ready(function(){
 		this.hit = function(){
 			// Gunshot sound effect
 			shot.play();
+			// Phone vibrates (hopefully)
+			if (navigator.vibrate) {
+				console.log("vibrate");
+				navigator.vibrate(100);
+			}
 			// Checks which gun is selected
 			checkGun();
 			// Checks the maximum health of the zombie
