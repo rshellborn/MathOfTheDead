@@ -59,7 +59,8 @@ div.pauseButton{
 }
 /** hover for pause button.*/
 div.pauseButton:hover{
-	background-color:#ff5544;
+	background-color:#dd2222;
+	color: #cccccc;
 }
 div.zombieHead{
 	height: 100%;
@@ -105,7 +106,8 @@ div.currentQueue{
 }
 /**hover for bullet*/
 div.currentQueue:hover{
-	background-color: #ff5544;
+	background-color: #dd2222;
+	color: #cccccc;
 }
 /** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
 div.thisQueue{
@@ -179,7 +181,8 @@ div.guns{
 }
 /** Hover for guns. */
 div.guns:hover{
-	background-color: #ff5544;
+	background-color: #dd2222;
+	color: #cccccc;
 }
 /** Setting the background color of the selected gun to grey. */
 div.guns.clicked{
@@ -452,7 +455,8 @@ div.menuButtonHolder{
 
 /** hover for buttons */
 .btn.sharp:hover {
-	background: #ff5544;
+	background: #dd2222;
+	color: #cccccc;
 }
 
 /*for score in game screen*/
@@ -536,7 +540,8 @@ div.settings{
 }
 /** hover for the Start Wave button in the tutorial screen. */
 .btn.tutorial:hover{
-	background-color: #ff5544;
+	background-color: #dd2222;
+	color: #cccccc;
 }
 
 /** Setting the text properties of the next wave */
