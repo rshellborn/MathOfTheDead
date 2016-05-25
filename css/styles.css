@@ -65,9 +65,31 @@ div.topBar{
 }
 /** Making the pause button red.*/
 div.pauseButton{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+
 	background-color:#f20000;
 	z-index: 2;
+	border-right: 1px solid white;
+	padding: 0;
 }
+div.zombieHead{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	vertical-align: middle;
+	padding: 0;
+}
+
+div.zombiesCounter{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;	
+	padding: 0;
+}
+
+
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
 	background: url("../images/bulletv2.png");
@@ -537,21 +559,7 @@ div.space{
 	width: 100%;
 	height: 5%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/** End of achievement stuff*/
 
 
 
