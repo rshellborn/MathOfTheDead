@@ -57,11 +57,34 @@ div.topBar{
 	padding: 0;
 	z-index: 2;
 }
-/** Making the pause button red.*/
+/** Making the pause button red.CHANGED!!!!*/
 div.pauseButton{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+
 	background-color:#ffe605;
 	z-index: 2;
+
+	border-right: 1px solid white;
+	padding: 0;
+
 }
+div.zombieHead{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	vertical-align: middle;
+	padding: 0;
+}
+
+div.zombiesCounter{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;	
+	padding: 0;
+}
+
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
 	background: url("../images/bulletv2.png");
@@ -172,57 +195,7 @@ div.divide{
 	background-size: 100% 100%;
 	padding: 0;
 }
-/** Setting the font-size, font-family, and color of the game over text in the gameOver screen.*/
-div.youDiedTitle{
-	width: 100%;
-	min-height: 20%;
-	color: #ffe605;
-	font-family: 'Nosifer', cursive;
-	font-size: 6.0em;
-	text-align: center;
-	padding: 0;
-}
-/** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
-div.EOGWavedisplay{
-	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
-	display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-	-webkit-justify-content: center;
-    justify-content: center;
-	
-	color: white;
-	font-size: 3.5em;
-	font-family: 'Nosifer', cursive;
-	padding: 0;
-}
-/** Setting the container size, font properties, and centering text of the score in the end of game screen */
-div.EOGScoredisplay{
-	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
-	text-align: center;
-	
-	color: white;
-	font-size: 3.5em;
-	font-family: 'Nosifer', cursive;
-	padding: 0;
-}
-/** Setting the text properties of the main menu title and container size to 35% of screen size.*/
-div.mainMenu{
-	width: 100%;
-	min-height: 35%;
-	color: red;
-	font-family: 'Nosifer', cursive;
-	font-size: 5.5em;
-	text-align: center;
-	padding: 0;
-}
+
 /** Sets the game over button container size to 15% of screen size.*/
 div.buttonHolder{
 	min-height: 15%;
@@ -291,21 +264,8 @@ div.emptySpace{
 	div.container{
 		max-width: 50%;
 	}
-	div.emptySpace{
-		min-height: 30%;
-	}
-	div.mainMenu{
-		min-height: 20%;
-		font-size: 4.0em;
-	}
 	div.topBar{
 		font-size: 1.8em;
-	}
-	div.youDiedTitle{
-		font-size: 4.5em;
-	}
-	div.nextWave{
-		font-size: 4.0em;
 	}
 	.btn.sharp {
 		font-size: 2.5em;
@@ -333,20 +293,8 @@ div.emptySpace{
 		max-width: 100%;
 		min-height: 100%;
 	}
-	div.emptySpace{
-		min-height: 35%;
-	}
 	div.topBar{
 		font-size: 1.5em;
-	}
-	div.youDiedTitle{
-		font-size: 4.5em;
-	}
-	div.mainMenu{
-		font-size: 3.0em;
-	}
-	div.nextWave{
-	font-size: 4.0em;
 	}
 	.btn.sharp {
 		font-size: 2.0em;

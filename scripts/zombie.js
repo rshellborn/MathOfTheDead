@@ -385,7 +385,7 @@ $(document).ready(function(){
 			// Gunshot sound effect
 			shot.play();
 			// Phone vibrates (hopefully)
-			if (navigator.vibrate) {
+			if (navigator.vibrate && getSessionItem("vibrate") == 1) {
 				console.log("vibrate");
 				navigator.vibrate(100);
 			}
