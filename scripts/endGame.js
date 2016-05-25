@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	// gets current wave number
 	var wave = getSessionItem("wave");
 	// gets the current score value
