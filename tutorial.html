@@ -114,7 +114,33 @@
 					<div class"text-center">
                     	<p>Select a gun and click on a zombie to decrease or increase its health by the number on the bullet icon in the red box at the top of the page.</b></p>
                         <p>The <b id="redT">currently selected gun</b> is highlighted in grey.</p>
+                    	<br /> <br />
+						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#scoreModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
+					</div>
+				</div>
+				<div class="modal-footer">
+				<!-- footer stuff -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END OF TOP BAR MODAL THAT POPS UP -->
+
+	<!-- HOW TO KILL ZOMBIES MODAL THAT POPS UP -->
+	<!-- Modal -->
+	<div class="modal fade" id="scoreModal" role="dialog">
+		<div class="modal-dialog">
+
+	<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" align="center">Score</h4>
+				</div>
+				<div class="modal-body">
+					<div class"text-center">
                         <p><b id="redT">Score is dependant on the highest absolute value you get the zombie to</b> and then kill it. For example if you get the zombies health to (-11) or 11, when you kill it your score will be 11 points for that zombie.</p>
+                        <p>This allows you to use math to make a zombie worth more points <b id="redT">however, </b> the score you can get for one zombie will max out at 100. </p>
+                        <p>An added bonus of 20 points can be added to this 100 by using all four operation guns at least once on a single zombie!</p>
                     	<br /> <br />
 						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#dieModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
@@ -125,7 +151,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- END OF TOP BAR MODAL THAT POPS UP -->
+	<!-- END OF Score MODAL THAT POPS UP -->
     
     
     <!-- DON'T DIE MODAL THAT POPS UP -->
