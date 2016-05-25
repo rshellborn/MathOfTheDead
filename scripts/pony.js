@@ -5,6 +5,7 @@
 
 $(document).ready(function(){
 	var mode = getSessionItem("mode");
+	var totalKills = getSessionItem("totalKills");
 	
 	// audio
 	MLPMusic.loop = true; 

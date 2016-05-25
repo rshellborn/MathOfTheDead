@@ -529,6 +529,8 @@ $(document).ready(function(){
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
 			
+			createSessionItem("totalKills", totalKills);
+			
 			// Enables pony sound theme
 			createSessionItem("ponyMode", 1);
 			
