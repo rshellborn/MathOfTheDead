@@ -13,21 +13,9 @@ html,body {
     padding: 0;
 	overflow: hidden;
 }
-
 body {
   opacity: 0;
 }
-
-#dottedLine {
-	border: 3px dashed white;
-	position: relative;
-	width: 100%;
-	margin-top: 0;
-	padding:0;
-	margin-bottom: 0;
-}
-
-/* BOOTSTRAP MADNESS */
 /** Outer container that holds all divs and elements*/
 div.special {
 	min-height: 100%;
@@ -42,14 +30,9 @@ div.specialrow {
 	padding:0;
 	margin:0;
 }
-/** Setting playable space in the game screen to 65% of screen size.*/
-div.lawns{
-	margin: 0;
-    padding: 0;
-	min-height: 65%;
-	height:65%;
-	max-height: 65%;
-}
+/** End of general styling */
+
+ /** Beginning of game screen styling */
 /** Top bar of game screen containing the pause, wave #, and score.*/
 div.topBar{
 	border: 1px solid;
@@ -88,8 +71,15 @@ div.zombiesCounter{
 	max-height: 100%;	
 	padding: 0;
 }
-
-
+/*for score in game screen*/
+#score {
+	-webkit-transition: color 1s;
+	transition: color 1s;
+}
+/** Ensuring 0 padding of scores div.*/
+div.scores{
+	padding:0;
+}
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
 	background: url("../images/bulletv2.png");
@@ -149,6 +139,22 @@ div.insideQueue{
 
 	padding-right: 20%;
 }
+/** Setting playable space in the game screen to 65% of screen size.*/
+div.lawns{
+	margin: 0;
+    padding: 0;
+	min-height: 65%;
+	height:65%;
+	max-height: 65%;
+}
+#dottedLine {
+	border: 3px dashed white;
+	position: relative;
+	width: 100%;
+	margin-top: 0;
+	padding:0;
+	margin-bottom: 0;
+}
 /** Setting the height of the gun bar to only 20% of screen size.*/
 div.gunsBar{
 	min-height: 20%;
@@ -200,6 +206,13 @@ div.divide{
 	background-size: 100% 100%;
 	padding: 0;
 }
+/** Ensuring no duplicate background in nesting divs.*/
+div.insideQueue{
+	background: none;
+}
+/** End of game screen styling */
+
+/** Beginning of end of game screen styling */
 /** Setting the font-size, font-family, and color of the game over text in the gameOver screen.*/
 div.youDiedTitle{
 	width: 100%;
@@ -211,6 +224,74 @@ div.youDiedTitle{
 	padding: 0;
 	z-index: 2;
 }
+/** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
+div.EOGWavedisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the container size, font properties, and centering text of the score in the end of game screen */
+div.EOGScoredisplay{
+	width: 100%;
+	min-height: 15%;
+	height: 15%;
+	max-height: 15%;
+	text-align: center;
+	
+	color: white;
+	font-size: 3.5em;
+	font-family: 'Nosifer', cursive;
+	padding: 0;
+	z-index: 2;
+}
+/** Sets the game over button container size to 15% of screen size.*/
+div.buttonHolder{
+	min-height: 15%;
+	max-height: 15%;
+	z-index: 2;
+}
+/** End of game over screen styling */
+
+
+/** Beginning of login screen styling */
+/** Setting the font properties of the login screen. */
+div.enterNameTitle{
+	width: 100%;
+	min-height: 40%;
+	color: #f20000;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+/** Setting the size of the input field for the name in the login screen. */
+input[type=text] {
+	width:100%;
+    padding: 1px;
+	z-index: 2;
+}
+/** Setting the container of the login name input field.*/
+div.nameSignIn{
+	width:100%;
+	z-index: 2;
+}
+/** Eng of login screen styling */
+
+/** Beginning of you win page styling */
 /** Setting the font-size, font-family, and color of the you win text in the you win page.*/
 div.youWonTitle{
 	width: 100%;
@@ -233,23 +314,10 @@ div.congrats{
 	padding: 0;
 	z-index: 2;
 }
-/** Setting the font properties of the login screen. */
-div.enterNameTitle{
-	width: 100%;
-	min-height: 40%;
-	color: #f20000;
-	font-family: 'Nosifer', cursive;
-	font-size: 6.0em;
-	text-align: center;
-	padding: 0;
-	z-index: 2;
-}
-/** Setting the size of the input field for the name in the login screen. */
-input[type=text] {
-	width:100%;
-    padding: 1px;
-	z-index: 2;
-}
+/** End of you win page styling */
+
+
+/** Beginning of leaderboard screen styling */
 /** Setting the font properties of the leaderboard title in the leaderboard screen.*/
 div.leaderBoardTitle{
 	width: 100%;
@@ -316,79 +384,20 @@ div.leaderBoardScore{
 	padding: 0;
 	padding-right: 3%;
 }
-/** Setting the container of the login name input field.*/
-div.nameSignIn{
-	width:100%;
-	z-index: 2;
-}
-/** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
-div.EOGWavedisplay{
-	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
-	display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-	-webkit-justify-content: center;
-    justify-content: center;
-	
-	color: white;
-	font-size: 3.5em;
-	font-family: 'Nosifer', cursive;
-	padding: 0;
-	z-index: 2;
-}
-/** Setting the container size, font properties, and centering text of the score in the end of game screen */
-div.EOGScoredisplay{
-	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
-	text-align: center;
-	
-	color: white;
-	font-size: 3.5em;
-	font-family: 'Nosifer', cursive;
-	padding: 0;
-	z-index: 2;
-}
+/** End of leaderboard screen styling */
+
+
+/** Beginning of main menu screen styling */
 /** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
 	width: 100%;
-	min-height: 25%;
+	min-height: 20%;
+	max-height: 20%;
 	color: red;
 	font-family: 'Nosifer', cursive;
 	font-size: 5.5em;
 	text-align: center;
 	padding: 0;
-	z-index: 2;
-}
-/** Setting the text properties of the next wave */
-#NW{
-	width: 100%;
-	min-height: 20%;
-	color: red;
-	font-family: 'Nosifer', cursive;
-	font-size: 3.75em;
-	text-align: center;
-	padding: 0;
-}
-/** Setting the text properties of the next wave*/
-#youWin{
-	width: 100%;
-	min-height: 20%;
-	color: red;
-	font-family: 'Nosifer', cursive;
-	font-size: 3.75em;
-	text-align: center;
-	padding: 0;
-}
-/** Sets the game over button container size to 15% of screen size.*/
-div.buttonHolder{
-	min-height: 15%;
-	max-height: 15%;
 	z-index: 2;
 }
 /** Sets the main menu button container size to 15% of screen size.*/
@@ -409,24 +418,55 @@ div.menuButtonHolder{
 	padding-top:8px;
 	padding-bottom:8px;
 }
-/*for score in game screen*/
-#score {
-	-webkit-transition: color 1s;
-	transition: color 1s;
-}
-/** Ensuring 0 padding of scores div.*/
-div.scores{
-	padding:0;
-}
-/** Ensuring no duplicate background in nesting divs.*/
-div.insideQueue{
-	background: none;
-}
 /** Setting the space between the game title in the main menu screen and the buttons to 20% of screen size.*/
 div.emptySpace{
-	min-height: 15%;
-	max-height: 15%;
+	min-height: 10%;
+	max-height: 10%;
 }
+div.menuIconHolder{
+	height: 10%;
+	min-height: 10%;
+	max-height: 10%;
+}
+div.menuIcons{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	text-align: center;
+}
+div.credits{
+	background: url("../images/buttons/credits1.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.achievements{
+	background: url("../images/buttons/achievements.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+div.settings{
+	background: url("../images/buttons/settings.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+/** End of main menu styling */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /** Setting the font properties of the start wave text.*/
 #startWave{
 	min-width: 40%;
@@ -438,7 +478,6 @@ div.emptySpace{
 	min-height: 36%;
 	max-height: 36%;
 	padding: 0;
-
 }
 /** Styling the Start Wave button in the tutorial screen. */
 .btn.tutorial{
@@ -453,7 +492,28 @@ div.emptySpace{
 	font-size: 2.0em;
 }
 
+/** Setting the text properties of the next wave */
+#NW{
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.75em;
+	text-align: center;
+	padding: 0;
+}
+/** Setting the text properties of the next wave*/
+#youWin{
+	width: 100%;
+	min-height: 20%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 3.75em;
+	text-align: center;
+	padding: 0;
+}
 
+/** Beginning of achievements page styling */
 /** Achievements Page Styling.*/
 div.achievementTitle{
 	width: 100%;
@@ -559,16 +619,10 @@ div.space{
 	width: 100%;
 	height: 5%;
 }
-/** End of achievement stuff*/
+/** End of achievement styling */
 
 
-
-
-
-
-
-
-<!-- modal pause menu stuff -->
+/** modal pause menu stuff */
 #PauseModal{
 	background: black;
 	text-align: center;
@@ -648,16 +702,14 @@ div.space{
 	}
 	div.achievementTitle{
 		font-size: 5.0em;
-	}
-	
-	
+	}	
 }
 @media only screen and (max-width : 992px) {
 	div.container{
 		max-width: 80%;
 	}
 	div.emptySpace{
-		min-height: 26%;
+		min-height: 20%;
 	}
 	div.mainMenu{
 		min-height: 20%;
@@ -758,7 +810,7 @@ div.space{
 		min-height: 100%;
 	}
 	div.emptySpace{
-		min-height: 35%;
+		min-height: 15%;
 	}
 	div.topBar{
 		font-size: 1.5em;
