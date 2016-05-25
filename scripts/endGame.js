@@ -14,7 +14,9 @@ $(document).ready(function(){
 	if (pagePath.substring(pagePath.length - 14) == "endOfGame.html") {
 		// audio 
 		zWantBrains.play(); 
-		playerDie.play(); 
+		playerDie.play();
+		menuBGM.loop = true; 
+		menuBGM.play(); 
 		
 		//prints the wave number onto the top bar of the screen
 		document.getElementById("wave").textContent=("Wave " + wave);	

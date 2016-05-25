@@ -7,8 +7,10 @@ $(document).ready(function(){
 	
 	var mode = getSessionItem("mode");
 	if (mode == 0){
+		bgmWave.loop = true; 
 		bgmWave.play();
 	} else {
+		bgmInfini.loop = true; 
 		bgmInfini.play();
 	};
 
@@ -600,6 +602,7 @@ $(document).ready(function(){
 	*/
 	function newWave() {
 		if(mode == 0) {
+			//audio
 			nextWave.play(); 
 			changeWave();	
 		} else if(mode == 1) {
