@@ -17,10 +17,11 @@
 .achievementModalTitle{
 	font-size: 1.0em;
 }
-.modal-body{
+.achievementModalBody{
 	height: 65%;
 	padding: 10px;
 	padding-bottom: 0;
+	color: white;
 }
 .image{
 	width: auto;
@@ -72,7 +73,7 @@ div.modalBodyText{
 	.achievementModalTitle{
 		font-size: 0.6em;
 	}
-	.modal-body{
+	.achievementModalBody{
 		height: 65%;
 		padding: 10px;
 		padding-bottom: 0;
@@ -88,7 +89,7 @@ div.modalBodyText{
 	.achievementModalTitle{
 		font-size: 0.5em;
 	}
-	.modal-body{
+	.achievementModalBody{
 		height: 65%;
 		padding: 10px;
 		padding-bottom: 0;
