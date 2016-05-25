@@ -377,8 +377,13 @@ $(document).ready(function(){
 			  score += 5;
 			  backToMainGame();
 		  } else {
-			  health = parseInt(health / currentBullet);
-			console.log("new health: " + health);
+			if(Math.abs(currentBullet) > Math.abs(health)) {
+			  console.log('health smaller');
+			  health = health / 1;
+			} else {
+				health = parseInt(health / currentBullet);
+				console.log("new health: " + health);
+			}
 		  }
 		}
 	
