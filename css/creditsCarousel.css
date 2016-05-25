@@ -24,11 +24,11 @@ h1{
 	height:65%;
 	margin-left: 20%;
 }
-div.credits{
+div.creditsInfo{
 	text-align: center;
 	padding: 0;
 }
-div.credits ul{
+div.creditsInfo ul{
 	padding: 0;
 }
 div.carousel-control{
