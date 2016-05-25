@@ -485,6 +485,9 @@ $(document).ready(function(){
 			
 			createSessionItem("ponyMode", 0);
 			
+			totalKills++;
+			createSessionItem("totalKills", totalKills);
+			
 			// Changes CSS file
 			var css = document.getElementById("css");
 			css.setAttribute('href', "css/styles.css");

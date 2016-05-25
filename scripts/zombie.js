@@ -22,7 +22,11 @@ $(document).ready(function(){
 	}
 	
 	// Initializes total amount kills to 0
-	var totalKills = 0;
+	if(easterEggThisWave == 0) {
+		var totalKills = getSessionItem("totalKills");	
+	} else {
+		var totalKills = 0;
+	}
 	
 	var zeroUsed = 0;
 	
@@ -529,6 +533,7 @@ $(document).ready(function(){
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
 			
+			totalKills++;
 			createSessionItem("totalKills", totalKills);
 			
 			// Enables pony sound theme
