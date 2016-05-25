@@ -4,6 +4,8 @@
 */
 
 $(document).ready(function(){
+	var mode = getSessionItem("mode");
+	
 	// audio
 	MLPMusic.loop = true; 
 	MLPMusic.play(); 
