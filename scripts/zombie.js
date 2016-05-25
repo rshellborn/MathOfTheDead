@@ -323,23 +323,8 @@ $(document).ready(function(){
 			// Increments killCount and totalKills
 			killCount++;
 			
-			// Checks if game mode is Infinite Wave Mode
-			if(mode == 1) {
-			  // Increments total amount of kills
-			  totalKills++;
-			  document.getElementById("zombiesLeft").textContent=(totalKills);	
-			  
-			  // Checks if 50 kills in infinite mode achievement is unlocked
-			  if(totalKills == 25 && getSessionItem("kills") == null) {
-				// Creates session variable that 10 Wave Completed achievement is triggered
-				createSessionItem("kills", 1);
-				triggerAchievement();
-			  }
-			} else if (mode == 0) {
-				var zombiesLeft = spawnNum - killCount;
-				document.getElementById("zombiesLeft").textContent=(zombiesLeft);	
-			}
-			
+			// Updates the number of zombies left or total kills depending on game mode
+			updateKillCounts();
 			
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
@@ -347,6 +332,7 @@ $(document).ready(function(){
 			// Assigns score to the player for the zombie
 			assignScore();
 			
+			// Makes the score glow when changed
 			scoreGlow();
 			
 			// Updates the score on the screen
@@ -371,6 +357,25 @@ $(document).ready(function(){
 				}
 			},250);
 		}		
+		
+		function updateKillCounts() {
+			// Checks if game mode is Infinite Wave Mode
+			if(mode == 1) {
+			  // Increments total amount of kills
+			  totalKills++;
+			  document.getElementById("zombiesLeft").textContent=(totalKills);	
+			  
+			  // Checks if 50 kills in infinite mode achievement is unlocked
+			  if(totalKills == 25 && getSessionItem("kills") == null) {
+				// Creates session variable that 10 Wave Completed achievement is triggered
+				createSessionItem("kills", 1);
+				triggerAchievement();
+			  }
+			} else if (mode == 0) {
+				var zombiesLeft = spawnNum - killCount;
+				document.getElementById("zombiesLeft").textContent=(zombiesLeft);	
+			}	
+		}
 		
 		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
 		
