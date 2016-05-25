@@ -99,6 +99,9 @@ mainMenu globals
 var tutorial = "tutorial.html";
 var leaderboard = "leaderboard.html";
 var login = "login.html";
+var credits = "credits.html";
+var achievements = "achievements.html";
+var settings = "settings.html"
 
 /**
 gameScreen globals
