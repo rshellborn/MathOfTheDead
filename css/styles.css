@@ -668,6 +668,15 @@ div.space{
 }
 /** End of achievement styling */
 
+/** Main menu small button issues */
+#smallButtons {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
 
 /** modal pause menu stuff */
 #PauseModal{
