@@ -74,6 +74,10 @@ div.pauseButton{
 	border-right: 1px solid white;
 	padding: 0;
 }
+/** hover for pause button.*/
+div.pauseButton:hover{
+	background-color:#ff5544;
+}
 div.zombieHead{
 	height: 100%;
 	min-height: 100%;
@@ -108,6 +112,10 @@ div.currentQueue{
 	min-height: 10%;
 	padding: 0; 
 	z-index: 2; 
+}
+/**hover for bullet*/
+div.currentQueue:hover{
+	background-color: #ff5544;
 }
 /** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
 div.thisQueue{
@@ -162,6 +170,10 @@ div.guns{
 	border: 1px solid #FFF;
 	background-color: #f20000;
 	height: 100%;
+}
+/** Hover for guns. */
+div.guns:hover{
+	background-color: #ff5544;
 }
 /** Setting the background color of the selected gun to grey. */
 div.guns.clicked{
@@ -409,6 +421,11 @@ div.menuButtonHolder{
 	padding-top:8px;
 	padding-bottom:8px;
 }
+/** hover for buttons */
+.btn.sharp:hover {
+	background: #ff5544;
+}
+
 /*for score in game screen*/
 #score {
 	-webkit-transition: color 1s;
@@ -452,7 +469,10 @@ div.emptySpace{
 	font: Arial, Helvetica, sans-serif;
 	font-size: 2.0em;
 }
-
+/** hover for the Start Wave button in the tutorial screen. */
+.btn.tutorial:hover{
+	background-color: #ff5544;
+}
 
 /** Achievements Page Styling.*/
 div.achievementTitle{
