@@ -32,3 +32,6 @@ var shot = new Audio("audio/shot.mp3"); 				//shot gun sound
 
 // guns select click 
 var gunSelect = new Audio("audio/gunSelect.mp3");
+
+// achievement unlocked
+var achivUnlocked = new Audio("audio/Cha_Ching.mp3")

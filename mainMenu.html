@@ -21,10 +21,14 @@
 <body>  
 	<script>
 		// audio
-		menuIntro.play(); 
+		menuIntro.play();
 		bird.play();
+		birds.loop = true; 
 		birds.play();
-		menuBGM.play(); 
+		menuBGM.loop = true; 
+		menuBGM.play();
+		bgmWave.loop = true; 
+		bgmWave.play(); 
 		
 		$(document).ready(function(){
 			setDefaultSettings();
