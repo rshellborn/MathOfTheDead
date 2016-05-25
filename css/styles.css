@@ -474,12 +474,14 @@ div.menuIconHolder{
 	height: 10%;
 	min-height: 10%;
 	max-height: 10%;
+	display: inline;
 }
 div.menuIcons{
 	height: 100%;
 	min-height: 100%;
 	max-height: 100%;
 	text-align: center;
+	z-index: 3;
 }
 /** End of main menu styling */
 
@@ -859,7 +861,7 @@ div.space{
 		font-size: 1.5em;
 	}
 	div.youDiedTitle{
-		font-size: 4.0em;
+		font-size: 3.5em;
 	}
 	div.youWonTitle{
 		font-size: 4.5em;
@@ -966,16 +968,25 @@ div.space{
 		height: 12%;
 		min-height: 12%;
 		max-height: 12%;
-		font-size: 2.5em;
+		font-size: 1.8em;
 	}
 	div.achievementInfo h1{
-		font-size: 1.5em;
+		font-size: 1.3em;
+	}
+	div.achievementInfo{
+		font-size: 0.9em;
 	}
 	div.achievementInfoUnlocked h1{
 		font-size: 1.5em;
 	}
 	div.mathPun{
 		margin-bottom: 3%;
+	}
+	div.enterNameTitle{
+		font-size: 5.0em;
+	}
+	div.gameModeTitle{
+		font-size: 2.0em;
 	}
 }
 <!-- End of responsive styling -->
