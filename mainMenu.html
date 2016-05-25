@@ -118,9 +118,10 @@
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(leaderboard)">Leaderboard</button>
 			</div>
 			<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 menuIconHolder">
-				<div class="col-xs-4 menuIcons credits"></div>
-				<div class="col-xs-4 menuIcons achievements"></div>
-				<div class="col-xs-4 menuIcons settings"></div>
+				<a onclick="fadeEnd(credits)">
+					<div id="smallButtons"  class="col-xs-4 menuIcons credits"></div></a>
+				<a onclick="fadeEnd(achievements)"><div class="col-xs-4 menuIcons achievements"></div></a>
+				<a data-toggle="modal" href="#settingsModal"><div class="col-xs-4 menuIcons settings"></div></a>
 			</div>
 		</div>
 		<!-- End of buttons for main menu  -->
