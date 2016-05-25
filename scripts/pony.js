@@ -4,6 +4,8 @@
 */
 
 $(document).ready(function(){
+	// audio
+	MLPMusic.play(); 
 	// Holds pony image name 
 	var ponyImage;
 	
@@ -389,12 +391,16 @@ $(document).ready(function(){
 			Changes to easter egg mode
 		*/
 		function backToMainGame() {
+			// stop audio
+			MLPMusic.pause();
 			// Wipes all zombies
 			wipeAll();
 			
 			// Gets score and wave from session variables
 			score = createSessionItem("score", score);
 			wave = createSessionItem("wave", wave);
+			
+			createSessionItem("ponyMode", 0);
 			
 			// Changes CSS file
 			var css = document.getElementById("css");

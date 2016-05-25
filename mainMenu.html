@@ -25,6 +25,10 @@
 		bird.play();
 		birds.play();
 		menuBGM.play(); 
+		
+		$(document).ready(function(){
+			setDefaultSettings();
+		});
 	</script>
 	<!-- SETTINGS CHOICE THAT POPS UP -->
 	<!-- Modal -->
@@ -42,7 +46,7 @@
 						<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Music</div>
 						<div class="col-xs-4 col-sm-4 settingsSlider">
 							<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="BGMSwitch" checked>
+								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="BGMSwitch" onClick="toggleBGM()">
 								<label class="onoffswitch-label" for="BGMSwitch">
 									<span class="onoffswitch-inner"></span>
 									<span class="onoffswitch-switch"></span>
@@ -52,7 +56,7 @@
 						<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Sound Effects</div>
 						<div class="col-xs-4 col-sm-4 settingsSlider">
 							<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="soundEffectSwitch" checked>
+								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="soundEffectSwitch" onClick="toggleSFX()">
 								<label class="onoffswitch-label" for="soundEffectSwitch">
 									<span class="onoffswitch-inner"></span>
 									<span class="onoffswitch-switch"></span>
