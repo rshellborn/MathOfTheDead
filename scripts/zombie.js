@@ -368,6 +368,11 @@ $(document).ready(function(){
 		this.hit = function(){
 			// Gunshot sound effect
 			shot.play();
+			// Phone vibrates (hopefully)
+			if (navigator.vibrate) {
+				console.log("vibrate");
+				navigator.vibrate(100);
+			}
 			// Checks which gun is selected
 			checkGun();
 			// Checks the maximum health of the zombie

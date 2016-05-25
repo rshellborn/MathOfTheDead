@@ -215,7 +215,11 @@ $(document).ready(function(){
 			
 			// Increments killCount and totalKills
 			killCount++;
-			//totalKills++;
+			
+			
+			// Display how many zombies are left
+			var zombiesLeft = 3 - killCount;
+			document.getElementById("zombiesLeft").textContent=(zombiesLeft);
 			
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
@@ -347,6 +351,10 @@ $(document).ready(function(){
 		Spawns 3 hard coded zombies and stops them until Start Practice Wave is pressed
 	*/
 	function callWave(){
+		// Set zombies left
+		document.getElementById("zombiesLeft").textContent=(3);
+		
+		// Spawn zombies
 		zs[0] = new Zombie(1, 10, 0, -40);  
 		zs[1] = new Zombie(-2, 45, 1, -75);  
 		zs[2] = new Zombie(4, 80, 2, -95);  
