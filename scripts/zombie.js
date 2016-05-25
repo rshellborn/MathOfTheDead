@@ -54,6 +54,13 @@ $(document).ready(function(){
 		var yPos = yPos;
 		var health = health;
 		
+		//keeps track of guns used on zombie to function as a multiplier
+		var addGunUsed = false;
+		var subGunUsed = false;
+		var multGunUsed = false;
+		var divGunUsed = false;
+		var varietyBonus = 0;
+		
 		// Speed of the zombie
 		var speed = enemySpeed;
 		// Used the calculate score that will be awarded for killing this zombie
@@ -302,12 +309,20 @@ $(document).ready(function(){
 			speed = 0;
 			
 			// Assigns the score based on the maximum health the zombie had reached
-			score += maxHealth;
+			var maxHealthScore = 100;
+			//maxHealth = parseInt(Math.sqrt(maxHealth));
+			if (maxHealth <= maxHealthScore) {
+				score += maxHealth + (varietyBonus * 15);
+			} else {
+				score += maxHealthScore + (varietyBonus * 15);
+			}
+			
 			// makes the score glow, indicating score increase
 			document.getElementById("score").style.color = "#3399ff";
 			window.setTimeout(
 				function(){document.getElementById("score").style.color = "white"},
 			600);
+			
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			
@@ -397,6 +412,10 @@ $(document).ready(function(){
 		function plusOperation() {
 			health = health + currentBullet;
 			console.log("new health: " + health);
+			if (!addGunUsed) {
+				addGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
@@ -405,6 +424,10 @@ $(document).ready(function(){
 		function minusOperation() {
 			health = health - currentBullet;
 			console.log("new health: " + health);
+			if (!subGunUsed) {
+				subGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
@@ -414,7 +437,10 @@ $(document).ready(function(){
 			if(currentBullet == 0)
 				maxHealth = 5;
 			health = health * currentBullet;
-			console.log("new health: " + health);
+			if (!multGunUsed) {
+				multGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
@@ -438,8 +464,10 @@ $(document).ready(function(){
 			  console.log('health bigger');
 			  //health = Math.ceil(health / currentBullet);
 			  health = parseInt(health / currentBullet);
-			  console.log(health + '/' + currentBullet);
-			  console.log("new health: " + health);
+			  if (!divGunUsed) {
+				divGunUsed = true;
+				varietyBonus += 1;
+			  }
 			}
 		  }
 		}
