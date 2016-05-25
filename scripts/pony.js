@@ -211,13 +211,32 @@ $(document).ready(function(){
 		/* ----------------------------------------START OF Score Calculation------------------------------------------ */
 		
 		/*
-			Checks the health to determine the score for a zombie kill (Based on highest absolute value the health reaches)
+			Checks the health to determine the score for a zombie kill.
 		*/		
-		function checkMaxHealth() {
-		  if((Math.abs(health)) > maxHealth) {
-			maxHealth = Math.abs(health);
-			console.log('new max health= ' + maxHealth);
-		  }
+		function assignScore() {
+		  // Assigns the score based on the maximum health the zombie had reached
+			var maxHealthScore = 100;
+			//maxHealth = parseInt(Math.sqrt(maxHealth));
+			if(zeroUsed == 1) {
+				score += 5;
+			} else {
+			  if (maxHealth <= maxHealthScore) {
+				  score += maxHealth + (varietyBonus * 5);
+			  } else {
+				  score += maxHealthScore + (varietyBonus * 5);
+			  }
+			}
+		}
+		
+		/*
+			Makes the score glow in the top bar to indicate score increase.
+		*/
+		function scoreGlow() {
+			// makes the score glow, indicating score increase
+			document.getElementById("score").style.color = "#3399ff";
+			window.setTimeout(
+				function(){document.getElementById("score").style.color = "white"},
+			600);	
 		}
 		
 		/* ----------------------------------------END OF Score Calculation------------------------------------------ */
@@ -270,8 +289,15 @@ $(document).ready(function(){
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
 			
-			// Assigns the score based on the maximum health the zombie had reached
-			score += maxHealth;
+			// Updates the number of zombies left or total kills depending on game mode
+			updateKillCounts();
+			
+			// Assigns score to the player for the zombie
+			assignScore();
+			
+			// Makes the score glow when changed
+			scoreGlow();
+			
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			
