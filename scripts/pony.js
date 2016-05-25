@@ -13,6 +13,15 @@ $(document).ready(function(){
 	// Sets how many ponies will be spawned from a global variable
 	spawnNum = numOfPonies;
 	
+	//keeps track of guns used on zombie to function as a multiplier
+	var addGunUsed = false;
+	var subGunUsed = false;
+	var multGunUsed = false;
+	var divGunUsed = false;
+	var varietyBonus = 0;
+	
+	var zeroUsed = 0;
+	
 	// Gets score and wave from session variables
 	score = parseInt(getSessionItem("score"));
 	wave = getSessionItem("wave");
@@ -311,6 +320,28 @@ $(document).ready(function(){
 			}
 		}		
 		
+		/*
+			Updates how many zombies are left in a wave or total kills depending on game mode.
+		*/
+		function updateKillCounts() {
+			// Checks if game mode is Infinite Wave Mode
+			if(mode == 1) {
+			  // Increments total amount of kills
+			  totalKills++;
+			  document.getElementById("zombiesLeft").textContent=(totalKills);	
+			  
+			  // Checks if 50 kills in infinite mode achievement is unlocked
+			  if(totalKills == 25 && getSessionItem("kills") == null) {
+				// Creates session variable that 10 Wave Completed achievement is triggered
+				createSessionItem("kills", 1);
+				triggerAchievement();
+			  }
+			} else if (mode == 0) {
+				var zombiesLeft = spawnNum - killCount;
+				document.getElementById("zombiesLeft").textContent=(zombiesLeft);	
+			}	
+		}
+		
 		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
 			
 		
@@ -326,8 +357,6 @@ $(document).ready(function(){
 			shot.play();
 			// Checks which gun is selected
 			checkGun();
-			// Checks the maximum health of the zombie
-			checkMaxHealth();
 			// Updates bullet queue
 			updateRandomBullet();
 			// Updates health on the screen for the zombie
@@ -374,6 +403,10 @@ $(document).ready(function(){
 		function plusOperation() {
 			health = health + currentBullet;
 			console.log("new health: " + health);
+			if (!addGunUsed) {
+				addGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
@@ -382,16 +415,27 @@ $(document).ready(function(){
 		function minusOperation() {
 			health = health - currentBullet;
 			console.log("new health: " + health);
+			if (!subGunUsed) {
+				subGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
 			Multiplies Operation
 		*/
 		function multiOperation() {
-			if(currentBullet == 0)
-				maxHealth = 5;
-			health = health * currentBullet;
-			console.log("new health: " + health);
+		  if(currentBullet == 0) {
+			  zeroUsed = 1;
+			  maxHealth = 5;
+		  	  health = health * currentBullet;
+		  } else {
+			if (!multGunUsed) {
+				multGunUsed = true;
+				varietyBonus += 1;
+			}
+		  }
+		  zeroUsed = 0;
 		}
 		
 		/*
@@ -407,9 +451,13 @@ $(document).ready(function(){
 			if(Math.abs(currentBullet) > Math.abs(health)) {
 			  console.log('health smaller');
 			  health = health / 1;
-			} else {
-				health = parseInt(health / currentBullet);
-				console.log("new health: " + health);
+			} else if(Math.abs(currentBullet) <= Math.abs(health)) {
+			  console.log('health bigger');
+			  health = parseInt(health / currentBullet);
+			  if (!divGunUsed) {
+				divGunUsed = true;
+				varietyBonus += 1;
+			  }
 			}
 		  }
 		}

@@ -29,8 +29,18 @@ $(document).ready(function(){
 		var yPos = yPos;
 		var health = health;
 		
+		//keeps track of guns used on zombie to function as a multiplier
+		var addGunUsed = false;
+		var subGunUsed = false;
+		var multGunUsed = false;
+		var divGunUsed = false;
+		var varietyBonus = 0;
+		
 		// Speed of the zombie
 		var speed = 0.03;
+		
+		var zeroUsed = 0;
+		
 		// Used the calculate score that will be awarded for killing this zombie
 		var maxHealth = Math.abs(health);
 		
@@ -161,13 +171,33 @@ $(document).ready(function(){
 		/* ----------------------------------------START OF Score Calculation------------------------------------------ */
 		
 		/*
-			Checks the health to determine the score for a zombie kill (Based on highest absolute value the health reaches)
+			Checks the health to determine the score for a zombie kill.
 		*/		
-		function checkMaxHealth() {
-		  if((Math.abs(health)) > maxHealth) {
-			maxHealth = Math.abs(health);
-			console.log('new max health= ' + maxHealth);
-		  }
+		function assignScore() {
+		  // Assigns the score based on the maximum health the zombie had reached
+			var maxHealthScore = 100;
+			//maxHealth = parseInt(Math.sqrt(maxHealth));
+			if(zeroUsed == 1) {
+				score += 5;
+			} else {
+			  if (maxHealth <= maxHealthScore) {
+				  score += maxHealth + (varietyBonus * 5);
+			  } else {
+				  score += maxHealthScore + (varietyBonus * 5);
+			  }
+			}
+		  zeroUsed = 0;
+		}
+		
+		/*
+			Makes the score glow in the top bar to indicate score increase.
+		*/
+		function scoreGlow() {
+			// makes the score glow, indicating score increase
+			document.getElementById("score").style.color = "#3399ff";
+			window.setTimeout(
+				function(){document.getElementById("score").style.color = "white"},
+			600);	
 		}
 		
 		/* ----------------------------------------END OF Score Calculation------------------------------------------ */
@@ -224,8 +254,12 @@ $(document).ready(function(){
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
 			
-			// Assigns the score based on the maximum health the zombie had reached
-			score += maxHealth;
+			// Assigns score to the player for the zombie
+			assignScore();
+			
+			// Makes the score glow when changed
+			scoreGlow();
+			
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			// animation 
@@ -263,8 +297,6 @@ $(document).ready(function(){
 			shot.play();
 			// Checks which gun is selected
 			checkGun();
-			// Checks the maximum health of the zombie
-			checkMaxHealth();
 			// Updates bullet queue
 			updateRandomBullet();
 			// Updates health on the screen for the zombie
@@ -315,6 +347,10 @@ $(document).ready(function(){
 		function plusOperation() {
 			health = health + currentBullet;
 			console.log("new health: " + health);
+			if (!addGunUsed) {
+				addGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
@@ -323,24 +359,47 @@ $(document).ready(function(){
 		function minusOperation() {
 			health = health - currentBullet;
 			console.log("new health: " + health);
+			if (!subGunUsed) {
+				subGunUsed = true;
+				varietyBonus += 1;
+			}
 		}
 		
 		/*
 			Multiplies Operation
 		*/
 		function multiOperation() {
-			if(currentBullet == 0)
-				maxHealth = 5;
-			health = health * currentBullet;
-			console.log("new health: " + health);
+		  if(currentBullet == 0) {
+			  zeroUsed = 1;
+			  maxHealth = 5;
+		  	  health = health * currentBullet;
+		  } else {
+			if (!multGunUsed) {
+				multGunUsed = true;
+				varietyBonus += 1;
+			}
+		  }
 		}
 		
-		/*
-			Division Operation and checks if easter egg is triggered.
-		*/
 		function diviOperation() {
-		  health = Math.ceil(health / currentBullet);
-		  console.log("new health: " + health);
+		  // Checks if easter egg is to be triggered.
+		  // Only triggers once per game in Infinite Wave mode.
+		  if(currentBullet == 0) {
+			  health = health / 1;
+		  } else {
+			if(Math.abs(currentBullet) > Math.abs(health)) {
+			  console.log('health smaller');
+			  health = health / 1;
+			} else if(Math.abs(currentBullet) <= Math.abs(health)) {
+			  console.log('health bigger');
+			  //health = Math.ceil(health / currentBullet);
+			  health = parseInt(health / currentBullet);
+			  if (!divGunUsed) {
+				divGunUsed = true;
+				varietyBonus += 1;
+			  }
+			}
+		  }
 		}
 	
 		/* ---------------------------------END OF Gun Selection & Calculations---------------------------------- */

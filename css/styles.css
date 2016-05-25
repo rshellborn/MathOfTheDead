@@ -57,6 +57,10 @@ div.pauseButton{
 	border-right: 1px solid white;
 	padding: 0;
 }
+/** hover for pause button.*/
+div.pauseButton:hover{
+	background-color:#ff5544;
+}
 div.zombieHead{
 	height: 100%;
 	min-height: 100%;
@@ -98,6 +102,10 @@ div.currentQueue{
 	min-height: 10%;
 	padding: 0; 
 	z-index: 2; 
+}
+/**hover for bullet*/
+div.currentQueue:hover{
+	background-color: #ff5544;
 }
 /** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
 div.thisQueue{
@@ -169,6 +177,10 @@ div.guns{
 	background-color: #f20000;
 	height: 100%;
 }
+/** Hover for guns. */
+div.guns:hover{
+	background-color: #ff5544;
+}
 /** Setting the background color of the selected gun to grey. */
 div.guns.clicked{
 	border: 1px solid #FFF;
@@ -216,7 +228,7 @@ div.insideQueue{
 /** Setting the font-size, font-family, and color of the game over text in the gameOver screen.*/
 div.youDiedTitle{
 	width: 100%;
-	min-height: 20%;
+	min-height: 15%;
 	color: #f20000;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
@@ -227,9 +239,9 @@ div.youDiedTitle{
 /** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
 div.EOGWavedisplay{
 	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
+	min-height: 10%;
+	height: 10%;
+	max-height: 10%;
 	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -238,7 +250,7 @@ div.EOGWavedisplay{
     justify-content: center;
 	
 	color: white;
-	font-size: 3.5em;
+	font-size: 3.0em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
 	z-index: 2;
@@ -246,16 +258,35 @@ div.EOGWavedisplay{
 /** Setting the container size, font properties, and centering text of the score in the end of game screen */
 div.EOGScoredisplay{
 	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
+	min-height: 10%;
+	height: 10%;
+	max-height: 10%;
 	text-align: center;
 	
 	color: white;
-	font-size: 3.5em;
+	font-size: 3.0em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
 	z-index: 2;
+}
+div.mathPun{
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	height: 15%;
+	min-height: 15%;
+	max-height: 15%;
+	font-size: 1.3em;
+	color: red;
+	z-index: 3;
+	text-align: center;
+	
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 }
 /** Sets the game over button container size to 15% of screen size.*/
 div.buttonHolder{
@@ -418,6 +449,18 @@ div.menuButtonHolder{
 	padding-top:8px;
 	padding-bottom:8px;
 }
+
+/** hover for buttons */
+.btn.sharp:hover {
+	background: #ff5544;
+}
+
+/*for score in game screen*/
+#score {
+	-webkit-transition: color 1s;
+	transition: color 1s;
+}
+
 /** Setting the space between the game title in the main menu screen and the buttons to 20% of screen size.*/
 div.emptySpace{
 	min-height: 10%;
@@ -490,6 +533,10 @@ div.settings{
 	color: white;
 	font: Arial, Helvetica, sans-serif;
 	font-size: 2.0em;
+}
+/** hover for the Start Wave button in the tutorial screen. */
+.btn.tutorial:hover{
+	background-color: #ff5544;
 }
 
 /** Setting the text properties of the next wave */
@@ -816,7 +863,7 @@ div.space{
 		font-size: 1.5em;
 	}
 	div.youDiedTitle{
-		font-size: 4.5em;
+		font-size: 4.0em;
 	}
 	div.youWonTitle{
 		font-size: 4.5em;
@@ -851,10 +898,10 @@ div.space{
 		height: 15%;
 	}
 	div.EOGWavedisplay{
-		font-size: 2.5em;
+		font-size: 2.0em;
 	}
 	div.EOGScoredisplay{
-		font-size: 2.5em;
+		font-size: 2.0em;
 	}
 	.modal { 
 		position: fixed; 
@@ -930,6 +977,9 @@ div.space{
 	}
 	div.achievementInfoUnlocked h1{
 		font-size: 1.5em;
+	}
+	div.mathPun{
+		margin-bottom: 3%;
 	}
 }
 <!-- End of responsive styling -->
