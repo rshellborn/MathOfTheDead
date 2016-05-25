@@ -474,12 +474,14 @@ div.menuIconHolder{
 	height: 10%;
 	min-height: 10%;
 	max-height: 10%;
+	display: inline;
 }
 div.menuIcons{
 	height: 100%;
 	min-height: 100%;
 	max-height: 100%;
 	text-align: center;
+	z-index: 3;
 }
 /** End of main menu styling */
 
