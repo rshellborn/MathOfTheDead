@@ -21,12 +21,6 @@ $(document).ready(function(){
 		fadeEnd("login.html");
 	}
 	
-	// MIGHT NOT NEED THESE
-	var name = getSessionItem("name");
-	// gets player ID
-  	var id = getSessionItem("id");
-	//-----------------------------------
-	
 	// Initializes total amount kills to 0
 	var totalKills = 0;
 	
@@ -264,6 +258,7 @@ $(document).ready(function(){
 				  score += maxHealthScore + (varietyBonus * 5);
 			  }
 			}
+		  zeroUsed = 0;
 		}
 		
 		/*
@@ -355,9 +350,12 @@ $(document).ready(function(){
 						newWave();	
 					}
 				}
-			},250);
+			}, 250);
 		}		
 		
+		/* 
+			Updates how many zombies are left in a wave or total kills depending on game mode.
+		*/
 		function updateKillCounts() {
 			// Checks if game mode is Infinite Wave Mode
 			if(mode == 1) {
@@ -478,7 +476,6 @@ $(document).ready(function(){
 				varietyBonus += 1;
 			}
 		  }
-		  zeroUsed = 0;
 		}
 		
 		/*

@@ -109,6 +109,7 @@ function updateSettings() {
 		zStillAlive.volume = 0;
 		shot.volume = 0;
 		gunSelect.volume = 0;
+		achivUnlocked.volume = 0;
 	} else {
 		zWantBrains.volume = 1;
 		playerDie.volume = 1;
@@ -118,6 +119,7 @@ function updateSettings() {
 		zStillAlive.volume = 1;
 		shot.volume = 1;
 		gunSelect.volume = 1;
+		achivUnlocked.volume = 1;
 	}
 	
 	/*
