@@ -7,8 +7,10 @@ $(document).ready(function(){
 	
 	var mode = getSessionItem("mode");
 	if (mode == 0){
+		bgmWave.loop = true; 
 		bgmWave.play();
 	} else {
+		bgmInfini.loop = true; 
 		bgmInfini.play();
 	};
 
@@ -305,6 +307,7 @@ $(document).ready(function(){
 			  // Increments total amount of kills
 			  totalKills++;
 			  console.log('Total kills=' +totalKills);
+			  document.getElementById("zombiesLeft").textContent=(totalKills);	
 			  
 			  // Checks if 50 kills in infinite mode achievement is unlocked
 			  if(totalKills == 25 && getSessionItem("kills") == null) {
@@ -312,6 +315,9 @@ $(document).ready(function(){
 				createSessionItem("kills", 1);
 				triggerAchievement();
 			  }
+			} else if (mode == 0) {
+				var zombiesLeft = spawnNum - killCount;
+				document.getElementById("zombiesLeft").textContent=(zombiesLeft);	
 			}
 			
 			
@@ -558,6 +564,13 @@ $(document).ready(function(){
 		Spawns zombies depending on the wave design
 	*/
 	function callWave(){
+		// Shows how many zombies are spawned in the wave
+		if(mode == 0) {
+			document.getElementById("zombiesLeft").textContent=(spawnNum);		
+		} else if (mode == 1) {
+			document.getElementById("zombiesLeft").textContent=(totalKills);	
+		}
+		
 		// Resets kill counter
 	  	killCount = 0;
 		var innerWave = 0;
@@ -605,6 +618,7 @@ $(document).ready(function(){
 	*/
 	function newWave() {
 		if(mode == 0) {
+			//audio
 			nextWave.play(); 
 			changeWave();	
 		} else if(mode == 1) {

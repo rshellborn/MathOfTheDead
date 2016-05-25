@@ -5,6 +5,7 @@
 
 $(document).ready(function(){
 	// audio
+	MLPMusic.loop = true; 
 	MLPMusic.play(); 
 	// Holds pony image name 
 	var ponyImage;
