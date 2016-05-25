@@ -118,10 +118,17 @@
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(leaderboard)">Leaderboard</button>
 			</div>
 			<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 menuIconHolder">
-				<a onclick="fadeEnd(credits)">
-					<div id="smallButtons"  class="col-xs-4 menuIcons credits"></div></a>
-				<a onclick="fadeEnd(achievements)"><div class="col-xs-4 menuIcons achievements"></div></a>
-				<a data-toggle="modal" href="#settingsModal"><div class="col-xs-4 menuIcons settings"></div></a>
+				<div class="col-xs-4 menuIcons credits">
+                	<input type="image" src="images/buttons/credits1.png" onClick="fadeEnd(credits)" />
+                </div>
+				
+                <div class="col-xs-4 menuIcons achievements">
+                	<input type="image" src="images/buttons/achievements.png" onClick="fadeEnd(achievements)" />
+                </div>
+                
+				<div class="col-xs-4 menuIcons settings">
+                	<input type="image" src="images/buttons/settings.png" data-toggle="modal" data-target="#settingsModal"  data-backdrop="static" data-keyboard="false"/>
+                </div>
 			</div>
 		</div>
 		<!-- End of buttons for main menu  -->

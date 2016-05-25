@@ -481,24 +481,6 @@ div.menuIcons{
 	max-height: 100%;
 	text-align: center;
 }
-div.credits{
-	background: url("../images/buttons/credits1.png");
-    background-size: contain;
-	background-repeat: no-repeat;
-    background-position: center;
-}
-div.achievements{
-	background: url("../images/buttons/achievements.png");
-    background-size: contain;
-	background-repeat: no-repeat;
-    background-position: center;
-}
-div.settings{
-	background: url("../images/buttons/settings.png");
-    background-size: contain;
-	background-repeat: no-repeat;
-    background-position: center;
-}
 /** End of main menu styling */
 
 
