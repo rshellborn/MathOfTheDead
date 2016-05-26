@@ -1,5 +1,7 @@
+//holds the jokes to be used on end of game screen
 var puns = [];
-		
+
+//all the jokes used on the end of game screen
 puns[0] = "Q: Why do they never serve beer at a math party? A: Because you can't drink and derive...";
 puns[1] = "Q: Why didn't the quarter roll down the hill with the nickel? A: Because it had more cents. ";
 puns[2] = "Q: What happened to the plant in math class? A: It grew square roots. ";
@@ -25,7 +27,11 @@ puns[21] = "Q: Where do math teachers go on vacation? A: To Times Square.";
 puns[22] = "Q: Why did I divide sin by tan? A: Just cos. ";
 puns[23] = "Q: Why don't you do arithmetic in the jungle? A: Because if you add 4+4 you get ate! ";
 puns[24] = "Q: Why did the zombie try to pick up women at a math conference?  A: He wanted a woman with brains."
+puns[25] = "Dear math: I won't find your x, and don't ask me y.  Just move on, man.  This is creepy."
 
+/*
+	chooses a random joke for the end of game screen.
+*/
 $(document).ready(function(){
 	var randomNum = parseInt((Math.random() * puns.length));
 	console.log(randomNum);
