@@ -14,9 +14,11 @@ $(document).ready(function(){
 	}
 
 	if(getSessionItem("reset") == 1) {
+		console.log('reset on');
 	  //clears data from the game to allow replay
 	  removeSessionItem("wave");
 	  removeSessionItem("score");	
+	  removeSessionItem("reset");
 	}
 
 	/* Checks if the game mode has been selected, and if it hasn't it sends player to login screen. */
