@@ -71,13 +71,32 @@ div.topBar{
 }
 /** Making the pause button #03C.*/
 div.pauseButton{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+
 	background-color:#03C;
 	z-index: 2;
+	border-right: 1px solid white;
+	padding: 0;
 }
 /** hover for pause button.*/
 div.pauseButton:hover{
 	background-color:#002277;
 	color: #dddddd;
+}
+div.zombieHead{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	vertical-align: middle;
+	padding: 0;
+}
+div.zombiesCounter{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;	
+	padding: 0;
 }
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
@@ -263,10 +282,10 @@ div.leaderBoardTitle{
 }
 /** Setting the size of the leaderboard screen.*/
 div.leaderboardContainer{
-	width: 50%;
+	width: 64%;
 	height: 65%;
 	padding: 0;
-	margin-left: 25%;
+	margin-left: 18%;
 	z-index: 2;
 }
 /** Setting the height of the container containing the leaderboard title of the leaderboard screen. */
@@ -277,6 +296,13 @@ div.leaderboardDisplay{
 	border: 1px solid black;
 	padding: 0;
 	z-index: 2;
+
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 }
 /** Setting the font properties of the rank in the leaderboard.*/
 div.leaderBoardRank{
