@@ -33,7 +33,7 @@ $(document).ready(function(){
 	document.getElementById("wave").textContent=("Wave " + wave);
 	
 	// Triggers achievement modal
-	if(getSessionItem("egg") == 1) {
+	if(getSessionItem("egg") == null) {
 		triggerAchievement();	
 	}
 	
