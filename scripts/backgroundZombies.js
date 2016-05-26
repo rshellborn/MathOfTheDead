@@ -39,7 +39,7 @@ $(document).ready(function(){
 		// Set styles for container for zombie
 		zombieHolder.style.height = "10%";
 		zombieHolder.style.maxHeight = "150px";
-		zombieHolder.style.width = "12.5%";
+		zombieHolder.style.width = "10%";
 		zombieHolder.style.position = "absolute";
 		zombieHolder.style.top = yPos + "%"; 
 		zombieHolder.style.left = xPos + "%";
@@ -160,7 +160,7 @@ $(document).ready(function(){
 		Random num helper for xPos 
 	*/ 
 	function xRandom() {
-		return Math.floor(Math.random() * 8) * 12.5; 
+		return Math.floor(Math.random() * 10) * 10; 
 	}
 
 	/*
