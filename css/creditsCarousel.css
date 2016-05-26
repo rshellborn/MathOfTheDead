@@ -35,16 +35,7 @@ div.creditsInfo ul{
 div.carousel-control{
 	background: none;
 }
-div.creditsTitle{
-	width: 100%;
-	min-height: 20%;
-	color: #f20000;
-	font-family: 'Nosifer', cursive;
-	font-size: 5.0em;
-	text-align: center;
-	padding: 0;
-	z-index: 2;
-}
+
 
 .carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left,.carousel-control .glyphicon-chevron-right {
   text-shadow: none;
