@@ -27,29 +27,30 @@
 		menuBGM.loop = true; 
 		menuBGM.play();
 		
-		//triggers achievement
-		if(getSessionItem("10wave") == null) {
-			// Creates session variable that 10 Wave Completed achievement is triggered
-			createSessionItem("10wave", 1);
-			triggerAchievement();
-		}
+		$(document).ready(function(){	
+		  //triggers achievement
+		  if(getSessionItem("10wave") == null) {
+			  // Creates session variable that 10 Wave Completed achievement is triggered
+			  createSessionItem("10wave", 1);
+			  triggerAchievement();
+		  }
+		});
   	</script>
   <!-- ACHIEVEMENTS MODAL THAT POPS UP -->
 	<!-- Modal -->
-	<div class="modal fade" id="achievementModal" role="dialog">
-		<div class="modal-dialog modal-sm">
+	<div class="modal fade" id="achievementModal" style="z-index:9999" role="dialog">
+		<div class="modal-dialog modal-sm " style="z-index:9999" >
 
 		<!-- Modal content-->
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header achievementHeader">
 					<h4 class="modal-title achievementModalTitle" align="center">Achievement Unlocked!</h4>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body achievementBody">
 					<div class="unlockedAchievementImage"><img class="img-responsive image" src="images/trophies/unlocked.png" alt="trophy"></div>
-					<div class"text-center">Visit the main menu to see!</div>
+					<div class="text-center achievementText">Visit the main menu to see!</div>
 				</div>
-				<div class="modal-footer">
-				<!-- footer stuff -->
+				<div class="modal-footer modalFooter">
 				</div>
 			</div>
 		</div>

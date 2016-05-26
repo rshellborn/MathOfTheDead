@@ -4,7 +4,7 @@
 */
 $(document).ready(function(){
 	//audio
-	
+	console.log('check1 - ' +getSessionItem("10wave"));
 	var mode = getSessionItem("mode");
 	if (mode == 0){
 		bgmWave.loop = true; 
@@ -200,7 +200,7 @@ $(document).ready(function(){
 		Checks if all waves have been completed in 10 Wave Mode
 		*/
 		function gameWon() {
-		  if(wave == 11) {
+		  if(wave == 2) {
 			  wave = 10;
 			  
 			// Create session variables for score and wave
