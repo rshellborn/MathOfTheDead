@@ -313,14 +313,21 @@ $(document).ready(function(){
 			// Updates the score on the screen
 			document.getElementById("score").textContent=("Score: " + score);
 			
-			// Removes the zombie
-			zs[zomNum].remove();
+			// animation
+			$( "#"+zomNum ).toggle( "bounce", { times: 1 }, "fast" );
 			
-			// Checks if the wave is complete and then changes the wave
-			if (killCount == spawnNum) {
-				easterEggThisWave = 0; // set flag no pony mode again
-				backToMainGame();
-			}
+			setTimeout(function(){ 
+				// Removes the zombie
+				zs[zomNum].remove();
+			
+				// Checks if the easter egg is complete
+				if (killCount == spawnNum) {
+					easterEggThisWave = 0; // set flag for no pony mode again
+					backToMainGame();
+				}
+
+			}, 250);
+			
 		}		
 		
 		/*
@@ -371,6 +378,10 @@ $(document).ready(function(){
 			if (health == 0){
 				die();
 			} else {
+				// flicker animation
+				$( "#"+zomNum + "zImage" ).toggle( "pulsate" , "fast" );
+				$( "#"+zomNum + "zImage" ).toggle( "pulsate" , "fast" );
+				//audio
 				zStillAlive.play(); 
 				console.log("zom #"+ zomNum + " hit w/ gun "+ selectedGun 
 						+ " health: " + health);
@@ -443,7 +454,7 @@ $(document).ready(function(){
 		}
 		
 		/*
-			Division Operation and checks if easter egg is triggered.
+			Division Operation and checks if easter egg is over. 
 		*/
 		function diviOperation() {
 		  if(currentBullet == 0) {
