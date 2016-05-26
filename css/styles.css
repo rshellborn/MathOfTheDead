@@ -16,6 +16,11 @@ html,body {
 body {
   opacity: 0;
 }
+
+.credits-button:hover {
+	background: blue;		
+}
+
 /** Outer container that holds all divs and elements*/
 div.special {
 	min-height: 100%;
