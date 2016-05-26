@@ -71,13 +71,32 @@ div.topBar{
 }
 /** Making the pause button #03C.*/
 div.pauseButton{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+
 	background-color:#03C;
 	z-index: 2;
+	border-right: 1px solid white;
+	padding: 0;
 }
 /** hover for pause button.*/
 div.pauseButton:hover{
 	background-color:#002277;
 	color: #dddddd;
+}
+div.zombieHead{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	vertical-align: middle;
+	padding: 0;
+}
+div.zombiesCounter{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;	
+	padding: 0;
 }
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
@@ -263,10 +282,10 @@ div.leaderBoardTitle{
 }
 /** Setting the size of the leaderboard screen.*/
 div.leaderboardContainer{
-	width: 50%;
+	width: 64%;
 	height: 65%;
 	padding: 0;
-	margin-left: 25%;
+	margin-left: 18%;
 	z-index: 2;
 }
 /** Setting the height of the container containing the leaderboard title of the leaderboard screen. */
@@ -277,6 +296,13 @@ div.leaderboardDisplay{
 	border: 1px solid black;
 	padding: 0;
 	z-index: 2;
+
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 }
 /** Setting the font properties of the rank in the leaderboard.*/
 div.leaderBoardRank{
@@ -530,6 +556,17 @@ div.achievementImage{
 	border: 1px black solid;
 
 }
+div.achievementInfoUnlocked {
+	width:80%;
+	min-width: 80%;
+	max-width: 80%;
+	min-height: 25%;
+	max-height: 25%;
+	height: 25%;
+	padding-left: 5%;
+	border: 1px black solid ;
+	color: white;	
+}
 div.lockedAchievementTut{
 	background: url("../images/trophies/notUnlocked.png");
     background-size: contain;
@@ -585,8 +622,9 @@ div.achievementInfo{
 	min-height: 25%;
 	max-height: 25%;
 	height: 25%;
-	padding-left: 5%;
-	border: 1px black solid ;
+	padding-right: 5px;
+	padding-left: 5px;
+	border: 1px black solid;
 }
 div.achievementInfoUnlocked {
 	width:80%;
@@ -626,7 +664,7 @@ div.menuIcons{
 div.creditsTitle{
 	width: 100%;
 	min-height: 20%;
-	color: #f20000;
+	color: #03C;	
 	font-family: 'Nosifer', cursive;
 	font-size: 5.0em;
 	text-align: center;
@@ -656,6 +694,16 @@ div.settings{
     align-items: center;
 	-webkit-justify-content: center;
     justify-content: center;
+}
+
+/** Main menu small button issues */
+#smallButtons {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 /** End of main menu styling */
 
@@ -701,7 +749,7 @@ div.settings{
 	/*uncomment this after javascript stops executing*/
     /*opacity:1.0 !important;*/
 }
-##03CT {
+#redT {
 	color: #03C;
 }
 <!-- End of modal stuff-->
@@ -804,7 +852,7 @@ div.settings{
 	div.EOGWavedisplay{
 		font-size: 2.5em;
 	}
-	div.EOGSco#03Cisplay{
+	div.EOGScoredisplay{
 		font-size: 2.5em;
 	}
 	.modal { 
@@ -822,8 +870,9 @@ div.settings{
 		font-size: 3.5em;
 	}
 	div.leaderboardContainer{
-		width: 100%;
+		width: 90%;
 		margin: 0;
+		margin-left: 5%;
 	}
 	#startWave{
 		min-width: 80%;
