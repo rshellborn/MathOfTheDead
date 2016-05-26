@@ -4,7 +4,7 @@
 */
 $(document).ready(function(){
 	//audio
-	
+	console.log('check1 - ' +getSessionItem("10wave"));
 	var mode = getSessionItem("mode");
 	if (mode == 0){
 		bgmWave.loop = true; 
