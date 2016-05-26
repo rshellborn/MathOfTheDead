@@ -32,8 +32,13 @@ $(document).ready(function(){
 	// Displays wave on the screen
 	document.getElementById("wave").textContent=("Wave " + wave);
 	
+	console.log('egg='+getSessionItem("egg"));
 	// Triggers achievement modal
 	if(getSessionItem("egg") == null) {
+		console.log('egg='+getSessionItem("egg"));
+		// Enables pony sound theme
+		createSessionItem("ponyMode", 1);
+		createSessionItem("egg", 1);
 		triggerAchievement();	
 	}
 	
@@ -534,7 +539,6 @@ $(document).ready(function(){
 		var innerWave = 0;
 		for (i = 0; i < spawnNum; i++) {
 			var chosen =  Math.floor((Math.random() * 5) + 0);
-			console.log('chosen-'+chosen);
 			zs[i] = new Zombie(genHealth(), lanePlacement(i % 4), i, yRandom(innerWave), chosen);  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
