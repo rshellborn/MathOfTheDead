@@ -4,7 +4,6 @@
 */
 $(document).ready(function(){
 	//audio
-	console.log('check1 - ' +getSessionItem("10wave"));
 	var mode = getSessionItem("mode");
 	if (mode == 0){
 		bgmWave.loop = true; 
@@ -26,9 +25,12 @@ $(document).ready(function(){
 		fadeEnd("login.html");
 	}
 	
-	// Initializes total amount kills to 0
+	// Initializes total amount kills to 0 and allows passing of score and wave to and from the easter egg.
 	if(easterEggThisWave == 0) {
-		var totalKills = getSessionItem("totalKills");	
+		console.log('carrying score');
+		var totalKills = getSessionItem("totalKills");
+		wave = getSessionItem("wave");
+		score = parseInt(getSessionItem("score"));
 	} else {
 		var totalKills = 0;
 	}
@@ -39,11 +41,6 @@ $(document).ready(function(){
 	wave = 1;
 	score = 0;
 	
-	/* Allows passing of score and wave to and from the easter egg. */
-	if(easterEggThisWave == 0) {
-		wave = getSessionItem("wave");
-		score = parseInt(getSessionItem("score"));
-	}
 	/* Resets the wave and score if the page is reloaded. */
 	$(window).bind('beforeunload',function(){
 		wave = 1;
