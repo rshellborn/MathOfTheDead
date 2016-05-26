@@ -1,6 +1,6 @@
 var puns = [];
 
-var randomNum = Math.floor((Math.random() * 23) + 0);
+
 		
 puns[0] = "Q: Why do they never serve beer at a math party? A: Because you can't drink and derive...";
 puns[1] = "Q: Why didn't the quarter roll down the hill with the nickel? A: Because it had more cents. ";
@@ -27,7 +27,7 @@ puns[22] = "Q: Why did I divide sin by tan? A: Just cos. ";
 puns[23] = "Q: Why don't you do arithmetic in the jungle? A: Because if you add 4+4 you get ate! ";
 
 $(document).ready(function(){
-
-var randomPun = puns[randomNum];
-document.getElementById("pun").innerHTML = randomPun;
+	var randomNum = parseInt((Math.random() * puns.length));
+	var randomPun = puns[randomNum];
+	document.getElementById("pun").innerHTML = randomPun;
 });
