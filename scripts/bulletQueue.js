@@ -17,7 +17,6 @@ $(document).ready(function() {
 		updateRandomBullet();
 		if(bMode == 1) {
 			if(killCount % 2 == 0) {
-				console.log(maxNumZeroes);
 				resetZeroCounter(); 
 			}
 		}

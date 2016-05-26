@@ -35,7 +35,9 @@ $(document).ready(function(){
 	}
 	
 	//triggers achievement
-	if(getSessionItem("10wave") == 1) {
+	if(getSessionItem("10wave") == null) {
+		// Creates session variable that 10 Wave Completed achievement is triggered
+		createSessionItem("10wave", 1);
 		triggerAchievement();
 	}
 	

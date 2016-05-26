@@ -202,11 +202,6 @@ $(document).ready(function(){
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
 			
-			// Creates session variable that 10 Wave Completed achievement is triggered
-			if (getSessionItem("10wave") == null) {
-				createSessionItem("10wave", 1);
-			}
-			
 			// Transitions to you win screen
 			fadeEnd("youWin.html");
 			return true;
@@ -554,15 +549,6 @@ $(document).ready(function(){
 			
 			totalKills++;
 			createSessionItem("totalKills", totalKills);
-			
-			// Enables pony sound theme
-			createSessionItem("ponyMode", 1);
-			
-			// Award tutorial completed achievement
-			if (getSessionItem("egg") == null) {
-			  createSessionItem("egg", 1);
-			  console.log(getSessionItem("egg") + '-egg');
-			}
 			
 			// Changes CSS file
 			var egg = document.getElementById("css");
