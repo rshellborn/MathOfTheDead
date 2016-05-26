@@ -839,13 +839,13 @@ div.settings{
 		min-height: 100%;
 	}
 	div.emptySpace{
-		min-height: 35%;
+		min-height: 15%;
 	}
 	div.topBar{
 		font-size: 1.5em;
 	}
 	div.youDiedTitle{
-		font-size: 4.5em;
+		font-size: 3.5em;
 	}
 	div.youWonTitle{
 		font-size: 4.5em;
@@ -880,10 +880,10 @@ div.settings{
 		height: 15%;
 	}
 	div.EOGWavedisplay{
-		font-size: 2.5em;
+		font-size: 2.0em;
 	}
-	div.EOGSco#03Cisplay{
-		font-size: 2.5em;
+	div.EOGScoredisplay{
+		font-size: 2.0em;
 	}
 	.modal { 
 		position: fixed; 
@@ -907,16 +907,16 @@ div.settings{
 		width: 80%;
 	}
 	div.leaderBoardRank{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardUserName{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardWave{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardScore{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	#startWave{
 		min-width: 80%;
@@ -952,13 +952,25 @@ div.settings{
 		height: 12%;
 		min-height: 12%;
 		max-height: 12%;
-		font-size: 2.5em;
+		font-size: 1.8em;
 	}
 	div.achievementInfo h1{
 		font-size: 1.5em;
 	}
+	div.achievementText{
+		font-size: 0.5em;
+	}
 	div.achievementInfoUnlocked h1{
 		font-size: 1.5em;
+	}
+	div.mathPun{
+		margin-bottom: 3%;
+	}
+	div.enterNameTitle{
+		font-size: 5.0em;
+	}
+	div.gameModeTitle{
+		font-size: 2.0em;
 	}
 }
 <!-- End of responsive styling -->
