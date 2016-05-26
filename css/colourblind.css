@@ -85,6 +85,7 @@ div.pauseButton:hover{
 	background-color:#002277;
 	color: #dddddd;
 }
+/***/
 div.zombieHead{
 	height: 100%;
 	min-height: 100%;
@@ -349,9 +350,9 @@ div.nameSignIn{
 /** Setting the container size, font properties, and centering text of the wave number in the end of game screen */
 div.EOGWavedisplay{
 	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
+	min-height: 10%;
+	height: 10%;
+	max-height: 10%;
 	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -367,9 +368,9 @@ div.EOGWavedisplay{
 /** Setting the container size, font properties, and centering text of the score in the end of game screen */
 div.EOGScoredisplay{
 	width: 100%;
-	min-height: 15%;
-	height: 15%;
-	max-height: 15%;
+	min-height: 10%;
+	height: 10%;
+	max-height: 10%;
 	text-align: center;
 	
 	color: white;
@@ -706,25 +707,6 @@ div.settings{
     outline:none;
 }
 /** End of main menu styling */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- modal pause menu stuff -->
 #PauseModal{
