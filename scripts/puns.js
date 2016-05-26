@@ -1,5 +1,7 @@
 var puns = [];
-var randomPun = Math.floor((Math.random() * 24) + 0);
+
+var randomNum = Math.floor((Math.random() * 24) + 0);
+//document.getElementById("pun").innerHTML = randomPun;
 		
 puns[0] = "Q: Why do they never serve beer at a math party? A: Because you can't drink and derive...";
 puns[1] = "Q: Why didn't the quarter roll down the hill with the nickel? A: Because it had more cents. ";
@@ -27,4 +29,6 @@ puns[23] = "Q: Why don't you do arithmetic in the jungle? A: Because if you add 
 
 $(document).ready(function(){
 
+var randomPun = puns[randomNum];
+document.getElementById("pun").innerHTML = randomPun;
 });
