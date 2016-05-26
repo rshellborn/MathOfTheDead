@@ -459,6 +459,10 @@ div.menuButtonHolder{
 	color: #dddddd;
 }
 
+#nameInputHolder:hover {
+	color: black;
+}
+
 /*for score in game screen*/
 #score {
 	-webkit-transition: color 1s;
