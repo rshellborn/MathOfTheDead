@@ -3,6 +3,7 @@
 */
 $(document).ready(function(){
 	$("body").animate({opacity: 1}, 400);
+	console.log('check1 - ' +getSessionItem("10wave"));
 });
 
 /*
