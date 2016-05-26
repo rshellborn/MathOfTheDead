@@ -143,7 +143,7 @@
 					<div class"text-center">
                         <p><b id="redT">Score is dependant on the highest absolute value you get the zombie to</b> and then kill it. For example if you get the zombies health to (-11) or 11, when you kill it your score will be 11 points for that zombie.</p>
                         <p>The score you can get for one zombie will <b id="redT">max out at 100.</b></p>
-                        <p>An <b id="redT">added bonus</b> of 5 points (in addition to 100) will be awarded for each operator gun you use!</p>
+                        <p>An <b id="redT">added bonus</b> of 5 points (in addition to 100) will be awarded for each different operator gun you use!</p>
                     	<br /> <br />
 						<button id="done" type="button" class="btn btn-primary btn-lg sharp"  data-toggle="modal" data-target="#dieModal"  data-backdrop="static" data-keyboard="false" data-dismiss="modal">Next</button>
 					</div>
@@ -364,7 +364,8 @@
 				<div class="modal-body">
 					<div class"text-center">
                 		<p>Each time you use this gun you will be performing division with the numbers from the bullet queue and the numbers above the zombies head.</p>
-                		<p>For example if the current bullet is ( -1) and you click on a zombie with (-1) health you will cause the zombie’s health to equal 1. Also this gun rounds up if you attempt to divide 15 by 7 you will cause the zombie’s health to be 3.</p>
+                		<p>This gun <b id="redT">does not round, </b>it will return how many times the bullet number fit into the zombie's health.</p>
+                		<p>ex. 15/7 will cause the zombie's health to be 2.</p>
                     	<br /> <br />
 						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">OK I understand!</button>
 					</div>
