@@ -197,6 +197,7 @@ $(document).ready(function(){
 		function gameWon() {
 		  if(wave == 11) {
 			  wave = 10;
+			  
 			// Create session variables for score and wave
 			createSessionItem("score", score);
 			createSessionItem("wave", wave);
