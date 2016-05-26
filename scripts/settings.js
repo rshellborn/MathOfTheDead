@@ -127,12 +127,22 @@ function updateSettings() {
 	*/
 	if (getSessionItem("colourblind") == 1) {
 		// Changes CSS file
-		var colourCss = document.getElementById("css");
-		colourCss.setAttribute('href', "css/colourblind.css");
+		document.getElementById("css").setAttribute('href', "css/colourblind.css");
+		document.getElementById("t-css").setAttribute('href', "css/toggleSwitches-colourblind.css");
+		
+		// Switches button icons
+		document.getElementById("credits-button").setAttribute("src", "images/colourblind/buttons/credits.png");
+		document.getElementById("achievements-button").setAttribute("src", "images/colourblind/buttons/achievements.png");
+		document.getElementById("settings-button").setAttribute("src", "images/colourblind/buttons/settings.png");
 	} else {
 		// Changes CSS file
-		var colourCss = document.getElementById("css");
-		colourCss.setAttribute('href', "css/styles.css");
+		document.getElementById("css").setAttribute('href', "css/styles.css");
+		document.getElementById("t-css").setAttribute('href', "css/toggleSwitches.css");
+		
+		// Switches button icons
+		document.getElementById("credits-button").setAttribute("src", "images/buttons/credits1.png");
+		document.getElementById("achievements-button").setAttribute("src", "images/buttons/achievements.png");
+		document.getElementById("settings-button").setAttribute("src", "images/buttons/settings.png");
 	}	
 	
 	console.log('bgm=' + getSessionItem("bgm") + ' || sfx=' + getSessionItem("sfx") + ' || colourblind=' + getSessionItem("colourblind"));

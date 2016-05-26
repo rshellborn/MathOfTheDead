@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/toggleSwitches.css" />
+  <link id="t-css" rel = "stylesheet" type = "text/css"  href = "css/toggleSwitches.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -121,13 +121,13 @@
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuIconHolder">
 				<div class="col-xs-12 menuIcons">
 					<div class="col-xs-4 credits">
-						<input class="img-responsive" type="image" src="images/buttons/credits1.png" onClick="fadeEnd(credits)" />
+						<input id="credits-button" class="img-responsive" type="image" src="images/buttons/credits1.png" onClick="fadeEnd(credits)" />
 					</div>
 					<div class="col-xs-4 achievements">
-						<input class="img-responsive" type="image" src="images/buttons/achievements.png" onClick="fadeEnd(achievements)" />
+						<input id="achievements-button" class="img-responsive" type="image" src="images/buttons/achievements.png" onClick="fadeEnd(achievements)" />
 					</div>
 					<div class="col-xs-4 settings">
-						<input class="img-responsive" type="image" src="images/buttons/settings.png" data-toggle="modal" data-target="#settingsModal"  data-backdrop="static" data-keyboard="false"/>
+						<input id="settings-button" class="img-responsive" type="image" src="images/buttons/settings.png" data-toggle="modal" data-target="#settingsModal"  data-backdrop="static" data-keyboard="false"/>
 					</div>
 				</div>
 			</div>
