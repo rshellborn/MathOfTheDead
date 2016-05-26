@@ -366,10 +366,10 @@ div.leaderBoardTitle{
 }
 /** Setting the size of the leaderboard screen.*/
 div.leaderboardContainer{
-	width: 50%;
+	width: 64%;
 	height: 65%;
 	padding: 0;
-	margin-left: 25%;
+	margin-left: 18%;
 	z-index: 2;
 }
 /** Setting the height of the container containing the leaderboard title of the leaderboard screen. */
@@ -380,6 +380,13 @@ div.leaderboardDisplay{
 	border: 1px solid black;
 	padding: 0;
 	z-index: 2;
+	
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 }
 /** Setting the font properties of the rank in the leaderboard.*/
 div.leaderBoardRank{
@@ -451,6 +458,7 @@ div.menuButtonHolder{
 	font-size: 3.0em;
 	padding-top:8px;
 	padding-bottom:8px;
+	margin-bottom: 4%;
 }
 
 /** hover for buttons */
@@ -478,7 +486,7 @@ div.menuIconHolder{
 	height: 10%;
 	min-height: 10%;
 	max-height: 10%;
-	display: inline;
+	text-align: center;
 }
 div.menuIcons{
 	height: 100%;
@@ -486,6 +494,30 @@ div.menuIcons{
 	max-height: 100%;
 	text-align: center;
 	z-index: 3;
+}
+div.credits{
+		display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+div.achievements{
+		display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+div.settings{
+		display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 }
 /** End of main menu styling */
 
@@ -815,8 +847,9 @@ div.space{
 		font-size: 3.5em;
 	}
 	div.leaderboardContainer{
-		width: 100%;
+		width: 90%;
 		margin: 0;
+		margin-left: 5%;
 	}
 	#startWave{
 		min-width: 80%;
@@ -840,7 +873,6 @@ div.space{
 		font: Arial, Helvetica, sans-serif;
 		font-size: 2.0em;
 	}
-	
 	div.achievementsContainer{
 		width: 100%;
 		min-width:100%;
@@ -879,7 +911,7 @@ div.space{
 		font-size: 3.0em;
 	}
 	div.nextWave{
-	font-size: 4.0em;
+		font-size: 4.0em;
 	}
 	.btn.sharp {
 		font-size: 2.0em;
@@ -929,16 +961,16 @@ div.space{
 		width: 80%;
 	}
 	div.leaderBoardRank{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardUserName{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardWave{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardScore{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	#startWave{
 		min-width: 80%;
