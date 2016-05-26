@@ -1,6 +1,6 @@
 var puns = [];
 
-var randomNum = Math.floor((Math.random() * 24) + 0);
+var randomNum = Math.floor((Math.random() * 23) + 0);
 //document.getElementById("pun").innerHTML = randomPun;
 		
 puns[0] = "Q: Why do they never serve beer at a math party? A: Because you can't drink and derive...";
