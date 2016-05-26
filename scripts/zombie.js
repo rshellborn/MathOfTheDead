@@ -25,21 +25,24 @@ $(document).ready(function(){
 		fadeEnd("login.html");
 	}
 	
+	
+	/* Initializes wave and score. */
+	wave = 1;
+	score = 0;
+	
+	
 	// Initializes total amount kills to 0 and allows passing of score and wave to and from the easter egg.
 	if(easterEggThisWave == 0) {
 		console.log('carrying score');
 		var totalKills = getSessionItem("totalKills");
-		wave = getSessionItem("wave");
+		// Gets score and wave from session variables
 		score = parseInt(getSessionItem("score"));
+		wave = getSessionItem("wave");
 	} else {
 		var totalKills = 0;
 	}
 	
 	var zeroUsed = 0;
-	
-	/* Initializes wave and score. */
-	wave = 1;
-	score = 0;
 	
 	/* Resets the wave and score if the page is reloaded. */
 	$(window).bind('beforeunload',function(){

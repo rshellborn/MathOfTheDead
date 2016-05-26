@@ -13,6 +13,7 @@ $(document).ready(function(){
 	
 	// Sets how many ponies will be spawned from a global variable
 	spawnNum = numOfPonies;
+	console.log('original spawnNum='+spawnNum);
 	
 	//keeps track of guns used on zombie to function as a multiplier
 	var addGunUsed = false;
@@ -295,6 +296,8 @@ $(document).ready(function(){
 			"Kills" the zombie and increments the kill count to determine the end of a wave.
 		*/
 		function die() {
+			console.log('updated spawnNum='+spawnNum);
+			console.log('updated killCount='+killCount);
 			// Sound of zombie dying
 			zDie.play(); 
 			// Console message of the zombie dying
@@ -509,8 +512,8 @@ $(document).ready(function(){
 			wipeAll();
 			
 			// Gets score and wave from session variables
-			createSessionItem("score", score);
-			createSessionItem("wave", wave);
+			score = createSessionItem("score", score);
+			wave = createSessionItem("wave", wave);
 			
 			createSessionItem("ponyMode", 0);
 			
