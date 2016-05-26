@@ -328,6 +328,7 @@ $(document).ready(function(){
 			
 				// Checks if the easter egg is complete
 				if (killCount == spawnNum) {
+					console.log('triggered on killcount spawnnum');
 					easterEggThisWave = 0; // set flag for no pony mode again
 					backToMainGame();
 				}
@@ -464,6 +465,7 @@ $(document).ready(function(){
 		*/
 		function diviOperation() {
 		  if(currentBullet == 0) {
+			  console.log('triggered by divide');
 			  easterEggThisWave = 0; // set flag no pony mode again		
 			  //increase score
 			  score += 5;
@@ -507,8 +509,8 @@ $(document).ready(function(){
 			wipeAll();
 			
 			// Gets score and wave from session variables
-			score = createSessionItem("score", score);
-			wave = createSessionItem("wave", wave);
+			createSessionItem("score", score);
+			createSessionItem("wave", wave);
 			
 			createSessionItem("ponyMode", 0);
 			
