@@ -195,7 +195,7 @@ $(document).ready(function(){
 		function scoreGlow() {
 			// makes the score glow, indicating score increase
 			// makes the score glow, indicating score increase
-			if (getSessionItem("colourBlind") == 0) {
+			if (getSessionItem("colourblind") == 0) {
 				document.getElementById("score").style.color = "red";//"#3399ff";
 				window.setTimeout(
 					function(){document.getElementById("score").style.color = "white"},
