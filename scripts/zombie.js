@@ -272,10 +272,17 @@ $(document).ready(function(){
 		*/
 		function scoreGlow() {
 			// makes the score glow, indicating score increase
-			document.getElementById("score").style.color = "red";//"#3399ff";
-			window.setTimeout(
-				function(){document.getElementById("score").style.color = "white"},
-			600);	
+			if (getSessionItem("colourblind") == 0) {
+				document.getElementById("score").style.color = "red";//"#3399ff";
+				window.setTimeout(
+					function(){document.getElementById("score").style.color = "white"},
+				600);
+			} else {
+				document.getElementById("score").style.color = "#3399ff";
+				window.setTimeout(
+					function(){document.getElementById("score").style.color = "white"},
+				600);
+			}
 		}
 		
 		/* ----------------------------------------END OF Score Calculation------------------------------------------ */

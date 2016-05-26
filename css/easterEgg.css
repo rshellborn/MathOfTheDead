@@ -57,6 +57,11 @@ div.topBar{
 	padding: 0;
 	z-index: 2;
 }
+/*for score in game screen*/
+#score {
+	-webkit-transition: color 1s;
+	transition: color 1s;
+}
 /** Making the pause button red.CHANGED!!!!*/
 div.pauseButton{
 	height: 100%;
