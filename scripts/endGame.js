@@ -41,7 +41,5 @@ $(document).ready(function(){
 		triggerAchievement();
 	}
 	
-	//clears data from the game to allow replay
-	removeSessionItem("wave");
-	removeSessionItem("score");
+	createSessionItem("reset", 1);
 });

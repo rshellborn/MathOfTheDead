@@ -12,8 +12,13 @@ $(document).ready(function(){
 	} else {
 		bgmInfini.loop = true; 
 		bgmInfini.play();
-	};
+	}
 
+	if(getSessionItem("reset") == 1) {
+	  //clears data from the game to allow replay
+	  removeSessionItem("wave");
+	  removeSessionItem("score");	
+	}
 
 	/* Checks if the game mode has been selected, and if it hasn't it sends player to login screen. */
 	var mode = getSessionItem("mode");
@@ -267,10 +272,17 @@ $(document).ready(function(){
 		*/
 		function scoreGlow() {
 			// makes the score glow, indicating score increase
-			document.getElementById("score").style.color = "red";//"#3399ff";
-			window.setTimeout(
-				function(){document.getElementById("score").style.color = "white"},
-			600);	
+			if (getSessionItem("colourblind") == 0) {
+				document.getElementById("score").style.color = "red";//"#3399ff";
+				window.setTimeout(
+					function(){document.getElementById("score").style.color = "white"},
+				600);
+			} else {
+				document.getElementById("score").style.color = "#3399ff";
+				window.setTimeout(
+					function(){document.getElementById("score").style.color = "white"},
+				600);
+			}
 		}
 		
 		/* ----------------------------------------END OF Score Calculation------------------------------------------ */

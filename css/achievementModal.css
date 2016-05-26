@@ -17,8 +17,11 @@
 .achievementModalTitle{
 	font-size: 1.0em;
 }
-.achievementModalBody{
-	height: 65%;
+.achievementHeader{
+	height: 30%;
+}
+.achievementBody{
+	height: 60%;
 	padding: 10px;
 	padding-bottom: 0;
 	color: white;
@@ -31,12 +34,12 @@
 	margin:auto;
 }
 .modalFooter{
-	height: 5%;
+	height: 10%;
 	padding: 0;
 }
 div.unlockedAchievementImage{
 	width: 100%;
-	height: 75%;
+	height: 65%;
 }
 div.modalBodyText{
 	color: white;
@@ -73,10 +76,7 @@ div.modalBodyText{
 	.achievementModalTitle{
 		font-size: 0.6em;
 	}
-	.achievementModalBody{
-		height: 65%;
-		padding: 10px;
-		padding-bottom: 0;
+	.achievementBody{
 		font-size: 0.5em;
 	}
 }
@@ -89,10 +89,10 @@ div.modalBodyText{
 	.achievementModalTitle{
 		font-size: 0.5em;
 	}
-	.achievementModalBody{
-		height: 65%;
-		padding: 10px;
-		padding-bottom: 0;
-		font-size: 0.4em;
+	.achievementHeader{
+		padding: 7px;
+	}
+	.achievementBody{
+		padding: 7px;
 	}
 }
