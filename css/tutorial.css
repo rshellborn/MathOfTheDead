@@ -1,0 +1,15 @@
+/**Issues with large words*/
+
+@media only screen and (max-width: 768px) {
+
+.modalTutorial {
+	width: 100%;
+	min-height: 10%;
+	color: red;
+	font-family: 'Nosifer', cursive;
+	font-size: 1.5em;
+	text-align: center;
+	vertical-align: bottom;
+	padding: 0;
+	}
+}

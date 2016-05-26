@@ -401,7 +401,8 @@ div.mathPun{
 /** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
 	width: 100%;
-	min-height: 25%;
+	min-height: 20%;
+	max-height: 20%;
 	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 5.5em;
