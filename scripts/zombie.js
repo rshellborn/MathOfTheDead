@@ -398,6 +398,8 @@ $(document).ready(function(){
 			}
 			// Checks which gun is selected
 			checkGun();
+			//updates maxHealth
+			updateMaxHealth();
 			// Updates bullet queue
 			updateRandomBullet();
 			// Updates health on the screen for the zombie
@@ -510,7 +512,15 @@ $(document).ready(function(){
 			}
 		  }
 		}
-	
+		
+		/*
+			updates maxHealth
+		*/
+		function updateMaxHealth() {
+			if (maxHealth < Math.abs(health)) {
+				maxHealth = Math.abs(health);
+			}
+		}
 		/* ---------------------------------END OF Gun Selection & Calculations---------------------------------- */
 	
 	

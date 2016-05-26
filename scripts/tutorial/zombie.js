@@ -297,6 +297,8 @@ $(document).ready(function(){
 			shot.play();
 			// Checks which gun is selected
 			checkGun();
+			//updates maxHealth
+			updateMaxHealth();
 			// Updates bullet queue
 			updateRandomBullet();
 			// Updates health on the screen for the zombie
@@ -372,13 +374,13 @@ $(document).ready(function(){
 		  if(currentBullet == 0) {
 			  zeroUsed = 1;
 			  maxHealth = 5;
-		  	  health = health * currentBullet;
 		  } else {
 			if (!multGunUsed) {
 				multGunUsed = true;
 				varietyBonus += 1;
 			}
 		  }
+		  health = health * currentBullet;
 		}
 		
 		function diviOperation() {
@@ -401,7 +403,15 @@ $(document).ready(function(){
 			}
 		  }
 		}
-	
+		
+		/*
+			updates maxHealth
+		*/
+		function updateMaxHealth() {
+			if (maxHealth < Math.abs(health)) {
+				maxHealth = Math.abs(health);
+			}
+		}
 		/* ---------------------------------END OF Gun Selection & Calculations---------------------------------- */
 	};
 	/* --------------------------------------END OF Zombie Object------------------------------------- */
@@ -415,8 +425,8 @@ $(document).ready(function(){
 		
 		// Spawn zombies
 		zs[0] = new Zombie(1, 10, 0, -40);  
-		zs[1] = new Zombie(-2, 45, 1, -75);  
-		zs[2] = new Zombie(4, 80, 2, -95);  
+		zs[1] = new Zombie(-2, 45, 1, -55);  
+		zs[2] = new Zombie(4, 80, 2, -65);  
 		
 		//freeze zombies
 		for(var i = 0; i < zs.length; i++)

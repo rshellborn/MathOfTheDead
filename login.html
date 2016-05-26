@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+  <link rel = "stylesheet" type = "text/css"  href = "css/gameMode.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -36,13 +37,13 @@
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" align="center">Choose A Game Mode</h4>
+					<h4 class="modal-title gameModeTitle" align="center">Choose A Game Mode</h4>
 				</div>
 				<div class="modal-body">
 					<div class"text-center">
 						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName(0)">10 Wave Mode</button>
 						<br /><br />
-						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName(1)">Infinite Wave Mode</button>
+						<button type="button" class="btn btn-primary btn-lg sharp" onclick="sendName(1)">Infinite Mode</button>
                         <br /><br />
 						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Cancel</button>
 					</div>
@@ -62,7 +63,7 @@
 
 			<!-- Beginning of buttons for end of game screen  -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-				<button class="btn sharp">
+				<button class="btn sharp" id = "nameInputHolder">
 						  <input id="nameInput" type="text" name="userName" class="nameSignIn" size="15" maxlength="15" placeholder="Enter Name" >
                           <!--onkeydown="sendLogIn()"-->
 				</button>

@@ -1,0 +1,5 @@
+@media only screen and (max-width: 768px) {
+	.modal-title{
+		font-size: 2.2em;
+	}
+}
