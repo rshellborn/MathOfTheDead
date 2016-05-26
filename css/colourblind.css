@@ -556,8 +556,9 @@ div.achievementInfo{
 	min-height: 25%;
 	max-height: 25%;
 	height: 25%;
-	padding-left: 5%;
-	border: 1px black solid ;
+	padding-right: 5px;
+	padding-left: 5px;
+	border: 1px black solid;
 }
 div.achievementInfoUnlocked {
 	width:80%;
@@ -628,6 +629,16 @@ div.settings{
 	-webkit-justify-content: center;
     justify-content: center;
 }
+
+/** Main menu small button issues */
+#smallButtons {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
 /** End of main menu styling */
 
 
@@ -672,7 +683,7 @@ div.settings{
 	/*uncomment this after javascript stops executing*/
     /*opacity:1.0 !important;*/
 }
-##03CT {
+#redT {
 	color: #03C;
 }
 <!-- End of modal stuff-->
@@ -775,7 +786,7 @@ div.settings{
 	div.EOGWavedisplay{
 		font-size: 2.5em;
 	}
-	div.EOGSco#03Cisplay{
+	div.EOGScoredisplay{
 		font-size: 2.5em;
 	}
 	.modal { 
@@ -793,8 +804,9 @@ div.settings{
 		font-size: 3.5em;
 	}
 	div.leaderboardContainer{
-		width: 100%;
+		width: 90%;
 		margin: 0;
+		margin-left: 5%;
 	}
 	#startWave{
 		min-width: 80%;
