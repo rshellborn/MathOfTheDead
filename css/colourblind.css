@@ -634,7 +634,7 @@ div.creditsTitle{
 	z-index: 2;
 }
 div.credits{
-		display: -webkit-flex;
+	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
     align-items: center;
