@@ -14,9 +14,11 @@ $(document).ready(function(){
 	}
 
 	if(getSessionItem("reset") == 1) {
+		console.log('reset on');
 	  //clears data from the game to allow replay
 	  removeSessionItem("wave");
 	  removeSessionItem("score");	
+	  removeSessionItem("reset");
 	}
 
 	/* Checks if the game mode has been selected, and if it hasn't it sends player to login screen. */
@@ -459,6 +461,8 @@ $(document).ready(function(){
 		function plusOperation() {
 			health = health + currentBullet;
 			console.log("new health: " + health);
+			
+			//stores the use of addition for scoring
 			if (!addGunUsed) {
 				addGunUsed = true;
 				varietyBonus += 1;
@@ -471,6 +475,8 @@ $(document).ready(function(){
 		function minusOperation() {
 			health = health - currentBullet;
 			console.log("new health: " + health);
+			
+			//stores the use of subtraction for scoring
 			if (!subGunUsed) {
 				subGunUsed = true;
 				varietyBonus += 1;
@@ -485,6 +491,8 @@ $(document).ready(function(){
 			  zeroUsed = 1;
 			  maxHealth = 5;
 		  } else {
+			  
+			//stores the use of multiplication for scoring
 			if (!multGunUsed) {
 				multGunUsed = true;
 				varietyBonus += 1;
@@ -514,6 +522,8 @@ $(document).ready(function(){
 			  console.log('health bigger');
 			  //health = Math.ceil(health / currentBullet);
 			  health = parseInt(health / currentBullet);
+			  
+			  //stores the use of division for scoring
 			  if (!divGunUsed) {
 				divGunUsed = true;
 				varietyBonus += 1;

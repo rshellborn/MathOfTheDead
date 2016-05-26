@@ -7,6 +7,8 @@ $(document).ready(function(){
 	var mode = getSessionItem("mode");
 	var totalKills = getSessionItem("totalKills");
 	
+	var killCount = 0;
+	
 	// audio
 	MLPMusic.loop = true; 
 	MLPMusic.play();
@@ -297,7 +299,6 @@ $(document).ready(function(){
 		*/
 		function die() {
 			console.log('updated spawnNum='+spawnNum);
-			console.log('updated killCount='+killCount);
 			// Sound of zombie dying
 			zDie.play(); 
 			// Console message of the zombie dying
@@ -305,6 +306,7 @@ $(document).ready(function(){
 			
 			// Increments killCount and totalKills
 			killCount++;
+			console.log('updated killCount='+killCount);
 			//totalKills++;
 			
 			// Stops the zombie from calling move/animate functions
@@ -514,6 +516,8 @@ $(document).ready(function(){
 			// Gets score and wave from session variables
 			score = createSessionItem("score", score);
 			wave = createSessionItem("wave", wave);
+			console.log(getSessionItem("score"));
+			console.log(getSessionItem("wave"));
 			
 			createSessionItem("ponyMode", 0);
 			
