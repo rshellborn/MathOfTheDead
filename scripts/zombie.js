@@ -200,7 +200,7 @@ $(document).ready(function(){
 		Checks if all waves have been completed in 10 Wave Mode
 		*/
 		function gameWon() {
-		  if(wave == 2) {
+		  if(wave == 11) {
 			  wave = 10;
 			  
 			// Create session variables for score and wave
