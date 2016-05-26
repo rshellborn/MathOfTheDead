@@ -500,6 +500,16 @@ div.menuIcons{
 	text-align: center;
 	z-index: 3;
 }
+div.creditsTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #f20000;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
 div.credits{
 		display: -webkit-flex;
     display: flex;

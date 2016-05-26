@@ -74,6 +74,11 @@ div.pauseButton{
 	background-color:#03C;
 	z-index: 2;
 }
+/** hover for pause button.*/
+div.pauseButton:hover{
+	background-color:#00207D;
+	color: #dddddd;
+}
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
 div.queue{
 	background: url("../images/bulletv2.png");
@@ -92,6 +97,11 @@ div.currentQueue{
 	min-height: 10%;
 	padding: 0; 
 	z-index: 2; 
+}
+/**hover for bullet*/
+div.currentQueue:hover{
+	background-color: #00207D;
+	color: #dddddd;
 }
 /** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
 div.thisQueue{
@@ -147,6 +157,11 @@ div.guns{
 	background-color: #03C;
 	height: 100%;
 }
+/** Hover for guns. */
+div.guns:hover{
+	background-color: #00207D;
+	color: #dddddd;
+}
 /** Setting the background color of the selected gun to grey. */
 div.guns.clicked{
 	border: 1px solid #FFF;
@@ -187,7 +202,7 @@ div.divide{
 /** Setting the font-size, font-family, and color of the game over text in the gameOver screen.*/
 div.youDiedTitle{
 	width: 100%;
-	min-height: 20%;
+	min-height: 15%;
 	color: #03C;
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
@@ -324,7 +339,7 @@ div.EOGWavedisplay{
 	padding: 0;
 }
 /** Setting the container size, font properties, and centering text of the score in the end of game screen */
-div.EOGSco#03Cisplay{
+div.EOGScoredisplay{
 	width: 100%;
 	min-height: 15%;
 	height: 15%;
@@ -335,6 +350,26 @@ div.EOGSco#03Cisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
+}
+/**Random pun that shows up when you die*/
+div.mathPun{
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	height: 15%;
+	min-height: 15%;
+	max-height: 15%;
+	font-size: 1.3em;
+	color: white;
+	z-index: 3;
+	text-align: center;
+	
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
 }
 /** Setting the text properties of the main menu title and container size to 35% of screen size.*/
 div.mainMenu{
@@ -391,6 +426,15 @@ div.menuButtonHolder{
 	padding-top:8px;
 	padding-bottom:8px;
 }
+/** hover for buttons */
+.btn.sharp:hover {
+	background: #00207D;
+	color: #dddddd;
+}
+
+#nameInputHolder:hover {
+	color: black;
+}
 /** Ensuring 0 padding of scores div.*/
 div.scores{
 	padding:0;
@@ -429,7 +473,29 @@ div.emptySpace{
 	font: Arial, Helvetica, sans-serif;
 	font-size: 2.0em;
 }
-
+/** hover for the Start Wave button in the tutorial screen. */
+.btn.tutorial:hover{
+	background-color: #00207D;
+	color: #dddddd;
+}
+/** Credits Page Styling.*/
+div.creditsTitle{
+	width: 100%;
+	height:20%;
+	padding: 0;
+	text-align: center;	
+	color: #03C;
+	font-family: 'Nosifer', cursive;
+	font-size: 6.0em;
+}
+div.credits{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
 
 /** Achievements Page Styling.*/
 div.achievementTitle{
@@ -442,6 +508,7 @@ div.achievementTitle{
 	font-family: 'Nosifer', cursive;
 	font-size: 6.0em;
 }
+
 div.achievementsContainer{
 	height: 60%;
 	min-height: 60%;
@@ -538,7 +605,59 @@ div.space{
 }
 
 
-
+/** Setting the space between the game title in the main menu screen and the buttons to 20% of screen size.*/
+div.emptySpace{
+	min-height: 10%;
+	max-height: 10%;
+}
+div.menuIconHolder{
+	height: 10%;
+	min-height: 10%;
+	max-height: 10%;
+	text-align: center;
+}
+div.menuIcons{
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	text-align: center;
+	z-index: 3;
+}
+div.creditsTitle{
+	width: 100%;
+	min-height: 20%;
+	color: #f20000;
+	font-family: 'Nosifer', cursive;
+	font-size: 5.0em;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+div.credits{
+		display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+div.achievements{
+		display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+div.settings{
+		display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+}
+/** End of main menu styling */
 
 
 
@@ -749,13 +868,13 @@ div.space{
 		min-height: 100%;
 	}
 	div.emptySpace{
-		min-height: 35%;
+		min-height: 15%;
 	}
 	div.topBar{
 		font-size: 1.5em;
 	}
 	div.youDiedTitle{
-		font-size: 4.5em;
+		font-size: 3.5em;
 	}
 	div.youWonTitle{
 		font-size: 4.5em;
@@ -790,10 +909,10 @@ div.space{
 		height: 15%;
 	}
 	div.EOGWavedisplay{
-		font-size: 2.5em;
+		font-size: 2.0em;
 	}
-	div.EOGSco#03Cisplay{
-		font-size: 2.5em;
+	div.EOGScoredisplay{
+		font-size: 2.0em;
 	}
 	.modal { 
 		position: fixed; 
@@ -817,16 +936,16 @@ div.space{
 		width: 80%;
 	}
 	div.leaderBoardRank{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardUserName{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardWave{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	div.leaderBoardScore{
-		font-size: 1.5em;
+		font-size: 1.1em;
 	}
 	#startWave{
 		min-width: 80%;
@@ -862,13 +981,25 @@ div.space{
 		height: 12%;
 		min-height: 12%;
 		max-height: 12%;
-		font-size: 2.5em;
+		font-size: 1.8em;
 	}
 	div.achievementInfo h1{
 		font-size: 1.5em;
 	}
+	div.achievementText{
+		font-size: 0.5em;
+	}
 	div.achievementInfoUnlocked h1{
 		font-size: 1.5em;
+	}
+	div.mathPun{
+		margin-bottom: 3%;
+	}
+	div.enterNameTitle{
+		font-size: 5.0em;
+	}
+	div.gameModeTitle{
+		font-size: 2.0em;
 	}
 }
 <!-- End of responsive styling -->
