@@ -17,6 +17,7 @@
   <script src="scripts/backgroundZombies.js"></script>
   <script src="scripts/audio.js"></script>
   <script src="scripts/settings.js"></script>
+  <script src="scripts/iconHover.js"></script>
 </head>
 <body>  
 	<script>
@@ -33,16 +34,6 @@
 		$(document).ready(function(){
 			setDefaultSettings();
 		});
-		
-		document.getElementById("credits-button").addEventListener("mouseout", mouseOut);
-		
-		function mouseOver() {
-			document.getElementById("credits-button").setAttribute("src", "images/buttons/achievements.png");
-		}
-	
-		function mouseOut() {
-			document.getElementById("credits-button").setAttribute("src", "images/buttons/credits1.png");
-		}
 
 	</script>
 	<!-- SETTINGS CHOICE THAT POPS UP -->
