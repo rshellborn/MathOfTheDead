@@ -433,14 +433,13 @@ $(document).ready(function(){
 		  if(currentBullet == 0) {
 			  zeroUsed = 1;
 			  maxHealth = 5;
-		  	  health = health * currentBullet;
 		  } else {
 			if (!multGunUsed) {
 				multGunUsed = true;
 				varietyBonus += 1;
 			}
 		  }
-		  zeroUsed = 0;
+		  health = health * currentBullet;
 		}
 		
 		/*
