@@ -35,11 +35,11 @@ $(document).ready(function(){
 	}
 	
 	//triggers achievement
-	if(getSessionItem("10wave") == 1) {
+	if(getSessionItem("10wave") == null) {
+		// Creates session variable that 10 Wave Completed achievement is triggered
+		createSessionItem("10wave", 1);
 		triggerAchievement();
 	}
 	
-	//clears data from the game to allow replay
-	removeSessionItem("wave");
-	removeSessionItem("score");
+	createSessionItem("reset", 1);
 });

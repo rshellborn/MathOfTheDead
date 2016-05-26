@@ -9,9 +9,7 @@ $(document).ready(function(){
 	
 	// audio
 	MLPMusic.loop = true; 
-	MLPMusic.play(); 
-	// Holds pony image name 
-	var ponyImage;
+	MLPMusic.play();
 	
 	// Sets how many ponies will be spawned from a global variable
 	spawnNum = numOfPonies;
@@ -34,8 +32,13 @@ $(document).ready(function(){
 	// Displays wave on the screen
 	document.getElementById("wave").textContent=("Wave " + wave);
 	
+	console.log('egg='+getSessionItem("egg"));
 	// Triggers achievement modal
-	if(getSessionItem("egg") == 1) {
+	if(getSessionItem("egg") == null) {
+		console.log('egg='+getSessionItem("egg"));
+		// Enables pony sound theme
+		createSessionItem("ponyMode", 1);
+		createSessionItem("egg", 1);
 		triggerAchievement();	
 	}
 	
@@ -60,7 +63,7 @@ $(document).ready(function(){
 		var maxHealth = Math.abs(health);
 		
 		//Message to show the zombie has been spawned.
-		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos + " yPos: " + yPos);
+		console.log("# " + zomNum + " health: " + health + " xPos: " + xPos + " yPos: " + yPos + " chosen " + chosen);
 		
 		// Holds timer for movement
 		var moveTimer = null;
@@ -68,6 +71,9 @@ $(document).ready(function(){
 		var animateTimer = null;
 		// Holds image number
 		var imageNumber = 0;
+		
+		// Holds pony image name 
+		var ponyImage;
 		
 		// Sets the image depending on the chosen param in constr
 		switch(chosen) {
@@ -530,9 +536,9 @@ $(document).ready(function(){
 		Spawns zombies depending on the wave design
 	*/
 	function callWave(){
-		var chosen =  Math.floor((Math.random() * 5) + 0);
 		var innerWave = 0;
 		for (i = 0; i < spawnNum; i++) {
+			var chosen =  Math.floor((Math.random() * 5) + 0);
 			zs[i] = new Zombie(genHealth(), lanePlacement(i % 4), i, yRandom(innerWave), chosen);  
 			// onclick handel 
 			document.getElementById(i + "zImage").onclick = zs[i].hit;
