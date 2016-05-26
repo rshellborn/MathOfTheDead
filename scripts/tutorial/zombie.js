@@ -425,8 +425,8 @@ $(document).ready(function(){
 		
 		// Spawn zombies
 		zs[0] = new Zombie(1, 10, 0, -40);  
-		zs[1] = new Zombie(-2, 45, 1, -75);  
-		zs[2] = new Zombie(4, 80, 2, -95);  
+		zs[1] = new Zombie(-2, 45, 1, -55);  
+		zs[2] = new Zombie(4, 80, 2, -65);  
 		
 		//freeze zombies
 		for(var i = 0; i < zs.length; i++)
