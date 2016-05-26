@@ -23,6 +23,7 @@ h1{
 	max-width: 60%;
 	height:65%;
 	margin-left: 20%;
+	z-index: 2;
 }
 div.creditsInfo{
 	text-align: center;
