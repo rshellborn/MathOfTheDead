@@ -1,10 +1,4 @@
 /* Resets the wave and score if the page is reloaded. */
-/*$(window).bind('beforeunload',function(){
-	createSessionItem("bgm", 1);
-	createSessionItem("sfx", 1);
-	createSessionItem("colourblind", 0);
-});*/
-	
 
 /*
 	Holds all the settings.
