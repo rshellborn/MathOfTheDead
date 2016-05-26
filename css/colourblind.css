@@ -76,7 +76,7 @@ div.pauseButton{
 }
 /** hover for pause button.*/
 div.pauseButton:hover{
-	background-color:#00207D;
+	background-color:#002277;
 	color: #dddddd;
 }
 /** Setting the image of the bullet queue to a bullet image to fir container.*/
@@ -100,7 +100,7 @@ div.currentQueue{
 }
 /**hover for bullet*/
 div.currentQueue:hover{
-	background-color: #00207D;
+	background-color: #002277;
 	color: #dddddd;
 }
 /** Centering the bullet queue value in the current queue to a larger font size and centering it.*/
@@ -159,7 +159,7 @@ div.guns{
 }
 /** Hover for guns. */
 div.guns:hover{
-	background-color: #00207D;
+	background-color: #002277;
 	color: #dddddd;
 }
 /** Setting the background color of the selected gun to grey. */
@@ -428,7 +428,7 @@ div.menuButtonHolder{
 }
 /** hover for buttons */
 .btn.sharp:hover {
-	background: #00207D;
+	background: #002277;
 	color: #dddddd;
 }
 
@@ -475,7 +475,7 @@ div.emptySpace{
 }
 /** hover for the Start Wave button in the tutorial screen. */
 .btn.tutorial:hover{
-	background-color: #00207D;
+	background-color: #002277;
 	color: #dddddd;
 }
 /** Credits Page Styling.*/
@@ -635,7 +635,7 @@ div.creditsTitle{
 	z-index: 2;
 }
 div.credits{
-		display: -webkit-flex;
+	display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
     align-items: center;

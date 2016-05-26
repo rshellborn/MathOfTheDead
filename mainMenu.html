@@ -34,16 +34,14 @@
 			setDefaultSettings();
 		});
 		
-		console.log(document.getElementById("creditsB"));
-		document.getElementById("creditsB").addEventListener("mouseout", mouseOut);
-		document.getElementById("creditsB").addEventListener("mouseover", mouseOver);
+		document.getElementById("credits-button").addEventListener("mouseout", mouseOut);
 		
 		function mouseOver() {
-			document.getElementById("creditsB").setAttribute("src", "images/buttons/achievements.png");
+			document.getElementById("credits-button").setAttribute("src", "images/buttons/achievements.png");
 		}
 	
 		function mouseOut() {
-			document.getElementById("creditsB").setAttribute("src", "images/buttons/credits1.png");
+			document.getElementById("credits-button").setAttribute("src", "images/buttons/credits1.png");
 		}
 
 	</script>
@@ -134,7 +132,7 @@
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuIconHolder">
 				<div class="col-xs-12 menuIcons">
 					<div class="col-xs-4 credits">
-						<input id="creditsB" class="img-responsive" type="image" src="images/buttons/credits1.png" style="min-height:55px; min-width:55px;" onClick="fadeEnd(credits)" />
+						<input id="credits-button" class="img-responsive" type="image" src="images/buttons/credits1.png" style="min-height:55px; min-width:55px;" onClick="fadeEnd(credits)" />
 					</div>
 					<div class="col-xs-4 achievements">
 						<input id="achievements-button" class="img-responsive" type="image" src="images/buttons/achievements.png" style="min-height:55px; min-width:55px;" onClick="fadeEnd(achievements)" />

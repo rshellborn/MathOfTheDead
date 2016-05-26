@@ -17,7 +17,6 @@
   <script src="scripts/settings.js"></script>
   <script src="scripts/backgroundZombies.js"></script>
   <script src="scripts/audio.js"></script>
-  
   </head>
   <body>
   	<script>
@@ -27,6 +26,13 @@
 		birds.play();
 		menuBGM.loop = true; 
 		menuBGM.play();
+		
+		//triggers achievement
+		if(getSessionItem("10wave") == null) {
+			// Creates session variable that 10 Wave Completed achievement is triggered
+			createSessionItem("10wave", 1);
+			triggerAchievement();
+		}
   	</script>
   <!-- ACHIEVEMENTS MODAL THAT POPS UP -->
 	<!-- Modal -->
