@@ -513,6 +513,9 @@ $(document).ready(function(){
 		  }
 		}
 		
+		/*
+			updates maxHealth
+		*/
 		function updateMaxHealth() {
 			if (maxHealth < Math.abs(health)) {
 				maxHealth = Math.abs(health);
