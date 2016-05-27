@@ -4,9 +4,14 @@
 */
 
 $(document).ready(function(){
+	// Instantiates locals for mode and total kills.
 	var mode = getSessionItem("mode");
 	var totalKills = getSessionItem("totalKills");
 	
+	// Updates total kills on the screen
+	document.getElementById("zombiesLeft").textContent=(totalKills);	
+	
+	// Resets the kill count.
 	var killCount = 0;
 	
 	// audio
@@ -15,15 +20,15 @@ $(document).ready(function(){
 	
 	// Sets how many ponies will be spawned from a global variable
 	spawnNum = numOfPonies;
-	console.log('original spawnNum='+spawnNum);
 	
-	//keeps track of guns used on zombie to function as a multiplier
+	// Keeps track of guns used on zombie to function as a multiplier
 	var addGunUsed = false;
 	var subGunUsed = false;
 	var multGunUsed = false;
 	var divGunUsed = false;
 	var varietyBonus = 0;
 	
+	// Check for if a zero has been used by multiply gun.
 	var zeroUsed = 0;
 	
 	// Gets score and wave from session variables
@@ -298,7 +303,6 @@ $(document).ready(function(){
 			"Kills" the zombie and increments the kill count to determine the end of a wave.
 		*/
 		function die() {
-			console.log('updated spawnNum='+spawnNum);
 			// Sound of zombie dying
 			zDie.play(); 
 			// Console message of the zombie dying
@@ -306,8 +310,6 @@ $(document).ready(function(){
 			
 			// Increments killCount and totalKills
 			killCount++;
-			console.log('updated killCount='+killCount);
-			//totalKills++;
 			
 			// Stops the zombie from calling move/animate functions
 			speed = 0;
@@ -333,7 +335,6 @@ $(document).ready(function(){
 			
 				// Checks if the easter egg is complete
 				if (killCount == spawnNum) {
-					console.log('triggered on killcount spawnnum');
 					easterEggThisWave = 0; // set flag for no pony mode again
 					backToMainGame();
 				}
@@ -351,17 +352,7 @@ $(document).ready(function(){
 			  // Increments total amount of kills
 			  totalKills++;
 			  document.getElementById("zombiesLeft").textContent=(totalKills);	
-			  
-			  // Checks if 50 kills in infinite mode achievement is unlocked
-			  if(totalKills == 25 && getSessionItem("kills") == null) {
-				// Creates session variable that 10 Wave Completed achievement is triggered
-				createSessionItem("kills", 1);
-				triggerAchievement();
-			  }
-			} else if (mode == 0) {
-				var zombiesLeft = spawnNum - killCount;
-				document.getElementById("zombiesLeft").textContent=(zombiesLeft);	
-			}	
+			}
 		}
 		
 		/* ----------------------------------------END OF Killing Zombies------------------------------------------ */
@@ -470,10 +461,10 @@ $(document).ready(function(){
 		*/
 		function diviOperation() {
 		  if(currentBullet == 0) {
-			  console.log('triggered by divide');
 			  easterEggThisWave = 0; // set flag no pony mode again		
 			  //increase score
 			  score += 5;
+			  totalKills++;
 			  backToMainGame();
 		  } else {
 			if(Math.abs(currentBullet) > Math.abs(health)) {
@@ -521,7 +512,6 @@ $(document).ready(function(){
 			
 			createSessionItem("ponyMode", 0);
 			
-			totalKills++;
 			createSessionItem("totalKills", totalKills);
 			
 			// Changes CSS file

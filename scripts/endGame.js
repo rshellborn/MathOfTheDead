@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-	// gets current wave number
+	// Gets current wave number
 	var wave = getSessionItem("wave");
-	// gets the current score value
+	// Gets the current score value
 	var score = getSessionItem("score");
-	// gets the player's name
+	// Gets the player's name
 	var name = getSessionItem("name");
-	//gets player ID
+	// Gets player ID
 	var id = getSessionItem("id");
 	
 	var pagePath = location.pathname;
@@ -18,11 +18,11 @@ $(document).ready(function(){
 		menuBGM.loop = true; 
 		menuBGM.play(); 
 		
-		//prints the wave number onto the top bar of the screen
+		// Prints the wave number onto the top bar of the screen
 		document.getElementById("wave").textContent=("Wave " + wave);	
 	}
 	
-	//prints the wave number onto the top bar of the screen
+	// Prints the wave number onto the top bar of the screen
 	document.getElementById("score").textContent=("Score: " + score);
 	
 	//sends player info to database
@@ -34,5 +34,6 @@ $(document).ready(function(){
 		});
 	}
 	
+	// If the player goes back to game screen, the score and wave will be reset
 	createSessionItem("reset", 1);
 });

@@ -1,8 +1,10 @@
 $(document).ready(function(){
+	/* Gets icon buttons. */
 	var creditsButton = document.getElementById("credits-button");
 	var achieveButton = document.getElementById("achievements-button");
 	var settingsButton = document.getElementById("settings-button");
 
+	/* Adds event listeners to the icon buttons. */
 	creditsButton.addEventListener("mouseout", mouseOutCredits);
 	creditsButton.addEventListener("mouseover", mouseOverCredits);
 	
@@ -12,6 +14,11 @@ $(document).ready(function(){
 	settingsButton.addEventListener("mouseout", mouseOutSettings);
 	settingsButton.addEventListener("mouseover", mouseOverSettings);
 
+
+	/*
+		All following functions change image of button to simulate hover. Checks whether colourblind is on or not to see which image to switch.
+	*/
+	
 	function mouseOverCredits() {
 	  if(getSessionItem("colourblind") == 1) {
 		  creditsButton.setAttribute("src", "images/colourblind/buttons/hover/credits.png");

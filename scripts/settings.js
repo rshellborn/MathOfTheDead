@@ -1,7 +1,5 @@
-/* Resets the wave and score if the page is reloaded. */
-
 /*
-	Holds all the settings.
+	Toggles BGM.
 */
 function toggleBGM() {
 	if(getSessionItem("bgm") == 1) {
@@ -14,6 +12,9 @@ function toggleBGM() {
 	setToggles();
 }
 
+/*
+	Toggles SFX.
+*/
 function toggleSFX() {
 	if(getSessionItem("sfx") == 1) {
 		createSessionItem("sfx", 0);
@@ -24,6 +25,9 @@ function toggleSFX() {
 	setToggles();
 }
 
+/*
+	Toggles vibration.
+*/
 function toggleVB() {
 	if(getSessionItem("vibrate") == 1) {
 		createSessionItem("vibrate", 0);
@@ -34,6 +38,9 @@ function toggleVB() {
 	setToggles();
 }
 
+/*
+	Toggles colourblind mode.
+*/
 function toggleColourblind() {
 	if(getSessionItem("colourblind") == 1) {
 		createSessionItem("colourblind", 0);
@@ -44,6 +51,9 @@ function toggleColourblind() {
 	setToggles();
 }
 
+/*
+	Sets default settings (all sound on, vibrate on, colourblind off).
+*/
 function setDefaultSettings() {
 	console.log('setting defaults');
 	if (getSessionItem("bgm") == null) {
@@ -67,9 +77,12 @@ function setDefaultSettings() {
 	setToggles();
 }
 
+/*
+	Updates settings when they are toggled.
+*/
 function updateSettings() {
 	/*
-		Checks background music.
+		Checks background music and mutes if they are disabled.
 	*/
 	if (getSessionItem("bgm") == 0) {
 		bgmWave.volume = 0;
@@ -92,7 +105,7 @@ function updateSettings() {
 	}
 	
 	/*
-		Checks sound effects.
+		Checks sound effects and mutes if they are disabled.
 	*/
 	if (getSessionItem("sfx") == 0) {
 		zWantBrains.volume = 0;
@@ -148,10 +161,11 @@ function updateSettings() {
 			document.getElementById("settings-button").setAttribute("src", "images/buttons/settings.png");
 		}
 	}	
-	
-	console.log('bgm=' + getSessionItem("bgm") + ' || sfx=' + getSessionItem("sfx") + ' || colourblind=' + getSessionItem("colourblind"));
 }
 
+/*
+	Updates the toggles on the screen to reflect what current settings are.
+*/
 function setToggles() {
 	if(getSessionItem("bgm") == 1) {
 		document.getElementById("BGMSwitch").checked = true;
@@ -179,6 +193,5 @@ function setToggles() {
 }
 
 $(document).ready(function(){
-	// Sets default settings when pages are loaded if nothing is set yet.
 	updateSettings();
 });
