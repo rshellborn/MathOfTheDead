@@ -97,6 +97,7 @@ div.queue{
 	border: 1px solid #FFF; 
 	min-height: 10%;
 	padding: 0;
+	
 	z-index: 2;
 }
 /** Setting the image of the current bullet in the bullet queue to a different background color.*/

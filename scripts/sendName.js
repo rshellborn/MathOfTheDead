@@ -22,7 +22,7 @@ function sendName(setMode) {
 	removeSessionItem("mode", mode);
 	createSessionItem("mode", mode);
 	
-	console.log('mode set to: ' + mode);
+	//console.log('mode set to: ' + mode);
 	
 	fadeEnd("gameScreen.html");
 }

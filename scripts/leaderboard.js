@@ -19,7 +19,6 @@ success: function(data, testStatus, jqXHR) {
 		document.getElementById("score" + i).innerHTML = obj.score;
 	} 
 },
-
 error: function(jqXHR, testStatus, errorThrown) {
 	alert("ERROR");
 }
