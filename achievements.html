@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <head>
-<title>Achievements</title>
-<link rel="icon" type="image/png" href="images/favicon.png">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/transitions.js"></script>
-  <script src="scripts/sessionVariables.js"></script>
-  <script src="scripts/globals.js"></script>
-  <script src="scripts/achievements.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/audio.js"></script>
-  <script src="scripts/backgroundZombies.js"></script>
-  </head>
-  <body> 
+	<title>Achievements</title>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scripts/transitions.js"></script>
+	<script src="scripts/sessionVariables.js"></script>
+	<script src="scripts/globals.js"></script>
+	<script src="scripts/achievements.js"></script>
+	<script src="scripts/settings.js"></script>
+	<script src="scripts/audio.js"></script>
+	<script src="scripts/backgroundZombies.js"></script>
+ </head>
+ <body> 
   	<script>
   		//audio
   		birds.loop = true; 
@@ -26,51 +25,60 @@
 		menuBGM.loop = true; 
 		menuBGM.play();
   	</script>
+	
+	<!-- Beginning of Container housing all divs and elements -->
 	<div class="container special">
 		<div class="row specialrow">
 			<!--  Title for leaderboard screen -->
 			<div class="col-xs-12 achievementTitle">ACHIEVEMENTS</div>
 			
-				<!--  LEADERBOARD  -->
+				<!--  ACHIEVEMENTS  BODY -->
 				<div class="col-xs-12 achievementsContainer">
-						<div id="tutorial" class="col-xs-2 achievementImage lockedAchievementTut"></div>
-						<div id="tutorialInfo" class="col-xs-10 achievementInfo">
-							<h1>It All Makes Sense Now</h1>
-							<div class="achievementText">
-								Completed the tutorial
-							</div>
-						</div>
-						
-						<div id="survivor" class="col-xs-2 achievementImage lockedAchievementSurvivor"></div>
-						<div id="survivorInfo" class="col-xs-10 achievementInfo">
-							<h1>Survivor</h1>
-							<div class="achievementText">
-								Completed all 10 waves in Wave Mode
-							</div>
-						</div>
-
-						<div id="pony" class="col-xs-2 achievementImage lockedAchievementPony"></div>
-						<div id="ponyInfo" class="col-xs-10 achievementInfo">
-							<h1>Pony Lover</h1>
-							<div class="achievementText">
-								Trigger the Easter Egg in Infinite Mode
-							</div>
-						</div>
-						
-						<div id="slayer" class="col-xs-2 achievementImage lockedAchievementSlayer"></div>
-						<div id="slayerInfo" class="col-xs-10 achievementInfo">
-							<h1>Slayer</h1>
-							<div class="achievementText">
-								Kill 25 zombies in Infinite Mode
-							</div>
-						</div>
-				</div>
-				<!--  End of Leaderboard  -->
 				
+					<!-- Tutorial completion achievement -->
+					<div id="tutorial" class="col-xs-2 achievementImage lockedAchievementTut"></div>
+					<div id="tutorialInfo" class="col-xs-10 achievementInfo">
+						<h1>It All Makes Sense Now</h1>
+						<div class="achievementText">
+							Completed the tutorial
+						</div>
+					</div>
+					
+					<!-- Beating all 10 waves in wave mode achievement -->
+					<div id="survivor" class="col-xs-2 achievementImage lockedAchievementSurvivor"></div>
+					<div id="survivorInfo" class="col-xs-10 achievementInfo">
+						<h1>Survivor</h1>
+						<div class="achievementText">
+							Completed all 10 waves in Wave Mode
+						</div>
+					</div>
+
+					<!-- Triggering the easter egg achievement -->
+					<div id="pony" class="col-xs-2 achievementImage lockedAchievementPony"></div>
+					<div id="ponyInfo" class="col-xs-10 achievementInfo">
+						<h1>Pony Lover</h1>
+						<div class="achievementText">
+							Trigger the Easter Egg in Infinite Mode
+						</div>
+					</div>
+
+					<!-- Killing more than 25 zombies in infinite mode achievement -->
+					<div id="slayer" class="col-xs-2 achievementImage lockedAchievementSlayer"></div>
+					<div id="slayerInfo" class="col-xs-10 achievementInfo">
+						<h1>Slayer</h1>
+						<div class="achievementText">
+							Kill 25 zombies in Infinite Mode
+						</div>
+					</div>
+				</div>
+				<!--  END OF ACHIEVEMENTS  -->
+			
+			<!-- Intentional empty space for styling purposes -->
 			<div class="col-xs-12 space"></div>
 			
 			
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
+				<!-- Button to return to the main menu -->
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)" >Back</button>
 			</div>
 			<!-- End of buttons for Leaderboard screen  -->

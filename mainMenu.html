@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <head>
-  <title>Main Menu</title>
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <link id="t-css" rel = "stylesheet" type = "text/css"  href = "css/toggleSwitches.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/globals.js"></script>
-  <script src="scripts/transitions.js"></script>
-  <script src="scripts/sessionVariables.js"></script>
-  <script src="scripts/backgroundZombies.js"></script>
-  <script src="scripts/audio.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/iconHover.js"></script>
+	<title>Main Menu</title>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+	<link id="t-css" rel = "stylesheet" type = "text/css"  href = "css/toggleSwitches.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scripts/globals.js"></script>
+	<script src="scripts/transitions.js"></script>
+	<script src="scripts/sessionVariables.js"></script>
+	<script src="scripts/backgroundZombies.js"></script>
+	<script src="scripts/audio.js"></script>
+	<script src="scripts/settings.js"></script>
+	<script src="scripts/iconHover.js"></script>
 </head>
 <body>  
 	<script>
@@ -41,56 +40,75 @@
 	<div class="modal fade" id="settingsModal" role="dialog">
 		<div class="modal-dialog">
 
-		<!-- Modal content-->
+			<!-- Modal content-->
 			<div class="modal-content">
+				<!-- Modal header -->
 				<div class="modal-header">
 					<h4 class="modal-title settingsTitle" align="center">Choose Your Settings</h4>
 				</div>
+				<!-- Modal body -->
 				<div class="modal-body">
-					<div class"text-center">
-					<div class="row settingsContainer">
-						<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Music</div>
-						<div class="col-xs-4 col-sm-4 settingsSlider">
-							<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="BGMSwitch" onClick="toggleBGM()">
-								<label class="onoffswitch-label" for="BGMSwitch">
-									<span class="onoffswitch-inner"></span>
-									<span class="onoffswitch-switch"></span>
-								</label>
+					<div>
+						<div class="row settingsContainer">
+							<!-- MUSIC SETTINGS -->
+							<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Music</div>
+							<!-- Music settings toggle switch -->
+							<div class="col-xs-4 col-sm-4 settingsSlider">
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="BGMSwitch" onClick="toggleBGM()">
+									<label class="onoffswitch-label" for="BGMSwitch">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
 							</div>
-						</div>
-						<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Sound Effects</div>
-						<div class="col-xs-4 col-sm-4 settingsSlider">
-							<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="soundEffectSwitch" onClick="toggleSFX()">
-								<label class="onoffswitch-label" for="soundEffectSwitch">
-									<span class="onoffswitch-inner"></span>
-									<span class="onoffswitch-switch"></span>
-								</label>
+							<!-- END OF MUSIC SETTINGS -->
+							
+							<!-- SOUND EFFECTS SETTINGS -->
+							<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Sound Effects</div>
+							<!-- Sound effects toggle switch -->
+							<div class="col-xs-4 col-sm-4 settingsSlider">
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="soundEffectSwitch" onClick="toggleSFX()">
+									<label class="onoffswitch-label" for="soundEffectSwitch">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
 							</div>
-						</div>
-						<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Vibrate</div>
-						<div class="col-xs-4 col-sm-4 settingsSlider">
-							<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="vibrateSwitch" onClick="toggleVB()">
-								<label class="onoffswitch-label" for="vibrateSwitch">
-									<span class="onoffswitch-inner"></span>
-									<span class="onoffswitch-switch"></span>
-								</label>
+							<!-- END OF SOUND EFFECT SETTINGS -->
+							
+							<!-- MOBILE VIBRATE SETTINGS -->
+							<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Vibrate</div>
+							<!-- Mobile vibrate settings toggle switch -->
+							<div class="col-xs-4 col-sm-4 settingsSlider">
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="vibrateSwitch" onClick="toggleVB()">
+									<label class="onoffswitch-label" for="vibrateSwitch">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
 							</div>
-						</div>
-						<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Colour Blind</div>
-						<div class="col-xs-4 col-sm-4 settingsSlider">
-							<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="colourBlindSwitch" onClick="toggleColourblind()">
-								<label class="onoffswitch-label" for="colourBlindSwitch">
-									<span class="onoffswitch-inner"></span>
-									<span class="onoffswitch-switch"></span>
-								</label>
+							<!-- END OF MOBILE VIBRATE SETTINGS -->
+							
+							<!-- COLOUR BLIND SETTINGS -->
+							<div class="col-xs-8 col-sm-4 col-sm-offset-2 settingsHeadings">Colour Blind</div>
+							<!-- Colour blind settings toggle switch -->
+							<div class="col-xs-4 col-sm-4 settingsSlider">
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="colourBlindSwitch" onClick="toggleColourblind()">
+									<label class="onoffswitch-label" for="colourBlindSwitch">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
 							</div>
+							<!-- END OF COLOUR BLIND SETTINGS -->
+							
+							<!-- Button to return to the main menu -->
+							<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Back</button>
 						</div>
-						<button type="button" class="btn btn-primary btn-lg sharp" data-dismiss="modal">Back</button>
-					</div>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -101,40 +119,49 @@
 	</div>
 	<!-- END OF SETTINGS MODAL THAT POPS UP -->
 	
-<!-- Beginning of title for main menu  -->
-<div class="container special">
+	<!-- Beginning of title for main menu  -->
+	<div class="container special">
 		<div class="row specialrow">
 			<div class="col-xs-12 col-lg-4  mainMenu">MATH OF THE DEAD</div>
 			<!-- End of title for main menu  -->
 
 			<!-- Used for responsiveness  -->
 			<div class="col-xs-12 emptySpace"></div>
-			<!-- Beginning of buttons for main menu  -->
+			
+			<!-- BEGINNING OF BUTTONS ON THE MAIN MENU SCREEN -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuButtonHolder">
-				<button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#gameModeModal"  data-backdrop="static" data-keyboard="false" onclick="fadeEnd(login)" >Play!</button>
+				<!-- Button to choose game mode -->
+				<button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#gameModeModal"  data-backdrop="static" data-keyboard="false" onclick="fadeEnd(login)">Play!</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuButtonHolder">
+				<!-- Button to enter into the tutorial -->
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(tutorial)">Tutorial</button>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuButtonHolder">
+				<!-- Button to view the leaderboard -->
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(leaderboard)">Leaderboard</button>
 			</div>
-            
+			<!-- END OF BUTTONS ON THE MAIN MENU SCREEN  -->
+			
+			<!-- BEGINNING OF MAIN MENU ICONS -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 menuIconHolder">
 				<div class="col-xs-12 menuIcons">
 					<div class="col-xs-4 credits">
+						<!-- Icon for credits -->
 						<input id="credits-button" class="img-responsive" type="image" src="images/buttons/credits1.png" style="min-height:55px; min-width:55px;" onClick="fadeEnd(credits)" />
 					</div>
 					<div class="col-xs-4 achievements">
+						<!-- Icon for achievements -->
 						<input id="achievements-button" class="img-responsive" type="image" src="images/buttons/achievements.png" style="min-height:55px; min-width:55px;" onClick="fadeEnd(achievements)" />
 					</div>
 					<div class="col-xs-4 settings">
+						<!-- Icon for settings -->
 						<input id="settings-button" class="img-responsive" type="image" src="images/buttons/settings.png" style="min-height:55px; min-width:55px;" data-toggle="modal" data-target="#settingsModal"  data-backdrop="static" data-keyboard="false"/>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- End of buttons for main menu  -->
+			<!-- END OF MAIN MENU ICONS -->
+		</div>	
 	</div>
 </body>
 </html>

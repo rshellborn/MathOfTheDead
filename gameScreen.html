@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <head>
-  <title>Game Screen</title>
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <link rel = "stylesheet" type = "text/css"  href = "css/achievementModal.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/globals.js"></script>
-  <script src="scripts/changeGuns.js"></script>
-  <script src="scripts/waves.js"></script>
-  <script src="scripts/zombie.js"></script>
-  <script src="scripts/buttons.js"></script>
-  <script src="scripts/transitions.js"></script>
-  <script src="scripts/bulletQueue.js"></script>
-  <script src="scripts/audio.js"></script>
-  <script src="scripts/sessionVariables.js"></script>
-  <script src="scripts/settings.js"></script>
+	<title>Game Screen</title>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link id="css" rel="stylesheet" type="text/css"  href="css/styles.css" />
+	<link rel = "stylesheet" type = "text/css"  href = "css/achievementModal.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scripts/globals.js"></script>
+	<script src="scripts/changeGuns.js"></script>
+	<script src="scripts/waves.js"></script>
+	<script src="scripts/zombie.js"></script>
+	<script src="scripts/buttons.js"></script>
+	<script src="scripts/transitions.js"></script>
+	<script src="scripts/bulletQueue.js"></script>
+	<script src="scripts/audio.js"></script>
+	<script src="scripts/sessionVariables.js"></script>
+	<script src="scripts/settings.js"></script>
 </head>
 <body>
 	<!-- ACHIEVEMENTS MODAL THAT POPS UP -->
@@ -41,13 +41,14 @@
 			</div>
 		</div>
 	</div>
+	<!-- END OF ACHIEVMENT MODAL -->
 
 	<!-- PAUSE MODAL THAT POPS UP -->
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
 
-		<!-- Modal content-->
+			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" align="center">GAME PAUSED</h4>
@@ -72,15 +73,20 @@
 	<!-- Beginning of Container housing all divs and elements -->
 	<div class="container special">
 		<div class ="row specialrow">
+		
+			<!-- Top bar of game screen that houses the pause button, kill counter, wave number, and score -->
 			<div class="col-xs-4 col-lg-2 col-lg-offset-3 topBar ">
+				<!-- Pause button that trigger the pause modal when pressed -->
 				<a data-target="#myModal" data-backdrop="static" data-toggle="modal" href="#pause">
 					<div id="pause" class="col-xs-4 col-lg-6 pauseButton"><img src="images/pauseButton.png" alt="pause button"/></div>
 				</a>
+				<!-- Container for the zombie kill counter -->
 				<div class="col-xs-4 col-lg-2 zombieHead"><img src="images/favicon.png" alt="zombieHead" style="width:25px; height:25px;"/></div>
 				<div id="zombiesLeft" class="col-xs-4 col-lg-4 zombiesCounter"></div>
-
 			</div>
+			<!-- Container to display the wave number -->
 			<div id="wave" class="col-lg-2 col-xs-4 topBar" ></div>
+			<!-- Container to display the score -->
 			<div id="score" class="col-lg-2 col-xs-4 topBar" ></div>
 
 			
@@ -101,6 +107,7 @@
 				<div class="insideQueue" id="insideQueue1">
 				</div>
             </div>
+			<!-- Current bullet that can be fired in the bullet queue -->
 			<a href="#curQueue">
             	<div id="queue0" class="col-lg-2 col-xs-4 currentQueue">
 					<div class="thisQueue" id="insideQueue0">
