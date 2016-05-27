@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <head>
-<title>You Won</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <link rel = "stylesheet" type = "text/css"  href = "css/achievementModal.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/transitions.js"></script>
-  <script src="scripts/globals.js"></script>
-  <script src="scripts/sessionVariables.js"></script>
-  <script src="scripts/endGame.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/backgroundZombies.js"></script>
-  <script src="scripts/audio.js"></script>
-  </head>
-  <body>
+	<title>You Won</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+	<link rel = "stylesheet" type = "text/css"  href = "css/achievementModal.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scripts/transitions.js"></script>
+	<script src="scripts/globals.js"></script>
+	<script src="scripts/sessionVariables.js"></script>
+	<script src="scripts/endGame.js"></script>
+	<script src="scripts/settings.js"></script>
+	<script src="scripts/backgroundZombies.js"></script>
+	<script src="scripts/audio.js"></script>
+</head>
+<body>
   	<script>
   		//audio
   		nextWave.play();
@@ -36,11 +36,11 @@
 		  }
 		});
   	</script>
-  <!-- ACHIEVEMENTS MODAL THAT POPS UP -->
+	
+	<!-- ACHIEVEMENTS MODAL THAT POPS UP -->
 	<!-- Modal -->
 	<div class="modal fade" id="achievementModal" style="z-index:9999" role="dialog">
 		<div class="modal-dialog modal-sm " style="z-index:9999" >
-
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header achievementHeader">
@@ -55,31 +55,39 @@
 			</div>
 		</div>
 	</div>
-  
-  
-  
+	<!-- END OF ACHIEVEMENT MODAL -->
+	
+	<!-- BEGINNING OF BODY -->
 	<div class="container special">
 		<div class="row specialrow">
 			<!--  Title for end of game  -->
 			<div class="col-xs-12 youWonTitle">YOU WON</div>
-			<div class="col-xs-12 congrats"><p>CONGRATULATIONS!</p>
+			
+			<!-- Congratulation messsage for end of game -->
+			<div class="col-xs-12 congrats">
+				<p>CONGRATULATIONS!</p>
 				<p>YOU HAVE SURVIVED ALL 10 WAVES</p>
 			</div>
+			
             <!--  works with script to display score after player wins  -->
 			<div id="score" class="col-xs-12 EOGScoredisplay"></div>
 
 			<!-- Beginning of buttons for end of game screen  -->
+			<!-- Button to go to play again -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-					<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restartYouWin)">Play Again</button>
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(restartYouWin)">Play Again</button>
 			</div>
+			<!-- Button to go to leaderboard -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(leaderboard)">Leaderboard</button>
 			</div>
+			<!-- Button to return to main menu -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Main Menu</button>
 			</div>
 			<!-- End of buttons for end of game screen  -->
 		</div>
 	</div>
+	<!-- END OF BODY -->
 </body>
 </html>

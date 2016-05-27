@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <head>
-<title>Login</title>
-<link rel="icon" type="image/png" href="images/favicon.png">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <link rel = "stylesheet" type = "text/css"  href = "css/gameMode.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/globals.js"></script>
-  <script src="scripts/transitions.js"></script>
-  <script src="scripts/sessionVariables.js"></script>
-  <script src="scripts/sendName.js"></script>
-  <script src="scripts/audio.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/backgroundZombies.js"></script>
-
-  
-  </head>
-  <body>
+	<title>Login</title>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+	<link rel = "stylesheet" type = "text/css"  href = "css/gameMode.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scripts/globals.js"></script>
+	<script src="scripts/transitions.js"></script>
+	<script src="scripts/sessionVariables.js"></script>
+	<script src="scripts/sendName.js"></script>
+	<script src="scripts/audio.js"></script>
+	<script src="scripts/settings.js"></script>
+	<script src="scripts/backgroundZombies.js"></script>
+ </head>
+ <body>
   	<script>
   		//audio
   		birds.loop = true; 
@@ -61,16 +58,20 @@
 			<!--  Title for login screen -->
 			<div class="col-xs-12 enterNameTitle">ENTER NAME</div>
 
-			<!-- Beginning of buttons for end of game screen  -->
+			<!-- Beginning of buttons for the login screen -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
+				<!-- Input field for use to enter user name -->
 				<button class="btn sharp" id = "nameInputHolder">
 						  <input id="nameInput" type="text" name="userName" class="nameSignIn" size="15" maxlength="15" placeholder="Enter Name" >
                           <!--onkeydown="sendLogIn()"-->
 				</button>
 			</div>
+			
+			<!-- Start button which triggers the game mode modal -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<button type="button" class="btn btn-primary btn-lg sharp" data-toggle="modal" data-target="#gameModeModal"  data-backdrop="static" data-keyboard="false" >Start</button>
 			</div>
+			<!-- Back button that returns to the main menu -->
 			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
 				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)">Back</button>
 			</div>
@@ -78,5 +79,4 @@
 		</div>
 	</div>
 </body>
-
 </html>

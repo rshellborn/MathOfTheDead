@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <head>
-  <title>Credits</title>
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
-  <link rel = "stylesheet" type = "text/css"  href = "css/creditsCarousel.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="scripts/globals.js"></script>
-  <script src="scripts/transitions.js"></script>
-  <script src="scripts/audio.js"></script>
-  <script src="scripts/backgroundZombies.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/sessionVariables.js"></script>
+	<title>Credits</title>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link id="css" rel = "stylesheet" type = "text/css"  href = "css/styles.css" />
+	<link rel = "stylesheet" type = "text/css"  href = "css/creditsCarousel.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="scripts/globals.js"></script>
+	<script src="scripts/transitions.js"></script>
+	<script src="scripts/audio.js"></script>
+	<script src="scripts/backgroundZombies.js"></script>
+	<script src="scripts/settings.js"></script>
+	<script src="scripts/sessionVariables.js"></script>
 </head>
 <body>
 	<script>
@@ -27,92 +27,100 @@
 		bgmWave.loop = true; 
 		bgmWave.play();
 	</script>
+	
+	<!-- Beginning of Container housing all divs and elements -->
+	<div class="container special">
+		<div class ="row specialrow">
+			<!-- Titl for credits screen -->
+			<div class="col-xs-12 creditsTitle">Credits</div>
+			<!-- BEGINNING OF CAROUSEL TO DISPLAY CREDITS FOR THE DEVELOPERS AND TESTERS -->
+			<div id="myCarousel" class="carousel slide col-xs-12" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
 
-<div class="container special">
-	<div class ="row specialrow">
-		<div class="col-xs-12 creditsTitle">Credits</div>
-		<div id="myCarousel" class="carousel slide col-xs-12" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
-
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<h1>Developers</h1>
-					<div class="creditsInfo">
-						<ul>
-							<li>Rachel Shellborn</li>
-							<li>Vincent Lam</li>
-							<li>Shane Jackson</li>
-							<li>Maks Fisli</li>
-							<li>Andrew Busto</li>
-						</ul>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<h1>Developers</h1>
+						<div class="creditsInfo">
+							<!-- List of developers -->
+							<ul>
+								<li>Rachel Shellborn</li>
+								<li>Vincent Lam</li>
+								<li>Shane Jackson</li>
+								<li>Maks Fisli</li>
+								<li>Andrew Busto</li>
+							</ul>
+						</div>
 					</div>
-				</div>
 
-				<div class="item">
-					<h1>Alpha Testers</h1>
-					<div class="creditsInfo">
-						<ul>
-							<li>Jamie Varney</li>
-							<li>Laura Carpentier</li>
-							<li>Alistair Hold</li>
-							<li>Aigel Chan</li>
-							<li>Matthew Hold</li>
-							<li>Nico Nurski</li>
-							<li>Clinton Bock</li>
-							<li>Niko Arellano</li>
-							<li>Melayna Vergara</li>
-							<li>Gianfranco Nicolato</li>
-							<li>Muhaimen Siddiqui</li>
-							<li>Stephen Grippin</li>
-							<li>Matthew Li</li>
-							<li>Harshita Sharma</li>
-							<li>Nathan Barber</li>
-						</ul>
+					<div class="item">
+						<h1>Alpha Testers</h1>
+						<div class="creditsInfo">
+							<!-- List of alpha testers -->
+							<ul>
+								<li>Jamie Varney</li>
+								<li>Laura Carpentier</li>
+								<li>Alistair Hold</li>
+								<li>Aigel Chan</li>
+								<li>Matthew Hold</li>
+								<li>Nico Nurski</li>
+								<li>Clinton Bock</li>
+								<li>Niko Arellano</li>
+								<li>Melayna Vergara</li>
+								<li>Gianfranco Nicolato</li>
+								<li>Muhaimen Siddiqui</li>
+								<li>Stephen Grippin</li>
+								<li>Matthew Li</li>
+								<li>Harshita Sharma</li>
+								<li>Nathan Barber</li>
+							</ul>
+						</div>
 					</div>
+				
+
+					<div class="item">
+						<h1>Beta Testers</h1>
+						<div class="creditsInfo">
+							<!-- List of beta testers -->
+							<ul>
+								<li>Stephen Grippin</li>
+								<li>Spencer Espinoza</li>
+								<li>Juliana Chu</li>
+								<li>Matthew Hold</li>
+								<li>Alistair Hold </li>
+								<li>Clinton Bock</li>
+								<li>Karl Phillips</li>
+								<li>Niko Arellano</li>
+								<li>Harshita Sharma</li>
+								<li>Taran Rai</li>
+								<li>Nico Nurski</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 				</div>
+			</div>
+			<!-- END OF CREDITS CAROUSEL -->
 			
-
-				<div class="item">
-					<h1>Beta Testers</h1>
-					<div class="creditsInfo">
-						<ul>
-						<li>Stephen Grippin</li>
-						<li>Spencer Espinoza</li>
-						<li>Juliana Chu</li>
-						<li>Matthew Hold</li>
-						<li>Alistair Hold </li>
-						<li>Clinton Bock</li>
-						<li>Karl Phillips</li>
-						<li>Niko Arellano</li>
-						<li>Harshita Sharma</li>
-                        <li>Taran Rai</li>
-                        <li>Nico Nurski</li>
-						</ul>
-					</div>
-				</div>
-
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
+			<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
+				<!-- Button to return back to the main menu -->
+				<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)" >Back</button>
 			</div>
 		</div>
-	
-		<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 buttonHolder">
-			<button type="button" class="btn btn-primary btn-lg sharp" onclick="fadeEnd(menu)" >Back</button>
-		</div>
 	</div>
-</div>
 </body>
 </html>
