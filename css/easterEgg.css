@@ -19,6 +19,7 @@ html,body {
 	margin-top: 0;
 	padding:0;
 	margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /* BOOTSTRAP MADNESS */
@@ -242,17 +243,17 @@ div.emptySpace{
 }
 .modal-title {
 	width: 100%;
-	min-height: 20%;
+	min-height: 10%;
 	color: #ffe605;
 	font-family: 'Nosifer', cursive;
-	font-size: 6.0em;
+	font-size: 3.0em;
 	text-align: center;
 	vertical-align: middle;
 	padding: 0;
 }
 .modal-backdrop{	
 	/*uncomment this after javascript stops executing*/
-    opacity:1.0 !important;
+    /*opacity:1.0 !important;*/
 }
 <!-- End of modal stuff-->
 <!-- Beginning of setting responsive design for different screen sizes -->
