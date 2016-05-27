@@ -1,7 +1,7 @@
+/*
+	Changes images and text if achievements are unlocked.
+*/
 $(document).ready(function(){
-	/*
-		Changes images and text if achievements are unlocked.
-	*/
 	if(getSessionItem("tutComplete") == 1) {
 		// Changes the image
 		var tutCompleted = document.getElementById('tutorial');

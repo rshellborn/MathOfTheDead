@@ -1,5 +1,5 @@
 /*
-after player inputs name and clicks start, this proceeds to the game
+ Creates session variables for id, name, and game mode.
 */
 function sendName(setMode) {
 	//sets player variables based on input

@@ -3,7 +3,7 @@
 	(which determines the difficulty of the game) for the bullet queue.
 */
 /*
-	when the page loads all the necessary functions to generate a fully functional
+	When the page loads all the necessary functions to generate a fully functional
 	bullet queue.
  */
 $(document).ready(function() {
@@ -91,7 +91,7 @@ function resetZeroCounter(){
 }
 
 /*
-	generates a random bullet queue of integers between -5 and 5 which will be 
+	Generates a random bullet queue of integers between -5 and 5 which will be 
 	displayed on bullets at the top of the screen.
  */
 function generateQueue(){
@@ -102,7 +102,7 @@ function generateQueue(){
 	currentBullet = bulletQueueValues[0];
 }
 /*
-	using shift and push addRandomBullet inserts a new random integer to the back end 
+	Using shift and push addRandomBullet inserts a new random integer to the back end 
 	of the queue effectively creating a never ending stream of random integers between 
 	-5 and 5.
  */

@@ -14,7 +14,7 @@ $(document).ready(function() {
 	var resume = document.getElementById("resume");
 	
 	/*
-	If paused is clicked, it sets paused variable to true(1), stops the movement of the zombies or ponies, and once resume is clicked it starts to movement again.
+		If paused is clicked, it sets paused variable to true(1), stops the movement of the zombies or ponies, and once resume is clicked it starts to movement again.
 	*/
 	pause.onclick = function() {
 		paused = 1;
@@ -37,7 +37,7 @@ $(document).ready(function() {
 	}
 	
 	/*
-	These all call the functions inside of changeGun
+		These all call the functions inside of changeGun
 	*/
 	plusGun.onclick = function(){
 
