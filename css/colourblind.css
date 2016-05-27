@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nosifer);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 
 html,body {
 	min-height: 100%;
@@ -364,6 +365,7 @@ div.EOGWavedisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
+	z-index: 2;
 }
 /** Setting the container size, font properties, and centering text of the score in the end of game screen */
 div.EOGScoredisplay{
@@ -377,6 +379,7 @@ div.EOGScoredisplay{
 	font-size: 3.5em;
 	font-family: 'Nosifer', cursive;
 	padding: 0;
+	z-index: 2;
 }
 /**Random pun that shows up when you die*/
 div.mathPun{
@@ -449,7 +452,8 @@ div.menuButtonHolder{
 	border: solid black;
 	color: black;
 	width: 100%;
-	font: Arial, Helvetica, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	
 	font-size: 3.0em;
 	padding-top:8px;
 	padding-bottom:8px;
