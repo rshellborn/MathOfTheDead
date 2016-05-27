@@ -69,8 +69,8 @@ div.modalBodyText{
 }
 @media only screen and (max-width : 992px) {
 	.modal-sm{
-		width: 125px;
-		height: 125px;
+		width: 175px;
+		height: 175px;
 		margin:0;
 	}
 	.achievementModalTitle{
@@ -82,8 +82,8 @@ div.modalBodyText{
 }
 @media only screen and (max-width: 768px) {
 	.modal-sm{
-		width: 100px;
-		height: 100px;
+		width: 150px;
+		height: 150px;
 		margin:0;
 	}
 	.achievementModalTitle{
